@@ -186,6 +186,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
+            pewe79/cloudmucast
             ghcr.io/pewe79/cloudmucast
           tags: |
             type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) }}
