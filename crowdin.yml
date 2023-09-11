@@ -1,8 +1,20 @@
-base_url: "https://crowdin.com"
-project_id_env: CROWDIN_PROJECT_ID
-api_token_env: CROWDIN_PERSONAL_TOKEN
-preserve_hierarchy: true
+#
+# Your Crowdin credentials
+#
+"project_id": "613675"
+"api_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ3UUVxdmhVM3ZMT2EyWGljbVV5VCIsImp0aSI6IjZiOWNhMjJkMjQ2MDQ0OGRlNWUxODVjMDYxM2RiOGEwMTM3YjcyYzVjZWI5OWMzODdmNmNjM2RmNzkxN2JiZTAyMmY1ZjdiMDY4ZWFlNWM4IiwiaWF0IjoxNjk0NDQzNTY4LjE2MTM2NywibmJmIjoxNjk0NDQzNTY4LjE2MTM3MSwiZXhwIjoxNzI1OTc5NTY4LjA1NDYxNiwic3ViIjoiMTYwMDU1ODciLCJzY29wZXMiOlsicHJvamVjdCJdLCJkb21haW4iOm51bGwsImFzc29jaWF0aW9ucyI6WyIqIl0sInNlc3Npb24iOjB9.lgeTFhFazNTVWNl_dDd5U_AVDUaVu1xBROWs5oQ8IKOG8FCCVEOLvF0gVdEzj7tf2OOWBHE8mOHR4y07LM_2959bGnv7i5hAT2ee9eYpuYR4iHzEeBaMkisSGnWS2ZPB1odEsJYytqCQZphaDVf73ZEOug9V9MfEAPiC594ltDMkHBb9uNrK4I5liIRnMjmv9r4bvO97zr3jbVGJLk_oaTQb8bW7yrBcfSBrJ1z4bIr9u9-IxAISzrfYuI0ojpNCZ-7q2xZltMy10k3n_HPDB6rLoMwH7UUPRknZkE4D9MVWU1xU8pyCeozrq02qJUjXwJK1H0xl2lY55UJr1AD6c8pItDZDrNfwzSqMyl_n_UGoTiqZ43PQsNY3cYbf7mHcyh191sRXM1CNTzfW14RZj7IIRMLEUTxGJequQSNBqc1o5hyGuenobcTrQzZZpRdhzKfgKQbdi8Gh0-IxnDrWnvIHtkc75nsqVmU2hKJzMewi3Z9LNmo7cQAaf_IhfDgWxl7NjpeNwqmJXXoRQGhVx96tOZZl8t2nWFwWmddcG_A28kXpPJDGJZFMauU4sjBqcHt5_gLpkTwId4Z3Upl1hIuLtUKZZzNyx_A-dmQrLS8m8XncyRwlCS2JziMoQQqJF3Xuzi9TBurmh-0AMCNK4JIFD_gQRIG9Uc7HUnm218c"
+"base_path": "."
+"base_url": "https://api.crowdin.com"
 
+#
+# Choose file structure in Crowdin
+# e.g. true or false
+#
+"preserve_hierarchy": true
+
+#
+# Files configuration
+#
 files:
   - source: /translations/default.pot
     translation: /translations/%locale_with_underscore%.UTF-8/LC_MESSAGES/default.po
