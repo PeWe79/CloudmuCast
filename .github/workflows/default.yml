@@ -191,9 +191,8 @@ jobs:
             type=semver,pattern={{version}}
 
       - name: Publish to Docker Hub
-        uses: depot/build-push-action@v1
+        uses: docker/build-push-action@v4
         with:
-          project: qvjwqlcn6e
           context: .
           push: true
           platforms: linux/amd64,linux/arm64
