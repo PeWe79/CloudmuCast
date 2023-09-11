@@ -82,7 +82,7 @@
                     </div>
                     <div
                         v-if="notification.actionLabel && notification.actionUrl"
-                        class="flex-shrink-0 ms-md-3 mt-3 mt-md-0"
+                        class="flex-shrink-0 ms-md-3 mt-3 mt-md-0 buttons"
                     >
                         <a
                             class="btn btn-sm"
