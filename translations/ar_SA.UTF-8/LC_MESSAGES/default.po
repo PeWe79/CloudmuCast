@@ -345,8 +345,8 @@ msgid "Alert"
 msgstr ""
 
 #: vue/components/Admin/Settings/ServicesTab.vue:57
-msgid "All listed domain names should point to this AzuraCast installation. Separate multiple domain names with commas."
-msgstr "يجب أن تشير جميع أسماء النطاقات المدرجة إلى تثبيت AzuraCast هذا. قم بفصل أسماء النطاقات المتعددة بفواصل."
+msgid "All listed domain names should point to this CloudmuCast installation. Separate multiple domain names with commas."
+msgstr "يجب أن تشير جميع أسماء النطاقات المدرجة إلى تثبيت CloudmuCast هذا. قم بفصل أسماء النطاقات المتعددة بفواصل."
 
 #: vue/components/Stations/Playlists.vue:29
 msgid "All Playlists"
@@ -657,40 +657,40 @@ msgid "Avoid Duplicate Artists/Titles"
 msgstr "تجنب تكرار الفنانين/العناوين"
 
 #: vue/components/Setup/Register.vue:12
-msgid "AzuraCast First-Time Setup"
-msgstr "إعداد AzuraCast للمرة الأولى"
+msgid "CloudmuCast First-Time Setup"
+msgstr "إعداد CloudmuCast للمرة الأولى"
 
 #: vue/components/Admin/Settings/GeneralTab.vue:21
-msgid "AzuraCast Instance Name"
-msgstr "اسم محطة AzuraCast"
+msgid "CloudmuCast Instance Name"
+msgstr "اسم محطة CloudmuCast"
 
 #: vue/components/Admin/GeoLite.vue:21
-msgid "AzuraCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated."
-msgstr "AzuraCast يتضمن قاعدة بيانات مجانية لمواقع عناوين IP. قد تفضل استخدام خدمة MaxMind GeoLite بدلاً من ذلك لتحقيق نتائج أكثر دقة. يتطلب استخدام MaxMind GeoLite ترخيص، حينما يتم ادخال الترخيص، سنقوم تلقائياً بتحديث قاعدة البيانات."
+msgid "CloudmuCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated."
+msgstr "CloudmuCast يتضمن قاعدة بيانات مجانية لمواقع عناوين IP. قد تفضل استخدام خدمة MaxMind GeoLite بدلاً من ذلك لتحقيق نتائج أكثر دقة. يتطلب استخدام MaxMind GeoLite ترخيص، حينما يتم ادخال الترخيص، سنقوم تلقائياً بتحديث قاعدة البيانات."
 
 #: vue/components/Admin/Settings/ServicesTab.vue:8
-msgid "AzuraCast Update Checks"
-msgstr "التحقق من تحديث AzuraCast"
+msgid "CloudmuCast Update Checks"
+msgstr "التحقق من تحديث CloudmuCast"
 
 #: vue/components/Account.vue:34
 #: vue/components/Dashboard.vue:379
-msgid "AzuraCast User"
-msgstr "مستخدم AzuraCast"
+msgid "CloudmuCast User"
+msgstr "مستخدم CloudmuCast"
 
 #: vue/components/Admin/Permissions.vue:6
-msgid "AzuraCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles."
-msgstr "يستخدم AzuraCast نظام التحكم في الدخول على أساس الدور، وتعطى الأدوار أذونات لبعض أقسام الموقع، ثم يتم تعيين المستخدمين في تلك الأدوار."
+msgid "CloudmuCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles."
+msgstr "يستخدم CloudmuCast نظام التحكم في الدخول على أساس الدور، وتعطى الأدوار أذونات لبعض أقسام الموقع، ثم يتم تعيين المستخدمين في تلك الأدوار."
 
 #: vue/components/Stations/Streamers/ConnectionInfo.vue:82
-msgid "AzuraCast Wiki"
-msgstr "معلومات AzuraCast"
+msgid "CloudmuCast Wiki"
+msgstr "معلومات CloudmuCast"
 
 #: vue/components/Stations/Playlists/ImportModal.vue:67
-msgid "AzuraCast will scan the uploaded file for matches in this station's music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed."
-msgstr "سيقوم AzuraCast بمسح الملف الذي تم تحميله للمطابقة في مكتبة الموسيقى لهذه المحطة. يجب أن يتم تحميل الوسائط قبل تشغيل هذه الخطوة. يمكنك إعادة تشغيل هذه الأداة أكثر من مرة حسب الحاجة."
+msgid "CloudmuCast will scan the uploaded file for matches in this station's music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed."
+msgstr "سيقوم CloudmuCast بمسح الملف الذي تم تحميله للمطابقة في مكتبة الموسيقى لهذه المحطة. يجب أن يتم تحميل الوسائط قبل تشغيل هذه الخطوة. يمكنك إعادة تشغيل هذه الأداة أكثر من مرة حسب الحاجة."
 
 #: vue/components/Admin/Relays.vue:6
-msgid "AzuraRelay is a standalone service that connects to your AzuraCast instance, automatically relays your stations via its own server, then reports the listener details back to your main instance. This page shows all currently connected instances."
+msgid "AzuraRelay is a standalone service that connects to your CloudmuCast instance, automatically relays your stations via its own server, then reports the listener details back to your main instance. This page shows all currently connected instances."
 msgstr ""
 
 #: vue/components/Stations/Media/MoveFilesModal.vue:19
@@ -1197,7 +1197,7 @@ msgid "Create a new app on the Twitter Applications site. Use this installation'
 msgstr "إنشاء تطبيق جديد على موقع تطبيقات تويتر. استخدم عنوان URL الأساسي لهذا التثبيت كعنوان URL للتطبيق."
 
 #: vue/components/Admin/StorageLocations/Form/Dropbox.vue:22
-msgid "Create a new application. Choose \"Scoped Access\", select your preferred level of access, then name your app. Do not name it \"AzuraCast\", but rather use a name specific to your installation."
+msgid "Create a new application. Choose \"Scoped Access\", select your preferred level of access, then name your app. Do not name it \"CloudmuCast\", but rather use a name specific to your installation."
 msgstr ""
 
 #: vue/components/Setup/Station.vue:11

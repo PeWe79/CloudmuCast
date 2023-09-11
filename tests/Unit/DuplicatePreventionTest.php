@@ -25,7 +25,7 @@ class DuplicatePreventionTest extends Unit
     public function testDistinctTracks(): void
     {
         $eligibleTrack = new StationPlaylistQueue();
-        $eligibleTrack->artist = 'Foo Fighters feat. AzuraCast Testers';
+        $eligibleTrack->artist = 'Foo Fighters feat. CloudmuCast Testers';
         $eligibleTrack->title = 'Best of You';
         $eligibleTracks = [$eligibleTrack];
 

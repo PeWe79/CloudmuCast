@@ -38,7 +38,7 @@ abstract class CestAbstract
     protected ReloadableEntityManagerInterface $em;
 
     protected string $login_username = 'azuracast@azuracast.com';
-    protected string $login_password = 'AzuraCastFunctionalTests!';
+    protected string $login_password = 'CloudmuCastFunctionalTests!';
 
     protected ?string $login_api_key = null;
 

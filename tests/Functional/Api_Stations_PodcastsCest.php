@@ -28,7 +28,7 @@ class Api_Stations_PodcastsCest extends CestAbstract
                 'title' => 'My Awesome Podcast',
                 'description' => 'A functional test podcast.',
                 'language' => 'en',
-                'author' => 'AzuraCast',
+                'author' => 'CloudmuTest',
                 'email' => 'demo@azuracast.com',
             ],
             [
@@ -46,7 +46,7 @@ class Api_Stations_PodcastsCest extends CestAbstract
                 'title' => 'Episode Test Podcast',
                 'description' => 'A podcast with episodes.',
                 'language' => 'en',
-                'author' => 'AzuraCast',
+                'author' => 'CloudmuTest',
                 'email' => 'demo@azuracast.com',
             ]
         );
