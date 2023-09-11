@@ -59,6 +59,8 @@ cd /var/azuracast
 Download the CloudmuCast docker image
 ```
 curl -fsSL https://raw.githubusercontent.com/pewe79/CloudmuCast/main/docker.sh > docker.sh
+chmod a+x docker.sh
+./docker.sh install
 ```
 
 Follow our **[installation guide](https://docs.azuracast.com/en/getting-started/installation)** for instructions on how
