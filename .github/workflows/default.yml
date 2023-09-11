@@ -193,7 +193,7 @@ jobs:
       - name: Publish to Docker Hub
         uses: depot/build-push-action@v1
         with:
-          project: qvjwqlcn6p
+          project: qvjwqlcn6e
           context: .
           push: true
           platforms: linux/amd64,linux/arm64
