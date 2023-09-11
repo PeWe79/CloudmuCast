@@ -23,7 +23,7 @@ final class Station implements ResolvableUrlInterface
 
     #[OA\Property(
         description: 'Station name',
-        example: 'AzuraTest Radio'
+        example: 'CloudmuTest Radio'
     )]
     public string $name;
 

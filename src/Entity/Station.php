@@ -45,7 +45,7 @@ class Station implements Stringable, IdentifiableEntityInterface
     use Traits\TruncateStrings;
 
     #[
-        OA\Property(description: "The full display name of the station.", example: "AzuraTest Radio"),
+        OA\Property(description: "The full display name of the station.", example: "CloudmuTest Radio"),
         ORM\Column(length: 100, nullable: false),
         Assert\NotBlank,
         Serializer\Groups([EntityGroupsInterface::GROUP_GENERAL, EntityGroupsInterface::GROUP_ALL])
