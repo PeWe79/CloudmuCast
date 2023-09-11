@@ -12,6 +12,8 @@ release channel, you can take advantage of these new features and fixes.
 - A new webhook has been added to broadcast changes to the GetMeRadio API. GetMeRadio is a popular aggregator of web
   radio stations.
 
+- Custom Ui page.
+
 ## Code Quality/Technical Changes
 
 - The Google Analytics V3 and Twitter (now X) web hooks have been retired and are no longer supported. Google Analytics
