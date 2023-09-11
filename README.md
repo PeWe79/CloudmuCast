@@ -56,7 +56,7 @@ mkdir /var/azuracast
 cd /var/azuracast
 ```
 
-Download the CloudmuCast docker image
+Download the CloudmuCast docker image :
 ```
 curl -fsSL https://raw.githubusercontent.com/pewe79/CloudmuCast/main/docker.sh > docker.sh
 chmod a+x docker.sh
