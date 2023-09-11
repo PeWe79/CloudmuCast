@@ -190,7 +190,7 @@ jobs:
             type=ref,event=branch
             type=semver,pattern={{version}}
 
-      - name: Publish to Docker Hub
+      - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
