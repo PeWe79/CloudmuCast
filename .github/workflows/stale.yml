@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/stale@v3
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GIT_TOKEN}}
         days-before-stale: 56
         days-before-close: 14
         exempt-issue-labels: 'security,enhancement,bug,in progress'
