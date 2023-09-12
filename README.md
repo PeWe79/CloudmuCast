@@ -52,7 +52,7 @@ your radio station can be managed via AzuraCast's web interface.
 ### Use the docker image of CloudmuCast
 Create a root directory of the CloudmuCast (you need login AS root/sudo!).
 ```
-mkdir /var/azuracast
+mkdir -p /var/azuracast
 cd /var/azuracast
 ```
 
