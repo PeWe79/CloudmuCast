@@ -25,5 +25,8 @@ module.exports = {
         "vue/no-mutating-props": "off",
         'vue/no-multiple-template-root': "off",
         'vue/no-setup-props-destructure': "off"
+    },
+    env: {
+        node: true
     }
 }
