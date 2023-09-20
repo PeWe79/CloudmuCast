@@ -14,7 +14,9 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
     A=(T,J)=>{
         var W,X,Y;
         const{
-            channel:h=0,samples:u=T.length,height:i=100,width:w=800,top:d=0,left:a=0,type:s="steps",paths:t=[{d:"Q",sx:0,sy:0,x:50,y:100,ex:100,ey:0}],animation:k=!1,animationframes:L=10,normalize:F=!0
+            channel:h=0,samples:u=T.length,height:i=100,width:w=800,top:d=0,left:a=0,type:s="steps",paths:t=[{
+                d:"Q",sx:0,sy:0,x:50,y:100,ex:100,ey:0
+            }],animation:k=!1,animationframes:L=10,normalize:F=!0
         }=J;
         var J=tt(T,h,k,L),T=et(J,u),H=F?it(T):T;
         let l="";
@@ -23,7 +25,8 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
             0<S&&(R=l.length,G=l.charAt(R-1),l+=G==";"||R===0?" M 0 0 ;":";");
             let y=-9999,f=-9999;
             for(let o=0;o<u;o++){
-                var c=s=="bars"||o%2?1:-1;let b=1;
+                var c=s=="bars"||o%2?1:-1;
+                let b=1;
                 for(let z=0;z<at;z++){
                     let e=z;z>=N&&(e=z-N,b=-1),t[e].minshow=(W=t[e].minshow)!=null?W:0,t[e].maxshow=(X=t[e].maxshow)!=null?X:1,t[e].normalize=(Y=t[e].normalize)!=null?Y:!1;
                     var x=t[e].normalize?1:H[S][o];
@@ -68,7 +71,8 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
         const h=[];
         var u=g.length;
         for(let d=0;d<u;d++){
-            var i=Math.floor(g[d].length/n);const a=[];
+            var i=Math.floor(g[d].length/n);
+            const a=[];
             for(let s=0;s<n;s++){
                 var w=i*s;
                 let t=0;
@@ -197,7 +201,7 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
                     background: transparent;
                     border: none;
                     cursor:pointer;
-                    padding: 0 0 0 10px;
+                    padding: 0 0 0 0;
                     margin: 0px;
                     
                 }
