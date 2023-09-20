@@ -148,26 +148,26 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
                 </button>
             <div id="current-time" part="currenttime">0:00</div>
             <div id="slider" part="slider">
-                <svg id="svg" part="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 ${this.attributes["wave-width"].value} ${this.attributes["wave-height"].value}" width="${this.attributes["wave-width"].value}" height="${this.attributes["wave-height"].value}">`;
+                <svg id="svg" part="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${this.attributes["wave-width"].value} ${this.attributes["wave-height"].value}" width="${this.attributes["wave-width"].value}" height="${this.attributes["wave-height"].value}">`;
                 return this.animation?n+=`
-                <path id="path1" part="path1"  stroke-width="2" style="display:none;"></path>
-                <path id="path2" part="path2"  stroke-width="2" style="display:block;">
+                <path id="path1" part="path1" stroke-width="2" style="display:none;"></path>
+                <path id="path2" part="path2" stroke-width="2" style="display:block;">
                     <animate id="animationsvg" attributeName="d" dur="99999s" calcMode="linear" values="" fill="freeze"></animate>
                 </path>`:n+=`
                 <defs>
                     <clipPath id="left-to-right-x">
                     <rect x="-1" y="-100" width="${parseInt(this.attributes["wave-width"].value)+2}" height="${parseInt(this.attributes["wave-height"].value)+200}" >
-                        <animate id="animationsvgx" attributeName="x" values="-1;${parseInt(this.attributes["wave-width"].value)+2}" dur="99999s" fill="freeze" />   
+                        <animate id="animationsvgx" attributeName="x" values="-1;${parseInt(this.attributes["wave-width"].value)+2}" dur="99999s" fill="freeze" />
                     </rect>
                     </clipPath>
                     <clipPath id="left-to-right">
                     <rect x="-${parseInt(this.attributes["wave-width"].value)+2}" y="-100" width="${parseInt(this.attributes["wave-width"].value)+2}" height="${parseInt(this.attributes["wave-height"].value)+200}" >
-                        <animate id="animationsvg" attributeName="x" values="-${parseInt(this.attributes["wave-width"].value)+2};-1" dur="99999s" fill="freeze" />   
+                        <animate id="animationsvg" attributeName="x" values="-${parseInt(this.attributes["wave-width"].value)+2};-1" dur="99999s" fill="freeze" />
                     </rect>
-                    </clipPath>    
+                    </clipPath>
                 </defs> 
-                <path id="path1" part="path1"  stroke-width="2" d="" clip-path="url(#left-to-right-x)"></path>
-                <path id="path2" part="path2"  stroke-width="2" d="" clip-path="url(#left-to-right)" style="display:none;"></path>`,n+=`
+                <path id="path1" part="path1" stroke-width="2" d="" clip-path="url(#left-to-right-x)"></path>
+                <path id="path2" part="path2" stroke-width="2" d="" clip-path="url(#left-to-right)" style="display:none;"></path>`,n+=`
             </svg>
                     <input type="range" part="input" id="seek-slider" max="100" value="0" step="any">
                 </div>
@@ -231,7 +231,7 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
                     overflow: visible;
                     stroke-linecap: round;
                 }
-                #slider  {
+                #slider {
                     position:relative;
                 }
                 #duration, #current-time {
@@ -300,7 +300,7 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
 
                 input[type="range"]:active::-moz-range-thumb {
                     transform: scale(1.5);
-                }  
+                }
                 </style>`
         }
     }
