@@ -35,6 +35,7 @@ $sections->append(
     'head',
     <<<HTML
     <link rel="alternate" type="application/rss+xml" title="{$this->e($podcast->getTitle())}" href="{$feedLink}">
+    <script type="module" src="/static/js/wave-audio-path-player.umd.js"></script>
     HTML
 );
 ?>
@@ -78,7 +79,21 @@ $sections->append(
             </div>
 
             <div class="mb-3">
-                <audio src="<?= $episodeAudioSrc ?>" controls style="width: 100%;"></audio>
+                <wave-audio-path-player 
+                    src='<?= $episodeAudioSrc ?>' 
+                    wave-width="200" 
+                    wave-height="40" 
+                    color="currentColor" 
+                    wave-color="currentColor" 
+                    wave-progress-color="#ff00ff" 
+                    wave-slider="#ffaaff" 
+                    wave-options='{
+                        "samples":100,
+                        "type":"step",
+                        "animation":true
+                    }'
+                >
+                </wave-audio-path-player>
             </div>
 
             <div class="buttons">
