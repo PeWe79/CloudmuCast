@@ -274,8 +274,7 @@ var $=(v,m,A)=>(ot(v,typeof m!="symbol"?m+"":m,A),A);
                 }
                 input[type=range]::-webkit-slider-thumb {
                     -webkit-appearance: none;
-                    position:relative; 
-                    /*top: -1.5px;*/
+                    position:relative;
                     height: 12.5px;
                     width: 12.5px;
                     border-radius: 50%;
