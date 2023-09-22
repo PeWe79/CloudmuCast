@@ -9,18 +9,19 @@
     </canvas>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import {Tableau20} from "~/vendor/chartjs-colorschemes/colorschemes.tableau";
 import {ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import ChartAltValues from "~/components/Common/Charts/ChartAltValues.vue";
-import useChart, {chartProps, ChartTemplateRef} from "~/functions/useChart";
+import useChart, {chartProps} from "~/functions/useChart";
 import {useLuxon} from "~/vendor/luxon";
 
 const props = defineProps({
     ...chartProps,
 });
 
-const $canvas = ref<ChartTemplateRef>(null);
+const $canvas = ref(); // Template ref
 
 const {$gettext} = useTranslate();
 const {DateTime} = useLuxon();
@@ -31,7 +32,7 @@ useChart(
     {
         type: 'line',
         options: {
-            aspectRatio: props.aspectRatio,
+            aspectRatio: 3,
             datasets: {
                 line: {
                     spanGaps: true,
@@ -45,6 +46,9 @@ useChart(
                         enabled: true,
                         mode: 'x'
                     }
+                },
+                colorschemes: {
+                    scheme: Tableau20
                 }
             },
             scales: {

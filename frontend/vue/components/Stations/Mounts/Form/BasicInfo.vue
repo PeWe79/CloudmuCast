@@ -103,10 +103,10 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {FrontendAdapter} from '~/components/Entity/RadioAdapters';
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
+import FormGroupField from "~/components/Form/FormGroupField";
+import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox";
 import {computed} from "vue";
 import {useVModel} from "@vueuse/core";
 import {useVuelidateOnFormTab} from "~/functions/useVuelidateOnFormTab";
@@ -137,9 +137,7 @@ const isShoutcast = computed(() => {
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        const validations: {
-            [key: string | number]: any
-        } = {
+        const validations = {
             name: {required},
             display_name: {},
             is_visible_on_public_pages: {},
@@ -161,9 +159,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        const blankForm: {
-            [key: string | number]: any
-        } = {
+        const blankForm = {
             name: null,
             display_name: null,
             is_visible_on_public_pages: true,

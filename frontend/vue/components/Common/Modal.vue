@@ -39,7 +39,7 @@
                     </div>
                     <div
                         v-if="slots['modal-footer']"
-                        class="modal-footer buttons"
+                        class="modal-footer"
                     >
                         <slot name="modal-footer" />
                     </div>
@@ -49,7 +49,7 @@
     </Teleport>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Modal from 'bootstrap/js/src/modal';
 import {onMounted, ref, useSlots, watch} from 'vue';
 import Loading from "~/components/Common/Loading.vue";
@@ -88,7 +88,7 @@ watch(isActive, (newActive) => {
 });
 
 let bsModal = null;
-const $modal = ref<HTMLDivElement | null>(null);
+const $modal = ref(); // div class="modal"
 
 onMounted(() => {
     bsModal = new Modal($modal.value);

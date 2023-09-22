@@ -58,9 +58,9 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import CommonFormattingInfo from "./FormattingInfo.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
+import CommonFormattingInfo from "./FormattingInfo";
 import {includes} from 'lodash';
 import {useVModel} from "@vueuse/core";
 import {useVuelidateOnFormTab} from "~/functions/useVuelidateOnFormTab";

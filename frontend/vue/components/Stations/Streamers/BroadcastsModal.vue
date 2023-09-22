@@ -5,7 +5,6 @@
         size="lg"
         centered
         :title="$gettext('Streamer Broadcasts')"
-        @hidden="onHidden"
     >
         <template v-if="listUrl">
             <inline-player
@@ -29,7 +28,7 @@
                             target="_blank"
                             :title="$gettext('Download')"
                         >
-                            <icon :icon="IconDownload" />
+                            <icon icon="cloud_download" />
                         </a>
                     </template>
                     <template v-else>
@@ -51,7 +50,7 @@
             <button
                 type="button"
                 class="btn btn-secondary"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -59,12 +58,12 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable.vue';
 import formatFileSize from '~/functions/formatFileSize';
-import InlinePlayer from '~/components/InlinePlayer.vue';
-import Icon from '~/components/Common/Icon.vue';
-import PlayButton from "~/components/Common/PlayButton.vue";
+import InlinePlayer from '~/components/InlinePlayer';
+import Icon from '~/components/Common/Icon';
+import PlayButton from "~/components/Common/PlayButton";
 import '~/vendor/sweetalert';
 import {useAzuraCast} from "~/vendor/azuracast";
 import {ref} from "vue";
@@ -74,9 +73,6 @@ import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import Modal from "~/components/Common/Modal.vue";
 import {useLuxon} from "~/vendor/luxon";
-import {IconDownload} from "~/components/Common/icons";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const listUrl = ref(null);
 
@@ -84,12 +80,12 @@ const {$gettext} = useTranslate();
 const {timeConfig} = useAzuraCast();
 const {DateTime} = useLuxon();
 
-const fields: DataTableField[] = [
+const fields = [
     {
         key: 'download',
         label: ' ',
         sortable: false,
-        class: 'shrink pe-3'
+      class: 'shrink pe-3'
     },
     {
         key: 'timestampStart',
@@ -100,7 +96,7 @@ const fields: DataTableField[] = [
                 {...DateTime.DATETIME_MED, ...timeConfig}
             );
         },
-        class: 'ps-3'
+      class: 'ps-3'
     },
     {
         key: 'timestampEnd',
@@ -120,7 +116,7 @@ const fields: DataTableField[] = [
         key: 'size',
         label: $gettext('Size'),
         sortable: false,
-        formatter: (_value, _key, item) => {
+        formatter: (value, key, item) => {
             if (!item.recording?.size) {
                 return '';
             }
@@ -140,7 +136,7 @@ const {confirmDelete} = useSweetAlert();
 const {notifySuccess} = useNotify();
 const {axios} = useAxios();
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 
 const doDelete = (url) => {
     confirmDelete({
@@ -149,27 +145,29 @@ const doDelete = (url) => {
         if (result.value) {
             axios.delete(url).then((resp) => {
                 notifySuccess(resp.data.message);
-                $datatable.value?.refresh();
+                $datatable.value.refresh();
             });
 
-            $datatable.value?.refresh();
+            $datatable.value.refresh();
         }
     });
 };
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
 const open = (newListUrl) => {
     listUrl.value = newListUrl;
-    show();
+    $modal.value.show();
 };
 
-const $player = ref<InstanceType<typeof InlinePlayer> | null>(null);
+const $player = ref(); // Template Ref
 
-const onHidden = () => {
-    $player.value?.stop();
+const close = () => {
+    $player.value.stop();
+
     listUrl.value = null;
+
+    $modal.value.hide();
 };
 
 defineExpose({

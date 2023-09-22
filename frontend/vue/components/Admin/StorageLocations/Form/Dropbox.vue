@@ -19,7 +19,7 @@
                     </li>
                     <li>
                         {{
-                            $gettext('Create a new application. Choose "Scoped Access", select your preferred level of access, then name your app. Do not name it "CloudmuCast", but rather use a name specific to your installation.')
+                            $gettext('Create a new application. Choose "Scoped Access", select your preferred level of access, then name your app. Do not name it "AzuraCast", but rather use a name specific to your installation.')
                         }}
                     </li>
                     <li>
@@ -69,7 +69,7 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {computed} from "vue";
 import {useVModel} from "@vueuse/core";

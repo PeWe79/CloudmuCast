@@ -5,7 +5,7 @@
         size="md"
         centered
         :title="$gettext('Run Manual Backup')"
-        @hidden="onHidden"
+        @hidden="clearContents"
     >
         <template #default>
             <div
@@ -83,7 +83,7 @@
                 <button
                     type="button"
                     class="btn btn-secondary"
-                    @click="hide"
+                    @click="close"
                 >
                     {{ $gettext('Close') }}
                 </button>
@@ -101,19 +101,19 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import InvisibleSubmitButton from "~/components/Common/InvisibleSubmitButton.vue";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
 import objectToFormOptions from "~/functions/objectToFormOptions";
 import StreamingLogView from "~/components/Common/StreamingLogView.vue";
 import {computed, ref} from "vue";
+import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import Modal from "~/components/Common/Modal.vue";
 import FormGroupSelect from "~/components/Form/FormGroupSelect.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     runBackupUrl: {
@@ -134,9 +134,7 @@ const storageLocationOptions = computed(() => {
 
 const logUrl = ref(null);
 const error = ref(null);
-
-const $modal = ref<ModalTemplateRef>(null);
-const {show: open, hide} = useHasModal($modal);
+const $modal = ref(); // BModal
 
 const {form, resetForm, v$, ifValid} = useVuelidateOnForm(
     {
@@ -151,17 +149,28 @@ const {form, resetForm, v$, ifValid} = useVuelidateOnForm(
     }
 );
 
+const open = () => {
+    $modal.value.show();
+};
+
+const close = () => {
+    $modal.value.hide();
+    emit('relist');
+}
+
+const {wrapWithLoading} = useNotify();
 const {axios} = useAxios();
 
 const submit = () => {
     ifValid(() => {
         error.value = null;
-
-        axios({
-            method: 'POST',
-            url: props.runBackupUrl,
-            data: form.value
-        }).then((resp) => {
+        wrapWithLoading(
+            axios({
+                method: 'POST',
+                url: props.runBackupUrl,
+                data: form.value
+            })
+        ).then((resp) => {
             logUrl.value = resp.data.links.log;
         }).catch((error) => {
             error.value = error.response.data.message;
@@ -174,11 +183,6 @@ const clearContents = () => {
     error.value = null;
 
     resetForm();
-}
-
-onHidden = () => {
-    clearContents();
-    emit('relist');
 }
 
 defineExpose({

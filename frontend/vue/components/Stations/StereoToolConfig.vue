@@ -81,9 +81,9 @@
     </section>
 </template>
 
-<script setup lang="ts">
-import FlowUpload from '~/components/Common/FlowUpload.vue';
-import InfoCard from "~/components/Common/InfoCard.vue";
+<script setup>
+import FlowUpload from '~/components/Common/FlowUpload';
+import InfoCard from "~/components/Common/InfoCard";
 import {onMounted, ref} from "vue";
 import {useMayNeedRestart} from "~/functions/useMayNeedRestart";
 import {useNotify} from "~/functions/useNotify";
@@ -113,13 +113,15 @@ const onFileSuccess = () => {
     relist();
 };
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 
 const deleteConfigurationFile = () => {
-    axios.delete(apiUrl.value).then(() => {
-        mayNeedRestart();
-        notifySuccess();
-        relist();
-    });
+    wrapWithLoading(
+        axios.delete(apiUrl.value).then(() => {
+            mayNeedRestart();
+            notifySuccess();
+            relist();
+        })
+    );
 };
 </script>

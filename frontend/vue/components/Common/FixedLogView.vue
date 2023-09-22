@@ -1,6 +1,6 @@
 <template>
     <loading :loading="isLoading">
-        <div style="height: 300px; resize: vertical; overflow: auto !important;">
+        <div style="max-height: 300px; overflow-y: scroll;">
             <code-mirror
                 id="log-view-contents"
                 v-model="logs"
@@ -12,7 +12,7 @@
     </loading>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {ref, toRef, watch} from "vue";
 import {useAxios} from "~/vendor/axios";
 import Loading from "~/components/Common/Loading.vue";

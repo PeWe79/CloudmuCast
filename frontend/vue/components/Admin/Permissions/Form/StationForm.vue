@@ -42,7 +42,7 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {find, isEmpty, pickBy} from 'lodash';
 import PermissionsFormStationRow from "~/components/Admin/Permissions/Form/StationRow.vue";
 import {computed} from "vue";
@@ -65,7 +65,7 @@ const props = defineProps({
 
 
 const remainingStations = computed(() => {
-    return pickBy(props.stations, (_stationName, stationId) => {
+    return pickBy(props.stations, (stationName, stationId) => {
         return !find(props.form.permissions.$model.station, {'station_id': stationId});
     });
 });

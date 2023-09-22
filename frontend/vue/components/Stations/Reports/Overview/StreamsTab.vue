@@ -14,8 +14,8 @@
     </common-metrics-view>
 </template>
 
-<script setup lang="ts">
-import CommonMetricsView from "./CommonMetricsView.vue";
+<script setup>
+import CommonMetricsView from "./CommonMetricsView";
 
 const props = defineProps({
     dateRange: {

@@ -32,7 +32,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {computed} from "vue";
 import {useTranslate} from "~/vendor/gettext";

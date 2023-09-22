@@ -1,6 +1,7 @@
 <template>
     <episodes-view
         v-if="activePodcast"
+        v-bind="pickProps(props, episodesViewProps)"
         :podcast="activePodcast"
         :quota-url="quotaUrl"
         @clear-podcast="onClearPodcast"
@@ -13,9 +14,9 @@
     />
 </template>
 
-<script setup lang="ts">
-import EpisodesView from './Podcasts/EpisodesView.vue';
-import ListView from './Podcasts/ListView.vue';
+<script setup>
+import EpisodesView from './Podcasts/EpisodesView';
+import ListView from './Podcasts/ListView';
 import {ref} from "vue";
 import listViewProps from "./Podcasts/listViewProps";
 import {pickProps} from "~/functions/pickProps";

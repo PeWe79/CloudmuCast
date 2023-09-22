@@ -68,7 +68,7 @@
     </loading>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import AdminStationsProfileForm from "./Form/ProfileForm.vue";
 import AdminStationsFrontendForm from "./Form/FrontendForm.vue";
 import AdminStationsBackendForm from "./Form/BackendForm.vue";
@@ -83,7 +83,7 @@ import mergeExisting from "~/functions/mergeExisting";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import stationFormProps from "~/components/Admin/Stations/stationFormProps";
 import {useResettableRef} from "~/functions/useResettableRef";
-import Loading from '~/components/Common/Loading.vue';
+import Loading from '~/components/Common/Loading';
 import Tabs from "~/components/Common/Tabs.vue";
 import {GlobalPermission, userAllowed} from "~/acl";
 
@@ -150,13 +150,15 @@ const populateForm = (data) => {
     form.value = mergeExisting(form.value, data);
 };
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doLoad = () => {
     isLoading.value = true;
 
-    axios.get(props.editUrl).then((resp) => {
+    wrapWithLoading(
+        axios.get(props.editUrl)
+    ).then((resp) => {
         populateForm(resp.data);
     }).catch((err) => {
         emit('error', err);
@@ -177,16 +179,17 @@ const reset = () => {
 const submit = () => {
     ifValid(() => {
         error.value = null;
-
-        axios({
-            method: (props.isEditMode)
-                ? 'PUT'
-                : 'POST',
-            url: (props.isEditMode)
-                ? props.editUrl
-                : props.createUrl,
-            data: form.value
-        }).then(() => {
+        wrapWithLoading(
+            axios({
+                method: (props.isEditMode)
+                    ? 'PUT'
+                    : 'POST',
+                url: (props.isEditMode)
+                    ? props.editUrl
+                    : props.createUrl,
+                data: form.value
+            })
+        ).then(() => {
             notifySuccess();
             emit('submitted');
         }).catch((err) => {

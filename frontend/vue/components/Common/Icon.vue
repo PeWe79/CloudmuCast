@@ -1,19 +1,28 @@
 <template>
-    <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        :viewBox="icon.viewBox"
-        fill="currentColor"
-        focusable="false"
+    <i
+        :class="iconClass"
         aria-hidden="true"
-        v-html="icon.contents"
-    />
+    >{{ icon }}</i>
 </template>
 
-<script setup lang="ts">
-import {Icon} from "~/components/Common/icons.ts";
+<script setup>
+import {computed} from "vue";
 
-const props = defineProps<{
-    icon: Icon
-}>();
+const props = defineProps({
+    type: {
+        type: String,
+        default: 'md'
+    },
+    icon: {
+        type: String,
+        required: true
+    }
+});
+
+const iconClass = computed(() => {
+    if (props.type === 'md') {
+        return ['material-icons'];
+    }
+    return null;
+});
 </script>

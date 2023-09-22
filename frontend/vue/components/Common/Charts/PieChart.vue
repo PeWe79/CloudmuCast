@@ -9,10 +9,11 @@
     </canvas>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import {Tableau20} from "~/vendor/chartjs-colorschemes/colorschemes.tableau";
 import {ref} from "vue";
 import ChartAltValues from "~/components/Common/Charts/ChartAltValues.vue";
-import useChart, {chartProps, ChartTemplateRef} from "~/functions/useChart";
+import useChart, {chartProps} from "~/functions/useChart";
 
 const props = defineProps({
     ...chartProps,
@@ -21,10 +22,14 @@ const props = defineProps({
         default: () => {
             return [];
         }
+    },
+    aspectRatio: {
+        type: Number,
+        default: 2
     }
 });
 
-const $canvas = ref<ChartTemplateRef>(null);
+const $canvas = ref(); // Template ref
 
 useChart(
     props,
@@ -33,6 +38,11 @@ useChart(
         type: 'pie',
         options: {
             aspectRatio: props.aspectRatio,
+            plugins: {
+                colorschemes: {
+                    scheme: Tableau20
+                }
+            }
         }
     }
 );

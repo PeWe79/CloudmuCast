@@ -19,7 +19,7 @@ jobs:
       - uses: dessant/lock-threads@v4
         id: lock
         with:
-          github-token: ${{ secrets.GIT_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-inactive-days: '365'
           issue-lock-reason: ''
           log-output: true

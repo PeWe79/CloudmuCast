@@ -53,36 +53,12 @@
     <card-page
         class="mb-3"
         header-id="hdr_sync_tasks"
+        :title="$gettext('Synchronization Tasks')"
     >
-        <template #header="{id}">
-            <div class="d-md-flex align-items-center">
-                <div class="flex-fill my-0">
-                    <h2
-                        :id="id"
-                        class="card-title"
-                    >
-                        {{ $gettext('Synchronization Tasks') }}
-                    </h2>
-                </div>
-                <div class="flex-shrink buttons mt-2 mt-md-0">
-                    <button
-                        type="button"
-                        class="btn btn-dark"
-                        @click="resetSyncTasks()"
-                    >
-                        <icon :icon="IconRefresh" />
-                        <span>{{ $gettext('Refresh') }}</span>
-                    </button>
-                </div>
-            </div>
-        </template>
-
         <data-table
             ref="$datatable"
             :fields="syncTaskFields"
             :items="syncTasks"
-            :loading="syncTasksLoading"
-            handle-client-side
             :show-toolbar="false"
         >
             <template #cell(name)="row">
@@ -104,63 +80,39 @@
     <card-page
         class="mb-3"
         header-id="hdr_message_queues"
+        :title="$gettext('Message Queues')"
     >
-        <template #header="{id}">
-            <div class="d-md-flex align-items-center">
-                <div class="flex-fill my-0">
-                    <h2
-                        :id="id"
-                        class="card-title"
-                    >
-                        {{ $gettext('Message Queues') }}
-                    </h2>
-                </div>
-                <div class="flex-shrink buttons mt-2 mt-md-0">
-                    <button
-                        type="button"
-                        class="btn btn-dark"
-                        @click="resetQueueTotals()"
-                    >
-                        <icon :icon="IconRefresh" />
-                        <span>{{ $gettext('Refresh') }}</span>
-                    </button>
-                </div>
-            </div>
-        </template>
-
         <div class="card-body">
-            <loading :loading="queueTotalsLoading">
-                <div class="row">
-                    <div
-                        v-for="row in queueTotals"
-                        :key="row.name"
-                        class="col"
-                    >
-                        <h5 class="mb-0">
-                            {{ row.name }}
-                        </h5>
+            <div class="row">
+                <div
+                    v-for="row in queueTotals"
+                    :key="row.name"
+                    class="col"
+                >
+                    <h5 class="mb-0">
+                        {{ row.name }}
+                    </h5>
 
-                        <p>
-                            {{
-                                $gettext(
-                                    '%{messages} queued messages',
-                                    {messages: row.count}
-                                )
-                            }}
-                        </p>
+                    <p>
+                        {{
+                            $gettext(
+                                '%{messages} queued messages',
+                                {messages: row.count}
+                            )
+                        }}
+                    </p>
 
-                        <div class="buttons">
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary"
-                                @click="makeDebugCall(row.url)"
-                            >
-                                {{ $gettext('Clear Queue') }}
-                            </button>
-                        </div>
+                    <div class="buttons">
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-primary"
+                            @click="makeDebugCall(row.url)"
+                        >
+                            {{ $gettext('Clear Queue') }}
+                        </button>
                     </div>
                 </div>
-            </loading>
+            </div>
         </div>
     </card-page>
 
@@ -169,66 +121,61 @@
         :title="$gettext('Station-Specific Debugging')"
     >
         <div class="card-body">
-            <loading
-                :loading="stationsLoading"
-                lazy
-            >
-                <tabs>
-                    <tab
-                        v-for="station in stations"
-                        :key="station.id"
-                        :label="station.name"
-                    >
-                        <h3>{{ station.name }}</h3>
+            <tabs>
+                <tab
+                    v-for="station in stations"
+                    :key="station.id"
+                    :label="station.name"
+                >
+                    <h3>{{ station.name }}</h3>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h5>{{ $gettext('AutoDJ Queue') }}</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>{{ $gettext('AutoDJ Queue') }}</h5>
 
-                                <div class="buttons">
-                                    <button
-                                        type="button"
-                                        class="btn btn-sm btn-primary"
-                                        @click="makeDebugCall(station.clearQueueUrl)"
-                                    >
-                                        {{ $gettext('Clear Queue') }}
-                                    </button>
-                                    <button
-                                        type="button"
-                                        class="btn btn-sm btn-primary"
-                                        @click="makeDebugCall(station.getNextSongUrl)"
-                                    >
-                                        {{ $gettext('Get Next Song') }}
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>{{ $gettext('Get Now Playing') }}</h5>
-
-                                <div class="buttons">
-                                    <button
-                                        type="button"
-                                        class="btn btn-sm btn-primary"
-                                        @click="makeDebugCall(station.getNowPlayingUrl)"
-                                    >
-                                        {{ $gettext('Run Task') }}
-                                    </button>
-                                </div>
+                            <div class="buttons">
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-primary"
+                                    @click="makeDebugCall(station.clearQueueUrl)"
+                                >
+                                    {{ $gettext('Clear Queue') }}
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-primary"
+                                    @click="makeDebugCall(station.getNextSongUrl)"
+                                >
+                                    {{ $gettext('Get Next Song') }}
+                                </button>
                             </div>
                         </div>
-                    </tab>
-                </tabs>
-            </loading>
+                        <div class="col-md-4">
+                            <h5>{{ $gettext('Get Now Playing') }}</h5>
+
+                            <div class="buttons">
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-primary"
+                                    @click="makeDebugCall(station.getNowPlayingUrl)"
+                                >
+                                    {{ $gettext('Run Task') }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+            </tabs>
         </div>
     </card-page>
 
     <task-output-modal ref="$modal" />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {ref} from "vue";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
+import useHasDatatable from "~/functions/useHasDatatable";
+import DataTable from "~/components/Common/DataTable.vue";
 import {useTranslate} from "~/vendor/gettext";
 import CardPage from "~/components/Common/CardPage.vue";
 import {useLuxon} from "~/vendor/luxon";
@@ -237,48 +184,34 @@ import {useAxios} from "~/vendor/axios";
 import {useNotify} from "~/functions/useNotify";
 import Tabs from "~/components/Common/Tabs.vue";
 import Tab from "~/components/Common/Tab.vue";
-import {useIntervalFn} from "@vueuse/core";
-import {getApiUrl} from "~/router.ts";
-import useRefreshableAsyncState from "~/functions/useRefreshableAsyncState.ts";
-import Loading from "~/components/Common/Loading.vue";
-import {IconRefresh} from "~/components/Common/icons.ts";
-import Icon from "~/components/Common/Icon.vue";
 
-const listSyncTasksUrl = getApiUrl('/admin/debug/sync-tasks');
-const listQueueTotalsUrl = getApiUrl('/admin/debug/queues');
-const listStationsUrl = getApiUrl('/admin/debug/stations');
-const clearCacheUrl = getApiUrl('/admin/debug/clear-cache');
-const clearQueuesUrl = getApiUrl('/admin/debug/clear-queue');
-
-const {axios} = useAxios();
-
-const {state: syncTasks, isLoading: syncTasksLoading, execute: resetSyncTasks} = useRefreshableAsyncState(
-    () => axios.get(listSyncTasksUrl.value).then(r => r.data),
-    [],
-);
-
-const {state: queueTotals, isLoading: queueTotalsLoading, execute: resetQueueTotals} = useRefreshableAsyncState(
-    () => axios.get(listQueueTotalsUrl.value).then(r => r.data),
-    [],
-);
-
-const {state: stations, isLoading: stationsLoading} = useRefreshableAsyncState(
-    () => axios.get(listStationsUrl.value).then(r => r.data),
-    [],
-);
-
-useIntervalFn(
-    () => {
-        resetSyncTasks();
-        resetQueueTotals();
+const props = defineProps({
+    clearCacheUrl: {
+        type: String,
+        required: true
     },
-    60000
-);
+    clearQueuesUrl: {
+        type: String,
+        required: true
+    },
+    syncTasks: {
+        type: Array,
+        required: true
+    },
+    queueTotals: {
+        type: Array,
+        required: true
+    },
+    stations: {
+        type: Array,
+        required: true
+    }
+});
 
 const {$gettext} = useTranslate();
 const {timestampToRelative} = useLuxon();
 
-const syncTaskFields: DataTableField[] = [
+const syncTaskFields = [
     {key: 'name', isRowHeader: true, label: $gettext('Task Name'), sortable: true},
     {
         key: 'time',
@@ -297,17 +230,18 @@ const syncTaskFields: DataTableField[] = [
     {key: 'actions', label: $gettext('Actions')}
 ];
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 useHasDatatable($datatable);
 
-const $modal = ref<InstanceType<typeof TaskOutputModal> | null>(null);
+const $modal = ref();
 
+const {axios} = useAxios();
 const {notifySuccess} = useNotify();
 
 const makeDebugCall = (url) => {
     axios.put(url).then((resp) => {
         if (resp.data.logs) {
-            $modal.value?.open(resp.data.logs);
+            $modal.value.open(resp.data.logs);
         } else {
             notifySuccess(resp.data.message);
         }

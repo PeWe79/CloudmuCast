@@ -57,9 +57,9 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
+import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox";
 import {useVModel} from "@vueuse/core";
 import {useVuelidateOnFormTab} from "~/functions/useVuelidateOnFormTab";
 import {required} from "@vuelidate/validators";

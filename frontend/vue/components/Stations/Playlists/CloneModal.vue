@@ -27,17 +27,16 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {required} from '@vuelidate/validators';
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import ModalForm from "~/components/Common/ModalForm.vue";
+import FormGroupField from "~/components/Form/FormGroupField";
+import ModalForm from "~/components/Common/ModalForm";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import {ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import FormGroupMultiCheck from "~/components/Form/FormGroupMultiCheck.vue";
-import {ModalFormTemplateRef} from "~/functions/useBaseEditModal.ts";
 
 const emit = defineEmits(['relist', 'needs-restart']);
 
@@ -72,7 +71,7 @@ const copyOptions = [
     }
 ];
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // Template Ref
 
 const open = (name, newCloneUrl) => {
     clearContents();
@@ -86,16 +85,18 @@ const open = (name, newCloneUrl) => {
     $modal.value.show();
 };
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doSubmit = () => {
     ifValid(() => {
-        axios({
-            method: 'POST',
-            url: cloneUrl.value,
-            data: form.value
-        }).then(() => {
+        wrapWithLoading(
+            axios({
+                method: 'POST',
+                url: cloneUrl.value,
+                data: form.value
+            })
+        ).then(() => {
             notifySuccess();
             emit('needs-restart');
             emit('relist');

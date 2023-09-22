@@ -18,13 +18,13 @@
     </template>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {computed} from "vue";
 import objectToFormOptions from "~/functions/objectToFormOptions";
 
 const props = defineProps({
     options: {
-        type: Array<any>,
+        type: Array,
         required: true
     }
 });

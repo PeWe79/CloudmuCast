@@ -36,6 +36,16 @@ class StationMedia implements
 
     public const UNIQUE_ID_LENGTH = 24;
 
+    public const DIR_ALBUM_ART = '.albumart';
+    public const DIR_FOLDER_COVERS = '.covers';
+    public const DIR_WAVEFORMS = '.waveforms';
+
+    public const PROTECTED_DIRS = [
+        self::DIR_ALBUM_ART,
+        self::DIR_FOLDER_COVERS,
+        self::DIR_WAVEFORMS,
+    ];
+
     #[
         OA\Property(
             description: "A unique identifier associated with this record.",
@@ -68,7 +78,7 @@ class StationMedia implements
             description: "The genre of the media file.",
             example: "Rock"
         ),
-        ORM\Column(length: 255, nullable: true)
+        ORM\Column(length: 30, nullable: true)
     ]
     protected ?string $genre = null;
 
@@ -258,7 +268,7 @@ class StationMedia implements
 
     public function setGenre(?string $genre = null): void
     {
-        $this->genre = $this->truncateNullableString($genre);
+        $this->genre = $this->truncateNullableString($genre, 30);
     }
 
     public function getLyrics(): ?string

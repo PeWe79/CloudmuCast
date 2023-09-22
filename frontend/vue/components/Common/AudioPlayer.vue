@@ -6,12 +6,11 @@
     />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import getLogarithmicVolume from '~/functions/getLogarithmicVolume';
 import Hls from 'hls.js';
 import {usePlayerStore} from "~/store";
-import {nextTick, onMounted, onScopeDispose, ref, toRef, watch} from "vue";
-import {storeToRefs} from "pinia";
+import {nextTick, onMounted, ref, toRef, watch} from "vue";
 
 const props = defineProps({
     title: {
@@ -34,9 +33,8 @@ const duration = ref(0);
 const currentTime = ref(0);
 
 const store = usePlayerStore();
-const {isPlaying, current} = storeToRefs(store);
-
-const bc = ref<BroadcastChannel | null>(null);
+const isPlaying = toRef(store, 'isPlaying');
+const current = toRef(store, 'current');
 
 watch(toRef(props, 'volume'), (newVol) => {
     if ($audio.value !== null) {
@@ -127,10 +125,14 @@ const play = () => {
 
         $audio.value.load();
         $audio.value.play();
+    });
+};
 
-        if (bc.value) {
-            bc.value.postMessage('played');
-        }
+const toggle = (url, isStream, isHls) => {
+    store.toggle({
+        url: url,
+        isStream: isStream,
+        isHls: isHls,
     });
 };
 
@@ -164,24 +166,12 @@ onMounted(() => {
             stop();
         });
     }
-
-    if ('BroadcastChannel' in window) {
-        bc.value = new BroadcastChannel('audio_player');
-        bc.value.addEventListener('message', () => {
-            stop();
-        }, {passive: true});
-    }
-});
-
-onScopeDispose(() => {
-    if (bc.value) {
-        bc.value.close()
-    }
 });
 
 defineExpose({
     play,
     stop,
+    toggle,
     getCurrentTime,
     getDuration,
     getProgress,

@@ -64,7 +64,7 @@
                 </template>
                 <template #description>
                     {{
-                        $gettext('CloudmuCast will scan the uploaded file for matches in this station\'s music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed.')
+                        $gettext('AzuraCast will scan the uploaded file for matches in this station\'s music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed.')
                     }}
                 </template>
 
@@ -82,7 +82,7 @@
             <button
                 type="button"
                 class="btn btn-secondary"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -98,15 +98,14 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import InvisibleSubmitButton from '~/components/Common/InvisibleSubmitButton.vue';
+<script setup>
+import InvisibleSubmitButton from '~/components/Common/InvisibleSubmitButton';
 import {ref} from "vue";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import FormGroup from "~/components/Form/FormGroup.vue";
 import Modal from "~/components/Common/Modal.vue";
 import FormFile from "~/components/Form/FormFile.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const emit = defineEmits(['relist']);
 
@@ -120,34 +119,41 @@ const uploaded = (file) => {
     playlistFile.value = file;
 }
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
 const open = (newImportPlaylistUrl) => {
     playlistFile.value = null;
     overwritePlaylist.value = false;
 
     importPlaylistUrl.value = newImportPlaylistUrl;
-    show();
+
+    $modal.value.show();
 };
 
-const {notifySuccess, notifyError} = useNotify();
+const {wrapWithLoading, notifySuccess, notifyError} = useNotify();
 const {axios} = useAxios();
 
 const doSubmit = () => {
     const formData = new FormData();
     formData.append('playlist_file', playlistFile.value);
 
-    axios.post(importPlaylistUrl.value, formData).then((resp) => {
+
+    wrapWithLoading(
+        axios.post(importPlaylistUrl.value, formData)
+    ).then((resp) => {
         if (resp.data.success) {
             results.value = resp.data;
 
             notifySuccess(resp.data.message);
         } else {
             notifyError(resp.data.message);
-            hide();
+            close();
         }
     });
+};
+
+const close = () => {
+    $modal.value.hide();
 };
 
 const onHidden = () => {

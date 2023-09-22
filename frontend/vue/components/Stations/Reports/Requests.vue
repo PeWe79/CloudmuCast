@@ -35,14 +35,14 @@
 
         <div
             v-if="activeType === 'pending'"
-            class="card-body buttons"
+            class="card-body"
         >
             <button
                 type="button"
                 class="btn btn-danger"
                 @click="doClear()"
             >
-                <icon :icon="IconRemove" />
+                <icon icon="remove" />
                 <span>
                     {{ $gettext('Clear Pending Requests') }}
                 </span>
@@ -92,9 +92,9 @@
     </section>
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import Icon from "~/components/Common/Icon.vue";
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import Icon from "~/components/Common/Icon";
 import {useAzuraCast, useAzuraCastStation} from "~/vendor/azuracast";
 import {computed, nextTick, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
@@ -103,8 +103,6 @@ import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useLuxon} from "~/vendor/luxon";
 import {getStationApiUrl} from "~/router";
-import {IconRemove} from "~/components/Common/icons";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
 
 const listUrl = getStationApiUrl('/reports/requests');
 const clearUrl = getStationApiUrl('/reports/requests/clear');
@@ -117,7 +115,7 @@ const listUrlForType = computed(() => {
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'timestamp', label: $gettext('Date Requested'), sortable: false},
     {key: 'played_at', label: $gettext('Date Played'), sortable: false},
     {key: 'song_title', isRowHeader: true, label: $gettext('Song Title'), sortable: false},
@@ -136,10 +134,10 @@ const tabs = [
     }
 ];
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 
 const relist = () => {
-    $datatable.value?.refresh();
+    $datatable.value.refresh();
 };
 
 const setType = (type) => {
@@ -159,7 +157,7 @@ const formatTime = (time) => {
 };
 
 const {confirmDelete} = useSweetAlert();
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doDelete = (url) => {
@@ -167,7 +165,9 @@ const doDelete = (url) => {
         title: $gettext('Delete Request?'),
     }).then((result) => {
         if (result.value) {
-            axios.delete(url).then((resp) => {
+            wrapWithLoading(
+                axios.delete(url)
+            ).then((resp) => {
                 notifySuccess(resp.data.message);
                 relist();
             });
@@ -181,7 +181,9 @@ const doClear = () => {
         confirmButtonText: $gettext('Clear'),
     }).then((result) => {
         if (result.value) {
-            axios.post(clearUrl.value).then((resp) => {
+            wrapWithLoading(
+                axios.post(clearUrl.value)
+            ).then((resp) => {
                 notifySuccess(resp.data.message);
                 relist();
             });

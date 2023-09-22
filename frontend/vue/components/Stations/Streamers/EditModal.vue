@@ -27,12 +27,12 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
-import FormBasicInfo from './Form/BasicInfo.vue';
-import FormSchedule from './Form/Schedule.vue';
-import FormArtwork from './Form/Artwork.vue';
+<script setup>
+import FormBasicInfo from './Form/BasicInfo';
+import FormSchedule from './Form/Schedule';
+import FormArtwork from './Form/Artwork';
 import mergeExisting from "~/functions/mergeExisting";
-import {baseEditModalProps, ModalFormTemplateRef, useBaseEditModal} from "~/functions/useBaseEditModal";
+import {baseEditModalProps, useBaseEditModal} from "~/functions/useBaseEditModal";
 import {computed, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useResettableRef} from "~/functions/useResettableRef";
@@ -49,7 +49,7 @@ const props = defineProps({
 
 const emit = defineEmits(['relist']);
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // Template Ref
 
 const {record, reset} = useResettableRef({
     has_custom_art: false,

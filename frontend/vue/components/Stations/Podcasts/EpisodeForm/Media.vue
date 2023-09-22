@@ -56,8 +56,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FlowUpload from '~/components/Common/FlowUpload.vue';
+<script setup>
+import FlowUpload from '~/components/Common/FlowUpload';
 import {computed, ref, toRef} from "vue";
 import {useAxios} from "~/vendor/axios";
 import {syncRef} from "@vueuse/core";
@@ -99,7 +99,7 @@ const targetUrl = computed(() => {
         : props.newMediaUrl;
 });
 
-const onFileSuccess = (_file, message) => {
+const onFileSuccess = (file, message) => {
     hasMedia.value = true;
 
     if (!props.editMediaUrl) {

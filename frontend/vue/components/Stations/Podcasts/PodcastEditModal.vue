@@ -25,11 +25,11 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
-import PodcastFormBasicInfo from './PodcastForm/BasicInfo.vue';
-import PodcastCommonArtwork from './Common/Artwork.vue';
+<script setup>
+import PodcastFormBasicInfo from './PodcastForm/BasicInfo';
+import PodcastCommonArtwork from './Common/Artwork';
 import mergeExisting from "~/functions/mergeExisting";
-import {baseEditModalProps, ModalFormTemplateRef, useBaseEditModal} from "~/functions/useBaseEditModal";
+import {baseEditModalProps, useBaseEditModal} from "~/functions/useBaseEditModal";
 import {computed, ref} from "vue";
 import {useResettableRef} from "~/functions/useResettableRef";
 import {useTranslate} from "~/vendor/gettext";
@@ -54,7 +54,7 @@ const props = defineProps({
 
 const emit = defineEmits(['relist']);
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // Template Ref
 
 const {record, reset} = useResettableRef({
     has_custom_art: false,

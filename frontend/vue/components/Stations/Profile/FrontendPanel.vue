@@ -116,7 +116,7 @@
                 class="btn btn-link text-primary"
                 @click.prevent="credentialsVisible = !credentialsVisible"
             >
-                <icon :icon="IconMoreHoriz" />
+                <icon icon="unfold_more" />
                 <span>
                     {{ langShowHideCredentials }}
                 </span>
@@ -127,7 +127,7 @@
                     class="btn btn-link text-secondary"
                     @click="makeApiCall(frontendRestartUri)"
                 >
-                    <icon :icon="IconUpdate" />
+                    <icon icon="update" />
                     <span>
                         {{ $gettext('Restart') }}
                     </span>
@@ -138,7 +138,7 @@
                     class="btn btn-link text-success"
                     @click="makeApiCall(frontendStartUri)"
                 >
-                    <icon :icon="IconPlay" />
+                    <icon icon="play_arrow" />
                     <span>
                         {{ $gettext('Start') }}
                     </span>
@@ -149,7 +149,7 @@
                     class="btn btn-link text-danger"
                     @click="makeApiCall(frontendStopUri)"
                 >
-                    <icon :icon="IconStop" />
+                    <icon icon="stop" />
                     <span>
                         {{ $gettext('Stop') }}
                     </span>
@@ -159,10 +159,10 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {FrontendAdapter} from '~/components/Entity/RadioAdapters';
-import CopyToClipboardButton from '~/components/Common/CopyToClipboardButton.vue';
-import Icon from '~/components/Common/Icon.vue';
+import CopyToClipboardButton from '~/components/Common/CopyToClipboardButton';
+import Icon from '~/components/Common/Icon';
 import RunningBadge from "~/components/Common/Badges/RunningBadge.vue";
 import {computed} from "vue";
 import frontendPanelProps from "~/components/Stations/Profile/frontendPanelProps";
@@ -170,7 +170,6 @@ import {useTranslate} from "~/vendor/gettext";
 import CardPage from "~/components/Common/CardPage.vue";
 import {StationPermission, userAllowedForStation} from "~/acl";
 import useOptionalStorage from "~/functions/useOptionalStorage";
-import {IconMoreHoriz, IconPlay, IconStop, IconUpdate} from "~/components/Common/icons";
 
 const props = defineProps({
     ...frontendPanelProps,
@@ -182,7 +181,7 @@ const props = defineProps({
 
 const emit = defineEmits(['api-call']);
 
-const credentialsVisible = useOptionalStorage<boolean>('station_show_frontend_credentials', false);
+const credentialsVisible = useOptionalStorage('station_show_frontend_credentials', false);
 
 const {$gettext} = useTranslate();
 

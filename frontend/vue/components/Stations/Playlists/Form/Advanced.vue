@@ -17,7 +17,7 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {useTranslate} from "~/vendor/gettext";
 import FormGroupMultiCheck from "~/components/Form/FormGroupMultiCheck.vue";
 import {useVModel} from "@vueuse/core";

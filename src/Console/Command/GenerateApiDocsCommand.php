@@ -45,7 +45,7 @@ final class GenerateApiDocsCommand extends CommandAbstract
 
     public function generate(
         bool $useCurrentVersion = false,
-        string $apiBaseUrl = 'https://demo.cloudmu.id/api'
+        string $apiBaseUrl = 'https://demo.azuracast.com/api'
     ): ?OpenApi {
         define('AZURACAST_API_URL', $apiBaseUrl);
         define('AZURACAST_API_NAME', 'CloudmuCast Public Demo Server');

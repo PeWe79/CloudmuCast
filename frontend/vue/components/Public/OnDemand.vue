@@ -51,7 +51,7 @@
                                 target="_blank"
                                 :title="$gettext('Download')"
                             >
-                                <icon :icon="IconDownload" />
+                                <icon icon="cloud_download" />
                             </a>
                         </template>
                     </template>
@@ -74,19 +74,18 @@
     <lightbox ref="$lightbox" />
 </template>
 
-<script setup lang="ts">
-import InlinePlayer from '../InlinePlayer.vue';
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+<script setup>
+import InlinePlayer from '../InlinePlayer';
+import DataTable from '~/components/Common/DataTable';
 import {forEach} from 'lodash';
-import Icon from '~/components/Common/Icon.vue';
-import PlayButton from "~/components/Common/PlayButton.vue";
+import Icon from '~/components/Common/Icon';
+import PlayButton from "~/components/Common/PlayButton";
 import {useTranslate} from "~/vendor/gettext";
 import formatFileSize from "../../functions/formatFileSize";
 import AlbumArt from "~/components/Common/AlbumArt.vue";
 import Lightbox from "~/components/Common/Lightbox.vue";
 import {ref} from "vue";
-import {LightboxTemplateRef, useProvideLightbox} from "~/vendor/lightbox";
-import {IconDownload} from "~/components/Common/icons";
+import {useProvideLightbox} from "~/vendor/lightbox";
 
 const props = defineProps({
     listUrl: {
@@ -111,7 +110,7 @@ const props = defineProps({
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'download_url', label: ' '},
     {key: 'art', label: $gettext('Art')},
     {
@@ -119,14 +118,14 @@ const fields: DataTableField[] = [
         label: $gettext('Title'),
         sortable: true,
         selectable: true,
-        formatter: (_value, _key, item) => item.media.title,
+        formatter: (value, key, item) => item.media.title,
     },
     {
         key: 'artist',
         label: $gettext('Artist'),
         sortable: true,
         selectable: true,
-        formatter: (_value, _key, item) => item.media.artist,
+        formatter: (value, key, item) => item.media.artist,
     },
     {
         key: 'album',
@@ -134,7 +133,7 @@ const fields: DataTableField[] = [
         sortable: true,
         selectable: true,
         visible: false,
-        formatter: (_value, _key, item) => item.media.album
+        formatter: (value, key, item) => item.media.album
     }
 ];
 
@@ -145,11 +144,11 @@ forEach(props.customFields.slice(), (field) => {
         sortable: true,
         selectable: true,
         visible: false,
-        formatter: (_value, _key, item) => item.media.custom_fields[field.key]
+        formatter: (value, key, item) => item.media.custom_fields[field.key]
     });
 });
 
-const $lightbox = ref<LightboxTemplateRef>(null);
+const $lightbox = ref(); // Template Ref
 useProvideLightbox($lightbox);
 </script>
 

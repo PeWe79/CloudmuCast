@@ -15,7 +15,7 @@ $environment = App\AppFactory::buildEnvironment(
 );
 
 $console = new Symfony\Component\Console\Application(
-        'CloudmuCast installer',
+        'AzuraCast installer',
         App\Version::FALLBACK_VERSION
 );
 

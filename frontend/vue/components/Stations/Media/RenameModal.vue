@@ -4,24 +4,20 @@
         ref="$modal"
         centered
         :title="$gettext('Rename File/Directory')"
-        @shown="onShown"
-        @hidden="onHidden"
     >
         <form @submit.prevent="doRename">
             <form-group-field
                 id="new_directory_name"
-                ref="$field"
                 :field="v$.newPath"
+                autofocus
                 :label="$gettext('New File Name')"
             />
-
-            <invisible-submit-button />
         </form>
         <template #modal-footer>
             <button
                 type="button"
                 class="btn btn-secondary"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -37,15 +33,14 @@
     </modal>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {required} from '@vuelidate/validators';
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import {nextTick, ref} from "vue";
+import FormGroupField from "~/components/Form/FormGroupField";
+import {ref} from "vue";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
+import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import Modal from "~/components/Common/Modal.vue";
-import InvisibleSubmitButton from "~/components/Common/InvisibleSubmitButton.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     renameUrl: {
@@ -67,38 +62,34 @@ const {form, v$, resetForm, ifValid} = useVuelidateOnForm(
     }
 );
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
-const open = (filePath: string): void => {
+const open = (filePath) => {
     file.value = filePath;
     form.value.newPath = filePath;
 
-    show();
-}
-
-const $field = ref<InstanceType<typeof FormGroupField> | null>(null);
-
-const onShown = () => {
-    nextTick(() => {
-        $field.value?.focus();
-    });
+    $modal.value.show();
 };
 
-const onHidden = () => {
+const close = () => {
     resetForm();
     file.value = null;
-}
 
+    $modal.value.hide();
+};
+
+const {wrapWithLoading} = useNotify();
 const {axios} = useAxios();
 
 const doRename = () => {
     ifValid(() => {
-        axios.put(props.renameUrl, {
-            file: file.value,
-            ...form.value
-        }).finally(() => {
-            close();
+        wrapWithLoading(
+            axios.put(props.renameUrl, {
+                file: file.value,
+                ...form.value
+            })
+        ).finally(() => {
+            $modal.value.hide();
             emit('relist');
         });
     });

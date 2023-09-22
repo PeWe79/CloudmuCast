@@ -29,12 +29,12 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
+<script setup>
+import DataTable from "~/components/Common/DataTable.vue";
 import {ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
+import useHasDatatable from "~/functions/useHasDatatable";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getApiUrl} from "~/router";
 
@@ -42,7 +42,7 @@ const apiUrl = getApiUrl('/admin/api-keys');
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = ref([
     {
         key: 'comment',
         isRowHeader: true,
@@ -60,9 +60,9 @@ const fields: DataTableField[] = [
         sortable: false,
         class: 'shrink'
     }
-];
+]);
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref();
 const {relist} = useHasDatatable($datatable);
 
 const {doDelete} = useConfirmAndDelete(

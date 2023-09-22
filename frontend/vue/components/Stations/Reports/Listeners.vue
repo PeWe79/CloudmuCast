@@ -16,7 +16,7 @@
                                 :href="exportUrl"
                                 target="_blank"
                             >
-                                <icon :icon="IconDownload" />
+                                <icon icon="file_download" />
                                 <span>
                                     {{ $gettext('Download CSV') }}
                                 </span>
@@ -104,12 +104,11 @@
 
                     <data-table
                         id="station_playlists"
-                        ref="$datatable"
+                        ref="datatable"
                         paginated
                         handle-client-side
                         :fields="fields"
                         :items="listeners"
-                        @refresh-clicked="updateListeners()"
                     >
                         <template #cell(time)="row">
                             {{ formatTime(row.item.connected_time) }}
@@ -120,13 +119,13 @@
                         <template #cell(user_agent)="row">
                             <div>
                                 <span v-if="row.item.is_mobile">
-                                    <icon :icon="IconSmartphone" />
+                                    <icon icon="smartphone" />
                                     <span class="visually-hidden">
                                         {{ $gettext('Mobile Device') }}
                                     </span>
                                 </span>
                                 <span v-else>
-                                    <icon :icon="IconDesktopWindows" />
+                                    <icon icon="desktop_windows" />
                                     <span class="visually-hidden">
                                         {{ $gettext('Desktop Device') }}
                                     </span>
@@ -171,20 +170,19 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import StationReportsListenersMap from "./Listeners/Map.vue";
-import Icon from "~/components/Common/Icon.vue";
+<script setup>
+import StationReportsListenersMap from "./Listeners/Map";
+import Icon from "~/components/Common/Icon";
 import formatTime from "~/functions/formatTime";
-import DataTable, {DataTableField} from "~/components/Common/DataTable.vue";
-import DateRangeDropdown from "~/components/Common/DateRangeDropdown.vue";
+import DataTable from "~/components/Common/DataTable";
+import DateRangeDropdown from "~/components/Common/DateRangeDropdown";
 import {computed, nextTick, onMounted, ref, shallowRef, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
+import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useAzuraCastStation} from "~/vendor/azuracast";
 import {useLuxon} from "~/vendor/luxon";
 import {getStationApiUrl} from "~/router";
-import {IconDesktopWindows, IconDownload, IconSmartphone} from "~/components/Common/icons";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
 
 const props = defineProps({
     attribution: {
@@ -195,7 +193,7 @@ const props = defineProps({
 
 const apiUrl = getStationApiUrl('/listeners');
 
-const isLive = ref<boolean>(true);
+const isLive = ref(true);
 const listeners = shallowRef([]);
 
 const {timezone} = useAzuraCastStation();
@@ -213,7 +211,7 @@ const dateRange = ref({
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
   {key: 'ip', label: $gettext('IP'), sortable: false},
   {key: 'time', label: $gettext('Time'), sortable: false},
   {key: 'time_sec', label: $gettext('Time (sec)'), sortable: false},
@@ -223,7 +221,7 @@ const fields: DataTableField[] = [
 ];
 
 const exportUrl = computed(() => {
-    const exportUrl = new URL(apiUrl.value, document.location.href);
+    const exportUrl = new URL(apiUrl.value, document.location);
     const exportUrlParams = exportUrl.searchParams;
   exportUrlParams.set('format', 'csv');
 
@@ -245,24 +243,20 @@ const totalListenerHours = computed(() => {
   return Math.round((tlh_hours + 0.00001) * 100) / 100;
 });
 
+const {wrapWithLoading} = useNotify();
 const {axios} = useAxios();
 
-const $datatable = ref<DataTableTemplateRef>(null);
-const {navigate} = useHasDatatable($datatable);
-
 const updateListeners = () => {
-    const params: {
-        [key: string]: any
-    } = {};
-
+    const params = {};
     if (!isLive.value) {
         params.start = DateTime.fromJSDate(dateRange.value.startDate).toISO();
         params.end = DateTime.fromJSDate(dateRange.value.endDate).toISO();
     }
 
-    axios.get(apiUrl.value, {params: params}).then((resp) => {
+    wrapWithLoading(
+        axios.get(apiUrl.value, {params: params})
+    ).then((resp) => {
         listeners.value = resp.data;
-        navigate();
 
         if (isLive.value) {
             setTimeout(updateListeners, (!document.hidden) ? 15000 : 30000);
@@ -278,7 +272,7 @@ watch(dateRange, updateListeners);
 
 onMounted(updateListeners);
 
-const setIsLive = (newValue: boolean) => {
+const setIsLive = (newValue) => {
     isLive.value = newValue;
     nextTick(updateListeners);
 };

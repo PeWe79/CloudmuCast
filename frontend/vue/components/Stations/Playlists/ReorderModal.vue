@@ -61,7 +61,7 @@
                                     :title="$gettext('Down')"
                                     @click.prevent="moveDown(index)"
                                 >
-                                    <icon :icon="IconChevronDown" />
+                                    <icon icon="arrow_downward" />
                                 </button>
                                 <button
                                     v-if="index > 0"
@@ -70,7 +70,7 @@
                                     :title="$gettext('Up')"
                                     @click.prevent="moveUp(index)"
                                 >
-                                    <icon :icon="IconChevronUp" />
+                                    <icon icon="arrow_upward" />
                                 </button>
                             </div>
                         </td>
@@ -81,32 +81,29 @@
     </modal>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Draggable from 'vuedraggable';
-import Icon from '~/components/Common/Icon.vue';
-import PlayButton from "~/components/Common/PlayButton.vue";
-import InlinePlayer from '~/components/InlinePlayer.vue';
+import Icon from '~/components/Common/Icon';
+import PlayButton from "~/components/Common/PlayButton";
+import InlinePlayer from '~/components/InlinePlayer';
 import {ref} from "vue";
 import {useAxios} from "~/vendor/axios";
 import {useNotify} from "~/functions/useNotify";
 import {useTranslate} from "~/vendor/gettext";
 import Modal from "~/components/Common/Modal.vue";
-import {IconChevronDown, IconChevronUp} from "~/components/Common/icons";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const loading = ref(true);
 const reorderUrl = ref(null);
 const media = ref([]);
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
 const {axios} = useAxios();
 
 const open = (newReorderUrl) => {
     reorderUrl.value = newReorderUrl;
     loading.value = true;
-    show();
+    $modal.value?.show();
 
     axios.get(newReorderUrl).then((resp) => {
         media.value = resp.data;
@@ -144,6 +141,16 @@ const moveUp = (index) => {
 defineExpose({
     open
 });
+</script>
+
+<script>
+
+export default {
+    data() {
+        return {};
+    },
+    methods: {}
+};
 </script>
 
 <style lang="scss">

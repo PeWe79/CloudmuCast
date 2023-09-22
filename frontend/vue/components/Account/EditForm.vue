@@ -35,8 +35,8 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
 import objectToFormOptions from "~/functions/objectToFormOptions";
 import {computed} from "vue";
 import {useTranslate} from "~/vendor/gettext";

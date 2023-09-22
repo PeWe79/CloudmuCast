@@ -43,7 +43,7 @@
                         class="btn btn-primary"
                         @click="doConfigure"
                     >
-                        <icon :icon="IconSettings" />
+                        <icon icon="settings" />
                         <span>
                             {{ $gettext('Configure') }}
                         </span>
@@ -54,7 +54,7 @@
                         class="btn btn-secondary"
                         @click="showLastOutput"
                     >
-                        <icon :icon="IconLogs" />
+                        <icon icon="assignment" />
                         <span>
                             {{ $gettext('Most Recent Backup Log') }}
                         </span>
@@ -95,7 +95,7 @@
                 class="btn btn-primary"
                 @click="doRunBackup"
             >
-                <icon :icon="IconSend" />
+                <icon icon="send" />
                 <span>
                     {{ $gettext('Run Manual Backup') }}
                 </span>
@@ -149,9 +149,9 @@
     />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Icon from "~/components/Common/Icon.vue";
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
+import DataTable from "~/components/Common/DataTable.vue";
 import AdminBackupsLastOutputModal from "./Backups/LastOutputModal.vue";
 import formatFileSize from "~/functions/formatFileSize";
 import AdminBackupsConfigureModal from "~/components/Admin/Backups/ConfigureModal.vue";
@@ -160,14 +160,13 @@ import EnabledBadge from "~/components/Common/Badges/EnabledBadge.vue";
 import {useAzuraCast} from "~/vendor/azuracast";
 import {onMounted, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
+import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import Loading from "~/components/Common/Loading.vue";
 import CardPage from "~/components/Common/CardPage.vue";
 import {useLuxon} from "~/vendor/luxon";
 import {getApiUrl} from "~/router";
-import {IconLogs, IconSend, IconSettings} from "~/components/Common/icons";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
 
 const props = defineProps({
     storageLocations: {
@@ -198,7 +197,7 @@ const {$gettext} = useTranslate();
 const {timeConfig} = useAzuraCast();
 const {DateTime} = useLuxon();
 
-const fields: DataTableField[] = [
+const fields = [
     {
         key: 'basename',
         isRowHeader: true,
@@ -229,14 +228,16 @@ const fields: DataTableField[] = [
     }
 ];
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // DataTable
 
+const {wrapWithLoading} = useNotify();
 const {axios} = useAxios();
 
 const relist = () => {
     settingsLoading.value = true;
-
-    axios.get(settingsUrl.value).then((resp) => {
+    wrapWithLoading(
+        axios.get(settingsUrl.value)
+    ).then((resp) => {
         settings.value = {
             backupEnabled: resp.data.backup_enabled,
             backupLastRun: resp.data.backup_last_run,
@@ -245,26 +246,26 @@ const relist = () => {
         settingsLoading.value = false;
     });
 
-    $datatable.value?.relist();
+    $datatable.value.relist();
 };
 
 onMounted(relist);
 
 const {timestampToRelative} = useLuxon();
 
-const $lastOutputModal = ref<InstanceType<typeof AdminBackupsLastOutputModal> | null>(null);
+const $lastOutputModal = ref(); // AdminBackupsLastOutputModal
 const showLastOutput = () => {
-    $lastOutputModal.value?.show();
+    $lastOutputModal.value.show();
 };
 
-const $configureModal = ref<InstanceType<typeof AdminBackupsConfigureModal> | null>(null);
+const $configureModal = ref(); // AdminBackupsConfigureModal
 const doConfigure = () => {
-    $configureModal.value?.open();
+    $configureModal.value.open();
 };
 
-const $runBackupModal = ref<InstanceType<typeof AdminBackupsRunBackupModal> | null>(null);
+const $runBackupModal = ref(); // AdminBackupsRunBackupModal
 const doRunBackup = () => {
-    $runBackupModal.value?.open();
+    $runBackupModal.value.open();
 };
 
 const {doDelete} = useConfirmAndDelete(

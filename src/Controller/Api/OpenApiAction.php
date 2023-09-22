@@ -30,9 +30,7 @@ final class OpenApiAction implements SingleActionInterface
 
         $yaml = $this->apiDocsCommand->generate(true, $apiBaseUrl)?->toYaml();
 
-        return $response->renderStringAsFile(
-            $yaml ?? '',
-            'text/x-yaml',
-        );
+        $response->getBody()->write($yaml ?? '');
+        return $response->withHeader('Content-Type', 'text/x-yaml');
     }
 }

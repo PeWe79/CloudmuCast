@@ -58,7 +58,7 @@ final class ServiceControl
         $serviceNames = $this->getServiceNames();
         if (!isset($serviceNames[$service])) {
             throw new InvalidArgumentException(
-                sprintf('Service "%s" is not managed by CloudmuCast.', $service)
+                sprintf('Service "%s" is not managed by AzuraCast.', $service)
             );
         }
 

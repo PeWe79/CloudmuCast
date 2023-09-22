@@ -75,10 +75,11 @@ export enum WebhookType {
     Email = 'email',
     TuneIn = 'tunein',
     RadioDe = 'radiode',
-    GetMeRadio = 'getmeradio',
     Discord = 'discord',
     Telegram = 'telegram',
+    Twitter = 'twitter',
     Mastodon = 'mastodon',
+    GoogleAnalyticsV3 = 'google_analytics',
     GoogleAnalyticsV4 = 'google_analytics_v4',
     MatomoAnalytics = 'matomo_analytics'
 }
@@ -97,15 +98,11 @@ export function useTypeDetails() {
         },
         [WebhookType.TuneIn]: {
             title: $gettext('TuneIn AIR'),
-            description: $gettext('Send song metadata changes to %{service}.', {service: 'TuneIn'})
+            description: $gettext('Send song metadata changes to TuneIn.')
         },
         [WebhookType.RadioDe]: {
             title: $gettext('Radio.de'),
-            description: $gettext('Send song metadata changes to %{service}.', {service: 'Radio.de'})
-        },
-        [WebhookType.GetMeRadio]: {
-            title: $gettext('GetMeRadio'),
-            description: $gettext('Send song metadata changes to %{service}', {service: 'GetMeRadio'})
+            description: $gettext('Send song metadata changes to Radio.de.')
         },
         [WebhookType.Discord]: {
             title: $gettext('Discord Webhook'),
@@ -115,9 +112,17 @@ export function useTypeDetails() {
             title: $gettext('Telegram Chat Message'),
             description: $gettext('Use the Telegram Bot API to send a message to a channel.')
         },
+        [WebhookType.Twitter]: {
+            title: $gettext('Twitter Post'),
+            description: $gettext('Automatically send a tweet.')
+        },
         [WebhookType.Mastodon]: {
             title: $gettext('Mastodon Post'),
             description: $gettext('Automatically publish to a Mastodon instance.')
+        },
+        [WebhookType.GoogleAnalyticsV3]: {
+            title: $gettext('Google Analytics V3 Integration'),
+            description: $gettext('Send stream listener details to Google Analytics.')
         },
         [WebhookType.GoogleAnalyticsV4]: {
             title: $gettext('Google Analytics V4 Integration'),
@@ -134,7 +139,7 @@ export function getTriggers(type: WebhookType) {
     switch(type) {
         case WebhookType.TuneIn:
         case WebhookType.RadioDe:
-        case WebhookType.GetMeRadio:
+        case WebhookType.GoogleAnalyticsV3:
         case WebhookType.GoogleAnalyticsV4:
         case WebhookType.MatomoAnalytics:
             return [];
@@ -145,6 +150,7 @@ export function getTriggers(type: WebhookType) {
 
         case WebhookType.Discord:
         case WebhookType.Telegram:
+        case WebhookType.Twitter:
         case WebhookType.Mastodon:
         default:
             return allTriggersExceptListeners;

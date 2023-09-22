@@ -14,9 +14,9 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
-import FormBasicInfo from './Form/BasicInfo.vue';
-import {baseEditModalProps, ModalFormTemplateRef, useBaseEditModal} from "~/functions/useBaseEditModal";
+<script setup>
+import FormBasicInfo from './Form/BasicInfo';
+import {baseEditModalProps, useBaseEditModal} from "~/functions/useBaseEditModal";
 import {computed, ref} from "vue";
 import {useNotify} from "~/functions/useNotify";
 import {useTranslate} from "~/vendor/gettext";
@@ -29,7 +29,7 @@ const props = defineProps({
 
 const emit = defineEmits(['relist', 'needs-restart']);
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // Template Ref
 
 const {notifySuccess} = useNotify();
 

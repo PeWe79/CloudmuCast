@@ -56,8 +56,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FlowUpload from '~/components/Common/FlowUpload.vue';
+<script setup>
+import FlowUpload from '~/components/Common/FlowUpload';
 
 import {computed, toRef} from "vue";
 import {useAxios} from "~/vendor/axios";
@@ -94,7 +94,7 @@ const targetUrl = computed(() => {
         : props.newIntroUrl;
 });
 
-const onFileSuccess = (_file, message) => {
+const onFileSuccess = (file, message) => {
     hasIntro.value = true;
 
     if (!props.editIntroUrl) {

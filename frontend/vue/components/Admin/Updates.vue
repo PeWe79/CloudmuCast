@@ -1,6 +1,6 @@
 <template>
     <h2 class="outside-card-header mb-1">
-        {{ $gettext('Update CloudmuCast') }}
+        {{ $gettext('Update AzuraCast') }}
     </h2>
 
     <div class="row row-of-cards">
@@ -34,7 +34,7 @@
                         class="btn btn-info"
                         @click="checkForUpdates()"
                     >
-                        <icon :icon="IconSync" />
+                        <icon icon="sync" />
                         {{ $gettext('Check for Updates') }}
                     </button>
                 </template>
@@ -60,7 +60,7 @@
                         href="https://docs.azuracast.com/en/getting-started/updates/release-channels"
                         target="_blank"
                     >
-                        <icon :icon="IconInfo" />
+                        <icon icon="info" />
                         {{ $gettext('About Release Channels') }}
                     </a>
                 </template>
@@ -71,7 +71,7 @@
         <div class="col col-md-6">
             <card-page
                 header-id="hdr_update_via_web"
-                :title="$gettext('Update CloudmuCast via Web')"
+                :title="$gettext('Update AzuraCast via Web')"
             >
                 <template v-if="enableWebUpdates">
                     <div class="card-body">
@@ -105,7 +105,7 @@
                         :to="{ name: 'admin:backups:index' }"
                         class="btn btn-dark"
                     >
-                        <icon :icon="IconUpload" />
+                        <icon icon="backup" />
                         <span>
                             {{ $gettext('Backup') }}
                         </span>
@@ -115,7 +115,7 @@
                         class="btn btn-success"
                         @click="doUpdate()"
                     >
-                        <icon :icon="IconUpdate" />
+                        <icon icon="update" />
                         <span>
                             {{ $gettext('Update via Web') }}
                         </span>
@@ -135,25 +135,23 @@
                         }}
                     </p>
 
-                    <div class="buttons">
-                        <a
-                            class="btn btn-info"
-                            href="https://docs.azuracast.com/en/getting-started/updates"
-                            target="_blank"
-                        >
-                            <icon :icon="IconInfo" />
-                            <span>
-                                {{ $gettext('Update Instructions') }}
-                            </span>
-                        </a>
-                    </div>
+                    <a
+                        class="btn btn-info"
+                        href="https://docs.azuracast.com/en/getting-started/updates"
+                        target="_blank"
+                    >
+                        <icon icon="info" />
+                        <span>
+                            {{ $gettext('Update Instructions') }}
+                        </span>
+                    </a>
                 </div>
             </card-page>
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {computed, ref} from "vue";
 import Icon from "~/components/Common/Icon.vue";
 import {useTranslate} from "~/vendor/gettext";
@@ -162,7 +160,6 @@ import {useAxios} from "~/vendor/axios";
 import {useSweetAlert} from "~/vendor/sweetalert";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getApiUrl} from "~/router";
-import {IconInfo, IconSync, IconUpdate, IconUpload} from "~/components/Common/icons";
 
 const props = defineProps({
     releaseChannel: {
@@ -201,11 +198,13 @@ const needsUpdates = computed(() => {
     }
 });
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const checkForUpdates = () => {
-    axios.get(updatesApiUrl.value).then((resp) => {
+    wrapWithLoading(
+        axios.get(updatesApiUrl.value)
+    ).then((resp) => {
         updateInfo.value = resp.data;
     });
 };
@@ -214,10 +213,12 @@ const {showAlert} = useSweetAlert();
 
 const doUpdate = () => {
     showAlert({
-        title: $gettext('Update CloudmuCast? Your installation will restart.')
+        title: $gettext('Update AzuraCast? Your installation will restart.')
     }).then((result) => {
         if (result.value) {
-            axios.put(updatesApiUrl.value).then(() => {
+            wrapWithLoading(
+                axios.put(props.updatesApiUrl)
+            ).then(() => {
                 notifySuccess(
                     $gettext('Update started. Your installation will restart shortly.')
                 );

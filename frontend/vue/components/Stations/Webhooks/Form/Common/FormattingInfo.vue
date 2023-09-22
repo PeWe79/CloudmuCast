@@ -24,9 +24,9 @@
     </form-markup>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormMarkup from "~/components/Form/FormMarkup.vue";
 import {inject} from "vue";
 
-const nowPlayingUrl = inject<string>('nowPlayingUrl');
+const nowPlayingUrl = inject('nowPlayingUrl');
 </script>

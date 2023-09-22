@@ -39,7 +39,7 @@
             :aria-label="$gettext('Stop')"
             @click="stop()"
         >
-            <icon :icon="IconStop" />
+            <icon icon="stop" />
         </button>
         <div class="inline-volume-controls d-inline-flex align-items-center ms-2">
             <div class="flex-shrink-0">
@@ -65,7 +65,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import AudioPlayer from '~/components/Common/AudioPlayer.vue';
 import formatTime from '~/functions/formatTime';
 import Icon from '~/components/Common/Icon.vue';
@@ -73,7 +73,6 @@ import {usePlayerStore} from "~/store";
 import {computed, ref, toRef} from "vue";
 import MuteButton from "~/components/Common/MuteButton.vue";
 import usePlayerVolume from "~/functions/usePlayerVolume";
-import {IconStop} from "~/components/Common/icons";
 
 defineOptions({
     inheritAttrs: false
@@ -86,7 +85,7 @@ const current = toRef(store, 'current');
 const volume = usePlayerVolume();
 const isMuted = ref(false);
 
-const $player = ref<InstanceType<typeof AudioPlayer> | null>(null);
+const $player = ref(); // AudioPlayer
 
 const duration = computed(() => {
     return $player.value?.getDuration();

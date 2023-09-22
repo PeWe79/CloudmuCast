@@ -10,7 +10,7 @@
                 :field="v$.custom_listen_url"
                 advanced
                 :label="$gettext('Mount Point URL')"
-                :description="$gettext('You can set a custom URL for this stream that CloudmuCast will use when referring to it. Leave empty to use the default value.')"
+                :description="$gettext('You can set a custom URL for this stream that AzuraCast will use when referring to it. Leave empty to use the default value.')"
             />
         </div>
         <div
@@ -31,9 +31,9 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {FrontendAdapter} from '~/components/Entity/RadioAdapters';
-import FormGroupField from "~/components/Form/FormGroupField.vue";
+import FormGroupField from "~/components/Form/FormGroupField";
 import {computed} from "vue";
 import {useVModel} from "@vueuse/core";
 import {useVuelidateOnFormTab} from "~/functions/useVuelidateOnFormTab";
@@ -59,9 +59,7 @@ const isIcecast = computed(() => {
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        const validations: {
-            [key: string | number]: any
-        } = {
+        const validations = {
             custom_listen_url: {}
         };
 
@@ -73,9 +71,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        const blankForm: {
-            [key: string | number]: any
-        } = {
+        const blankForm = {
             custom_listen_url: null,
         };
 

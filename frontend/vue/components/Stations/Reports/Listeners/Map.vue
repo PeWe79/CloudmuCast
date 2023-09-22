@@ -23,7 +23,7 @@
     </inner-map>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import InnerMap from "./InnerMap.vue";
 import MapPoint from "./MapPoint.vue";
 import {computed} from "vue";
@@ -31,7 +31,7 @@ import {filter} from "lodash";
 
 const props = defineProps({
     listeners: {
-        type: Array<any>,
+        type: Array,
         default: () => {
             return [];
         }

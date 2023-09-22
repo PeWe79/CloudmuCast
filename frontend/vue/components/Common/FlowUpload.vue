@@ -42,7 +42,7 @@
         </div>
         <div
             ref="$fileDropTarget"
-            class="file-drop-target buttons"
+            class="file-drop-target"
         >
             {{ $gettext('Drag file(s) here to upload or') }}
             <button
@@ -50,7 +50,7 @@
                 type="button"
                 class="file-upload btn btn-primary text-center ms-1"
             >
-                <icon :icon="IconUpload" />
+                <icon icon="cloud_upload" />
                 <span>
                     {{ $gettext('Select File') }}
                 </span>
@@ -66,7 +66,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import formatFileSize from '~/functions/formatFileSize';
 import Icon from './Icon.vue';
 import {defaultsDeep, forEach, toInteger} from 'lodash';
@@ -74,7 +74,6 @@ import {computed, onMounted, onUnmounted, reactive, ref} from "vue";
 import Flow from "@flowjs/flow.js";
 import {useAzuraCast} from "~/vendor/azuracast";
 import {useTranslate} from "~/vendor/gettext";
-import {IconUpload} from "~/components/Common/icons";
 
 const props = defineProps({
     targetUrl: {
@@ -99,23 +98,6 @@ const props = defineProps({
     }
 });
 
-interface FlowFile {
-    uniqueIdentifier: string,
-    isVisible: boolean,
-    name: string,
-    isCompleted: boolean,
-    progressPercent: number,
-    error?: string,
-    size: string
-}
-
-interface OriginalFlowFile {
-    uniqueIdentifier: string,
-    name: string,
-    size: number,
-    progress(): number
-}
-
 const emit = defineEmits(['complete', 'success', 'error']);
 
 const validMimeTypesList = computed(() => {
@@ -124,17 +106,9 @@ const validMimeTypesList = computed(() => {
 
 let flow = null;
 
-const files = reactive<{
-    value: {
-        [key: string]: FlowFile
-    },
-    push(file: OriginalFlowFile): void,
-    get(file: OriginalFlowFile): FlowFile,
-    hideAll(): void,
-    reset(): void
-}>({
+const files = reactive({
     value: {},
-    push(file: OriginalFlowFile): void {
+    push(file) {
         this.value[file.uniqueIdentifier] = {
             name: file.name,
             uniqueIdentifier: file.uniqueIdentifier,
@@ -145,11 +119,11 @@ const files = reactive<{
             error: null
         };
     },
-    get(file: OriginalFlowFile): FlowFile {
+    get(file) {
         return this.value[file.uniqueIdentifier] ?? {};
     },
     hideAll() {
-        forEach(this.value, (file: FlowFile) => {
+        forEach(this.value, (file) => {
             file.isVisible = false;
         });
     },
@@ -158,8 +132,8 @@ const files = reactive<{
     }
 });
 
-const $fileBrowseTarget = ref<HTMLButtonElement | null>(null);
-const $fileDropTarget = ref<HTMLDivElement | null>(null);
+const $fileBrowseTarget = ref(); // Template Ref
+const $fileDropTarget = ref(); // Template Ref
 
 const {apiCsrf} = useAzuraCast();
 
@@ -191,7 +165,7 @@ onMounted(() => {
     flow.assignBrowse($fileBrowseTarget.value);
     flow.assignDrop($fileDropTarget.value);
 
-    flow.on('fileAdded', (file: OriginalFlowFile) => {
+    flow.on('fileAdded', (file) => {
         files.push(file);
         return true;
     });
@@ -200,18 +174,18 @@ onMounted(() => {
         flow.upload();
     });
 
-    flow.on('fileProgress', (file: OriginalFlowFile) => {
+    flow.on('fileProgress', (file) => {
       files.get(file).progressPercent = toInteger(file.progress() * 100);
     });
 
-    flow.on('fileSuccess', (file: OriginalFlowFile, message) => {
+    flow.on('fileSuccess', (file, message) => {
         files.get(file).isCompleted = true;
 
         const messageJson = JSON.parse(message);
         emit('success', file, messageJson);
     });
 
-    flow.on('error', (message, file: OriginalFlowFile, chunk) => {
+    flow.on('error', (message, file, chunk) => {
         console.error(message, file, chunk);
 
         let messageText = $gettext('Could not upload file.');

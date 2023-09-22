@@ -15,7 +15,8 @@
                 :types="buildTypeInfo([
                     WebhookType.Discord,
                     WebhookType.Telegram,
-                    WebhookType.Mastodon
+                    WebhookType.Mastodon,
+                    WebhookType.Twitter
                 ])"
                 @select="selectType"
             />
@@ -25,8 +26,7 @@
                 :title="$gettext('Station Directories')"
                 :types="buildTypeInfo([
                     WebhookType.TuneIn,
-                    WebhookType.RadioDe,
-                    WebhookType.GetMeRadio
+                    WebhookType.RadioDe
                 ])"
                 @select="selectType"
             />
@@ -34,6 +34,7 @@
             <type-select-section
                 :title="$gettext('Analytics')"
                 :types="buildTypeInfo([
+                    WebhookType.GoogleAnalyticsV3,
                     WebhookType.GoogleAnalyticsV4,
                     WebhookType.MatomoAnalytics
                 ])"
@@ -43,7 +44,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {WebhookType} from "~/components/Entity/Webhooks";
 import TypeSelectSection from "~/components/Stations/Webhooks/Form/TypeSelectSection.vue";
 import {get, map} from "lodash";

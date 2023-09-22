@@ -52,8 +52,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {BackendAdapter} from "~/components/Entity/RadioAdapters";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";

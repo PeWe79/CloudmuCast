@@ -18,7 +18,6 @@ use Psr\Http\Message\ResponseInterface;
 
 #[OA\Delete(
     path: '/station/{station_id}/podcast/{podcast_id}/episode/{episode_id}/media',
-    operationId: 'deletePodcastEpisodeMedia',
     description: 'Removes the media for a podcast episode.',
     security: OpenApi::API_KEY_SECURITY,
     tags: ['Stations: Podcasts'],

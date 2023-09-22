@@ -30,26 +30,27 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
-import TypeSelect from "./Form/TypeSelect.vue";
-import BasicInfo from "./Form/BasicInfo.vue";
+<script setup>
+import TypeSelect from "./Form/TypeSelect";
+import BasicInfo from "./Form/BasicInfo";
 import {get, map} from "lodash";
-import Generic from "./Form/Generic.vue";
-import Email from "./Form/Email.vue";
-import Tunein from "./Form/Tunein.vue";
-import Discord from "./Form/Discord.vue";
-import Telegram from "./Form/Telegram.vue";
-import GoogleAnalyticsV4 from "./Form/GoogleAnalyticsV4.vue";
-import MatomoAnalytics from "./Form/MatomoAnalytics.vue";
-import Mastodon from "./Form/Mastodon.vue";
-import {baseEditModalProps, ModalFormTemplateRef, useBaseEditModal} from "~/functions/useBaseEditModal";
+import Generic from "./Form/Generic";
+import Email from "./Form/Email";
+import Tunein from "./Form/Tunein";
+import Discord from "./Form/Discord";
+import Telegram from "./Form/Telegram";
+import Twitter from "./Form/Twitter";
+import GoogleAnalyticsV3 from "./Form/GoogleAnalyticsV3";
+import GoogleAnalyticsV4 from "./Form/GoogleAnalyticsV4";
+import MatomoAnalytics from "./Form/MatomoAnalytics";
+import Mastodon from "./Form/Mastodon";
+import {baseEditModalProps, useBaseEditModal} from "~/functions/useBaseEditModal";
 import {computed, nextTick, provide, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import ModalForm from "~/components/Common/ModalForm.vue";
 import {getTriggers, WebhookType} from "~/components/Entity/Webhooks";
 import Tabs from "~/components/Common/Tabs.vue";
 import RadioDe from "~/components/Stations/Webhooks/Form/RadioDe.vue";
-import GetMeRadio from "~/components/Stations/Webhooks/Form/GetMeRadio.vue";
 
 const props = defineProps({
     ...baseEditModalProps,
@@ -73,17 +74,18 @@ const emit = defineEmits(['relist']);
 
 const type = ref(null);
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // Template Ref
 
 const webhookComponents = {
     [WebhookType.Generic]: Generic,
     [WebhookType.Email]: Email,
     [WebhookType.TuneIn]: Tunein,
     [WebhookType.RadioDe]: RadioDe,
-    [WebhookType.GetMeRadio]: GetMeRadio,
     [WebhookType.Discord]: Discord,
     [WebhookType.Telegram]: Telegram,
+    [WebhookType.Twitter]: Twitter,
     [WebhookType.Mastodon]: Mastodon,
+    [WebhookType.GoogleAnalyticsV3]: GoogleAnalyticsV3,
     [WebhookType.GoogleAnalyticsV4]: GoogleAnalyticsV4,
     [WebhookType.MatomoAnalytics]: MatomoAnalytics,
 };

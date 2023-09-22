@@ -38,7 +38,7 @@
     </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import InfoCard from "~/components/Common/InfoCard.vue";
 
 const props = defineProps({

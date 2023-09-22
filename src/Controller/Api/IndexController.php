@@ -15,7 +15,6 @@ final class IndexController
 {
     #[OA\Get(
         path: '/status',
-        operationId: 'getStatus',
         description: 'Returns an affirmative response if the API is active.',
         tags: ['Miscellaneous'],
         parameters: [],
@@ -36,7 +35,6 @@ final class IndexController
 
     #[OA\Get(
         path: '/time',
-        operationId: 'getTime',
         description: "Returns the time (with formatting) in GMT and the user's local time zone, if logged in.",
         tags: ['Miscellaneous'],
         parameters: [],

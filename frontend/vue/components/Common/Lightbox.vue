@@ -6,7 +6,7 @@
     />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import VueEasyLightbox from "vue-easy-lightbox";
 import {ref} from "vue";
 

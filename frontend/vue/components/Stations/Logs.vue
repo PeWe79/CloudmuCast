@@ -55,14 +55,14 @@
                         }}
                     </p>
                 </div>
-                <div class="card-body buttons">
+                <div class="card-body">
                     <a
                         class="btn btn-primary"
                         role="button"
                         href="https://github.com/AzuraCast/AzuraCast/issues/new/choose"
                         target="_blank"
                     >
-                        <icon :icon="IconSupport" />
+                        <icon icon="contact_support" />
                         <span>
                             {{ $gettext('Add New GitHub Issue') }}
                         </span>
@@ -74,16 +74,16 @@
 </template>
 
 <script setup lang="ts">
-import Icon from "~/components/Common/Icon.vue";
-import StreamingLogModal from "~/components/Common/StreamingLogModal.vue";
-import LogList from "~/components/Common/LogList.vue";
-import {ref} from "vue";
+import Icon from "~/components/Common/Icon";
+import StreamingLogModal from "~/components/Common/StreamingLogModal";
+import LogList from "~/components/Common/LogList";
+import {Ref, ref} from "vue";
 import {getStationApiUrl} from "~/router";
-import {IconSupport} from "~/components/Common/icons.ts";
+import Modal from "~/components/Common/Modal.vue";
 
 const logsUrl = getStationApiUrl('/logs');
 
-const $modal = ref<InstanceType<typeof StreamingLogModal> | null>(null);
+const $modal: Ref<Modal> = ref();
 
 const viewLog = (url, isStreaming) => {
     $modal.value?.show(url, isStreaming);

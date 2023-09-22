@@ -48,7 +48,7 @@
                 class="btn btn-link text-secondary"
                 @click="makeApiCall(backendRestartUri)"
             >
-                <icon :icon="IconUpdate" />
+                <icon icon="update" />
                 <span>
                     {{ $gettext('Restart') }}
                 </span>
@@ -59,7 +59,7 @@
                 class="btn btn-link text-success"
                 @click="makeApiCall(backendStartUri)"
             >
-                <icon :icon="IconPlay" />
+                <icon icon="play_arrow" />
                 <span>
                     {{ $gettext('Start') }}
                 </span>
@@ -70,7 +70,7 @@
                 class="btn btn-link text-danger"
                 @click="makeApiCall(backendStopUri)"
             >
-                <icon :icon="IconStop" />
+                <icon icon="stop" />
                 <span>
                     {{ $gettext('Stop') }}
                 </span>
@@ -79,16 +79,15 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {BackendAdapter} from '~/components/Entity/RadioAdapters';
-import Icon from '~/components/Common/Icon.vue';
+import Icon from '~/components/Common/Icon';
 import RunningBadge from "~/components/Common/Badges/RunningBadge.vue";
 import {useTranslate} from "~/vendor/gettext";
 import {computed} from "vue";
 import backendPanelProps from "~/components/Stations/Profile/backendPanelProps";
 import CardPage from "~/components/Common/CardPage.vue";
 import {StationPermission, userAllowedForStation} from "~/acl";
-import {IconPlay, IconStop, IconUpdate} from "~/components/Common/icons";
 
 const props = defineProps({
     ...backendPanelProps,

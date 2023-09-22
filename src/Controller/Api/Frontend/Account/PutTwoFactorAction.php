@@ -44,7 +44,7 @@ final class PutTwoFactorAction implements SingleActionInterface
             $user = $request->getUser();
 
             $totp = TOTP::create($secret);
-            $totp->setLabel($user->getEmail() ?: 'CloudmuCast');
+            $totp->setLabel($user->getEmail() ?: 'AzuraCast');
 
             if (!empty($params['otp'])) {
                 if ($totp->verify($params['otp'], null, Auth::TOTP_WINDOW)) {
@@ -61,7 +61,7 @@ final class PutTwoFactorAction implements SingleActionInterface
             }
 
             // Further customize TOTP code (with metadata that won't be stored in the DB)
-            $totp->setIssuer('CloudmuCast');
+            $totp->setIssuer('AzuraCast');
             $totp->setParameter('image', 'https://www.azuracast.com/img/logo.png');
 
             // Generate QR code

@@ -9,7 +9,7 @@
         </div>
         <div>
             <icon
-                :icon="IconArrowRight"
+                icon="arrow_right"
                 class="xl"
             />
         </div>
@@ -22,7 +22,7 @@
         </div>
         <div>
             <icon
-                :icon="IconArrowRight"
+                icon="arrow_right"
                 class="xl"
             />
         </div>
@@ -36,9 +36,8 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Icon from "~/components/Common/Icon.vue";
-import {IconArrowRight} from "~/components/Common/icons";
 
 const props = defineProps({
     step: {

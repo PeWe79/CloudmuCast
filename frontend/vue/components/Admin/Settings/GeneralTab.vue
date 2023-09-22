@@ -18,8 +18,8 @@
                     id="edit_form_instance_name"
                     class="col-md-6"
                     :field="v$.instance_name"
-                    :label="$gettext('CloudmuCast Instance Name')"
-                    :description="$gettext('This name will appear as a sub-header next to the CloudmuCast logo, to help identify this server.')"
+                    :label="$gettext('AzuraCast Instance Name')"
+                    :description="$gettext('This name will appear as a sub-header next to the AzuraCast logo, to help identify this server.')"
                 />
 
                 <form-group-checkbox
@@ -74,9 +74,9 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
 import {computed} from "vue";
 import {useTranslate} from "~/vendor/gettext";

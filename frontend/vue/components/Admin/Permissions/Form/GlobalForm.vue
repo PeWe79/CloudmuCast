@@ -21,7 +21,7 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {map} from 'lodash';
 import {computed} from "vue";

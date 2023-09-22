@@ -12,7 +12,7 @@
                         :href="exportUrl"
                         target="_blank"
                     >
-                        <icon :icon="IconDownload" />
+                        <icon icon="file_download" />
                         <span>
                             {{ $gettext('Download CSV') }}
                         </span>
@@ -29,6 +29,7 @@
         </div>
         <data-table
             ref="$datatable"
+            responsive
             paginated
             select-fields
             :fields="fields"
@@ -38,13 +39,13 @@
                 <span class="typography-subheading">
                     <template v-if="row.item.delta_total > 0">
                         <span class="text-success">
-                            <icon :icon="IconTrendingUp" />
+                            <icon icon="trending_up" />
                             {{ abs(row.item.delta_total) }}
                         </span>
                     </template>
                     <template v-else-if="row.item.delta_total < 0">
                         <span class="text-danger">
-                            <icon :icon="IconTrendingDown" />
+                            <icon icon="trending_down" />
                             {{ abs(row.item.delta_total) }}
                         </span>
                     </template>
@@ -84,17 +85,15 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import Icon from "~/components/Common/Icon.vue";
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
-import DateRangeDropdown from "~/components/Common/DateRangeDropdown.vue";
+<script setup>
+import Icon from "~/components/Common/Icon";
+import DataTable from "~/components/Common/DataTable";
+import DateRangeDropdown from "~/components/Common/DateRangeDropdown";
 import {useAzuraCast, useAzuraCastStation} from "~/vendor/azuracast";
 import {computed, ref, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useLuxon} from "~/vendor/luxon";
 import {getStationApiUrl} from "~/router";
-import {IconDownload, IconTrendingDown, IconTrendingUp} from "~/components/Common/icons";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
 
 const baseApiUrl = getStationApiUrl('/history');
 
@@ -113,7 +112,7 @@ const dateRange = ref(
 const {$gettext} = useTranslate();
 const {timeConfig} = useAzuraCast();
 
-const fields: DataTableField[] = [
+const fields = [
     {
         key: 'played_at',
         label: $gettext('Date/Time (Browser)'),
@@ -134,7 +133,7 @@ const fields: DataTableField[] = [
         sortable: false,
         selectable: true,
         visible: false,
-        formatter: (_value, _key, item) => {
+        formatter: (value, key, item) => {
             return DateTime.fromSeconds(
                 item.played_at,
                 {zone: timezone}
@@ -171,7 +170,7 @@ const fields: DataTableField[] = [
 ];
 
 const apiUrl = computed(() => {
-    const apiUrl = new URL(baseApiUrl.value, document.location.href);
+    const apiUrl = new URL(baseApiUrl.value, document.location);
 
     const apiUrlParams = apiUrl.searchParams;
     apiUrlParams.set('start', DateTime.fromJSDate(dateRange.value.startDate).toISO());
@@ -181,7 +180,7 @@ const apiUrl = computed(() => {
 });
 
 const exportUrl = computed(() => {
-    const exportUrl = new URL(apiUrl.value, document.location.href);
+    const exportUrl = new URL(apiUrl.value, document.location);
     const exportUrlParams = exportUrl.searchParams;
 
     exportUrlParams.set('format', 'csv');
@@ -193,8 +192,11 @@ const abs = (val) => {
     return Math.abs(val);
 };
 
-const $datatable = ref<DataTableTemplateRef>(null);
-const {navigate} = useHasDatatable($datatable);
+const $datatable = ref(); // Template Ref
 
-watch(dateRange, navigate);
+const relist = () => {
+    $datatable.value.relist();
+};
+
+watch(dateRange, relist);
 </script>

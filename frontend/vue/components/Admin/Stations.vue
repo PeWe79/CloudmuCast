@@ -1,10 +1,16 @@
 <template>
     <card-page :title="$gettext('Stations')">
         <template #actions>
-            <add-button
-                :text="$gettext('Add Station')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Station') }}
+                </span>
+            </button>
         </template>
 
         <data-table
@@ -73,22 +79,21 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import AdminStationsEditModal from "./Stations/EditModal.vue";
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import Icon from '~/components/Common/Icon';
+import AdminStationsEditModal from "./Stations/EditModal";
 import {get} from "lodash";
-import AdminStationsCloneModal from "./Stations/CloneModal.vue";
+import AdminStationsCloneModal from "./Stations/CloneModal";
 import stationFormProps from "./Stations/stationFormProps";
 import {pickProps} from "~/functions/pickProps";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
-import CloneModal from "~/components/Admin/Stations/CloneModal.vue";
 
 const props = defineProps({
     ...stationFormProps,
@@ -106,7 +111,7 @@ const listUrl = getApiUrl('/admin/stations');
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {
         key: 'name',
         isRowHeader: true,
@@ -137,13 +142,13 @@ const fields: DataTableField[] = [
     }
 ];
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 const {relist} = useHasDatatable($datatable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // Template Ref
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
-const $cloneModal = ref<InstanceType<typeof CloneModal> | null>(null);
+const $cloneModal = ref(); // Template Ref
 
 const doClone = (stationName, url) => {
     $cloneModal.value.create(stationName, url);

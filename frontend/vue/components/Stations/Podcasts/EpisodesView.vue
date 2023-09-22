@@ -35,15 +35,21 @@
                 class="btn btn-secondary"
                 @click="doClearPodcast()"
             >
-                <icon :icon="IconChevronLeft" />
+                <icon icon="arrow_back" />
                 <span>
                     {{ $gettext('All Podcasts') }}
                 </span>
             </button>
-            <add-button
-                :text="$gettext('Add Episode')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Episode') }}
+                </span>
+            </button>
         </div>
 
         <data-table
@@ -110,20 +116,17 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import EditModal from './EpisodeEditModal.vue';
-import Icon from '~/components/Common/Icon.vue';
-import AlbumArt from '~/components/Common/AlbumArt.vue';
-import StationsCommonQuota from "~/components/Stations/Common/Quota.vue";
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import EditModal from './EpisodeEditModal';
+import Icon from '~/components/Common/Icon';
+import AlbumArt from '~/components/Common/AlbumArt';
+import StationsCommonQuota from "~/components/Stations/Common/Quota";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
 import {useSweetAlert} from "~/vendor/sweetalert";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
-import AddButton from "~/components/Common/AddButton.vue";
-import {IconChevronLeft} from "~/components/Common/icons";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
 
 const props = defineProps({
     quotaUrl: {
@@ -140,7 +143,7 @@ const emit = defineEmits(['clear-podcast']);
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'art', label: $gettext('Art'), sortable: false, class: 'shrink pe-0'},
     {key: 'title', label: $gettext('Episode'), sortable: false},
     {key: 'podcast_media', label: $gettext('File Name'), sortable: false},
@@ -148,22 +151,22 @@ const fields: DataTableField[] = [
     {key: 'actions', label: $gettext('Actions'), sortable: false, class: 'shrink'}
 ];
 
-const $quota = ref<InstanceType<typeof StationsCommonQuota> | null>(null);
-const $datatable = ref<DataTableTemplateRef>(null);
+const $quota = ref(); // Template Ref
+const $datatable = ref(); // Template Ref
 
 const relist = () => {
-    $quota.value?.update();
+    $quota.value.update();
     $datatable.value?.refresh();
 };
 
-const $editEpisodeModal = ref<InstanceType<typeof EditModal> | null>(null);
+const $editEpisodeModal = ref(); // Template Ref
 
 const doCreate = () => {
-    $editEpisodeModal.value?.create();
+    $editEpisodeModal.value.create();
 };
 
 const doEdit = (url) => {
-    $editEpisodeModal.value?.edit(url);
+    $editEpisodeModal.value.edit(url);
 };
 
 const doClearPodcast = () => {
@@ -171,7 +174,7 @@ const doClearPodcast = () => {
 };
 
 const {confirmDelete} = useSweetAlert();
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doDelete = (url) => {
@@ -179,7 +182,9 @@ const doDelete = (url) => {
         title: $gettext('Delete Episode?'),
     }).then((result) => {
         if (result.value) {
-            axios.delete(url).then((resp) => {
+            wrapWithLoading(
+                axios.delete(url)
+            ).then((resp) => {
                 notifySuccess(resp.data.message);
                 relist();
             });

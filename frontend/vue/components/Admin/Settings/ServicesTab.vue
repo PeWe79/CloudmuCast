@@ -5,7 +5,7 @@
     >
         <form-fieldset>
             <template #label>
-                {{ $gettext('CloudmuCast Update Checks') }}
+                {{ $gettext('AzuraCast Update Checks') }}
             </template>
 
             <div class="row g-3">
@@ -19,7 +19,7 @@
                             href="https://docs.azuracast.com/en/getting-started/updates/release-channels"
                             target="_blank"
                         >
-                            {{ $gettext('Learn more about release channels in the CloudmuCast docs.') }}
+                            {{ $gettext('Learn more about release channels in the AzuraCast docs.') }}
                         </a>
                     </template>
 
@@ -33,7 +33,7 @@
                     class="col-md-6"
                     :field="v$.check_for_updates"
                     :label="$gettext('Show Update Announcements')"
-                    :description="$gettext('Show new releases within your update channel on the CloudmuCast homepage.')"
+                    :description="$gettext('Show new releases within your update channel on the AzuraCast homepage.')"
                 />
             </div>
         </form-fieldset>
@@ -54,7 +54,7 @@
                     class="col-md-6"
                     :field="v$.acme_domains"
                     :label="$gettext('Domain Name(s)')"
-                    :description="$gettext('All listed domain names should point to this CloudmuCast installation. Separate multiple domain names with commas.')"
+                    :description="$gettext('All listed domain names should point to this AzuraCast installation. Separate multiple domain names with commas.')"
                 />
 
                 <form-group-field
@@ -73,7 +73,7 @@
                         :disabled="v$.$anyDirty"
                         @click="generateAcmeCert"
                     >
-                        <icon :icon="IconBadge" />
+                        <icon icon="badge" />
                         <span>
                             {{ $gettext('Generate/Renew Certificate') }}
                             <span v-if="v$.$anyDirty">
@@ -166,7 +166,7 @@
                         :disabled="v$.$anyDirty"
                         @click="openTestMessage"
                     >
-                        <icon :icon="IconSend" />
+                        <icon icon="send" />
                         <span>
                             {{ $gettext('Send Test Message') }}
                             <span v-if="v$.$anyDirty">
@@ -255,22 +255,22 @@
     />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormMarkup from "~/components/Form/FormMarkup.vue";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
 import AdminSettingsTestMessageModal from "~/components/Admin/Settings/TestMessageModal.vue";
 import Icon from "~/components/Common/Icon.vue";
 import StreamingLogModal from "~/components/Common/StreamingLogModal.vue";
 import {computed, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
+import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import FormGroupMultiCheck from "~/components/Form/FormGroupMultiCheck.vue";
 import {useVModel} from "@vueuse/core";
 import {useVuelidateOnFormTab} from "~/functions/useVuelidateOnFormTab";
 import Tab from "~/components/Common/Tab.vue";
-import {IconBadge, IconSend} from "~/components/Common/icons";
 
 const props = defineProps({
     form: {
@@ -359,18 +359,21 @@ const avatarServiceOptions = computed(() => {
     ]
 });
 
-const $acmeModal = ref<InstanceType<typeof StreamingLogModal> | null>(null);
+const $acmeModal = ref(); // StreamingLogModal
+const {wrapWithLoading} = useNotify();
 const {axios} = useAxios();
 
 const generateAcmeCert = () => {
-    axios.put(props.acmeUrl).then((resp) => {
-        $acmeModal.value?.show(resp.data.links.log);
+    wrapWithLoading(
+        axios.put(props.acmeUrl)
+    ).then((resp) => {
+        $acmeModal.value.show(resp.data.links.log);
     });
 }
 
-const $testMessageModal = ref<InstanceType<typeof AdminSettingsTestMessageModal> | null>(null);
+const $testMessageModal = ref(); // TestMessageModal
 
 const openTestMessage = () => {
-    $testMessageModal.value?.open();
+    $testMessageModal.value.open();
 }
 </script>

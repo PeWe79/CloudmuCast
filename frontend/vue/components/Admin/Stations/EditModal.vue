@@ -28,7 +28,7 @@
             <button
                 class="btn btn-secondary"
                 type="button"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -44,7 +44,7 @@
     </modal>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import AdminStationsForm from "~/components/Admin/Stations/StationForm.vue";
 import InvisibleSubmitButton from "~/components/Common/InvisibleSubmitButton.vue";
 import {computed, ref} from "vue";
@@ -52,7 +52,6 @@ import {useTranslate} from "~/vendor/gettext";
 import stationFormProps from "~/components/Admin/Stations/stationFormProps";
 import {pickProps} from "~/functions/pickProps";
 import Modal from "~/components/Common/Modal.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     ...stationFormProps,
@@ -79,8 +78,7 @@ const langTitle = computed(() => {
         : $gettext('Add Station');
 });
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // BModal
 
 const onValidUpdate = (newValue) => {
     disableSaveButton.value = !newValue;
@@ -88,27 +86,31 @@ const onValidUpdate = (newValue) => {
 
 const create = () => {
     editUrl.value = null;
-    show();
+    $modal.value.show();
 };
 
 const edit = (recordUrl) => {
     editUrl.value = recordUrl;
-    show();
+    $modal.value.show();
 };
 
-const $form = ref<InstanceType<typeof AdminStationsForm> | null>(null);
+const $form = ref(); // AdminStationsForm
 
 const resetForm = () => {
-    $form.value?.reset();
+    $form.value.reset();
+};
+
+const close = () => {
+    $modal.value.hide();
 };
 
 const onSubmit = () => {
     emit('relist');
-    hide();
+    close();
 };
 
 const doSubmit = () => {
-    $form.value?.submit();
+    $form.value.submit();
 };
 
 const clearContents = () => {

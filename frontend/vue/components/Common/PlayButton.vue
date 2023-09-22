@@ -7,20 +7,20 @@
         @click="toggle"
     >
         <icon
+            class="outlined"
             :class="iconClass"
             :icon="iconText"
         />
     </button>
 </template>
 
-<script setup lang="ts">
-import Icon from "./Icon.vue";
+<script setup>
+import Icon from "./Icon";
 import {usePlayerStore} from "~/store";
-import {computed} from "vue";
+import {computed, toRef} from "vue";
+import {get} from "@vueuse/core";
 import {useTranslate} from "~/vendor/gettext";
-import {IconPlayCircle, IconStopCircle} from "~/components/Common/icons";
-import {storeToRefs} from "pinia";
-import getUrlWithoutQuery from "~/functions/getUrlWithoutQuery.ts";
+import getUrlWithoutQuery from "~/functions/getUrlWithoutQuery";
 
 const props = defineProps({
     url: {
@@ -42,14 +42,16 @@ const props = defineProps({
 });
 
 const $store = usePlayerStore();
-const {isPlaying, current} = storeToRefs($store);
+
+const isPlaying = toRef($store, 'isPlaying');
+const current = toRef($store, 'current');
 
 const isThisPlaying = computed(() => {
-    if (!isPlaying.value) {
+    if (!get(isPlaying)) {
         return false;
     }
 
-    const playingUrl = getUrlWithoutQuery(current.value?.url);
+    const playingUrl = getUrlWithoutQuery(get(current).url);
     const thisUrl = getUrlWithoutQuery(props.url);
     return playingUrl === thisUrl;
 });
@@ -57,15 +59,15 @@ const isThisPlaying = computed(() => {
 const {$gettext} = useTranslate();
 
 const langTitle = computed(() => {
-    return isThisPlaying.value
+    return get(isThisPlaying)
         ? $gettext('Stop')
         : $gettext('Play');
 });
 
 const iconText = computed(() => {
-    return isThisPlaying.value
-        ? IconStopCircle
-        : IconPlayCircle;
+    return get(isThisPlaying)
+        ? 'stop_circle'
+        : 'play_circle';
 });
 
 const toggle = () => {
@@ -77,6 +79,9 @@ const toggle = () => {
 };
 
 defineExpose({
+    current,
+    isPlaying,
+    isThisPlaying,
     toggle
 })
 </script>

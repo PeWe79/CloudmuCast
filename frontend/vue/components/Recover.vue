@@ -48,7 +48,7 @@
                     >
                         <template #label>
                             <icon
-                                :icon="IconVpnKey"
+                                icon="vpn_key"
                                 class="me-1"
                             />
                             {{ $gettext('Password') }}
@@ -70,13 +70,12 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import Icon from "~/components/Common/Icon.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
+import Icon from "~/components/Common/Icon";
 import validatePassword from '~/functions/validatePassword';
 import {required} from '@vuelidate/validators';
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
-import {IconVpnKey} from "~/components/Common/icons";
 
 const props = defineProps({
     csrf: {

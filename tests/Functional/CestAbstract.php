@@ -101,7 +101,7 @@ abstract class CestAbstract
 
         // Create user account.
         $user = new User();
-        $user->setName('AzuraCast Test User');
+        $user->setName('CloudmuCast Test User');
         $user->setEmail($this->login_username);
         $user->setNewPassword($this->login_password);
         $user->getRoles()->add($role);

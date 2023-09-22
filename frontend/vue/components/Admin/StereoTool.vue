@@ -28,7 +28,7 @@
 
                             <p class="card-text">
                                 {{
-                                    $gettext('Stereo Tool is not free software, and its restrictive license does not allow CloudmuCast to distribute the Stereo Tool binary.')
+                                    $gettext('Stereo Tool is not free software, and its restrictive license does not allow AzuraCast to distribute the Stereo Tool binary.')
                                 }}
                             </p>
 
@@ -112,8 +112,8 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
-import FlowUpload from "~/components/Common/FlowUpload.vue";
+<script setup>
+import FlowUpload from "~/components/Common/FlowUpload";
 import {computed, onMounted, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
@@ -141,7 +141,7 @@ const langInstalledVersion = computed(() => {
 
 const {notifyError} = useNotify();
 
-const onError = (_file, message) => {
+const onError = (file, message) => {
     notifyError(message);
 };
 

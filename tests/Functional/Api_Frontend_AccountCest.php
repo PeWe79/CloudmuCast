@@ -23,19 +23,19 @@ class Api_Frontend_AccountCest extends CestAbstract
         $I->seeResponseContainsJson(
             [
                 'email' => $this->login_username,
-                'name'  => 'CloudmuTest Test User',
+                'name'  => 'CloudmuCast Test User',
             ]
         );
 
         // PUT me endpoint
         $I->sendPut('/api/frontend/account/me', [
-            'name' => 'CloudmuTest User with New Name',
+            'name' => 'CloudmuCast User with New Name',
         ]);
         $I->seeResponseCodeIsSuccessful();
 
         $I->sendGet('/api/frontend/account/me');
         $I->seeResponseContainsJson([
-            'name' => 'CloudmuTest User with New Name',
+            'name' => 'CloudmuCast User with New Name',
         ]);
 
         // PUT password endpoint

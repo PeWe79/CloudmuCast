@@ -39,9 +39,10 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {onMounted, ref} from "vue";
 import {useAxios} from "~/vendor/axios";
+import {useNotify} from "~/functions/useNotify";
 import Loading from "~/components/Common/Loading.vue";
 import FormGroup from "~/components/Form/FormGroup.vue";
 import FormFile from "~/components/Form/FormFile.vue";
@@ -81,6 +82,8 @@ const relist = () => {
 
 onMounted(relist);
 
+const {wrapWithLoading} = useNotify();
+
 const uploaded = (newFile) => {
     if (null === newFile) {
         return;
@@ -89,13 +92,17 @@ const uploaded = (newFile) => {
     const formData = new FormData();
     formData.append('file', newFile);
 
-    axios.post(props.apiUrl, formData).finally(() => {
+    wrapWithLoading(
+        axios.post(props.apiUrl, formData)
+    ).finally(() => {
         relist();
     });
 };
 
 const clear = () => {
-    axios.delete(props.apiUrl).finally(() => {
+    wrapWithLoading(
+        axios.delete(props.apiUrl)
+    ).finally(() => {
         relist();
     });
 };

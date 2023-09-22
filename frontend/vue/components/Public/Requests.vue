@@ -36,10 +36,10 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable';
 import {forEach} from 'lodash';
-import AlbumArt from '~/components/Common/AlbumArt.vue';
+import AlbumArt from '~/components/Common/AlbumArt';
 import {computed} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useAxios} from "~/vendor/axios";
@@ -65,7 +65,7 @@ const emit = defineEmits(['submitted']);
 
 const {$gettext} = useTranslate();
 
-const fields = computed<DataTableField[]>(() => {
+const fields = computed(() => {
     const fields = [
         {
             key: 'name',
@@ -80,7 +80,7 @@ const fields = computed<DataTableField[]>(() => {
             sortable: true,
             selectable: true,
             visible: false,
-            formatter: (_value, _key, item) => item.song.title
+            formatter: (value, key, item) => item.song.title
         },
         {
             key: 'artist',
@@ -88,7 +88,7 @@ const fields = computed<DataTableField[]>(() => {
             sortable: true,
             selectable: true,
             visible: false,
-            formatter: (_value, _key, item) => item.song.artist
+            formatter: (value, key, item) => item.song.artist
         },
         {
             key: 'album',
@@ -96,7 +96,7 @@ const fields = computed<DataTableField[]>(() => {
             sortable: true,
             selectable: true,
             visible: false,
-            formatter: (_value, _key, item) => item.song.album
+            formatter: (value, key, item) => item.song.album
         },
         {
             key: 'genre',
@@ -104,7 +104,7 @@ const fields = computed<DataTableField[]>(() => {
             sortable: true,
             selectable: true,
             visible: false,
-            formatter: (_value, _key, item) => item.song.genre
+            formatter: (value, key, item) => item.song.genre
         }
     ];
 
@@ -115,7 +115,7 @@ const fields = computed<DataTableField[]>(() => {
             sortable: false,
             selectable: true,
             visible: false,
-            formatter: (_value, _key, item) => item.song.custom_fields[field.short_name]
+            formatter: (value, key, item) => item.song.custom_fields[field.short_name]
         });
     });
 
@@ -128,16 +128,14 @@ const fields = computed<DataTableField[]>(() => {
 
 const pageOptions = [10, 25];
 
-const {notifySuccess, notifyError} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doSubmitRequest = (url) => {
-    axios.post(url).then((resp) => {
-        if (resp.data.success) {
-            notifySuccess(resp.data.message);
-        } else {
-            notifyError(resp.data.message);
-        }
+    wrapWithLoading(
+        axios.post(url)
+    ).then((resp) => {
+        notifySuccess(resp.data.message);
     }).finally(() => {
         emit('submitted');
     });

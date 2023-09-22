@@ -27,11 +27,11 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="row in state.bestAndWorst.best"
+                                v-for="row in bestAndWorst.best"
                                 :key="row.song.id"
                             >
                                 <td class=" text-center text-success">
-                                    <icon :icon="IconChevronUp" />
+                                    <icon icon="keyboard_arrow_up" />
                                     {{ row.stat_delta }}
                                     <br>
                                     <small>{{ row.stat_start }} to {{ row.stat_end }}</small>
@@ -67,11 +67,11 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="row in state.bestAndWorst.worst"
+                                v-for="row in bestAndWorst.worst"
                                 :key="row.song.id"
                             >
                                 <td class="text-center text-danger">
-                                    <icon :icon="IconChevronDown" />
+                                    <icon icon="keyboard_arrow_down" />
                                     {{ row.stat_delta }}
                                     <br>
                                     <small>{{ row.stat_start }} to {{ row.stat_end }}</small>
@@ -107,7 +107,7 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="row in state.mostPlayed"
+                                v-for="row in mostPlayed"
                                 :key="row.song.id"
                             >
                                 <td class="text-center">
@@ -125,15 +125,14 @@
     </loading>
 </template>
 
-<script setup lang="ts">
-import Icon from "~/components/Common/Icon.vue";
-import {useAsyncState, useMounted} from "@vueuse/core";
-import {toRef, watch} from "vue";
+<script setup>
+import Icon from "~/components/Common/Icon";
+import {useMounted} from "@vueuse/core";
+import {onMounted, ref, shallowRef, toRef, watch} from "vue";
 import {useAxios} from "~/vendor/axios";
 import SongText from "~/components/Stations/Reports/Overview/SongText.vue";
 import Loading from "~/components/Common/Loading.vue";
 import {useLuxon} from "~/vendor/luxon";
-import {IconChevronDown, IconChevronUp} from "~/components/Common/icons";
 
 const props = defineProps({
     dateRange: {
@@ -146,26 +145,32 @@ const props = defineProps({
     },
 });
 
+const isLoading = ref(true);
+const bestAndWorst = shallowRef({
+    best: [],
+    worst: []
+});
+const mostPlayed = ref([]);
+
 const dateRange = toRef(props, 'dateRange');
 const {axios} = useAxios();
 
 const {DateTime} = useLuxon();
 
-const {state, isLoading, execute: relist} = useAsyncState(
-    () => axios.get(props.apiUrl, {
+const relist = () => {
+    isLoading.value = true;
+
+    axios.get(props.apiUrl, {
         params: {
             start: DateTime.fromJSDate(dateRange.value.startDate).toISO(),
             end: DateTime.fromJSDate(dateRange.value.endDate).toISO()
         }
-    }).then(r => r.data),
-    {
-        bestAndWorst: {
-            best: [],
-            worst: []
-        },
-        mostPlayed: []
-    }
-);
+    }).then((response) => {
+        bestAndWorst.value = response.data.bestAndWorst;
+        mostPlayed.value = response.data.mostPlayed;
+        isLoading.value = false;
+    });
+};
 
 const isMounted = useMounted();
 
@@ -173,5 +178,9 @@ watch(dateRange, () => {
     if (isMounted.value) {
         relist();
     }
+});
+
+onMounted(() => {
+    relist();
 });
 </script>

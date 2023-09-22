@@ -36,16 +36,16 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import ModalForm from "~/components/Common/ModalForm.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
+import ModalForm from "~/components/Common/ModalForm";
 import {helpers, required} from "@vuelidate/validators";
 import validatePassword from "~/functions/validatePassword";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import {ref} from "vue";
+import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useTranslate} from "~/vendor/gettext";
-import {ModalFormTemplateRef} from "~/functions/useBaseEditModal.ts";
 
 const props = defineProps({
     changePasswordUrl: {
@@ -85,23 +85,24 @@ const clearContents = () => {
     resetForm();
 };
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // ModalForm
 
 const open = () => {
     clearContents();
-    $modal.value?.show();
+    $modal.value.show();
 };
 
+const {wrapWithLoading} = useNotify();
 const {axios} = useAxios();
 
 const onSubmit = () => {
     ifValid(() => {
-        axios
-            .put(props.changePasswordUrl, form.value)
-            .finally(() => {
-                $modal.value?.hide();
-                emit('relist');
-            });
+        wrapWithLoading(
+            axios.put(props.changePasswordUrl, form.value)
+        ).finally(() => {
+            $modal.value.hide();
+            emit('relist');
+        });
     });
 };
 

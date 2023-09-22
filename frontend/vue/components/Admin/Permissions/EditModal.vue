@@ -23,14 +23,14 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import ModalForm from "~/components/Common/ModalForm.vue";
 import {computed, ref} from "vue";
-import {baseEditModalProps, ModalFormTemplateRef, useBaseEditModal} from "~/functions/useBaseEditModal";
+import {baseEditModalProps, useBaseEditModal} from "~/functions/useBaseEditModal";
 import {useTranslate} from "~/vendor/gettext";
 import {required} from '@vuelidate/validators';
-import AdminPermissionsGlobalForm from "./Form/GlobalForm.vue";
-import AdminPermissionsStationForm from "./Form/StationForm.vue";
+import AdminPermissionsGlobalForm from "./Form/GlobalForm";
+import AdminPermissionsStationForm from "./Form/StationForm";
 import {forEach, map} from 'lodash';
 import Tabs from "~/components/Common/Tabs.vue";
 
@@ -52,7 +52,7 @@ const props = defineProps({
 
 const emit = defineEmits(['relist']);
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // Template Ref
 
 const {
     loading,

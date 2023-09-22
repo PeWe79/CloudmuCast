@@ -41,8 +41,8 @@
     </section>
 </template>
 
-<script setup lang="ts">
-import Schedule from '~/components/Common/ScheduleView.vue';
+<script setup>
+import Schedule from '~/components/Common/ScheduleView';
 
 const props = defineProps({
     scheduleUrl: {

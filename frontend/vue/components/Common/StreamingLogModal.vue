@@ -24,7 +24,7 @@
             <button
                 class="btn btn-secondary"
                 type="button"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -39,33 +39,35 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import StreamingLogView from "~/components/Common/StreamingLogView.vue";
+<script setup>
+import StreamingLogView from "~/components/Common/StreamingLogView";
 import {ref} from "vue";
 import {useClipboard} from "@vueuse/core";
 import Modal from "~/components/Common/Modal.vue";
 import FixedLogView from "~/components/Common/FixedLogView.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const logUrl = ref('');
 const isStreaming = ref(true);
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show: showModal, hide} = useHasModal($modal);
-
-const $logView = ref<InstanceType<typeof StreamingLogView | typeof FixedLogView> | null>(null);
+const $modal = ref(); // Template ref
+const $logView = ref(); // Template ref
 
 const show = (newLogUrl, newIsStreaming = true) => {
     logUrl.value = newLogUrl;
     isStreaming.value = newIsStreaming;
-    showModal();
+
+    $modal.value.show();
 };
 
 const clipboard = useClipboard();
 
 const doCopy = () => {
-    clipboard.copy($logView.value?.getContents());
+    clipboard.copy($logView.value.getContents());
 };
+
+const close = () => {
+    $modal.value.hide();
+}
 
 const clearContents = () => {
     logUrl.value = '';

@@ -145,7 +145,7 @@
                 <button
                     class="btn btn-secondary"
                     type="button"
-                    @click="hide"
+                    @click="close"
                 >
                     {{ $gettext('Close') }}
                 </button>
@@ -154,7 +154,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {ref} from "vue";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
@@ -162,18 +162,20 @@ import Modal from "~/components/Common/Modal.vue";
 import FormGroup from "~/components/Form/FormGroup.vue";
 import FormFile from "~/components/Form/FormFile.vue";
 import {getStationApiUrl} from "~/router";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const apiUrl = getStationApiUrl('/files/bulk');
 
 const importFile = ref(null);
 const importResults = ref(null);
 
-const {notifySuccess, notifyError} = useNotify();
+const {wrapWithLoading, notifySuccess, notifyError} = useNotify();
 const {axios} = useAxios();
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // Template Ref
+
+const close = () => {
+    $modal.value.hide();
+};
 
 const uploaded = (file) => {
     importFile.value = file;
@@ -183,17 +185,20 @@ const doSubmit = () => {
     const formData = new FormData();
     formData.append('import_file', importFile.value);
 
-    axios.post(apiUrl.value, formData).then((resp) => {
+    wrapWithLoading(
+        axios.post(apiUrl.value, formData)
+    ).then((resp) => {
         importFile.value = null;
 
         if (resp.data.success) {
             importResults.value = resp.data;
             notifySuccess(resp.data.message);
 
-            show();
+            $modal.value.show();
         } else {
             notifyError(resp.data.message);
-            hide();
+
+            close();
         }
     });
 };

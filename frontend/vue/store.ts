@@ -1,38 +1,25 @@
-import {defineStore} from "pinia";
-import getUrlWithoutQuery from "~/functions/getUrlWithoutQuery.ts";
+import {defineStore, StoreDefinition} from "pinia";
 
-export interface StreamDescriptor {
-    url: string | null,
-    isHls: boolean,
-    isStream: boolean
-}
-
-interface PlayerStore {
-    isPlaying: boolean,
-    current: StreamDescriptor
-}
-
-export const usePlayerStore = defineStore(
+export const usePlayerStore: StoreDefinition = defineStore(
     'player',
     {
-        state: (): PlayerStore => ({
-            isPlaying: false,
-            current: {
-                url: null,
-                isHls: false,
-                isStream: false
-            }
-        }),
+        state: () => {
+            return {
+                isPlaying: false,
+                current: {
+                    url: null,
+                    isStream: true
+                }
+            };
+        },
         actions: {
-            toggle(payload: StreamDescriptor): void {
-                const currentUrl = getUrlWithoutQuery(this.current.url);
-                const newUrl = getUrlWithoutQuery(payload.url);
+            toggle(payload): void {
+                const url = payload.url;
 
-                if (currentUrl === newUrl) {
+                if (this.current.url === url) {
                     this.current = {
                         url: null,
-                        isHls: false,
-                        isStream: false
+                        isStream: true
                     };
                 } else {
                     this.current = payload;

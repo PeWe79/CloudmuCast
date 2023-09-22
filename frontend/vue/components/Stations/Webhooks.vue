@@ -8,10 +8,16 @@
             </p>
         </template>
         <template #actions>
-            <add-button
-                :text="$gettext('Add Web Hook')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Web Hook') }}
+                </span>
+            </button>
         </template>
 
         <data-table
@@ -20,31 +26,24 @@
             :fields="fields"
             :api-url="listUrl"
         >
-            <template #cell(name)="{item}">
+            <template #cell(name)="row">
                 <div class="typography-subheading">
-                    {{ item.name }}
+                    {{ row.item.name }}
                 </div>
+                {{ getWebhookName(row.item.type) }}
 
-                <template v-if="isWebhookSupported(item.type)">
-                    {{ getWebhookName(item.type) }}
-                    <div
-                        v-if="!item.is_enabled"
-                        class="badge bg-danger"
-                    >
-                        {{ $gettext('Disabled') }}
-                    </div>
-                </template>
-                <template v-else>
-                    {{
-                        $gettext('This web hook is no longer supported. Removing it is recommended.')
-                    }}
-                </template>
+                <div
+                    v-if="!row.item.is_enabled"
+                    class="badge bg-danger"
+                >
+                    {{ $gettext('Disabled') }}
+                </div>
             </template>
-            <template #cell(triggers)="{item}">
-                <template v-if="isWebhookSupported(item.type) && item.triggers.length > 0">
+            <template #cell(triggers)="row">
+                <template v-if="row.item.triggers.length > 0">
                     <div
-                        v-for="(name, index) in getTriggerNames(item.triggers)"
-                        :key="item.id+'_'+index"
+                        v-for="(name, index) in getTriggerNames(row.item.triggers)"
+                        :key="row.item.id+'_'+index"
                         class="small"
                     >
                         {{ name }}
@@ -54,36 +53,34 @@
 &nbsp;
                 </template>
             </template>
-            <template #cell(actions)="{item}">
+            <template #cell(actions)="row">
                 <div class="btn-group btn-group-sm">
-                    <template v-if="isWebhookSupported(item.type)">
-                        <button
-                            type="button"
-                            class="btn btn-primary"
-                            @click="doEdit(item.links.self)"
-                        >
-                            {{ $gettext('Edit') }}
-                        </button>
-                        <button
-                            type="button"
-                            class="btn"
-                            :class="getToggleVariant(item)"
-                            @click="doToggle(item.links.toggle)"
-                        >
-                            {{ langToggleButton(item) }}
-                        </button>
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            @click="doTest(item.links.test)"
-                        >
-                            {{ $gettext('Test') }}
-                        </button>
-                    </template>
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        @click="doEdit(row.item.links.self)"
+                    >
+                        {{ $gettext('Edit') }}
+                    </button>
+                    <button
+                        type="button"
+                        class="btn"
+                        :class="getToggleVariant(row.item)"
+                        @click="doToggle(row.item.links.toggle)"
+                    >
+                        {{ langToggleButton(row.item) }}
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        @click="doTest(row.item.links.test)"
+                    >
+                        {{ $gettext('Test') }}
+                    </button>
                     <button
                         type="button"
                         class="btn btn-danger"
-                        @click="doDelete(item.links.self)"
+                        @click="doDelete(row.item.links.self)"
                     >
                         {{ $gettext('Delete') }}
                     </button>
@@ -103,15 +100,16 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import EditModal from './Webhooks/EditModal.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import EditModal from './Webhooks/EditModal';
+import Icon from '~/components/Common/Icon';
 import {get, map} from 'lodash';
-import StreamingLogModal from "~/components/Common/StreamingLogModal.vue";
+import StreamingLogModal from "~/components/Common/StreamingLogModal";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
@@ -119,7 +117,6 @@ import {useTriggerDetails, useTypeDetails} from "~/components/Entity/Webhooks";
 import CardPage from "~/components/Common/CardPage.vue";
 import {useAzuraCastStation} from "~/vendor/azuracast";
 import {getApiUrl, getStationApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const listUrl = getStationApiUrl('/webhooks');
 
@@ -128,7 +125,7 @@ const nowPlayingUrl = getApiUrl(`/nowplaying/${id}`);
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'name', isRowHeader: true, label: $gettext('Name/Type'), sortable: true},
     {key: 'triggers', label: $gettext('Triggers'), sortable: false},
     {key: 'actions', label: $gettext('Actions'), sortable: false, class: 'shrink'}
@@ -149,10 +146,6 @@ const getToggleVariant = (record) => {
         : 'btn-success';
 };
 
-const isWebhookSupported = (key) => {
-    return (key in langTypeDetails);
-}
-
 const getWebhookName = (key) => {
     return get(langTypeDetails, [key, 'title'], '');
 };
@@ -163,27 +156,31 @@ const getTriggerNames = (triggers) => {
     });
 };
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 const {relist} = useHasDatatable($datatable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // Template Ref
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doToggle = (url) => {
-    axios.put(url).then((resp) => {
+    wrapWithLoading(
+        axios.put(url)
+    ).then((resp) => {
         notifySuccess(resp.data.message);
         relist();
     });
 };
 
-const $logModal = ref<InstanceType<typeof StreamingLogModal> | null>(null);
+const $logModal = ref(); // Template Ref
 
 const doTest = (url) => {
-    axios.put(url).then((resp) => {
-        $logModal.value?.show(resp.data.links.log);
+    wrapWithLoading(
+        axios.put(url)
+    ).then((resp) => {
+        $logModal.value.show(resp.data.links.log);
     });
 };
 

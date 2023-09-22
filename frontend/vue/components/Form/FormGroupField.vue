@@ -33,6 +33,7 @@
                     v-model="filteredModel"
                     :name="name"
                     :required="isRequired"
+                    :autofocus="autofocus"
                     class="form-control"
                     :class="fieldClass"
                 />
@@ -45,6 +46,7 @@
                     :type="inputType"
                     :name="name"
                     :required="isRequired"
+                    :autofocus="autofocus"
                     class="form-control"
                     :class="fieldClass"
                 >
@@ -70,9 +72,9 @@
     </form-group>
 </template>
 
-<script setup lang="ts">
-import VuelidateError from "./VuelidateError.vue";
-import {computed, nextTick, onMounted, ref, useSlots} from "vue";
+<script setup>
+import VuelidateError from "./VuelidateError";
+import {computed, ref, useSlots} from "vue";
 import FormGroup from "~/components/Form/FormGroup.vue";
 import FormLabel from "~/components/Form/FormLabel.vue";
 import {formFieldProps, useFormField} from "~/components/Form/useFormField";
@@ -158,19 +160,11 @@ const filteredModel = computed({
     }
 });
 
-const $input = ref<HTMLInputElement | HTMLTextAreaElement | null>(null);
+const $input = ref(); // Input
 
 const focus = () => {
     $input.value?.focus();
 };
-
-onMounted(() => {
-    if (props.autofocus) {
-        nextTick(() => {
-            focus();
-        });
-    }
-})
 
 defineExpose({
     focus

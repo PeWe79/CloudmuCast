@@ -31,7 +31,7 @@
                 class="btn btn-light"
                 @click="retry"
             >
-                <icon :icon="IconRefresh" />
+                <icon icon="refresh" />
                 <span>
                     {{ $gettext('Reload') }}
                 </span>
@@ -53,8 +53,8 @@
     </section>
 </template>
 
-<script setup lang="ts">
-import AdminStationsForm from "~/components/Admin/Stations/StationForm.vue";
+<script setup>
+import AdminStationsForm from "~/components/Admin/Stations/StationForm";
 import {nextTick, onMounted, ref} from "vue";
 import stationFormProps from "~/components/Admin/Stations/stationFormProps";
 import {pickProps} from "~/functions/pickProps";
@@ -62,13 +62,12 @@ import Icon from "~/components/InlinePlayer.vue";
 import ErrorCard from "~/components/Common/ErrorCard.vue";
 import {getStationApiUrl} from "~/router";
 import {useRouter} from "vue-router";
-import {IconRefresh} from "~/components/Common/icons";
 
 const props = defineProps(stationFormProps);
 
 const editUrl = getStationApiUrl('/profile/edit');
 
-const $form = ref<InstanceType<typeof AdminStationsForm> | null>(null);
+const $form = ref(); // AdminStationsForm
 
 onMounted(() => {
     $form.value?.reset();

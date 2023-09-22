@@ -31,10 +31,16 @@
                 >
                     <div class="card-body-flush">
                         <div class="card-body buttons">
-                            <add-button
-                                :text="$gettext('Add Playlist')"
+                            <button
+                                type="button"
+                                class="btn btn-primary"
                                 @click="doCreate"
-                            />
+                            >
+                                <icon icon="add" />
+                                <span>
+                                    {{ $gettext('Add Playlist') }}
+                                </span>
+                            </button>
                         </div>
 
                         <data-table
@@ -299,18 +305,19 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import Schedule from '~/components/Common/ScheduleView.vue';
-import EditModal from './Playlists/EditModal.vue';
-import ReorderModal from './Playlists/ReorderModal.vue';
-import ImportModal from './Playlists/ImportModal.vue';
-import QueueModal from './Playlists/QueueModal.vue';
-import CloneModal from './Playlists/CloneModal.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import Schedule from '~/components/Common/ScheduleView';
+import EditModal from './Playlists/EditModal';
+import ReorderModal from './Playlists/ReorderModal';
+import ImportModal from './Playlists/ImportModal';
+import QueueModal from './Playlists/QueueModal';
+import Icon from '~/components/Common/Icon';
+import CloneModal from './Playlists/CloneModal';
 import ApplyToModal from "./Playlists/ApplyToModal.vue";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasEditModal from "~/functions/useHasEditModal";
 import {useMayNeedRestart} from "~/functions/useMayNeedRestart";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
@@ -321,7 +328,6 @@ import {getStationApiUrl} from "~/router";
 import TimeZone from "~/components/Stations/Common/TimeZone.vue";
 import Tabs from "~/components/Common/Tabs.vue";
 import Tab from "~/components/Common/Tab.vue";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const props = defineProps({
     useManualAutoDj: {
@@ -337,7 +343,7 @@ const {timezone} = useAzuraCastStation();
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'name', isRowHeader: true, label: $gettext('Playlist'), sortable: true},
     {key: 'scheduling', label: $gettext('Scheduling'), sortable: false},
     {key: 'num_songs', label: $gettext('# Songs'), sortable: false},
@@ -367,45 +373,46 @@ const formatLength = (length) => {
     return duration.rescale().toHuman();
 };
 
-const $datatable = ref<InstanceType<typeof DataTable> | null>(null);
-const $schedule = ref<InstanceType<typeof Schedule> | null>(null);
+const $datatable = ref(); // Template Ref
+const $schedule = ref(); // Template Ref
 
 const relist = () => {
     $datatable.value?.refresh();
+    $schedule.value?.refresh();
 };
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // Template Ref
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
 const doCalendarClick = (event) => {
     doEdit(event.extendedProps.edit_url);
 };
 
-const $reorderModal = ref<InstanceType<typeof ReorderModal> | null>(null);
+const $reorderModal = ref(); // Template Ref
 
 const doReorder = (url) => {
     $reorderModal.value?.open(url);
 };
 
-const $queueModal = ref<InstanceType<typeof QueueModal> | null>(null);
+const $queueModal = ref(); // Template Ref
 
 const doQueue = (url) => {
     $queueModal.value?.open(url);
 };
 
-const $importModal = ref<InstanceType<typeof ImportModal> | null>(null);
+const $importModal = ref(); // Template Ref
 
 const doImport = (url) => {
     $importModal.value?.open(url);
 };
 
-const $cloneModal = ref<InstanceType<typeof CloneModal> | null>(null);
+const $cloneModal = ref(); // Template Ref
 
 const doClone = (name, url) => {
     $cloneModal.value?.open(name, url);
 };
 
-const $applyToModal = ref<InstanceType<typeof ApplyToModal> | null>(null);
+const $applyToModal = ref(); // Template Ref
 
 const doApplyTo = (url) => {
     $applyToModal.value?.open(url);
@@ -432,11 +439,13 @@ const needsRestart = () => {
     originalNeedsRestart();
 };
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doModify = (url) => {
-    axios.put(url).then((resp) => {
+    wrapWithLoading(
+        axios.put(url)
+    ).then((resp) => {
         needsRestart();
 
         notifySuccess(resp.data.message);

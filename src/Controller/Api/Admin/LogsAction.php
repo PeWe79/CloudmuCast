@@ -77,25 +77,25 @@ final class LogsAction
         $logPaths = [];
 
         $logPaths['azuracast_log'] = [
-            'name' => __('CloudmuCast Application Log'),
+            'name' => __('AzuraCast Application Log'),
             'path' => $tempDir . '/app-' . gmdate('Y-m-d') . '.log',
             'tail' => true,
         ];
 
         $logPaths['azuracast_nowplaying_log'] = [
-            'name' => __('CloudmuCast Now Playing Log'),
+            'name' => __('AzuraCast Now Playing Log'),
             'path' => $tempDir . '/app_nowplaying-' . gmdate('Y-m-d') . '.log',
             'tail' => true,
         ];
 
         $logPaths['azuracast_sync_log'] = [
-            'name' => __('CloudmuCast Synchronized Task Log'),
+            'name' => __('AzuraCast Synchronized Task Log'),
             'path' => $tempDir . '/app_sync-' . gmdate('Y-m-d') . '.log',
             'tail' => true,
         ];
 
         $logPaths['azuracast_worker_log'] = [
-            'name' => __('CloudmuCast Queue Worker Log'),
+            'name' => __('AzuraCast Queue Worker Log'),
             'path' => $tempDir . '/app_worker-' . gmdate('Y-m-d') . '.log',
             'tail' => true,
         ];

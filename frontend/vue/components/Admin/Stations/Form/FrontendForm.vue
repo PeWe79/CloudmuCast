@@ -165,8 +165,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {FrontendAdapter} from "~/components/Entity/RadioAdapters";
 import objectToFormOptions from "~/functions/objectToFormOptions";
@@ -202,9 +202,7 @@ const form = useVModel(props, 'form', emit);
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        let validations: {
-            [key: string | number]: any
-        } = {
+        let validations = {
             frontend_type: {required},
             frontend_config: {
                 sc_license_id: {},
@@ -234,9 +232,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        let blankForm: {
-            [key: string | number]: any
-        } = {
+        let blankForm = {
             frontend_type: FrontendAdapter.Icecast,
             frontend_config: {
                 sc_license_id: '',

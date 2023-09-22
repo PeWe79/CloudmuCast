@@ -36,12 +36,11 @@
 
         <data-table
             :id="fieldKey+'_table'"
-            ref="$datatable"
+            ref="datatable"
             paginated
             handle-client-side
             :fields="fields"
             :items="stats.all"
-            @refresh-clicked="reloadData()"
         >
             <template #cell(connected_seconds_calc)="row">
                 {{ formatTime(row.item.connected_seconds) }}
@@ -50,17 +49,16 @@
     </loading>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import PieChart from "~/components/Common/Charts/PieChart.vue";
-import DataTable, {DataTableField} from "~/components/Common/DataTable.vue";
+import DataTable from "~/components/Common/DataTable";
 import formatTime from "~/functions/formatTime";
-import {ref, toRef, watch} from "vue";
+import {onMounted, ref, shallowRef, toRef, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
-import {useAsyncState, useMounted} from "@vueuse/core";
+import {useMounted} from "@vueuse/core";
 import {useAxios} from "~/vendor/axios";
 import Loading from "~/components/Common/Loading.vue";
 import {useLuxon} from "~/vendor/luxon";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
 
 const props = defineProps({
     dateRange: {
@@ -81,50 +79,62 @@ const props = defineProps({
     },
 });
 
+const isLoading = ref(true);
+const stats = shallowRef({
+    all: [],
+    top_listeners: {
+        labels: [],
+        datasets: [],
+        alt: []
+    },
+    top_connected_time: {
+        labels: [],
+        datasets: [],
+        alt: []
+    },
+});
+
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = shallowRef([
     {key: props.fieldKey, label: props.fieldLabel, sortable: true},
     {key: 'listeners', label: $gettext('Listeners'), sortable: true},
     {key: 'connected_seconds_calc', label: $gettext('Time'), sortable: false},
     {key: 'connected_seconds', label: $gettext('Time (sec)'), sortable: true}
-];
+]);
 
 const dateRange = toRef(props, 'dateRange');
 const {axios} = useAxios();
 const {DateTime} = useLuxon();
 
-const {state: stats, isLoading, execute: reloadData} = useAsyncState(
-    () => axios.get(props.apiUrl, {
+const relist = () => {
+    isLoading.value = true;
+
+    axios.get(props.apiUrl, {
         params: {
             start: DateTime.fromJSDate(dateRange.value.startDate).toISO(),
             end: DateTime.fromJSDate(dateRange.value.endDate).toISO()
         }
-    }).then(r => r.data),
-    {
-        all: [],
-        top_listeners: {
-            labels: [],
-            datasets: [],
-            alt: []
-        },
-        top_connected_time: {
-            labels: [],
-            datasets: [],
-            alt: []
-        },
-    }
-);
+    }).then((response) => {
+        stats.value = {
+            all: response.data.all,
+            top_listeners: response.data.top_listeners,
+            top_connected_time: response.data.top_connected_time
+        };
 
-const $datatable = ref<DataTableTemplateRef>(null);
-const {navigate} = useHasDatatable($datatable);
+        isLoading.value = false;
+    });
+};
 
 const isMounted = useMounted();
 
 watch(dateRange, () => {
     if (isMounted.value) {
-        reloadData();
-        navigate();
+        relist();
     }
+});
+
+onMounted(() => {
+    relist();
 });
 </script>

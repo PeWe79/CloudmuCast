@@ -34,7 +34,7 @@
                     :stacked="stacked"
                 >
                     <template
-                        v-for="(_, slot) of useSlotsExcept(['default', 'label', 'description'])"
+                        v-for="(_, slot) of useSlotsExcept($slots, ['default', 'label', 'description'])"
                         #[slot]="scope"
                     >
                         <slot
@@ -65,8 +65,8 @@
     </form-group>
 </template>
 
-<script setup lang="ts">
-import VuelidateError from "./VuelidateError.vue";
+<script setup>
+import VuelidateError from "./VuelidateError";
 import FormLabel from "~/components/Form/FormLabel.vue";
 import FormGroup from "~/components/Form/FormGroup.vue";
 import FormMultiCheck from "~/components/Form/FormMultiCheck.vue";

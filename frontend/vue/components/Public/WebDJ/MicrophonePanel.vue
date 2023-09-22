@@ -24,7 +24,7 @@
                                 :class="{ active: isPlaying }"
                                 @click="togglePlaying"
                             >
-                                <icon :icon="IconMic" />
+                                <icon icon="mic" />
                             </button>
                             <button
                                 type="button"
@@ -79,15 +79,14 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import Icon from '~/components/Common/Icon.vue';
-import VolumeSlider from "~/components/Public/WebDJ/VolumeSlider.vue";
+<script setup>
+import Icon from '~/components/Common/Icon';
+import VolumeSlider from "~/components/Public/WebDJ/VolumeSlider";
 import {useDevicesList} from "@vueuse/core";
 import {ref, watch} from "vue";
 import {useWebDjTrack} from "~/components/Public/WebDJ/useWebDjTrack";
 import {usePassthroughSync} from "~/components/Public/WebDJ/usePassthroughSync";
 import {useWebDjSource} from "~/components/Public/WebDJ/useWebDjSource";
-import {IconMic} from "~/components/Common/icons";
 
 const {
     source,

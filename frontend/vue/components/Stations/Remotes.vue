@@ -8,10 +8,16 @@
             </p>
         </template>
         <template #actions>
-            <add-button
-                :text="$gettext('Add Remote Relay')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Remote Relay') }}
+                </span>
+            </button>
         </template>
 
         <data-table
@@ -70,35 +76,35 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import RemoteEditModal from "./Remotes/EditModal.vue";
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import Icon from '~/components/Common/Icon';
+import RemoteEditModal from "./Remotes/EditModal";
 import '~/vendor/sweetalert';
 import {useMayNeedRestart} from "~/functions/useMayNeedRestart";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
 import showFormatAndBitrate from "~/functions/showFormatAndBitrate";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getStationApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const listUrl = getStationApiUrl('/remotes');
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'display_name', isRowHeader: true, label: $gettext('Name'), sortable: true},
     {key: 'enable_autodj', label: $gettext('AutoDJ'), sortable: true},
     {key: 'actions', label: $gettext('Actions'), sortable: false, class: 'shrink'}
 ];
 
-const $dataTable = ref<DataTableTemplateRef>(null);
+const $dataTable = ref(); // DataTable
 const {relist} = useHasDatatable($dataTable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // EditModal
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
 const {mayNeedRestart, needsRestart} = useMayNeedRestart();

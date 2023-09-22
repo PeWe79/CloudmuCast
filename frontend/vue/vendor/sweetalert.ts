@@ -26,14 +26,11 @@ export function useSweetAlert() {
         return swalConfirmDelete.fire(options);
     }
 
-    const vConfirmLink: Directive<HTMLAnchorElement, string> = (el, binding) => {
+    const vConfirmLink: Directive<HTMLElement, string> = (el, binding) => {
         el.addEventListener('click', (e) => {
             e.preventDefault();
 
-            const options = {
-                title: null
-            };
-
+            const options = {};
             if (el.hasAttribute('data-confirm-title')) {
                 options.title = el.getAttribute('data-confirm-title');
             } else if (binding.value) {

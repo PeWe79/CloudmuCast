@@ -20,7 +20,7 @@
                     class="btn btn-link text-primary"
                     :to="{name: 'stations:reports:requests'}"
                 >
-                    <icon :icon="IconLogs" />
+                    <icon icon="assignment" />
                     <span>
                         {{ $gettext('View') }}
                     </span>
@@ -31,7 +31,7 @@
                     class="btn btn-link text-danger"
                     @click="toggleRequests"
                 >
-                    <icon :icon="IconClose" />
+                    <icon icon="close" />
                     <span>
                         {{ $gettext('Disable') }}
                     </span>
@@ -44,7 +44,7 @@
                     class="btn btn-link text-success"
                     @click="toggleRequests"
                 >
-                    <icon :icon="IconCheck" />
+                    <icon icon="check" />
                     <span>
                         {{ $gettext('Enable') }}
                     </span>
@@ -54,14 +54,13 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
-import Icon from '~/components/Common/Icon.vue';
+<script setup>
+import Icon from '~/components/Common/Icon';
 import requestsPanelProps from "~/components/Stations/Profile/requestsPanelProps";
 import EnabledBadge from "~/components/Common/Badges/EnabledBadge.vue";
 import CardPage from "~/components/Common/CardPage.vue";
 import {StationPermission, userAllowedForStation} from "~/acl";
 import useToggleFeature from "~/components/Stations/Profile/useToggleFeature";
-import {IconCheck, IconClose, IconLogs} from "~/components/Common/icons";
 
 const props = defineProps({
     ...requestsPanelProps

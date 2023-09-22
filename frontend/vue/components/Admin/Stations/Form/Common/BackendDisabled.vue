@@ -10,6 +10,5 @@
     </form-fieldset>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
-</script>
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";</script>

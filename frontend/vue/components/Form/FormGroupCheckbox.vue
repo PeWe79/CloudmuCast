@@ -50,8 +50,8 @@
     </form-group>
 </template>
 
-<script setup lang="ts">
-import VuelidateError from "./VuelidateError.vue";
+<script setup>
+import VuelidateError from "./VuelidateError";
 import FormLabel from "~/components/Form/FormLabel.vue";
 import FormGroup from "~/components/Form/FormGroup.vue";
 import {formFieldProps, useFormField} from "~/components/Form/useFormField";

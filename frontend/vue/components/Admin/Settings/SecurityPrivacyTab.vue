@@ -78,9 +78,9 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
 import {useTranslate} from "~/vendor/gettext";
 import {computed} from "vue";

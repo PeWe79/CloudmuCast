@@ -34,7 +34,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {useVModel} from "@vueuse/core";
 
 const props = defineProps({
@@ -55,7 +55,7 @@ const props = defineProps({
         default: null,
     },
     options: {
-        type: Array<any>,
+        type: Array,
         required: true
     },
     radio: {

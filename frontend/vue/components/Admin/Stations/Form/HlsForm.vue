@@ -80,8 +80,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {BackendAdapter} from "~/components/Entity/RadioAdapters";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
@@ -111,9 +111,7 @@ const form = useVModel(props, 'form', emit);
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        let validations: {
-            [key: string | number]: any
-        } = {
+        let validations = {
             enable_hls: {},
             backend_config: {
                 hls_enable_on_public_player: {},
@@ -137,9 +135,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        let blankForm: {
-            [key: string | number]: any
-        } = {
+        let blankForm = {
             enable_hls: false,
             backend_config: {
                 hls_enable_on_public_player: false,

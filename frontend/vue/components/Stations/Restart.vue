@@ -41,7 +41,7 @@
                         <div class="buttons">
                             <button
                                 type="button"
-                                class="btn btn-danger"
+                                class="btn btn-warning"
                                 :disabled="isLoading"
                                 @click="makeApiCall(reloadUrl)"
                             >
@@ -89,7 +89,7 @@
                     <div class="buttons">
                         <button
                             type="button"
-                            class="btn btn-danger"
+                            class="btn btn-warning"
                             :disabled="isLoading"
                             @click="makeApiCall(restartUrl)"
                         >
@@ -102,7 +102,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
@@ -125,7 +125,7 @@ const isLoading = ref(false);
 
 const {axios} = useAxios();
 const {showAlert} = useSweetAlert();
-const {notify} = useNotify();
+const {wrapWithLoading, notify} = useNotify();
 const {$gettext} = useTranslate();
 
 const router = useRouter();
@@ -140,7 +140,9 @@ const makeApiCall = (uri) => {
 
         isLoading.value = true;
 
-        axios.post(uri).then((resp) => {
+        wrapWithLoading(
+            axios.post(uri)
+        ).then((resp) => {
             notify(resp.data.formatted_message, {
                 variant: (resp.data.success) ? 'success' : 'warning'
             });

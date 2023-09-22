@@ -9,7 +9,8 @@
     >
 </template>
 
-<script setup lang="ts">
+<script setup>
+
 import {computed} from "vue";
 import {isEmpty, padStart} from 'lodash';
 

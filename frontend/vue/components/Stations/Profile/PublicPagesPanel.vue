@@ -72,7 +72,7 @@
                     class="btn btn-link text-secondary"
                     @click.prevent="doOpenEmbed"
                 >
-                    <icon :icon="IconCode" />
+                    <icon icon="code" />
                     <span>
                         {{ $gettext('Embed Widgets') }}
                     </span>
@@ -82,7 +82,7 @@
                     class="btn btn-link text-secondary"
                     :to="{name: 'stations:branding'}"
                 >
-                    <icon :icon="IconBranding" />
+                    <icon icon="design_services" />
                     <span>
                         {{ $gettext('Edit Branding') }}
                     </span>
@@ -93,7 +93,7 @@
                     class="btn btn-link text-danger"
                     @click="togglePublicPages"
                 >
-                    <icon :icon="IconClose" />
+                    <icon icon="close" />
                     <span>
                         {{ $gettext('Disable') }}
                     </span>
@@ -106,7 +106,7 @@
                     class="btn btn-link text-success"
                     @click="togglePublicPages"
                 >
-                    <icon :icon="IconCheck" />
+                    <icon icon="check" />
                     <span>
                         {{ $gettext('Enable') }}
                     </span>
@@ -121,8 +121,8 @@
     />
 </template>
 
-<script setup lang="ts">
-import Icon from '~/components/Common/Icon.vue';
+<script setup>
+import Icon from '~/components/Common/Icon';
 import EnabledBadge from "~/components/Common/Badges/EnabledBadge.vue";
 import {ref} from "vue";
 import EmbedModal from "~/components/Stations/Profile/EmbedModal.vue";
@@ -132,17 +132,16 @@ import {pickProps} from "~/functions/pickProps";
 import CardPage from "~/components/Common/CardPage.vue";
 import {StationPermission, userAllowedForStation} from "~/acl";
 import useToggleFeature from "~/components/Stations/Profile/useToggleFeature";
-import {IconBranding, IconCheck, IconClose, IconCode} from "~/components/Common/icons";
 
 const props = defineProps({
     ...publicPagesPanelProps,
     ...embedModalProps
 });
 
-const $embedModal = ref<InstanceType<typeof EmbedModal> | null>(null);
+const $embedModal = ref(); // Template Ref
 
 const doOpenEmbed = () => {
-    $embedModal.value?.open();
+    $embedModal.value.open();
 };
 
 const togglePublicPages = useToggleFeature('enable_public_page', !props.enablePublicPage);

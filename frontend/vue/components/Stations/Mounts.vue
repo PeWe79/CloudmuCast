@@ -8,10 +8,16 @@
             </p>
         </template>
         <template #actions>
-            <add-button
-                :text="$gettext('Add Mount Point')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Mount Point') }}
+                </span>
+            </button>
         </template>
 
         <data-table
@@ -71,19 +77,19 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import EditModal from './Mounts/EditModal.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import EditModal from './Mounts/EditModal';
+import Icon from '~/components/Common/Icon';
 import {useMayNeedRestart} from "~/functions/useMayNeedRestart";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
 import showFormatAndBitrate from "~/functions/showFormatAndBitrate";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getStationApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const props = defineProps({
     stationFrontendType: {
@@ -97,19 +103,19 @@ const newIntroUrl = getStationApiUrl('/mounts/intro');
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'display_name', isRowHeader: true, label: $gettext('Name'), sortable: true},
     {key: 'enable_autodj', label: $gettext('AutoDJ'), sortable: true},
     {key: 'actions', label: $gettext('Actions'), sortable: false, class: 'shrink'}
 ];
 
-const $dataTable = ref<DataTableTemplateRef>(null);
+const $dataTable = ref(); // DataTable
 const {relist} = useHasDatatable($dataTable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // EditModal
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
-const {needsRestart, mayNeedRestart} = useMayNeedRestart();
+const {needsRestart, mayNeedRestart} = useMayNeedRestart(props);
 
 const {doDelete} = useConfirmAndDelete(
     $gettext('Delete Mount Point?'),

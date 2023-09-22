@@ -32,7 +32,7 @@
                 :field="v$.url"
                 input-type="url"
                 :label="$gettext('Web Site URL')"
-                :description="$gettext('Note: This should be the public-facing homepage of the radio station, not the CloudmuCast URL. It will be included in broadcast details.')"
+                :description="$gettext('Note: This should be the public-facing homepage of the radio station, not the AzuraCast URL. It will be included in broadcast details.')"
             />
 
             <form-group-select
@@ -124,8 +124,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import objectToFormOptions from "~/functions/objectToFormOptions";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
@@ -156,9 +156,7 @@ const form = useVModel(props, 'form', emit);
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        let validations: {
-            [key: string | number]: any
-        } = {
+        let validations = {
             name: {required},
             description: {},
             genre: {},
@@ -181,9 +179,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        let blankForm: {
-            [key: string | number]: any
-        } = {
+        let blankForm = {
             name: '',
             description: '',
             genre: '',

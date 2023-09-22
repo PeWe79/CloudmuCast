@@ -3,15 +3,21 @@
         <template #info>
             <p class="card-text">
                 {{
-                    $gettext('CloudmuCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles.')
+                    $gettext('AzuraCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles.')
                 }}
             </p>
         </template>
         <template #actions>
-            <add-button
-                :text="$gettext('Add Role')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Role') }}
+                </span>
+            </button>
         </template>
 
         <data-table
@@ -70,18 +76,18 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import EditModal from './Permissions/EditModal.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import EditModal from './Permissions/EditModal';
+import Icon from '~/components/Common/Icon';
 import {filter, get, map} from 'lodash';
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const props = defineProps({
     stations: {
@@ -102,7 +108,7 @@ const listUrl = getApiUrl('/admin/roles');
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'name', isRowHeader: true, label: $gettext('Role Name'), sortable: true},
     {key: 'permissions', label: $gettext('Permissions'), sortable: false},
     {key: 'actions', label: $gettext('Actions'), sortable: false, class: 'shrink'}
@@ -124,10 +130,10 @@ const getStationName = (stationId) => {
     return get(props.stations, stationId, null);
 };
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 const {relist} = useHasDatatable($datatable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // Template Ref
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
 const {doDelete} = useConfirmAndDelete(

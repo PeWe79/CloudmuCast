@@ -69,8 +69,8 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
 import FormMarkup from "~/components/Form/FormMarkup.vue";
 
 const props = defineProps({

@@ -29,7 +29,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import mergeExisting from "~/functions/mergeExisting";
 import {computed, onMounted, ref, shallowRef} from "vue";
 import {useTranslate} from "~/vendor/gettext";

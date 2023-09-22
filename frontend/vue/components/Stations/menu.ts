@@ -1,22 +1,10 @@
 import {useTranslate} from "~/vendor/gettext.ts";
-import filterMenu, { MenuCategory, ReactiveMenu } from "~/functions/filterMenu.ts";
+import filterMenu from "~/functions/filterMenu.ts";
 import {StationPermission, userAllowedForStation} from "~/acl.ts";
 import {useAzuraCast} from "~/vendor/azuracast.ts";
 import {computed, reactive} from "vue";
-import {
-    IconBroadcast,
-    IconCode,
-    IconImage,
-    IconLibraryMusic,
-    IconLogs,
-    IconMic,
-    IconPlaylist,
-    IconPodcasts,
-    IconPublic,
-    IconReport
-} from "~/components/Common/icons.ts";
 
-export function useStationsMenu(): ReactiveMenu {
+export function useStationsMenu(): array {
     const {$gettext} = useTranslate();
 
     const {enableAdvancedFeatures, sidebarProps} = useAzuraCast();
@@ -25,11 +13,11 @@ export function useStationsMenu(): ReactiveMenu {
     // Reuse this variable to avoid multiple calls.
     const userCanManageMedia = userAllowedForStation(StationPermission.Media);
 
-    const menu: ReactiveMenu = reactive<Array<MenuCategory>>([
+    const menu = reactive([
         {
             key: 'profile',
             label: computed(() => $gettext('Profile')),
-            icon: IconImage,
+            icon: 'image',
             items: [
                 {
                     key: 'view_profile',
@@ -59,7 +47,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'public_page',
             label: computed(() => $gettext('Public Page')),
-            icon: IconPublic,
+            icon: 'public',
             url: stationProps.publicPageUrl,
             external: true,
             visible: stationProps.enablePublicPages,
@@ -67,7 +55,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'media',
             label: computed(() => $gettext('Media')),
-            icon: IconLibraryMusic,
+            icon: 'library_music',
             visible: stationProps.features.media,
             items: [
                 {
@@ -139,7 +127,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'playlists',
             label: computed(() => $gettext('Playlists')),
-            icon: IconPlaylist,
+            icon: 'queue_music',
             url: {
                 name: 'stations:playlists:index'
             },
@@ -148,7 +136,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'podcasts',
             label: computed(() => $gettext('Podcasts')),
-            icon: IconPodcasts,
+            icon: 'cast',
             url: {
                 name: 'stations:podcasts:index'
             },
@@ -157,7 +145,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'streaming',
             label: computed(() => $gettext('Live Streaming')),
-            icon: IconMic,
+            icon: 'mic',
             visible: userAllowedForStation(StationPermission.Streamers) && stationProps.features.streamers,
             items: [
                 {
@@ -180,7 +168,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'webhooks',
             label: computed(() => $gettext('Web Hooks')),
-            icon: IconCode,
+            icon: 'code',
             url: {
                 name: 'stations:webhooks:index'
             },
@@ -189,7 +177,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'reports',
             label: computed(() => $gettext('Reports')),
-            icon: IconReport,
+            icon: 'assignment',
             visible: userAllowedForStation(StationPermission.Reports),
             items: [
                 {
@@ -233,7 +221,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'broadcasting',
             label: computed(() => $gettext('Broadcasting')),
-            icon: IconBroadcast,
+            icon: 'wifi_tethering',
             items: [
                 {
                     key: 'mounts',
@@ -306,7 +294,7 @@ export function useStationsMenu(): ReactiveMenu {
         {
             key: 'logs',
             label: computed(() => $gettext('Logs')),
-            icon: IconLogs,
+            icon: 'web_stories',
             url: {
                 name: 'stations:logs'
             },

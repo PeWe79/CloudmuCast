@@ -181,7 +181,7 @@
                     >
                         <template #description>
                             {{
-                                $gettext('This mode disables CloudmuCast\'s AutoDJ management, using Liquidsoap itself to manage song playback. "next song" and some other features will not be available.')
+                                $gettext('This mode disables AzuraCast\'s AutoDJ management, using Liquidsoap itself to manage song playback. "next song" and some other features will not be available.')
                             }}
                         </template>
                     </form-group-checkbox>
@@ -251,8 +251,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {AudioProcessingMethod, BackendAdapter, MasterMePreset} from "~/components/Entity/RadioAdapters";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
@@ -288,9 +288,7 @@ const form = useVModel(props, 'form', emit);
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        let validations: {
-            [key: string | number]: any
-        } = {
+        let validations = {
             backend_type: {required},
             backend_config: {
                 crossfade_type: {},
@@ -323,9 +321,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        let blankForm: {
-            [key: string | number]: any
-        } = {
+        let blankForm = {
             backend_type: BackendAdapter.Liquidsoap,
             backend_config: {
                 crossfade_type: 'normal',

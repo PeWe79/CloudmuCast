@@ -1,11 +1,11 @@
 blank_issues_enabled : false
 
 contact_links :
-  - name : CloudmuCast Discussion Page
+  - name : AzuraCast Discussion Page
     url : https://github.com/AzuraCast/AzuraCast/discussions
     about : Need help with something that isnt a bug? Ask our friendly community. 
 
-  - name : CloudmuCast Help Page
+  - name : AzuraCast Help Page
     url : https://docs.azuracast.com/en/user-guide/troubleshooting
     about : Check the AzuraCast help page for solutions to common problems.
 
@@ -15,8 +15,8 @@ contact_links :
 
   - name : Submit New Translations
     url : https://translate.azuracast.com
-    about : Submit and manage translations for the CloudmuCast application.
+    about : Submit and manage translations for the AzuraCast application.
 
-  - name : Join CloudmuCast Discord
+  - name : Join AzuraCast Discord
     url : https://discord.gg/azuracast
     about : Join the Discord community for help and support from other station owners.

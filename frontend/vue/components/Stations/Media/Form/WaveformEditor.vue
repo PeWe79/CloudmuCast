@@ -20,7 +20,7 @@
                 :title="$gettext('Play')"
                 @click="playAudio"
             >
-                <icon :icon="IconPlayCircle" />
+                <icon icon="play_arrow" />
             </button>
             <button
                 type="button"
@@ -28,7 +28,7 @@
                 :title="$gettext('Stop')"
                 @click="stopAudio"
             >
-                <icon :icon="IconStop" />
+                <icon icon="stop" />
             </button>
         </div>
         <div class="btn-group btn-group-sm">
@@ -75,11 +75,10 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import WaveformComponent from '~/components/Common/Waveform.vue';
-import Icon from '~/components/Common/Icon.vue';
+<script setup>
+import WaveformComponent from '~/components/Common/Waveform';
+import Icon from '~/components/Common/Icon';
 import {ref} from "vue";
-import {IconPlayCircle, IconStop} from "~/components/Common/icons";
 
 const props = defineProps({
     form: {
@@ -96,7 +95,7 @@ const props = defineProps({
     }
 });
 
-const $waveform = ref<InstanceType<typeof WaveformComponent> | null>(null);
+const $waveform = ref(); // Waveform
 
 const playAudio = () => {
     $waveform.value?.play();

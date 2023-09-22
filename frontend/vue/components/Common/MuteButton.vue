@@ -9,11 +9,10 @@
     </button>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Icon from "~/components/Common/Icon.vue";
 import {computed, toRef, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
-import {IconVolumeDown, IconVolumeOff, IconVolumeUp} from "~/components/Common/icons";
 
 const props = defineProps({
     volume: {
@@ -50,13 +49,13 @@ const muteLang = computed(() => {
 
 const muteIcon = computed(() => {
     if (props.isMuted) {
-        return IconVolumeOff;
+        return 'volume_off';
     }
 
     if (props.volume < 60) {
-        return IconVolumeDown;
+        return 'volume_down';
     }
 
-    return IconVolumeUp;
+    return 'volume_up';
 });
 </script>

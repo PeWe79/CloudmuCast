@@ -15,7 +15,6 @@ use Psr\Http\Message\ResponseInterface;
 
 #[OA\Delete(
     path: '/station/{station_id}/stereo-tool-configuration',
-    operationId: 'deleteStereoToolConfiguration',
     description: 'Removes the Stereo Tool configuration file for a station.',
     security: OpenApi::API_KEY_SECURITY,
     tags: ['Stations: Broadcasting'],

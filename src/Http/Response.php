@@ -100,8 +100,6 @@ final class Response extends SlimResponse
 
         if ($fileName !== null) {
             $response = $response->withHeader('Content-Disposition', 'attachment; filename=' . $fileName);
-        } else {
-            $response = $response->withHeader('Content-Disposition', 'inline');
         }
 
         $response->getBody()->write($fileData);

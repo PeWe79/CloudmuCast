@@ -8,17 +8,16 @@
     >
         <icon
             class="sm"
-            :icon="IconCopy"
+            icon="file_copy"
         />
         <span v-if="!hideText">{{ copyText }}</span>
     </button>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Icon from "~/components/Common/Icon.vue";
 import {refAutoReset, useClipboard} from "@vueuse/core";
 import {useTranslate} from "~/vendor/gettext";
-import {IconCopy} from "~/components/Common/icons";
 
 const props = defineProps({
     text: {

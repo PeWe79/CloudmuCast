@@ -27,7 +27,7 @@ final class AppManifestAction implements SingleActionInterface
         $customization = $request->getCustomization();
 
         $manifest = [
-            'name' => $station->getName() . ' - CloudmuCast',
+            'name' => $station->getName() . ' - AzuraCast',
             'short_name' => $station->getName(),
             'description' => $station->getDescription(),
             'scope' => '/public/',

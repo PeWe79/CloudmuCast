@@ -5,11 +5,10 @@
         size="lg"
         :title="$gettext('Playback Queue')"
         :busy="loading"
-        @hidden="onHidden"
     >
         <p>
             {{
-                $gettext('This queue contains the remaining tracks in the order they will be queued by the CloudmuCast AutoDJ (if the tracks are eligible to be played).')
+                $gettext('This queue contains the remaining tracks in the order they will be queued by the AzuraCast AutoDJ (if the tracks are eligible to be played).')
             }}
         </p>
 
@@ -42,7 +41,7 @@
             <button
                 class="btn btn-secondary"
                 type="button"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -57,20 +56,18 @@
     </modal>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {ref} from "vue";
 import {useAxios} from "~/vendor/axios";
 import {useNotify} from "~/functions/useNotify";
 import {useTranslate} from "~/vendor/gettext";
 import Modal from "~/components/Common/Modal.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const loading = ref(true);
 const queueUrl = ref(null);
 const media = ref([]);
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
 const {axios} = useAxios();
 
@@ -83,21 +80,25 @@ const open = (newQueueUrl) => {
         loading.value = false;
     });
 
-    show();
+    $modal.value.show();
 };
 
-const onHidden = () => {
+const close = () => {
     loading.value = false;
     queueUrl.value = null;
+
+    $modal.value.hide();
 }
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {$gettext} = useTranslate();
 
 const doClear = () => {
-    axios.delete(queueUrl.value).then(() => {
+    wrapWithLoading(
+        axios.delete(queueUrl.value)
+    ).then(() => {
         notifySuccess($gettext('Playlist queue cleared.'));
-        hide();
+        close();
     });
 };
 

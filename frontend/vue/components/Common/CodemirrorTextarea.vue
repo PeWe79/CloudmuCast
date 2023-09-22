@@ -7,7 +7,7 @@
     />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import CodeMirror from "vue-codemirror6";
 import {useVModel} from "@vueuse/core";
 import {computed} from "vue";

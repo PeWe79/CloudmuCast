@@ -72,23 +72,19 @@
                         </form-group-field>
                     </div>
 
-                    <div
-                        class="card-body buttons"
+                    <button
+                        class="btn btn-primary mt-3"
+                        type="submit"
                     >
-                        <button
-                            class="btn btn-primary mt-3"
-                            type="submit"
-                        >
-                            {{ $gettext('Save Changes') }}
-                        </button>
-                    </div>
+                        {{ $gettext('Save Changes') }}
+                    </button>
                 </div>
             </loading>
         </section>
     </form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import CodemirrorTextarea from "~/components/Common/CodemirrorTextarea.vue";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {onMounted, ref} from "vue";
@@ -144,17 +140,19 @@ const relist = () => {
 
 onMounted(relist);
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 
 const submit = () => {
     ifValid(() => {
-        axios({
-            method: 'PUT',
-            url: props.profileEditUrl,
-            data: {
-                branding_config: form.value
-            }
-        }).then(() => {
+        wrapWithLoading(
+            axios({
+                method: 'PUT',
+                url: props.profileEditUrl,
+                data: {
+                    branding_config: form.value
+                }
+            })
+        ).then(() => {
             notifySuccess();
             relist();
         });

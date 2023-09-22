@@ -12,7 +12,7 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        <icon :icon="IconClearAll" />
+                        <icon icon="clear_all" />
                         <span>
                             {{ $gettext('Playlists') }}
                         </span>
@@ -104,7 +104,7 @@
                 class="btn btn-primary"
                 @click="moveFiles"
             >
-                <icon :icon="IconMove" />
+                <icon icon="open_with" />
                 <span>
                     {{ $gettext('Move') }}
                 </span>
@@ -118,7 +118,7 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        <icon :icon="IconMoreHoriz" />
+                        <icon icon="more_horiz" />
                         <span>
                             {{ $gettext('More') }}
                         </span>
@@ -165,7 +165,7 @@
                 class="btn btn-danger"
                 @click="doDelete"
             >
-                <icon :icon="IconDelete" />
+                <icon icon="delete" />
                 <span>
                     {{ $gettext('Delete') }}
                 </span>
@@ -177,7 +177,7 @@
                 class="btn btn-primary"
                 @click="createDirectory"
             >
-                <icon :icon="IconFolder" />
+                <icon icon="folder" />
                 <span>
                     {{ $gettext('New Folder') }}
                 </span>
@@ -186,16 +186,15 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {forEach, intersection, map} from 'lodash';
-import Icon from '~/components/Common/Icon.vue';
+import Icon from '~/components/Common/Icon';
 import '~/vendor/sweetalert';
 import {h, ref, toRef, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useSweetAlert} from "~/vendor/sweetalert";
-import {IconClearAll, IconDelete, IconFolder, IconMoreHoriz, IconMove} from "~/components/Common/icons";
 
 const props = defineProps({
     currentDirectory: {
@@ -248,7 +247,7 @@ watch(newPlaylist, (text) => {
     }
 });
 
-const {notifySuccess, notifyError} = useNotify();
+const {wrapWithLoading, notifySuccess, notifyError} = useNotify();
 const {axios} = useAxios();
 
 const notifyNoFiles = () => {
@@ -257,12 +256,14 @@ const notifyNoFiles = () => {
 
 const doBatch = (action, notifyMessage) => {
     if (props.selectedItems.all.length) {
-        axios.put(props.batchUrl, {
-            'do': action,
-            'current_directory': props.currentDirectory,
-            'files': props.selectedItems.files,
-            'dirs': props.selectedItems.directories
-        }).then((resp) => {
+        wrapWithLoading(
+            axios.put(props.batchUrl, {
+                'do': action,
+                'current_directory': props.currentDirectory,
+                'files': props.selectedItems.files,
+                'dirs': props.selectedItems.directories
+            })
+        ).then((resp) => {
             if (resp.data.success) {
                 const allItemNodes = [];
                 forEach(props.selectedItems.all, (item) => {
@@ -322,14 +323,16 @@ const doDelete = () => {
 
 const setPlaylists = () => {
     if (props.selectedItems.all.length) {
-        axios.put(props.batchUrl, {
-            'do': 'playlist',
-            'playlists': checkedPlaylists.value,
-            'new_playlist_name': newPlaylist.value,
-            'currentDirectory': props.currentDirectory,
-            'files': props.selectedItems.files,
-            'dirs': props.selectedItems.directories
-        }).then((resp) => {
+        wrapWithLoading(
+            axios.put(props.batchUrl, {
+                'do': 'playlist',
+                'playlists': checkedPlaylists.value,
+                'new_playlist_name': newPlaylist.value,
+                'currentDirectory': props.currentDirectory,
+                'files': props.selectedItems.files,
+                'dirs': props.selectedItems.directories
+            })
+        ).then((resp) => {
             if (resp.data.success) {
                 if (resp.data.record) {
                     emit('add-playlist', resp.data.record);

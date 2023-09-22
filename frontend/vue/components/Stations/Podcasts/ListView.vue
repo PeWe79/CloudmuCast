@@ -20,10 +20,16 @@
         </div>
 
         <div class="card-body buttons">
-            <add-button
-                :text="$gettext('Add Podcast')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Podcast') }}
+                </span>
+            </button>
         </div>
 
         <data-table
@@ -87,20 +93,19 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import EditModal from './PodcastEditModal.vue';
-import AlbumArt from '~/components/Common/AlbumArt.vue';
-import StationsCommonQuota from "~/components/Stations/Common/Quota.vue";
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import EditModal from './PodcastEditModal';
+import AlbumArt from '~/components/Common/AlbumArt';
+import StationsCommonQuota from "~/components/Stations/Common/Quota";
 import listViewProps from "./listViewProps";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
 import {useSweetAlert} from "~/vendor/sweetalert";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
+import Icon from "~/components/Common/Icon.vue";
 import {getStationApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
 
 const props = defineProps({
     ...listViewProps,
@@ -117,7 +122,7 @@ const emit = defineEmits(['select-podcast']);
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'art', label: $gettext('Art'), sortable: false, class: 'shrink pe-0'},
     {key: 'title', label: $gettext('Podcast'), sortable: false},
     {
@@ -131,22 +136,22 @@ const fields: DataTableField[] = [
     {key: 'actions', label: $gettext('Actions'), sortable: false, class: 'shrink'}
 ];
 
-const $quota = ref<InstanceType<typeof StationsCommonQuota> | null>(null);
-const $datatable = ref<DataTableTemplateRef>(null);
+const $quota = ref(); // Template Ref
+const $datatable = ref(); // Template Ref
 
 const relist = () => {
-    $quota.value?.update();
+    $quota.value.update();
     $datatable.value?.refresh();
 };
 
-const $editPodcastModal = ref<InstanceType<typeof EditModal> | null>(null);
+const $editPodcastModal = ref(); // Template Ref
 
 const doCreate = () => {
-    $editPodcastModal.value?.create();
+    $editPodcastModal.value.create();
 };
 
 const doEdit = (url) => {
-    $editPodcastModal.value?.edit(url);
+    $editPodcastModal.value.edit(url);
 };
 
 const doSelectPodcast = (podcast) => {
@@ -154,7 +159,7 @@ const doSelectPodcast = (podcast) => {
 };
 
 const {confirmDelete} = useSweetAlert();
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doDelete = (url) => {
@@ -162,7 +167,9 @@ const doDelete = (url) => {
         title: $gettext('Delete Podcast?'),
     }).then((result) => {
         if (result.value) {
-            axios.delete(url).then((resp) => {
+            wrapWithLoading(
+                axios.delete(url)
+            ).then((resp) => {
                 notifySuccess(resp.data.message);
                 relist();
             });

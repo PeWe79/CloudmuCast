@@ -18,7 +18,7 @@
                 >
                     <icon
                         class="align-middle"
-                        :icon="IconHeadphones"
+                        icon="headset"
                     />
                     <span class="ps-1">
                         {{ langListeners }}
@@ -36,7 +36,7 @@
                     :to="{name: 'stations:reports:listeners'}"
                     :title="$gettext('Listener Report')"
                 >
-                    <icon :icon="IconLogs" />
+                    <icon icon="assignment" />
                 </router-link>
             </div>
         </template>
@@ -48,13 +48,13 @@
                         <div class="clearfix">
                             <div class="d-table">
                                 <div class="d-table-row">
-                                    <div class="d-table-cell align-middle text-end pe-2 pb-2">
-                                        <icon :icon="IconMusicNote" />
+                                    <div class="d-table-cell align-middle text-end pe-2">
+                                        <icon icon="music_note" />
                                     </div>
-                                    <div class="d-table-cell align-middle w-100 pb-2">
-                                        <h5 class="m-0">
+                                    <div class="d-table-cell align-middle w-100">
+                                        <h6 class="p-0">
                                             {{ $gettext('Now Playing') }}
-                                        </h5>
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="d-table-row">
@@ -121,13 +121,13 @@
                         >
                             <div class="d-table">
                                 <div class="d-table-row">
-                                    <div class="d-table-cell align-middle pe-2 text-end pb-2">
-                                        <icon :icon="IconSkipNext" />
+                                    <div class="d-table-cell align-middle pe-2 text-end">
+                                        <icon icon="skip_next" />
                                     </div>
-                                    <div class="d-table-cell align-middle w-100 pb-2">
-                                        <h5 class="m-0">
+                                    <div class="d-table-cell align-middle w-100">
+                                        <h6 class="p-0">
                                             {{ $gettext('Playing Next') }}
-                                        </h5>
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="d-table-row">
@@ -179,7 +179,7 @@
                             class="clearfix"
                         >
                             <h6 style="margin-left: 22px;">
-                                <icon :icon="IconMic" />
+                                <icon icon="mic" />
                                 {{ $gettext('Live') }}
                             </h6>
 
@@ -206,7 +206,7 @@
                 class="btn btn-link text-primary"
                 @click="makeApiCall(backendSkipSongUri)"
             >
-                <icon :icon="IconSkipNext" />
+                <icon icon="skip_next" />
                 <span>
                     {{ $gettext('Skip Song') }}
                 </span>
@@ -218,7 +218,7 @@
                 class="btn btn-link text-primary"
                 @click="makeApiCall(backendDisconnectStreamerUri)"
             >
-                <icon :icon="IconVolumeOff" />
+                <icon icon="volume_off" />
                 <span>
                     {{ $gettext('Disconnect Streamer') }}
                 </span>
@@ -227,9 +227,9 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {BackendAdapter} from '~/components/Entity/RadioAdapters';
-import Icon from '~/components/Common/Icon.vue';
+import Icon from '~/components/Common/Icon';
 import {computed} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import nowPlayingPanelProps from "~/components/Stations/Profile/nowPlayingPanelProps";
@@ -239,7 +239,6 @@ import CardPage from "~/components/Common/CardPage.vue";
 import {useLightbox} from "~/vendor/lightbox";
 import {StationPermission, userAllowedForStation} from "~/acl";
 import {useAzuraCastStation} from "~/vendor/azuracast";
-import {IconHeadphones, IconLogs, IconMic, IconMusicNote, IconSkipNext, IconVolumeOff} from "~/components/Common/icons";
 
 const props = defineProps({
     ...nowPlayingPanelProps,

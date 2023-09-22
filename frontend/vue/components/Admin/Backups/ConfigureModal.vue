@@ -15,7 +15,7 @@
                     class="col-md-12"
                     :field="v$.backup_enabled"
                     :label="$gettext('Run Automatic Nightly Backups')"
-                    :description="$gettext('Enable to have CloudmuCast automatically run nightly backups at the time specified.')"
+                    :description="$gettext('Enable to have AzuraCast automatically run nightly backups at the time specified.')"
                 />
             </div>
 
@@ -79,10 +79,10 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import ModalForm from "~/components/Common/ModalForm.vue";
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+import FormFieldset from "~/components/Form/FormFieldset";
 import mergeExisting from "~/functions/mergeExisting";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
 import TimeCode from "~/components/Common/TimeCode.vue";
@@ -93,7 +93,6 @@ import {useNotify} from "~/functions/useNotify";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import FormGroupMultiCheck from "~/components/Form/FormGroupMultiCheck.vue";
 import FormGroupSelect from "~/components/Form/FormGroupSelect.vue";
-import {ModalFormTemplateRef} from "~/functions/useBaseEditModal.ts";
 
 const props = defineProps({
     settingsUrl: {
@@ -110,7 +109,7 @@ const emit = defineEmits(['relist']);
 
 const loading = ref(true);
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // ModalForm
 
 const {form, resetForm, v$, ifValid} = useVuelidateOnForm(
     {
@@ -173,15 +172,17 @@ const open = () => {
     });
 };
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 
 const submit = () => {
     ifValid(() => {
-        axios({
-            method: 'PUT',
-            url: props.settingsUrl,
-            data: form.value
-        }).then(() => {
+        wrapWithLoading(
+            axios({
+                method: 'PUT',
+                url: props.settingsUrl,
+                data: form.value
+            })
+        ).then(() => {
             notifySuccess();
             close();
         });

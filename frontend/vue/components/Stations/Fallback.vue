@@ -71,9 +71,9 @@
     </section>
 </template>
 
-<script setup lang="ts">
-import FlowUpload from '~/components/Common/FlowUpload.vue';
-import InfoCard from "~/components/Common/InfoCard.vue";
+<script setup>
+import FlowUpload from '~/components/Common/FlowUpload';
+import InfoCard from "~/components/Common/InfoCard";
 import {onMounted, ref} from "vue";
 import {useAxios} from "~/vendor/axios";
 import FormMarkup from "~/components/Form/FormMarkup.vue";
@@ -95,12 +95,14 @@ const relist = () => {
 
 onMounted(relist);
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 
 const deleteFallback = () => {
-    axios.delete(apiUrl.value).then(() => {
-        notifySuccess();
-        relist();
-    });
+    wrapWithLoading(
+        axios.delete(apiUrl.value).then(() => {
+            notifySuccess();
+            relist();
+        })
+    );
 };
 </script>

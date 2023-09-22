@@ -19,7 +19,7 @@
                 type="button"
                 class="btn btn-dark dropdown-toggle"
             >
-                <icon :icon="IconDateRange" />
+                <icon icon="date_range" />
                 <span>
                     {{ value }}
                 </span>
@@ -28,15 +28,14 @@
     </vue-date-picker>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import VueDatePicker from '@vuepic/vue-datepicker';
-import Icon from "./Icon.vue";
+import Icon from "./Icon";
 import useTheme from "~/functions/theme";
 import {useTranslate} from "~/vendor/gettext";
 import {computed} from "vue";
 import {useAzuraCast} from "~/vendor/azuracast";
 import {useLuxon} from "~/vendor/luxon";
-import {IconDateRange} from "~/components/Common/icons";
 
 defineOptions({
     inheritAttrs: false

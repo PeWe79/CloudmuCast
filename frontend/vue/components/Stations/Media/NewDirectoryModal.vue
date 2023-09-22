@@ -4,24 +4,20 @@
         ref="$modal"
         centered
         :title="$gettext('New Directory')"
-        @hidden="onHidden"
-        @shown="onShown"
     >
         <form @submit.prevent="doMkdir">
             <form-group-field
                 id="new_directory_name"
-                ref="$field"
                 :field="v$.newDirectory"
+                autofocus
                 :label="$gettext('Directory Name')"
             />
-
-            <invisible-submit-button />
         </form>
         <template #modal-footer>
             <button
                 type="button"
                 class="btn btn-secondary"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -37,17 +33,15 @@
     </modal>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {required} from '@vuelidate/validators';
-import FormGroupField from "~/components/Form/FormGroupField.vue";
+import FormGroupField from "~/components/Form/FormGroupField";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
-import {nextTick, ref} from "vue";
+import {ref} from "vue";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useTranslate} from "~/vendor/gettext";
 import Modal from "~/components/Common/Modal.vue";
-import InvisibleSubmitButton from "~/components/Common/InvisibleSubmitButton.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     currentDirectory: {
@@ -71,31 +65,30 @@ const {form, v$, resetForm, ifValid} = useVuelidateOnForm(
     }
 );
 
-const $modal = ref<ModalTemplateRef>(null);
-const {hide, show: open} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
-const onHidden = () => {
+const close = () => {
     resetForm();
-}
 
-const $field = ref<InstanceType<typeof FormGroupField> | null>(null);
-
-const onShown = () => {
-    nextTick(() => {
-        $field.value?.focus();
-    })
+    $modal.value.hide();
 };
 
-const {notifySuccess} = useNotify();
+const open = () => {
+    $modal.value.show();
+};
+
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 const {$gettext} = useTranslate();
 
 const doMkdir = () => {
     ifValid(() => {
-        axios.post(props.mkdirUrl, {
-            'currentDirectory': props.currentDirectory,
-            'name': form.value.newDirectory
-        }).then(() => {
+        wrapWithLoading(
+            axios.post(props.mkdirUrl, {
+                'currentDirectory': props.currentDirectory,
+                'name': form.value.newDirectory
+            })
+        ).then(() => {
             notifySuccess($gettext('New directory created.'));
         }).finally(() => {
             emit('relist');

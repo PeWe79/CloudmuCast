@@ -18,7 +18,7 @@
 
                             <p class="card-text">
                                 {{
-                                    $gettext('CloudmuCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated.')
+                                    $gettext('AzuraCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated.')
                                 }}
                             </p>
                             <p class="card-text">
@@ -79,7 +79,7 @@
                                 </form-group-field>
                             </fieldset>
 
-                            <div class="card-body buttons">
+                            <div class="buttons">
                                 <button
                                     type="submit"
                                     class="btn btn-primary"
@@ -102,13 +102,14 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {computed, onMounted, ref} from "vue";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import {useSweetAlert} from "~/vendor/sweetalert";
 import {useAxios} from "~/vendor/axios";
 import {useTranslate} from "~/vendor/gettext";
+import {useNotify} from "~/functions/useNotify";
 import Loading from "~/components/Common/Loading.vue";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getApiUrl} from "~/router";
@@ -152,12 +153,15 @@ const doFetch = () => {
 
 onMounted(doFetch);
 
+const {wrapWithLoading} = useNotify();
+
 const doUpdate = () => {
     isLoading.value = true;
-
-    axios.post(apiUrl.value, {
-        geolite_license_key: form.value.key
-    }).then((resp) => {
+    wrapWithLoading(
+        axios.post(apiUrl.value, {
+            geolite_license_key: form.value.key
+        })
+    ).then((resp) => {
         version.value = resp.data.version;
     }).finally(() => {
         isLoading.value = false;

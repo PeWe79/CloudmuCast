@@ -20,10 +20,10 @@ import Sidebar from "~/components/Stations/Sidebar.vue";
 import Lightbox from "~/components/Common/Lightbox.vue";
 import HeaderInlinePlayer from "~/components/HeaderInlinePlayer.vue";
 import {ref} from "vue";
-import {LightboxTemplateRef, useProvideLightbox} from "~/vendor/lightbox.ts";
+import {useProvideLightbox} from "~/vendor/lightbox.ts";
 
 const {panelProps, sidebarProps} = useAzuraCast();
 
-const $lightbox = ref<LightboxTemplateRef>(null);
+const $lightbox = ref(); // Template Ref
 useProvideLightbox($lightbox);
 </script>

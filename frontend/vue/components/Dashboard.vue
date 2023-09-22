@@ -32,7 +32,7 @@
                         role="button"
                         :href="profileUrl"
                     >
-                        <icon :icon="IconAccountCircle" />
+                        <icon icon="account_circle" />
                         <span>{{ $gettext('My Account') }}</span>
                     </a>
                     <a
@@ -41,7 +41,7 @@
                         role="button"
                         :href="adminUrl"
                     >
-                        <icon :icon="IconSettings" />
+                        <icon icon="settings" />
                         <span>{{ $gettext('Administration') }}</span>
                     </a>
                 </div>
@@ -61,8 +61,8 @@
                         class="flex-shrink-0 me-3"
                     >
                         <icon
-                            :icon="IconInfo"
                             class="lg"
+                            icon="info"
                         />
                     </div>
                     <div
@@ -70,8 +70,8 @@
                         class="flex-shrink-0 me-3"
                     >
                         <icon
-                            :icon="IconWarning"
                             class="lg"
+                            icon="warning"
                         />
                     </div>
                     <div class="flex-fill">
@@ -82,7 +82,7 @@
                     </div>
                     <div
                         v-if="notification.actionLabel && notification.actionUrl"
-                        class="flex-shrink-0 ms-md-3 mt-3 mt-md-0 buttons"
+                        class="flex-shrink-0 ms-md-3 mt-3 mt-md-0"
                     >
                         <a
                             class="btn btn-sm"
@@ -111,7 +111,7 @@
                             {{ $gettext('Listeners Per Station') }}
                         </h3>
                     </div>
-                    <div class="flex-shrink-0 buttons">
+                    <div class="flex-shrink-0">
                         <button
                             type="button"
                             class="btn btn-sm btn-dark py-2"
@@ -147,13 +147,13 @@
                     </div>
                     <div
                         v-if="showAdmin"
-                        class="flex-shrink-0 buttons"
+                        class="flex-shrink-0"
                     >
                         <a
                             class="btn btn-dark py-2"
                             :href="manageStationsUrl"
                         >
-                            <icon :icon="IconSettings" />
+                            <icon icon="settings" />
                             <span>
                                 {{ $gettext('Manage Stations') }}
                             </span>
@@ -220,7 +220,7 @@
                                     <span class="pe-1">
                                         <icon
                                             class="sm align-middle"
-                                            :icon="IconHeadphones"
+                                            icon="headset"
                                         />
                                     </span>
                                     <template v-if="item.links.listeners">
@@ -268,7 +268,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-end buttons">
+                                <td class="text-end">
                                     <a
                                         class="btn btn-primary"
                                         :href="item.links.manage"
@@ -290,11 +290,11 @@
     <lightbox ref="$lightbox" />
 </template>
 
-<script setup lang="ts">
-import Icon from '~/components/Common/Icon.vue';
-import Avatar from '~/components/Common/Avatar.vue';
-import PlayButton from "~/components/Common/PlayButton.vue";
-import AlbumArt from "~/components/Common/AlbumArt.vue";
+<script setup>
+import Icon from '~/components/Common/Icon';
+import Avatar from '~/components/Common/Avatar';
+import PlayButton from "~/components/Common/PlayButton";
+import AlbumArt from "~/components/Common/AlbumArt";
 import {useAxios} from "~/vendor/axios";
 import {useAsyncState, useIntervalFn} from "@vueuse/core";
 import {computed, ref} from "vue";
@@ -305,9 +305,8 @@ import Loading from "~/components/Common/Loading.vue";
 import Lightbox from "~/components/Common/Lightbox.vue";
 import CardPage from "~/components/Common/CardPage.vue";
 import HeaderInlinePlayer from "~/components/HeaderInlinePlayer.vue";
-import {LightboxTemplateRef, useProvideLightbox} from "~/vendor/lightbox";
+import {useProvideLightbox} from "~/vendor/lightbox";
 import useOptionalStorage from "~/functions/useOptionalStorage";
-import {IconAccountCircle, IconHeadphones, IconInfo, IconSettings, IconWarning} from "~/components/Common/icons";
 
 const props = defineProps({
     userUrl: {
@@ -352,7 +351,7 @@ const props = defineProps({
     }
 });
 
-const chartsVisible = useOptionalStorage<boolean>('dashboard_show_chart', true);
+const chartsVisible = useOptionalStorage('dashboard_show_chart', true);
 
 const {$gettext} = useTranslate();
 
@@ -407,6 +406,6 @@ useIntervalFn(
     stationsReloadTimeout
 );
 
-const $lightbox = ref<LightboxTemplateRef>(null);
+const $lightbox = ref(); // Template Ref
 useProvideLightbox($lightbox);
 </script>

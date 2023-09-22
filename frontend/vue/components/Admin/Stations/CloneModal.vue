@@ -12,7 +12,7 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {required} from '@vuelidate/validators';
 import ModalForm from "~/components/Common/ModalForm.vue";
 import AdminStationsCloneModalForm from "~/components/Admin/Stations/CloneModalForm.vue";
@@ -21,7 +21,6 @@ import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
-import {ModalFormTemplateRef} from "~/functions/useBaseEditModal.ts";
 
 const emit = defineEmits(['relist']);
 
@@ -42,7 +41,7 @@ const {form, resetForm, v$, ifValid} = useVuelidateOnForm(
     }
 );
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // ModalForm
 const {$gettext} = useTranslate();
 
 const create = (stationName, stationCloneUrl) => {
@@ -56,7 +55,7 @@ const create = (stationName, stationCloneUrl) => {
     error.value = null;
     cloneUrl.value = stationCloneUrl;
 
-    $modal.value?.show();
+    $modal.value.show();
 };
 
 const clearContents = () => {
@@ -65,21 +64,23 @@ const clearContents = () => {
 };
 
 const close = () => {
-    $modal.value?.hide();
+    $modal.value.hide();
 };
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doSubmit = () => {
     ifValid(() => {
         error.value = null;
 
-        axios({
-            method: 'POST',
-            url: cloneUrl.value,
-            data: form.value
-        }).then(() => {
+        wrapWithLoading(
+            axios({
+                method: 'POST',
+                url: cloneUrl.value,
+                data: form.value
+            })
+        ).then(() => {
             notifySuccess();
             emit('relist');
             close();

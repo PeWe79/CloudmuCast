@@ -44,7 +44,8 @@ export default function useAdminRoutes() {
         {
             path: '/debug',
             component: () => import('~/components/Admin/Debug.vue'),
-            name: 'admin:debug:index'
+            name: 'admin:debug:index',
+            ...populateComponentRemotely(getApiUrl('/admin/vue/debug'))
         },
         {
             path: '/updates',

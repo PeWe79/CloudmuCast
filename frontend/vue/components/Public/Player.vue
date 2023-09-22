@@ -138,9 +138,9 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import AudioPlayer from '~/components/Common/AudioPlayer.vue';
-import PlayButton from "~/components/Common/PlayButton.vue";
+<script setup>
+import AudioPlayer from '~/components/Common/AudioPlayer';
+import PlayButton from "~/components/Common/PlayButton";
 import {computed, onMounted, ref, shallowRef, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import useNowPlaying from "~/functions/useNowPlaying";
@@ -149,7 +149,6 @@ import MuteButton from "~/components/Common/MuteButton.vue";
 import AlbumArt from "~/components/Common/AlbumArt.vue";
 import {useAzuraCastStation} from "~/vendor/azuracast";
 import usePlayerVolume from "~/functions/usePlayerVolume";
-import {usePlayerStore} from "~/store.ts";
 
 const props = defineProps({
     ...playerProps
@@ -166,61 +165,56 @@ const {
     currentTrackElapsedDisplay
 } = useNowPlaying(props);
 
-interface CurrentStreamDescriptor {
-    name: string,
-    url: string,
-    hls: boolean,
-}
-
-const currentStream = shallowRef<CurrentStreamDescriptor>({
-    name: '',
-    url: '',
-    hls: false,
+const currentStream = shallowRef({
+    'name': '',
+    'url': '',
+    'hls': false,
 });
 
 const enable_hls = computed(() => {
-    return props.showHls && np.value?.station?.hls_enabled;
+    const $np = np.value;
+    return props.showHls && $np.station.hls_enabled;
 });
 
 const {$gettext} = useTranslate();
 
-const streams = computed<CurrentStreamDescriptor[]>(() => {
+const streams = computed(() => {
     const allStreams = [];
+    const $np = np.value;
 
     if (enable_hls.value) {
         allStreams.push({
-            name: $gettext('HLS'),
-            url: np.value?.station?.hls_url,
-            hls: true,
+            'name': $gettext('HLS'),
+            'url': $np.station.hls_url,
+            'hls': true,
         });
     }
 
-    np.value?.station?.mounts.forEach(function (mount) {
+    $np.station.mounts.forEach(function (mount) {
         allStreams.push({
-            name: mount.name,
-            url: mount.url,
-            hls: false,
+            'name': mount.name,
+            'url': mount.url,
+            'hls': false,
         });
     });
-
-    np.value?.station?.remotes.forEach(function (remote) {
+    $np.station.remotes.forEach(function (remote) {
         allStreams.push({
-            name: remote.name,
-            url: remote.url,
-            hls: false,
+            'name': remote.name,
+            'url': remote.url,
+            'hls': false,
         });
     });
 
     return allStreams;
 });
 
-const $player = ref<InstanceType<typeof AudioPlayer> | null>(null);
+const $player = ref(); // Template ref
 
 const volume = usePlayerVolume();
 
-const urlParamVolume = (new URL(document.location.href)).searchParams.get('volume');
+const urlParamVolume = (new URL(document.location)).searchParams.get('volume');
 if (null !== urlParamVolume) {
-    volume.value = Number(urlParamVolume);
+    volume.value = urlParamVolume;
 }
 
 const isMuted = ref(false);
@@ -229,16 +223,9 @@ const toggleMute = () => {
     isMuted.value = !isMuted.value;
 }
 
-const $store = usePlayerStore();
-
-const switchStream = (new_stream: CurrentStreamDescriptor) => {
+const switchStream = (new_stream) => {
     currentStream.value = new_stream;
-
-    $store.toggle({
-        url: new_stream.url,
-        isStream: true,
-        isHls: new_stream.hls
-    });
+    $player.value.toggle(new_stream.url, true, new_stream.hls);
 };
 
 onMounted(() => {
@@ -295,7 +282,6 @@ watch(np, onNowPlayingUpdated, {immediate: true});
                 width: 75px;
                 height: auto;
                 border-radius: 5px;
-                box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
 
                 @media (max-width: 575px) {
                     width: 50px;

@@ -10,7 +10,7 @@ Notes:
 **Using Docker installation method?**
 <!-- Yes / No -->
 
-**CloudmuCast version:**
+**AzuraCast version:**
 <!-- (i.e. v0.10.1 for Stable Releases or 2021-02-07 #abcdefg for Rolling Releases -->
 
 **Host Operating System:**

@@ -13,11 +13,10 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import SongHistory from './SongHistory.vue';
+<script setup>
+import SongHistory from './SongHistory';
 import Modal from "~/components/Common/Modal.vue";
 import {ref} from "vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     history: {
@@ -32,8 +31,11 @@ const props = defineProps({
     },
 });
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show: open} = useHasModal($modal);
+const $modal = ref(); // Modal
+
+const open = () => {
+    $modal.value.show();
+}
 
 defineExpose({
     open

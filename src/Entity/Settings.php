@@ -64,7 +64,7 @@ class Settings implements Stringable
     }
 
     #[
-        OA\Property(description: "Site Base URL", example: "https://your.azuracast.site"),
+        OA\Property(description: "Site Base URL", example: "https://your.cloudmucast.site"),
         ORM\Column(length: 255, nullable: true),
         Groups(self::GROUP_GENERAL)
     ]

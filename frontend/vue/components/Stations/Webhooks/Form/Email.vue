@@ -33,9 +33,9 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import CommonFormattingInfo from "./Common/FormattingInfo.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
+import CommonFormattingInfo from "./Common/FormattingInfo";
 import {useVModel} from "@vueuse/core";
 import {useVuelidateOnFormTab} from "~/functions/useVuelidateOnFormTab";
 import {required} from "@vuelidate/validators";

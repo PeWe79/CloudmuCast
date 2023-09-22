@@ -44,7 +44,7 @@
                 <button
                     type="button"
                     class="btn btn-secondary"
-                    @click="hide"
+                    @click="close"
                 >
                     {{ $gettext('Close') }}
                 </button>
@@ -61,16 +61,16 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import InvisibleSubmitButton from "~/components/Common/InvisibleSubmitButton.vue";
-import AccountApiKeyNewKey from "./ApiKeyNewKey.vue";
-import FormGroupField from "~/components/Form/FormGroupField.vue";
+<script setup>
+import InvisibleSubmitButton from "~/components/Common/InvisibleSubmitButton";
+import AccountApiKeyNewKey from "./ApiKeyNewKey";
+import FormGroupField from "~/components/Form/FormGroupField";
 import {required} from '@vuelidate/validators';
 import {ref} from "vue";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
+import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import Modal from "~/components/Common/Modal.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     createUrl: {
@@ -99,14 +99,15 @@ const clearContents = () => {
     newKey.value = null;
 };
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // BModal
 
 const create = () => {
     clearContents();
-    show();
+
+    $modal.value?.show();
 };
 
+const {wrapWithLoading} = useNotify();
 const {axios} = useAxios();
 
 const doSubmit = async () => {
@@ -117,16 +118,22 @@ const doSubmit = async () => {
 
     error.value = null;
 
-    axios({
-        method: 'POST',
-        url: props.createUrl,
-        data: form.value
-    }).then((resp) => {
+    wrapWithLoading(
+        axios({
+            method: 'POST',
+            url: props.createUrl,
+            data: form.value
+        })
+    ).then((resp) => {
         newKey.value = resp.data.key;
         emit('relist');
     }).catch((error) => {
         error.value = error.response.data.message;
     });
+};
+
+const close = () => {
+    $modal.value?.hide();
 };
 
 defineExpose({

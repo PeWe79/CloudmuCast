@@ -18,7 +18,7 @@
                     class="btn btn-link text-secondary"
                     @click.prevent="openSongHistoryModal"
                 >
-                    <icon :icon="IconHistory" />
+                    <icon icon="history" />
                     <span>
                         {{ $gettext('Song History') }}
                     </span>
@@ -28,7 +28,7 @@
                     class="btn btn-link text-secondary"
                     @click.prevent="openRequestModal"
                 >
-                    <icon :icon="IconHelp" />
+                    <icon icon="help_outline" />
                     <span>
                         {{ $gettext('Request Song') }}
                     </span>
@@ -37,7 +37,7 @@
                     class="btn btn-link text-secondary"
                     :href="downloadPlaylistUri"
                 >
-                    <icon :icon="IconDownload" />
+                    <icon icon="file_download" />
                     <span>
                         {{ $gettext('Playlist') }}
                     </span>
@@ -62,17 +62,16 @@
     <lightbox ref="$lightbox" />
 </template>
 
-<script setup lang="ts">
-import SongHistoryModal from './FullPlayer/SongHistoryModal.vue';
-import RequestModal from './FullPlayer/RequestModal.vue';
-import Icon from '~/components/Common/Icon.vue';
+<script setup>
+import SongHistoryModal from './FullPlayer/SongHistoryModal';
+import RequestModal from './FullPlayer/RequestModal';
+import Icon from '~/components/Common/Icon';
 import RadioPlayer from './Player.vue';
 import {ref} from "vue";
 import playerProps from "~/components/Public/playerProps";
 import {pickProps} from "~/functions/pickProps";
 import Lightbox from "~/components/Common/Lightbox.vue";
-import {LightboxTemplateRef, useProvideLightbox} from "~/vendor/lightbox";
-import {IconDownload, IconHelp, IconHistory} from "~/components/Common/icons";
+import {useProvideLightbox} from "~/vendor/lightbox";
 
 const props = defineProps({
     ...playerProps,
@@ -105,18 +104,18 @@ const onNowPlayingUpdate = (newNowPlaying) => {
     history.value = newNowPlaying?.song_history;
 }
 
-const $songHistoryModal = ref<InstanceType<typeof SongHistoryModal> | null>(null);
+const $songHistoryModal = ref(); // SongHistoryModal
 
 const openSongHistoryModal = () => {
-    $songHistoryModal.value?.open();
+    $songHistoryModal.value.open();
 }
 
-const $requestModal = ref<InstanceType<typeof RequestModal> | null>(null);
+const $requestModal = ref(); // RequestModal
 
 const openRequestModal = () => {
-    $requestModal.value?.open();
+    $requestModal.value.open();
 }
 
-const $lightbox = ref<LightboxTemplateRef>(null);
+const $lightbox = ref(); // Template Ref
 useProvideLightbox($lightbox);
 </script>

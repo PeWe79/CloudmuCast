@@ -16,26 +16,24 @@
 
         <data-table
             id="listening_time_table"
-            ref="$datatable"
+            ref="datatable"
             paginated
             handle-client-side
             :fields="fields"
             :items="stats.all"
-            @refresh-clicked="reloadData()"
         />
     </loading>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import PieChart from "~/components/Common/Charts/PieChart.vue";
-import DataTable, {DataTableField} from "~/components/Common/DataTable.vue";
-import {ref, toRef, watch} from "vue";
+import DataTable from "~/components/Common/DataTable";
+import {onMounted, ref, shallowRef, toRef, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
-import {useAsyncState, useMounted} from "@vueuse/core";
+import {useMounted} from "@vueuse/core";
 import {useAxios} from "~/vendor/axios";
 import Loading from "~/components/Common/Loading.vue";
 import {useLuxon} from "~/vendor/luxon";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
 
 const props = defineProps({
     dateRange: {
@@ -48,43 +46,53 @@ const props = defineProps({
     }
 });
 
+const isLoading = ref(true);
+const stats = shallowRef({
+    all: [],
+    chart: {
+        labels: [],
+        datasets: [],
+        alt: []
+    }
+});
+
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = shallowRef([
     {key: 'label', label: $gettext('Listening Time'), sortable: false},
     {key: 'value', label: $gettext('Listeners'), sortable: false}
-];
+]);
 
 const dateRange = toRef(props, 'dateRange');
 const {axios} = useAxios();
 const {DateTime} = useLuxon();
 
-const {state: stats, isLoading, execute: reloadData} = useAsyncState(
-    () => axios.get(props.apiUrl, {
+const relist = () => {
+    isLoading.value = true;
+
+    axios.get(props.apiUrl, {
         params: {
             start: DateTime.fromJSDate(dateRange.value.startDate).toISO(),
             end: DateTime.fromJSDate(dateRange.value.endDate).toISO()
         }
-    }).then(r => r.data),
-    {
-        all: [],
-        chart: {
-            labels: [],
-            datasets: [],
-            alt: []
-        }
-    }
-);
-
-const $datatable = ref<DataTableTemplateRef>();
-const {navigate} = useHasDatatable($datatable);
+    }).then((response) => {
+        stats.value = {
+            all: response.data.all,
+            chart: response.data.chart
+        };
+        isLoading.value = false;
+    });
+}
 
 const isMounted = useMounted();
 
 watch(dateRange, () => {
     if (isMounted.value) {
-        reloadData();
-        navigate();
+        relist();
     }
+});
+
+onMounted(() => {
+    relist();
 });
 </script>

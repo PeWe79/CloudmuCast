@@ -74,8 +74,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
 import FormMarkup from "~/components/Form/FormMarkup.vue";
 import {useVModel} from "@vueuse/core";
 import {useVuelidateOnFormTab} from "~/functions/useVuelidateOnFormTab";

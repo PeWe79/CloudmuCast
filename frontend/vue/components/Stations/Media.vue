@@ -91,19 +91,19 @@
                                 v-if="row.item.is_dir"
                                 class="file-icon"
                             >
-                                <icon :icon="IconFolder" />
+                                <icon icon="folder" />
                             </span>
                             <span
                                 v-else-if="row.item.is_cover_art"
                                 class="file-icon"
                             >
-                                <icon :icon="IconImage" />
+                                <icon icon="photo" />
                             </span>
                             <span
                                 v-else
                                 class="file-icon"
                             >
-                                <icon :icon="IconFile" />
+                                <icon icon="note" />
                             </span>
                         </template>
                     </div>
@@ -240,19 +240,19 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import MediaToolbar from './Media/MediaToolbar.vue';
-import Breadcrumb from './Media/Breadcrumb.vue';
-import FileUpload from './Media/FileUpload.vue';
-import NewDirectoryModal from './Media/NewDirectoryModal.vue';
-import MoveFilesModal from './Media/MoveFilesModal.vue';
-import RenameModal from './Media/RenameModal.vue';
-import EditModal from './Media/EditModal.vue';
-import StationsCommonQuota from "~/components/Stations/Common/Quota.vue";
-import Icon from '~/components/Common/Icon.vue';
-import AlbumArt from '~/components/Common/AlbumArt.vue';
-import PlayButton from "~/components/Common/PlayButton.vue";
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import MediaToolbar from './Media/MediaToolbar';
+import Breadcrumb from './Media/Breadcrumb';
+import FileUpload from './Media/FileUpload';
+import NewDirectoryModal from './Media/NewDirectoryModal';
+import MoveFilesModal from './Media/MoveFilesModal';
+import RenameModal from './Media/RenameModal';
+import EditModal from './Media/EditModal';
+import StationsCommonQuota from "~/components/Stations/Common/Quota";
+import Icon from '~/components/Common/Icon';
+import AlbumArt from '~/components/Common/AlbumArt';
+import PlayButton from "~/components/Common/PlayButton";
 import {useTranslate} from "~/vendor/gettext";
 import {computed, ref, watch} from "vue";
 import {forEach, map, partition} from "lodash";
@@ -262,8 +262,6 @@ import InfoCard from "~/components/Common/InfoCard.vue";
 import {useLuxon} from "~/vendor/luxon";
 import {getStationApiUrl} from "~/router";
 import {useRoute, useRouter} from "vue-router";
-import {IconFile, IconFolder, IconImage} from "~/components/Common/icons";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
 
 const props = defineProps({
     initialPlaylists: {
@@ -304,8 +302,8 @@ const {timeConfig} = useAzuraCast();
 const {timezone} = useAzuraCastStation();
 const {DateTime} = useLuxon();
 
-const fields = computed<DataTableField[]>(() => {
-    const fields: DataTableField[] = [
+const fields = computed(() => {
+    const fields = [
         {key: 'path', isRowHeader: true, label: $gettext('Name'), sortable: true},
         {key: 'media.title', label: $gettext('Title'), sortable: true, selectable: true, visible: false},
         {
@@ -381,17 +379,17 @@ const onRowSelected = (items) => {
     };
 };
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 
 const onTriggerNavigate = () => {
     $datatable.value?.navigate();
 };
 
 const filter = (newFilter) => {
-    $datatable.value?.setFilter(newFilter);
+    $datatable.value.setFilter(newFilter);
 };
 
-const $quota = ref<InstanceType<typeof StationsCommonQuota> | null>(null);
+const $quota = ref(); // Template Ref
 
 const onTriggerRelist = () => {
     $quota.value?.update();
@@ -406,28 +404,28 @@ const onFiltered = (newFilter) => {
     searchPhrase.value = newFilter;
 };
 
-const $renameModal = ref<InstanceType<typeof RenameModal> | null>(null);
+const $renameModal = ref(); // Template Ref
 
 const rename = (path) => {
     $renameModal.value?.open(path);
 };
 
-const $editModal = ref<InstanceType<typeof EditModal> | null>(null);
+const $editModal = ref(); // Template Ref
 
 const edit = (recordUrl, albumArtUrl, audioUrl, waveformUrl) => {
     $editModal.value?.open(recordUrl, albumArtUrl, audioUrl, waveformUrl);
 };
 
-const $newDirectoryModal = ref<InstanceType<typeof NewDirectoryModal> | null>(null);
+const $newDirectoryModal = ref(); // Template Ref
 
 const createDirectory = () => {
-    $newDirectoryModal.value?.open();
+    $newDirectoryModal.value.open();
 }
 
-const $moveFilesModal = ref<InstanceType<typeof MoveFilesModal> | null>(null);
+const $moveFilesModal = ref(); // Template Ref
 
 const moveFiles = () => {
-    $moveFilesModal.value?.open();
+    $moveFilesModal.value.open();
 }
 
 const requestConfig = (config) => {

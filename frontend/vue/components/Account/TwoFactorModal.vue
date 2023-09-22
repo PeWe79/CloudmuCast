@@ -69,18 +69,17 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
-import ModalForm from "~/components/Common/ModalForm.vue";
-import CopyToClipboardButton from "~/components/Common/CopyToClipboardButton.vue";
-import FormFieldset from "~/components/Form/FormFieldset.vue";
-import FormGroupField from "~/components/Form/FormGroupField.vue";
+<script setup>
+import ModalForm from "~/components/Common/ModalForm";
+import CopyToClipboardButton from "~/components/Common/CopyToClipboardButton";
+import FormFieldset from "~/components/Form/FormFieldset";
+import FormGroupField from "~/components/Form/FormGroupField";
 import {minLength, required} from "@vuelidate/validators";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import {ref} from "vue";
 import {useResettableRef} from "~/functions/useResettableRef";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
-import {ModalFormTemplateRef} from "~/functions/useBaseEditModal.ts";
 
 const props = defineProps({
     twoFactorUrl: {
@@ -120,13 +119,13 @@ const clearContents = () => {
     error.value = null;
 };
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // BModal
 
 const close = () => {
     $modal.value?.hide();
 };
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const open = () => {
@@ -136,7 +135,9 @@ const open = () => {
 
     $modal.value?.show();
 
-    axios.put(props.twoFactorUrl).then((resp) => {
+    wrapWithLoading(
+        axios.put(props.twoFactorUrl)
+    ).then((resp) => {
         totp.value = resp.data;
         loading.value = false;
     }).catch(() => {
@@ -148,14 +149,16 @@ const doSubmit = () => {
     ifValid(() => {
         error.value = null;
 
-        axios({
-            method: 'PUT',
-            url: props.twoFactorUrl,
-            data: {
-                secret: totp.value.secret,
-                otp: form.value.otp
-            }
-        }).then(() => {
+        wrapWithLoading(
+            axios({
+                method: 'PUT',
+                url: props.twoFactorUrl,
+                data: {
+                    secret: totp.value.secret,
+                    otp: form.value.otp
+                }
+            })
+        ).then(() => {
             notifySuccess();
             emit('relist');
             close();

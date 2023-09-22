@@ -6,10 +6,16 @@
                 :title="$gettext('SFTP Users')"
             >
                 <template #actions>
-                    <add-button
-                        :text="$gettext('Add SFTP User')"
+                    <button
+                        type="button"
+                        class="btn btn-primary"
                         @click="doCreate"
-                    />
+                    >
+                        <icon icon="add" />
+                        <span>
+                            {{ $gettext('Add SFTP User') }}
+                        </span>
+                    </button>
                 </template>
 
                 <data-table
@@ -74,17 +80,17 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
-import SftpUsersEditModal from "./SftpUsers/EditModal.vue";
+<script setup>
+import DataTable from "~/components/Common/DataTable";
+import SftpUsersEditModal from "./SftpUsers/EditModal";
+import Icon from "~/components/Common/Icon";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getStationApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const props = defineProps({
     connectionInfo: {
@@ -97,15 +103,15 @@ const listUrl = getStationApiUrl('/sftp-users');
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'username', isRowHeader: true, label: $gettext('Username'), sortable: false},
     {key: 'actions', label: $gettext('Actions'), sortable: false, class: 'shrink'}
 ];
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 const {relist} = useHasDatatable($datatable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // Template Ref
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
 const {doDelete} = useConfirmAndDelete(

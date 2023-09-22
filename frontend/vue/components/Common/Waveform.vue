@@ -37,7 +37,7 @@
                             :title="$gettext('Mute')"
                             @click="volume = 0"
                         >
-                            <icon :icon="IconVolumeOff" />
+                            <icon icon="volume_mute" />
                         </button>
                     </div>
                     <div class="flex-fill mx-1">
@@ -58,7 +58,7 @@
                             :title="$gettext('Full Volume')"
                             @click="volume = 100"
                         >
-                            <icon :icon="IconVolumeUp" />
+                            <icon icon="volume_up" />
                         </button>
                     </div>
                 </div>
@@ -67,16 +67,15 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import WS from 'wavesurfer.js';
 import timeline from 'wavesurfer.js/dist/plugins/timeline.js';
 import regions from 'wavesurfer.js/dist/plugins/regions.js';
 import getLogarithmicVolume from '~/functions/getLogarithmicVolume';
-import Icon from './Icon.vue';
+import Icon from './Icon';
 import {onMounted, onUnmounted, ref, watch} from "vue";
 import {useAxios} from "~/vendor/axios";
 import usePlayerVolume from "~/functions/usePlayerVolume";
-import {IconVolumeOff, IconVolumeUp} from "~/components/Common/icons";
 
 const props = defineProps({
     audioUrl: {

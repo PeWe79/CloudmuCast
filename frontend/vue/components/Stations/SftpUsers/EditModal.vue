@@ -15,9 +15,9 @@
     </modal-form>
 </template>
 
-<script setup lang="ts">
-import SftpUsersForm from "./Form.vue";
-import {baseEditModalProps, ModalFormTemplateRef, useBaseEditModal} from "~/functions/useBaseEditModal";
+<script setup>
+import SftpUsersForm from "./Form";
+import {baseEditModalProps, useBaseEditModal} from "~/functions/useBaseEditModal";
 import {computed, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import ModalForm from "~/components/Common/ModalForm.vue";
@@ -28,7 +28,7 @@ const props = defineProps({
 
 const emit = defineEmits(['relist']);
 
-const $modal = ref<ModalFormTemplateRef>(null);
+const $modal = ref(); // Template Ref
 
 const {
     loading,

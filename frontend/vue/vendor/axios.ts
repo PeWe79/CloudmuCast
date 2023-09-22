@@ -4,7 +4,6 @@ import {App, inject, InjectionKey} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
 import {useAzuraCast} from "~/vendor/azuracast.ts";
-import {useNProgress} from "~/vendor/nprogress.ts";
 
 const injectKey: InjectionKey<AxiosStatic> = Symbol() as InjectionKey<AxiosStatic>;
 
@@ -45,22 +44,16 @@ export default function installAxios(vueApp: App) {
         notifyError(notifyMessage);
     };
 
-    const {setLoading} = useNProgress();
-
     axios.interceptors.request.use((config) => {
-        setLoading(true);
         return config;
     }, (error) => {
-        setLoading(false);
         handleAxiosError(error);
         return Promise.reject(error);
     });
 
     axios.interceptors.response.use((response) => {
-        setLoading(false);
         return response;
     }, (error) => {
-        setLoading(false);
         handleAxiosError(error);
         return Promise.reject(error);
     });

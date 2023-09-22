@@ -9,11 +9,12 @@
     </canvas>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import {Tableau20} from "~/vendor/chartjs-colorschemes/colorschemes.tableau";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
 import ChartAltValues from "~/components/Common/Charts/ChartAltValues.vue";
-import useChart, {chartProps, ChartTemplateRef} from "~/functions/useChart";
+import useChart, {chartProps} from "~/functions/useChart";
 
 const props = defineProps({
     ...chartProps,
@@ -25,7 +26,7 @@ const props = defineProps({
     }
 });
 
-const $canvas = ref<ChartTemplateRef>(null);
+const $canvas = ref(); // Template Ref
 const {$gettext} = useTranslate();
 
 useChart(
@@ -34,7 +35,12 @@ useChart(
     {
         type: 'bar',
         options: {
-            aspectRatio: props.aspectRatio,
+            aspectRatio: 2,
+            plugins: {
+                colorschemes: {
+                    scheme: Tableau20
+                }
+            },
             scales: {
                 x: {
                     scaleLabel: {

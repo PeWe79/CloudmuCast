@@ -53,7 +53,7 @@
     </tab>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import objectToFormOptions from "~/functions/objectToFormOptions";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
@@ -87,9 +87,7 @@ const form = useVModel(props, 'form', emit);
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        let validations: {
-            [key: string | number]: any
-        } = {
+        let validations = {
             is_enabled: {},
             media_storage_location: {},
             recordings_storage_location: {},
@@ -107,9 +105,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        let blankForm: {
-            [key: string]: any
-        } = {
+        let blankForm = {
             media_storage_location: '',
             recordings_storage_location: '',
             podcasts_storage_location: '',

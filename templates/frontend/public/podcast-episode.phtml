@@ -35,12 +35,11 @@ $sections->append(
     'head',
     <<<HTML
     <link rel="alternate" type="application/rss+xml" title="{$this->e($podcast->getTitle())}" href="{$feedLink}">
-    <script type="module" src="/static/js/wave-audio-path-player.umd.js"></script>
     HTML
 );
 ?>
-<div class="public-page">
-    <section class="card" role="region">
+<div class="d-flex align-items-center justify-content-center" style="height: 100dvh;">
+    <section class="card" role="region" style="width: 500px;">
         <div class="card-body">
             <div class="d-flex mb-3">
                 <div class="flex-fill">
@@ -79,28 +78,16 @@ $sections->append(
             </div>
 
             <div class="mb-3">
-                <wave-audio-path-player 
-                    src='<?= $episodeAudioSrc ?>' 
-                    wave-width="300" 
-                    wave-height="60" 
-                    color="currentColor" 
-                    wave-color="currentColor" 
-                    wave-progress-color="#FF8A33" 
-                    wave-slider="#00FFFF" 
-                    wave-options='{
-                        "samples":100,
-                        "type":"mirror"
-                    }'
-                >
-                </wave-audio-path-player>
+                <audio src="<?= $episodeAudioSrc ?>" controls style="width: 100%;"></audio>
             </div>
 
             <div class="buttons">
                 <a href="<?= $podcastEpisodesLink ?>" class="btn btn-sm btn-primary">
+                    <i class="material-icons">chevron_left</i>
                     <span><?= __('Back') ?></span>
                 </a>
                 <a href="<?= $feedLink ?>" class="btn btn-sm btn-warning" target="_blank">
-                    <?= $this->fetch('icons/rss') ?>
+                    <i class="material-icons">rss_feed</i>
                     <span><?= __('RSS Feed') ?></span>
                 </a>
             </div>

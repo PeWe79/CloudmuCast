@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {map} from "lodash";
 import {computed} from "vue";
 import FormGroupMultiCheck from "~/components/Form/FormGroupMultiCheck.vue";

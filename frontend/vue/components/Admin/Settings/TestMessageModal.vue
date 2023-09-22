@@ -4,7 +4,6 @@
         ref="$modal"
         centered
         :title="$gettext('Send Test Message')"
-        @hidden="resetForm()"
     >
         <form @submit.prevent="doSendTest">
             <form-group-field
@@ -18,7 +17,7 @@
             <button
                 type="button"
                 class="btn btn-secondary"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -34,7 +33,7 @@
     </modal>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {email, required} from '@vuelidate/validators';
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {ref} from "vue";
@@ -43,7 +42,6 @@ import {useTranslate} from "~/vendor/gettext";
 import {useAxios} from "~/vendor/axios";
 import {useVuelidateOnForm} from "~/functions/useVuelidateOnForm";
 import Modal from "~/components/Common/Modal.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     testMessageUrl: {
@@ -64,18 +62,28 @@ const {form, v$, resetForm, ifValid} = useVuelidateOnForm(
     }
 );
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show: open, hide} = useHasModal($modal);
+const $modal = ref(); // BModal
 
-const {notifySuccess} = useNotify();
+const open = () => {
+    $modal.value.show();
+};
+
+const close = () => {
+    resetForm();
+    $modal.value.hide();
+}
+
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 const {$gettext} = useTranslate();
 
 const doSendTest = () => {
     ifValid(() => {
-        axios.post(props.testMessageUrl, {
-            'email': form.value.emailAddress
-        }).then(() => {
+        wrapWithLoading(
+            axios.post(props.testMessageUrl, {
+                'email': form.value.emailAddress
+            })
+        ).then(() => {
             notifySuccess($gettext('Test message sent.'));
         }).finally(() => {
             close();

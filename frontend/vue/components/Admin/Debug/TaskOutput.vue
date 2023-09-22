@@ -66,9 +66,12 @@
 import {useTranslate} from "~/vendor/gettext.ts";
 import {get} from 'lodash';
 
-const props = defineProps<{
-  logs: Array<any>
-}>();
+const props = defineProps({
+    logs: {
+        type: Array,
+        required: true
+    }
+});
 
 const badgeClasses = {
     100: 'text-bg-info',

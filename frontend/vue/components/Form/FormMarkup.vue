@@ -36,7 +36,7 @@
     </form-group>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import FormGroup from "~/components/Form/FormGroup.vue";
 import {useSlots} from "vue";
 

@@ -35,7 +35,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {ref, toRef, watch} from "vue";
 import {syncRef} from "@vueuse/core";
 import {useAxios} from "~/vendor/axios";

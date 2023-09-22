@@ -69,7 +69,7 @@ final class UptimeWait
 
     public function run(): void
     {
-        $this->println('Starting up CloudmuCast services...');
+        $this->println('Starting up AzuraCast services...');
 
         $elapsed = 0;
         while ($elapsed <= $this->timeout) {

@@ -31,7 +31,7 @@
                     <div class="flex-fill">
                         <div class="input-group">
                             <span class="input-group-text">
-                                <icon :icon="IconSearch" />
+                                <icon icon="search" />
                             </span>
                             <input
                                 v-model="searchPhrase"
@@ -51,7 +51,7 @@
                                 :title="$gettext('Refresh rows')"
                                 @click="onClickRefresh"
                             >
-                                <icon :icon="IconRefresh" />
+                                <icon icon="refresh" />
                             </button>
 
                             <div
@@ -103,7 +103,7 @@
                                     data-bs-placement="left"
                                     :title="$gettext('Display fields')"
                                 >
-                                    <icon :icon="IconFilterList" />
+                                    <icon icon="filter_list" />
                                     <span class="caret" />
                                 </button>
                                 <div class="dropdown-menu">
@@ -125,7 +125,7 @@
         <div
             class="datatable-main"
             :class="[
-                responsiveClass
+                (responsive) ? 'table-responsive' : ''
             ]"
         >
             <table
@@ -166,7 +166,7 @@
                                 column.class,
                                 (column.sortable) ? 'sortable' : ''
                             ]"
-                            @click.stop="sort(column)"
+                            @click.stop="sort(column, null, $event)"
                         >
                             <slot
                                 :name="'header('+column.key+')'"
@@ -176,7 +176,7 @@
                                     {{ column.label }}
 
                                     <template v-if="column.sortable && sortField === column.key">
-                                        <icon :icon="(sortOrder === 'asc') ? IconArrowDropDown : IconArrowDropUp" />
+                                        <icon :icon="(sortOrder === 'asc') ? 'arrow_drop_down' : 'arrow_drop_up'" />
                                     </template>
                                 </div>
                             </slot>
@@ -184,7 +184,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <template v-if="isLoading">
+                    <template v-if="loading">
                         <tr>
                             <td
                                 :colspan="columnCount"
@@ -202,9 +202,7 @@
                     <template v-else-if="visibleItems.length === 0">
                         <tr>
                             <td :colspan="columnCount">
-                                <slot name="empty">
-                                    {{ $gettext('No records.') }}
-                                </slot>
+                                {{ $gettext('No records.') }}
                             </td>
                         </tr>
                     </template>
@@ -249,7 +247,12 @@
                                     :item="row"
                                     :toggle-details="() => toggleDetails(row)"
                                 >
-                                    {{ getColumnValue(column, row) }}
+                                    <template v-if="column.formatter">
+                                        {{ column.formatter(get(row, column.key, null), column.key, row) }}
+                                    </template>
+                                    <template v-else>
+                                        {{ get(row, column.key, null) }}
+                                    </template>
                                 </slot>
                             </td>
                         </tr>
@@ -267,6 +270,12 @@
                             </td>
                         </tr>
                     </template>
+
+                    <tr v-if="!visibleItems.length">
+                        <td :colspan="columnCount">
+                            <slot name="empty" />
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -285,8 +294,8 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import {filter, forEach, get, includes, indexOf, isEmpty, map, reverse, slice, some} from 'lodash';
+<script setup>
+import {slice, filter, map, includes, isEmpty, get, some, indexOf, forEach} from 'lodash';
 import Icon from './Icon.vue';
 import {computed, onMounted, ref, shallowRef, toRaw, toRef, useSlots, watch} from "vue";
 import {watchDebounced} from "@vueuse/core";
@@ -295,8 +304,6 @@ import FormMultiCheck from "~/components/Form/FormMultiCheck.vue";
 import FormCheckbox from "~/components/Form/FormCheckbox.vue";
 import Pagination from "~/components/Common/Pagination.vue";
 import useOptionalStorage from "~/functions/useOptionalStorage";
-import {IconArrowDropDown, IconArrowDropUp, IconFilterList, IconRefresh, IconSearch} from "~/components/Common/icons";
-import {useAzuraCast} from "~/vendor/azuracast.ts";
 
 const props = defineProps({
     id: {
@@ -312,14 +319,10 @@ const props = defineProps({
         default: null
     },
     responsive: {
-        type: [Boolean, String],
+        type: [String, Boolean],
         default: true
     },
     paginated: {
-        type: Boolean,
-        default: false
-    },
-    loading: {
         type: Boolean,
         default: false
     },
@@ -328,7 +331,7 @@ const props = defineProps({
         default: true
     },
     pageOptions: {
-        type: Array<number>,
+        type: Array,
         default: () => [10, 25, 50, 100, 250, 500, 0]
     },
     defaultPerPage: {
@@ -336,7 +339,7 @@ const props = defineProps({
         default: 10
     },
     fields: {
-        type: Array<DataTableField>,
+        type: Array,
         required: true
     },
     selectable: {
@@ -368,7 +371,6 @@ const props = defineProps({
 const slots = useSlots();
 
 const emit = defineEmits([
-    'refresh-clicked',
     'refreshed',
     'row-selected',
     'filtered',
@@ -377,37 +379,30 @@ const emit = defineEmits([
 
 const selectedRows = shallowRef([]);
 
-const searchPhrase = ref<string>('');
-const currentPage = ref<number>(1);
-const flushCache = ref<boolean>(false);
+const searchPhrase = ref('');
+const currentPage = ref(1);
+const flushCache = ref(false);
 
-const sortField = ref<string | null>(null);
-const sortOrder = ref<string | null>(null);
+const sortField = ref(null);
+const sortOrder = ref(null);
 
-const isLoading = ref<boolean>(false);
-
-watch(toRef(props, 'loading'), (newLoading: boolean) => {
-    isLoading.value = newLoading;
-});
-
-const visibleItems = shallowRef([]);
+const loading = ref(false);
+const allItems = shallowRef([]);
 const totalRows = ref(0);
 
 const activeDetailsRow = shallowRef(null);
 
-export interface DataTableField {
-    key: string,
-    label: string,
-    isRowHeader?: boolean,
-    sortable?: boolean,
-    selectable?: boolean,
-    visible?: boolean,
-    class?: string | Array<any>,
-    formatter?(column: any, key: string, row: any): string,
-}
+watch(toRef(props, 'items'), (newVal) => {
+    if (newVal !== null) {
+        allItems.value = toRaw(newVal);
+        totalRows.value = allItems.value.length;
+    }
+}, {
+    immediate: true
+});
 
-const allFields = computed<DataTableField[]>(() => {
-    return map(props.fields, (field: DataTableField) => {
+const allFields = computed(() => {
+    return map(props.fields, (field) => {
         return {
             label: '',
             isRowHeader: false,
@@ -421,7 +416,7 @@ const allFields = computed<DataTableField[]>(() => {
     });
 });
 
-const selectableFields = computed<DataTableField[]>(() => {
+const selectableFields = computed(() => {
     return filter({...allFields.value}, (field) => {
         return field.selectable;
     });
@@ -469,7 +464,7 @@ const perPage = computed(() => {
     return settings.value?.perPage ?? props.defaultPerPage;
 });
 
-const visibleFields = computed<DataTableField[]>(() => {
+const visibleFields = computed(() => {
     const fields = allFields.value.slice();
 
     if (!props.selectFields) {
@@ -499,11 +494,26 @@ const showPagination = computed(() => {
     return props.paginated && perPage.value !== 0;
 });
 
-const {localeShort} = useAzuraCast();
+const visibleItems = computed(() => {
+    if (!props.handleClientSide) {
+        return allItems.value;
+    }
 
-const refreshClientSide = () => {
+    // Handle pagination client-side.
+    let itemsOnPage;
+
+    if (props.paginated && perPage.value > 0) {
+        itemsOnPage = slice(
+            allItems.value,
+            (currentPage.value - 1) * perPage.value,
+            currentPage.value * perPage.value
+        );
+    } else {
+        itemsOnPage = allItems.value;
+    }
+
     // Handle filtration client-side.
-    let itemsOnPage = filter(toRaw(props.items), (item) =>
+    return filter(itemsOnPage, (item) =>
         Object.entries(item).filter((item) => {
             const [key, val] = item;
             if (!val || key[0] === '_') {
@@ -518,49 +528,20 @@ const refreshClientSide = () => {
             return itemValue.toLowerCase().includes(searchPhrase.value.toLowerCase())
         }).length > 0
     );
-
-    totalRows.value = itemsOnPage.length;
-
-    // Handle sorting client-side.
-    if (sortField.value) {
-        const collator = new Intl.Collator(localeShort, {numeric: true, sensitivity: 'base'});
-
-        itemsOnPage = itemsOnPage.sort(
-            (a, b) => collator.compare(get(a, sortField.value), get(b, sortField.value))
-        );
-        
-        if (sortOrder.value === 'desc') {
-            itemsOnPage = reverse(itemsOnPage);
-        }
-    }
-
-    // Handle pagination client-side.
-    if (props.paginated && perPage.value > 0) {
-        itemsOnPage = slice(
-            itemsOnPage,
-            (currentPage.value - 1) * perPage.value,
-            currentPage.value * perPage.value
-        );
-    }
-
-    visibleItems.value = itemsOnPage;
-    emit('refreshed');
-};
-
-watch(toRef(props, 'items'), () => {
-    if (props.handleClientSide) {
-        refreshClientSide();
-    }
-}, {
-    immediate: true
 });
 
 const {axios} = useAxios();
 
-const refreshServerSide = () => {
-    const queryParams: {
-        [key: string]: any
-    } = {
+const refresh = () => {
+    selectedRows.value = [];
+    activeDetailsRow.value = null;
+    
+    if (props.items !== null) {
+        emit('refreshed');
+        return;
+    }
+
+    const queryParams = {
         internal: true
     };
 
@@ -593,7 +574,7 @@ const refreshServerSide = () => {
         requestConfig = props.requestConfig(requestConfig);
     }
 
-    isLoading.value = true;
+    loading.value = true;
 
     return axios.get(props.apiUrl, requestConfig).then((resp) => {
         totalRows.value = resp.data.total;
@@ -604,26 +585,16 @@ const refreshServerSide = () => {
         }
 
         emit('data-loaded', rows);
-        visibleItems.value = rows;
+        allItems.value = rows;
     }).catch((err) => {
         totalRows.value = 0;
+
         console.error(err.response.data.message);
     }).finally(() => {
-        isLoading.value = false;
+        loading.value = false;
         flushCache.value = false;
         emit('refreshed');
     });
-}
-
-const refresh = () => {
-    selectedRows.value = [];
-    activeDetailsRow.value = null;
-
-    if (props.handleClientSide) {
-        refreshClientSide();
-    } else {
-        refreshServerSide();
-    }
 };
 
 const onPageChange = (p) => {
@@ -637,8 +608,6 @@ const relist = () => {
 };
 
 const onClickRefresh = (e) => {
-    emit('refresh-clicked', e);
-    
     if (e.shiftKey) {
         relist();
     } else {
@@ -647,7 +616,7 @@ const onClickRefresh = (e) => {
 };
 
 const navigate = () => {
-    searchPhrase.value = '';
+    searchPhrase.value = null;
     currentPage.value = 1;
     relist();
 };
@@ -673,7 +642,7 @@ watchDebounced(searchPhrase, (newSearchPhrase) => {
 
 onMounted(refresh);
 
-const isAllChecked = computed<boolean>(() => {
+const isAllChecked = computed(() => {
     if (visibleItems.value.length === 0) {
         return false;
     }
@@ -685,7 +654,7 @@ const isAllChecked = computed<boolean>(() => {
 
 const isRowChecked = (row) => {
     return indexOf(selectedRows.value, row) >= 0;
-};
+}
 
 const columnCount = computed(() => {
     let count = visibleFields.value.length;
@@ -693,7 +662,7 @@ const columnCount = computed(() => {
     return count
 });
 
-const sort = (column: DataTableField) => {
+const sort = (column) => {
     if (!column.sortable) {
         return;
     }
@@ -748,22 +717,6 @@ const toggleDetails = (row) => {
         ? null
         : row;
 };
-
-const responsiveClass = computed(() => {
-    if (typeof props.responsive === 'string') {
-        return props.responsive;
-    }
-
-    return (props.responsive ? 'table-responsive' : '');
-});
-
-const getColumnValue = (field: DataTableField, row: object): string => {
-    const columnValue = get(row, field.key, null);
-
-    return (field.formatter)
-        ? field.formatter(columnValue, field.key, row)
-        : columnValue;
-}
 
 defineExpose({
     refresh,

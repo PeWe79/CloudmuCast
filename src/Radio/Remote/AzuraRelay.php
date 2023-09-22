@@ -9,7 +9,6 @@ use App\Container\EnvironmentAwareTrait;
 use App\Container\SettingsAwareTrait;
 use App\Entity\Relay;
 use App\Entity\StationRemote;
-use App\Nginx\CustomUrls;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\Create;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -89,17 +88,23 @@ final class AzuraRelay extends AbstractRemote
 
         $baseUrl = new Uri(rtrim($relay->getBaseUrl(), '/'));
 
+        $radioPort = $station->getFrontendConfig()->getPort();
+
         $useRadioProxy = $this->readSettings()->getUseRadioProxy();
 
-        if ($useRadioProxy || 'https' === $baseUrl->getScheme()) {
+        if (
+            $useRadioProxy
+            || 'https' === $baseUrl->getScheme()
+            || (!$this->environment->isProduction() && !$this->environment->isDocker())
+        ) {
             // Web proxy support.
             return (string)$baseUrl
-                ->withPath($baseUrl->getPath() . CustomUrls::getListenUrl($station) . $remote->getmount());
+                ->withPath($baseUrl->getPath() . '/radio/' . $radioPort . $remote->getMount());
         }
 
         // Remove port number and other decorations.
         return (string)$baseUrl
-            ->withPort($station->getFrontendConfig()->getPort())
+            ->withPort($radioPort)
             ->withPath($remote->getMount() ?? '');
     }
 }

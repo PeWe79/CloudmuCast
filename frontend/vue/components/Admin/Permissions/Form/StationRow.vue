@@ -15,7 +15,7 @@
                     class="btn btn-sm btn-light py-2"
                     @click="$emit('remove')"
                 >
-                    <icon :icon="IconRemove" />
+                    <icon icon="remove" />
                     <span>
                         {{ $gettext('Remove') }}
                     </span>
@@ -38,14 +38,13 @@
     </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import useVuelidate from "@vuelidate/core";
 import {get, map} from "lodash";
 import Icon from "~/components/Common/Icon.vue";
 import {useVModel} from "@vueuse/core";
 import {computed} from "vue";
 import FormGroupMultiCheck from "~/components/Form/FormGroupMultiCheck.vue";
-import {IconRemove} from "~/components/Common/icons";
 
 const props = defineProps({
     row: {

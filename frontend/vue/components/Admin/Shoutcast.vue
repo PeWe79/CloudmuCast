@@ -14,7 +14,7 @@
 
                             <p class="card-text">
                                 {{
-                                    $gettext('Shoutcast 2 DNAS is not free software, and its restrictive license does not allow CloudmuCast to distribute the Shoutcast binary.')
+                                    $gettext('Shoutcast 2 DNAS is not free software, and its restrictive license does not allow AzuraCast to distribute the Shoutcast binary.')
                                 }}
                             </p>
 
@@ -77,8 +77,8 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
-import FlowUpload from "~/components/Common/FlowUpload.vue";
+<script setup>
+import FlowUpload from "~/components/Common/FlowUpload";
 import {computed, onMounted, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useAxios} from "~/vendor/axios";

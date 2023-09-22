@@ -44,7 +44,7 @@
     </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import RunningBadge from "~/components/Common/Badges/RunningBadge.vue";
 import {getApiUrl} from "~/router.ts";
 import {onMounted, onScopeDispose, ref} from "vue";

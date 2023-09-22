@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-row align-items-center">
         <div class="flex-shrink-0">
-            <icon :icon="IconVolumeOff" />
+            <icon icon="volume_mute" />
         </div>
         <div class="flex-fill px-2">
             <input
@@ -15,16 +15,15 @@
             >
         </div>
         <div class="flex-shrink-0">
-            <icon :icon="IconVolumeUp" />
+            <icon icon="volume_up" />
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
-import Icon from "~/components/Common/Icon.vue";
+<script setup>
+import Icon from "~/components/Common/Icon";
 import {onMounted, ref} from "vue";
 import {useVModel} from "@vueuse/core";
-import {IconVolumeOff, IconVolumeUp} from "~/components/Common/icons";
 
 const props = defineProps({
     modelValue: {

@@ -45,7 +45,7 @@
                 </loading>
             </div>
 
-            <div class="card-body buttons">
+            <div class="card-body">
                 <button
                     type="submit"
                     class="btn btn-lg"
@@ -60,7 +60,7 @@
     </form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import SettingsGeneralTab from "./Settings/GeneralTab.vue";
 import SettingsServicesTab from "./Settings/ServicesTab.vue";
 import SettingsSecurityPrivacyTab from "~/components/Admin/Settings/SecurityPrivacyTab.vue";
@@ -104,16 +104,18 @@ const relist = () => {
 
 onMounted(relist);
 
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {$gettext} = useTranslate();
 
 const submit = () => {
     ifValid(() => {
-        axios({
-            method: 'PUT',
-            url: props.apiUrl,
-            data: form.value
-        }).then(() => {
+        wrapWithLoading(
+            axios({
+                method: 'PUT',
+                url: props.apiUrl,
+                data: form.value
+            })
+        ).then(() => {
             emit('saved');
 
             notifySuccess($gettext('Changes saved.'));

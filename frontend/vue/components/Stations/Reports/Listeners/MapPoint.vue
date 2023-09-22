@@ -4,9 +4,9 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {inject, onUnmounted, ref, watch} from 'vue';
-import {marker} from 'leaflet';
+import L from 'leaflet';
 
 const props = defineProps({
     position: {
@@ -18,22 +18,22 @@ const props = defineProps({
 const $map = inject('map');
 const map = $map.value;
 
-const mapMarker = marker(props.position);
-mapMarker.addTo(map);
+const marker = L.marker(props.position);
+marker.addTo(map);
 
 const popup = new L.Popup();
-const $content = ref<HTMLDivElement | null>(null);
+const $content = ref(); // Template Ref
 
 watch(
     $content,
     (newContent) => {
         popup.setContent(newContent);
-        mapMarker.bindPopup(popup);
+        marker.bindPopup(popup);
     },
     {immediate: true}
 );
 
 onUnmounted(() => {
-    mapMarker.remove();
+    marker.remove();
 });
 </script>

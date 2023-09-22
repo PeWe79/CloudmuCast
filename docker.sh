@@ -245,10 +245,6 @@ setup-release() {
     if ask "Your current release channel is 'Stable'. Switch to 'Rolling Release' release channel?" N; then
       AZURACAST_VERSION="latest"
     fi
-  else
-    if ask "Your current release channel is locked to a stable release, version '${OLD_RELEASE_CHANNEL}'. Switch to the 'Stable' release channel?" N; then
-      AZURACAST_VERSION="stable"
-    fi
   fi
 
   .env --file .env set AZURACAST_VERSION=${AZURACAST_VERSION}
@@ -536,8 +532,6 @@ install-dev() {
     .env --file .env set AZURACAST_PODMAN_MODE=true
   fi
 
-  chown -R `whoami` ./frontend/
-
   chmod 777 ./frontend/ ./web/ ./vendor/ \
     ./web/static/ ./web/static/api/ \
     ./web/static/img/
@@ -724,12 +718,12 @@ backup() {
 #
 restore() {
   if [[ ! -f .env ]] || [[ ! -f azuracast.env ]]; then
-    echo "AzuraCast hasn't been installed yet on this server."
+    echo "CloudmuCast hasn't been installed yet on this server."
     echo "You should run './docker.sh install' first before restoring."
     exit 1
   fi
 
-  if ask "Restoring will remove any existing AzuraCast installation data, replacing it with your backup. Continue?" Y; then
+  if ask "Restoring will remove any existing CloudmuCast installation data, replacing it with your backup. Continue?" Y; then
     if [[ $1 != "" ]]; then
       local BACKUP_PATH BACKUP_DIR BACKUP_FILENAME BACKUP_EXT
       BACKUP_PATH=$(readlink -f ${1:-"./backup.tar.gz"})
@@ -832,7 +826,7 @@ uninstall() {
     dc rm -f
     d volume prune -f
 
-    echo "All AzuraCast Docker containers and volumes were removed."
+    echo "All CloudmuCast Docker containers and volumes were removed."
     echo "To remove *all* Docker containers and volumes, run:"
     echo "  docker stop \$(docker ps -a -q)"
     echo "  docker rm \$(docker ps -a -q)"
@@ -840,41 +834,6 @@ uninstall() {
     echo ""
   fi
 
-  exit
-}
-
-#
-# Roll back to a specific stable release version.
-#
-rollback() {
-  local AZURACAST_ROLLBACK_VERSION
-  AZURACAST_ROLLBACK_VERSION="$1"
-
-  if [[ -z "$AZURACAST_ROLLBACK_VERSION" ]]; then
-    echo "No version specified. Specify a version, like 0.19.0."
-    exit 1
-  fi
-
-  echo "[NOTICE] Before you continue, please make sure you have a recent snapshot of your system and or backed it up."
-  if ask "Are you ready to continue with the rollback?" Y; then
-    dc exec --user="azuracast" web azuracast_cli azuracast:setup:rollback "${AZURACAST_ROLLBACK_VERSION}"
-    dc down --timeout 60
-
-    .env --file .env set AZURACAST_VERSION=${AZURACAST_ROLLBACK_VERSION}
-
-    dc pull
-    dc run --rm web -- azuracast_update
-    dc up -d
-
-    if ask "Clean up all stopped Docker containers and images to save space?" Y; then
-      d system prune -f
-    fi
-
-    echo "Rollback complete. Your installation has been returned to stable version '${AZURACAST_ROLLBACK_VERSION}'."
-    echo "To return to the regular update channels, run:"
-    echo "  ./docker.sh setup-release"
-    echo " "
-  fi
   exit
 }
 
@@ -907,12 +866,12 @@ change-ports() {
 # Helper scripts for basic Docker Compose functions
 #
 up() {
-  echo "Starting up AzuraCast services..."
+  echo "Starting up CloudmuCast services..."
   dc up -d
 }
 
 down() {
-  echo "Shutting down AzuraCast services..."
+  echo "Shutting down CloudmuCast services..."
   dc down --timeout 60
 }
 

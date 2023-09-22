@@ -15,7 +15,7 @@
     </a>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {useTranslate} from "~/vendor/gettext";
 import {computed} from "vue";
 

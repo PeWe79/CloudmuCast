@@ -1,17 +1,16 @@
 import {useTranslate} from "~/vendor/gettext.ts";
 import {GlobalPermission, userAllowed} from "~/acl.ts";
-import filterMenu, { MenuCategory, ReactiveMenu } from "~/functions/filterMenu.ts";
+import filterMenu from "~/functions/filterMenu.ts";
 import {computed, reactive} from "vue";
-import {IconGroups, IconRadio, IconRouter} from "~/components/Common/icons.ts";
 
-export function useAdminMenu(): ReactiveMenu {
+export function useAdminMenu(): array {
     const {$gettext} = useTranslate();
 
-    const menu: ReactiveMenu = reactive<Array<MenuCategory>>([
+    const menu = reactive([
         {
             key: 'maintenance',
             label: computed(() => $gettext('System Maintenance')),
-            icon: IconRouter,
+            icon: 'router',
             items: [
                 {
                     key: 'settings',
@@ -63,7 +62,7 @@ export function useAdminMenu(): ReactiveMenu {
                 },
                 {
                     key: 'updates',
-                    label: computed(() => $gettext('Update CloudmuCast')),
+                    label: computed(() => $gettext('Update AzuraCast')),
                     url: {
                         name: 'admin:updates:index'
                     },
@@ -74,7 +73,7 @@ export function useAdminMenu(): ReactiveMenu {
         {
             key: 'users',
             label: computed(() => $gettext('Users')),
-            icon: IconGroups,
+            icon: 'group',
             items: [
                 {
                     key: 'manage_users',
@@ -113,7 +112,7 @@ export function useAdminMenu(): ReactiveMenu {
         {
             key: 'stations',
             label: computed(() => $gettext('Stations')),
-            icon: IconRadio,
+            icon: 'volume_up',
             items: [
                 {
                     key: 'manage_stations',

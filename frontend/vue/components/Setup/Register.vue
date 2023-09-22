@@ -12,11 +12,11 @@
                             id="hdr_first_time_setup"
                             class="card-title mb-0 text-center"
                         >
-                            {{ $gettext('CloudmuCast First-Time Setup') }}
+                            {{ $gettext('AzuraCast First-Time Setup') }}
                         </h2>
                         <h3 class="text-center">
                             <small class="text-muted">
-                                {{ $gettext('Welcome to CloudmuCast!') }}
+                                {{ $gettext('Welcome to AzuraCast!') }}
                             </small>
                         </h3>
                     </div>
@@ -63,7 +63,7 @@
                     >
                         <template #label>
                             <icon
-                                :icon="IconMail"
+                                icon="email"
                                 class="me-1"
                             />
                             {{ $gettext('E-mail Address') }}
@@ -79,7 +79,7 @@
                     >
                         <template #label>
                             <icon
-                                :icon="IconVpnKey"
+                                icon="vpn_key"
                                 class="me-1"
                             />
                             {{ $gettext('Password') }}
@@ -101,14 +101,13 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import FormGroupField from "~/components/Form/FormGroupField.vue";
-import Icon from "~/components/Common/Icon.vue";
+<script setup>
+import FormGroupField from "~/components/Form/FormGroupField";
+import Icon from "~/components/Common/Icon";
 import {reactive} from "vue";
 import {email, required} from "@vuelidate/validators";
 import validatePassword from "~/functions/validatePassword";
 import useVuelidate from "@vuelidate/core";
-import {IconMail, IconVpnKey} from "~/components/Common/icons";
 
 const props = defineProps({
     csrf: {

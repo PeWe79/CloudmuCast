@@ -21,7 +21,7 @@
                         class="btn btn-sm btn-success"
                         @click="play"
                     >
-                        <icon :icon="IconPlayCircle" />
+                        <icon icon="play_arrow" />
                     </button>
                     <button
                         v-if="isPlaying && !isPaused"
@@ -29,28 +29,28 @@
                         class="btn btn-sm btn-warning"
                         @click="togglePause()"
                     >
-                        <icon :icon="IconPauseCircle" />
+                        <icon icon="pause" />
                     </button>
                     <button
                         type="button"
                         class="btn btn-sm"
                         @click="previous()"
                     >
-                        <icon :icon="IconFastRewind" />
+                        <icon icon="fast_rewind" />
                     </button>
                     <button
                         type="button"
                         class="btn btn-sm"
                         @click="next()"
                     >
-                        <icon :icon="IconFastForward" />
+                        <icon icon="fast_forward" />
                     </button>
                     <button
                         type="button"
                         class="btn btn-sm btn-danger"
                         @click="stop()"
                     >
-                        <icon :icon="IconStop" />
+                        <icon icon="stop" />
                     </button>
                     <button
                         type="button"
@@ -103,7 +103,7 @@
                         type="file"
                         class="custom-file-input files"
                         accept="audio/*"
-                        multiple
+                        multiple="multiple"
                         @change="addNewFiles($event.target.files)"
                     >
                     <label
@@ -173,9 +173,9 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import Icon from '~/components/Common/Icon.vue';
-import VolumeSlider from "~/components/Public/WebDJ/VolumeSlider.vue";
+<script setup>
+import Icon from '~/components/Common/Icon';
+import VolumeSlider from "~/components/Public/WebDJ/VolumeSlider";
 import formatTime from "~/functions/formatTime";
 import {computed, ref, watch} from "vue";
 import {useWebDjTrack} from "~/components/Public/WebDJ/useWebDjTrack";
@@ -185,7 +185,6 @@ import {useInjectMixer} from "~/components/Public/WebDJ/useMixerValue";
 import {usePassthroughSync} from "~/components/Public/WebDJ/usePassthroughSync";
 import {useWebDjSource} from "~/components/Public/WebDJ/useWebDjSource";
 import {useInjectWebcaster} from "~/components/Public/WebDJ/useWebcaster";
-import {IconFastForward, IconFastRewind, IconPauseCircle, IconPlayCircle, IconStop} from "~/components/Common/icons";
 
 const props = defineProps({
     id: {
@@ -231,7 +230,7 @@ const isSeeking = ref(false);
 
 const seekingPosition = computed({
     get: () => {
-        return (100.0 * (position.value / Number(duration.value)));
+        return (100.0 * position.value / parseFloat(duration.value));
     },
     set: (val) => {
         if (!isSeeking.value || !source.value) {
@@ -244,7 +243,7 @@ const seekingPosition = computed({
 
 // Factor in mixer and local gain to calculate total gain.
 const localGain = ref(55);
-const {mixer} = useInjectMixer();
+const mixer = useInjectMixer();
 
 const computedGain = computed(() => {
     let multiplier;

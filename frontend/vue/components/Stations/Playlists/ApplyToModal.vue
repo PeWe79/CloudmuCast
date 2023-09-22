@@ -34,7 +34,6 @@
             <data-table
                 :fields="fields"
                 :items="applyToResults.directories"
-                handle-client-side
                 :show-toolbar="false"
                 selectable
                 @row-selected="onRowSelected"
@@ -45,7 +44,7 @@
             <button
                 type="button"
                 class="btn btn-secondary"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -60,8 +59,8 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable.vue';
 import {ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
@@ -72,16 +71,14 @@ import {map} from "lodash";
 import {useResettableRef} from "~/functions/useResettableRef";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
 import Modal from "~/components/Common/Modal.vue";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const emit = defineEmits(['relist']);
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show, hide} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {
         key: 'name',
         isRowHeader: true,
@@ -104,7 +101,7 @@ const onRowSelected = (items) => {
     selectedDirs.value = map(items, 'path');
 };
 
-const {form, v$, resetForm, ifValid} = useVuelidateOnForm(
+const {form, v$, resetForm} = useVuelidateOnForm(
     {
         copyPlaylist: {}
     },
@@ -128,7 +125,7 @@ const open = (newApplyToUrl) => {
 
     applyToUrl.value = newApplyToUrl;
     loading.value = true;
-    show();
+    $modal.value?.show();
 
     axios.get(newApplyToUrl).then((resp) => {
         applyToResults.value = resp.data;
@@ -136,17 +133,28 @@ const open = (newApplyToUrl) => {
     });
 };
 
-const {notifySuccess} = useNotify();
+const close = () => {
+    $modal.value.hide();
+};
+
+const {wrapWithLoading, notifySuccess} = useNotify();
 
 const save = () => {
-    ifValid(() => {
-        (selectedDirs.value.length) && axios.put(applyToUrl.value, {
-            ...form.value,
-            directories: selectedDirs.value
-        }).then(() => {
+    v$.value.$touch();
+    v$.value.$validate().then((isValid) => {
+        if (!isValid) {
+            return;
+        }
+
+        (selectedDirs.value.length) && wrapWithLoading(
+            axios.put(applyToUrl.value, {
+                ...form.value,
+                directories: selectedDirs.value
+            })
+        ).then(() => {
             notifySuccess($gettext('Playlist successfully applied to folders.'));
         }).finally(() => {
-            hide();
+            close();
             emit('relist');
         });
     });

@@ -13,7 +13,7 @@
                     class="btn btn-dark btn-sm py-2"
                     @click="showCpuStatsHelpModal"
                 >
-                    <icon :icon="IconInfo" />
+                    <icon icon="help_outline" />
                 </button>
             </div>
         </div>
@@ -138,7 +138,6 @@ import Icon from "~/components/Common/Icon.vue";
 import {ref} from "vue";
 import CpuStatsHelpModal from "~/components/Admin/Index/CpuStatsHelpModal.vue";
 import {upperFirst} from "lodash";
-import {IconInfo} from "~/components/Common/icons.ts";
 
 const props = defineProps({
     stats: {
@@ -147,9 +146,10 @@ const props = defineProps({
     }
 });
 
-const $cpuStatsHelpModal = ref<InstanceType<typeof CpuStatsHelpModal> | null>(null);
+const $cpuStatsHelpModal = ref(); // Template Ref
+
 const showCpuStatsHelpModal = () => {
-    $cpuStatsHelpModal.value?.create();
+    $cpuStatsHelpModal.value.create();
 };
 
 const formatCpuName = (cpuName) => upperFirst(cpuName);

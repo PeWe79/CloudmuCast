@@ -42,7 +42,7 @@
     </card-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {map} from "lodash";
 import {computed} from "vue";
 import {useAzuraCast, useAzuraCastStation} from "~/vendor/azuracast";
@@ -51,7 +51,7 @@ import {useLuxon} from "~/vendor/luxon";
 
 const props = defineProps({
     scheduleItems: {
-        type: Array<any>,
+        type: Array,
         required: true
     }
 });

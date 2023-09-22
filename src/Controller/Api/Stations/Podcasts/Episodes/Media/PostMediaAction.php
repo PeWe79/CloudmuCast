@@ -18,7 +18,6 @@ use Psr\Http\Message\ResponseInterface;
 
 #[OA\Post(
     path: '/station/{station_id}/podcast/{podcast_id}/episode/{episode_id}/media',
-    operationId: 'postPodcastEpisodeMedia',
     description: 'Sets the media for a podcast episode.',
     security: OpenApi::API_KEY_SECURITY,
     tags: ['Stations: Podcasts'],

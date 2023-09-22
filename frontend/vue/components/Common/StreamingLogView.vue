@@ -17,7 +17,7 @@
     </loading>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {nextTick, ref, toRef, watch} from "vue";
 import {useAxios} from "~/vendor/axios";
 import {tryOnScopeDispose} from "@vueuse/core";
@@ -38,7 +38,7 @@ const scrollToBottom = ref(true);
 
 const {axios} = useAxios();
 
-const $textarea = ref<HTMLTextAreaElement | null>(null);
+const $textarea = ref(); // Template Ref
 
 let updateInterval = null;
 
@@ -60,9 +60,9 @@ const updateLogs = () => {
     }).then((resp) => {
         if (resp.data.contents !== '') {
             logs.value = logs.value + resp.data.contents + "\n";
-            if (scrollToBottom.value && $textarea.value) {
+            if (scrollToBottom.value) {
                 nextTick(() => {
-                    $textarea.value.scrollTop = $textarea.value?.scrollHeight;
+                    $textarea.value.scrollTop = $textarea.value.scrollHeight;
                 });
             }
         }

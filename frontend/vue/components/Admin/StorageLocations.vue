@@ -28,10 +28,16 @@
         </div>
 
         <div class="card-body buttons">
-            <add-button
-                :text="$gettext('Add Storage Location')"
+            <button
+                type="button"
+                class="btn btn-primary"
                 @click="doCreate"
-            />
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add Storage Location') }}
+                </span>
+            </button>
         </div>
 
         <data-table
@@ -103,17 +109,17 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
-import EditModal from './StorageLocations/EditModal.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import EditModal from './StorageLocations/EditModal';
+import Icon from '~/components/Common/Icon';
 import {computed, nextTick, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const activeType = ref('station_media');
 
@@ -124,7 +130,7 @@ const listUrlForType = computed(() => {
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'adapter', label: $gettext('Adapter'), sortable: false},
     {key: 'space', label: $gettext('Space Used'), class: 'text-nowrap', sortable: false},
     {key: 'stations', label: $gettext('Station(s)'), sortable: false},
@@ -150,10 +156,10 @@ const tabs = [
     }
 ];
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 const {relist} = useHasDatatable($datatable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // Template Ref
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
 const setType = (type) => {

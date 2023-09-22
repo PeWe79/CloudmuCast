@@ -31,7 +31,7 @@
                 <icon
                     v-if="category.external"
                     class="sm ms-2"
-                    :icon="IconOpenInNew"
+                    icon="open_in_new"
                     :aria-label="$gettext('External')"
                 />
             </a>
@@ -68,7 +68,7 @@
                             <icon
                                 v-if="item.external"
                                 class="sm ms-2"
-                                :icon="IconOpenInNew"
+                                icon="open_in_new"
                                 :aria-label="$gettext('External')"
                             />
                         </a>
@@ -83,7 +83,6 @@
 import Icon from "~/components/Common/Icon.vue";
 import {useRoute} from "vue-router";
 import {some} from "lodash";
-import {IconOpenInNew} from "~/components/Common/icons.ts";
 
 const props = defineProps({
     menu: {
@@ -115,9 +114,7 @@ const getLinkClass = (item) => {
 }
 
 const getCategoryLink = (item) => {
-    const linkAttrs: {
-        [key: string]: any
-    } = {};
+    const linkAttrs = {};
 
     if (item.items) {
         linkAttrs['data-bs-toggle'] = 'collapse';
@@ -130,7 +127,7 @@ const getCategoryLink = (item) => {
         linkAttrs.target = '_blank';
     }
     if (item.title) {
-        linkAttrs.title = item.title;
+        linkAttrs.title = category.title;
     }
 
     return linkAttrs;

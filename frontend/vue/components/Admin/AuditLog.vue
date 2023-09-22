@@ -16,6 +16,7 @@
 
         <data-table
             ref="$datatable"
+            responsive
             paginated
             :fields="fields"
             :api-url="apiUrl"
@@ -28,7 +29,7 @@
                 >
                     <icon
                         class="lg inline"
-                        :icon="IconAddCircle"
+                        icon="add_circle"
                     />
                 </span>
                 <span
@@ -38,7 +39,7 @@
                 >
                     <icon
                         class="lg inline"
-                        :icon="IconRemoveCircle"
+                        icon="remove_circle"
                     />
                 </span>
                 <span
@@ -48,7 +49,7 @@
                 >
                     <icon
                         class="lg inline"
-                        :icon="IconSwapHorizontalCircle"
+                        icon="swap_horizontal_circle"
                     />
                 </span>
             </template>
@@ -82,19 +83,18 @@
     <details-modal ref="$detailsModal" />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {computed, ref, watch} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useAzuraCast} from "~/vendor/azuracast";
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
+import DataTable from "~/components/Common/DataTable.vue";
 import DateRangeDropdown from "~/components/Common/DateRangeDropdown.vue";
 import Icon from "~/components/Common/Icon.vue";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
+import useHasDatatable from "~/functions/useHasDatatable";
 import DetailsModal from "./AuditLog/DetailsModal.vue";
 import CardPage from "~/components/Common/CardPage.vue";
 import {useLuxon} from "~/vendor/luxon";
 import {getApiUrl} from "~/router";
-import {IconAddCircle, IconRemoveCircle, IconSwapHorizontalCircle} from "~/components/Common/icons";
 
 const baseApiUrl = getApiUrl('/admin/auditlog');
 
@@ -108,7 +108,7 @@ const dateRange = ref({
 const {$gettext} = useTranslate();
 const {timeConfig} = useAzuraCast();
 
-const fields: DataTableField[] = [
+const fields = [
     {
         key: 'timestamp',
         label: $gettext('Date/Time'),
@@ -129,7 +129,7 @@ const fields: DataTableField[] = [
 ];
 
 const apiUrl = computed(() => {
-    const apiUrl = new URL(baseApiUrl.value, document.location.href);
+    const apiUrl = new URL(baseApiUrl.value, document.location);
 
     const apiUrlParams = apiUrl.searchParams;
     apiUrlParams.set('start', DateTime.fromJSDate(dateRange.value.startDate).toISO());
@@ -138,13 +138,13 @@ const apiUrl = computed(() => {
     return apiUrl.toString();
 });
 
-const $datatable = ref<DataTableTemplateRef>(null);
-const {navigate} = useHasDatatable($datatable);
+const $datatable = ref(); // DataTable Template Ref
+const {relist} = useHasDatatable($datatable);
 
-watch(dateRange, navigate);
+watch(dateRange, relist);
 
-const $detailsModal = ref<InstanceType<typeof DetailsModal> | null>(null);
+const $detailsModal = ref(); // DetailsModal
 const showDetails = (changes) => {
-    $detailsModal.value?.open(changes);
+    $detailsModal.value.open(changes);
 }
 </script>

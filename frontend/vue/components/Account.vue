@@ -61,7 +61,7 @@
                             class="btn btn-primary"
                             @click="doEditProfile"
                         >
-                            <icon :icon="IconEdit" />
+                            <icon icon="edit" />
                             <span>
                                 {{ $gettext('Edit Profile') }}
                             </span>
@@ -94,7 +94,7 @@
                             class="btn btn-primary"
                             @click="doChangePassword"
                         >
-                            <icon :icon="IconVpnKey" />
+                            <icon icon="vpn_key" />
                             <span>
                                 {{ $gettext('Change Password') }}
                             </span>
@@ -105,7 +105,7 @@
                             class="btn btn-danger"
                             @click="disableTwoFactor"
                         >
-                            <icon :icon="IconLockOpen" />
+                            <icon icon="lock_open" />
                             <span>
                                 {{ $gettext('Disable Two-Factor') }}
                             </span>
@@ -116,7 +116,7 @@
                             class="btn btn-success"
                             @click="enableTwoFactor"
                         >
-                            <icon :icon="IconLock" />
+                            <icon icon="lock" />
                             <span>
                                 {{ $gettext('Enable Two-Factor') }}
                             </span>
@@ -147,7 +147,7 @@
                             class="btn btn-primary"
                             @click="createApiKey"
                         >
-                            <icon :icon="IconAdd" />
+                            <icon icon="add" />
                             <span>
                                 {{ $gettext('Add API Key') }}
                             </span>
@@ -204,14 +204,14 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import Icon from "~/components/Common/Icon.vue";
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
-import AccountChangePasswordModal from "./Account/ChangePasswordModal.vue";
-import AccountApiKeyModal from "./Account/ApiKeyModal.vue";
-import AccountTwoFactorModal from "./Account/TwoFactorModal.vue";
-import AccountEditModal from "./Account/EditModal.vue";
-import Avatar from "~/components/Common/Avatar.vue";
+<script setup>
+import Icon from "~/components/Common/Icon";
+import DataTable from "~/components/Common/DataTable";
+import AccountChangePasswordModal from "./Account/ChangePasswordModal";
+import AccountApiKeyModal from "./Account/ApiKeyModal";
+import AccountTwoFactorModal from "./Account/TwoFactorModal";
+import AccountEditModal from "./Account/EditModal";
+import Avatar from "~/components/Common/Avatar";
 import EnabledBadge from "~/components/Common/Badges/EnabledBadge.vue";
 import {ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
@@ -220,8 +220,6 @@ import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import useRefreshableAsyncState from "~/functions/useRefreshableAsyncState";
 import CardPage from "~/components/Common/CardPage.vue";
 import Loading from "~/components/Common/Loading.vue";
-import {IconAdd, IconEdit, IconLock, IconLockOpen, IconVpnKey} from "~/components/Common/icons";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
 
 const props = defineProps({
     userUrl: {
@@ -277,7 +275,7 @@ const {state: security, isLoading: securityLoading, execute: reloadSecurity} = u
 
 const {$gettext} = useTranslate();
 
-const apiKeyFields: DataTableField[] = [
+const apiKeyFields = [
     {
         key: 'comment',
         isRowHeader: true,
@@ -292,7 +290,7 @@ const apiKeyFields: DataTableField[] = [
     }
 ];
 
-const $dataTable = ref<DataTableTemplateRef>(null);
+const $dataTable = ref(); // DataTable
 
 const relist = () => {
     reloadUser();
@@ -304,19 +302,19 @@ const reload = () => {
     location.reload();
 };
 
-const $editModal = ref<InstanceType<typeof AccountEditModal> | null>(null);
+const $editModal = ref(); // EditModal
 
 const doEditProfile = () => {
     $editModal.value?.open();
 };
 
-const $changePasswordModal = ref<InstanceType<typeof AccountChangePasswordModal> | null>(null);
+const $changePasswordModal = ref(); // ChangePasswordModal
 
 const doChangePassword = () => {
     $changePasswordModal.value?.open();
 };
 
-const $twoFactorModal = ref<InstanceType<typeof AccountTwoFactorModal> | null>(null);
+const $twoFactorModal = ref(); // TwoFactorModal
 
 const enableTwoFactor = () => {
     $twoFactorModal.value?.open();
@@ -328,7 +326,7 @@ const {doDelete: doDisableTwoFactor} = useConfirmAndDelete(
 );
 const disableTwoFactor = () => doDisableTwoFactor(props.twoFactorUrl);
 
-const $apiKeyModal = ref<InstanceType<typeof AccountApiKeyModal> | null>(null);
+const $apiKeyModal = ref(); // ApiKeyModal
 
 const createApiKey = () => {
     $apiKeyModal.value?.create();

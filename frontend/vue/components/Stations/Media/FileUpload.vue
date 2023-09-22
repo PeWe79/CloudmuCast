@@ -9,8 +9,8 @@
     />
 </template>
 
-<script setup lang="ts">
-import FlowUpload from '~/components/Common/FlowUpload.vue';
+<script setup>
+import FlowUpload from '~/components/Common/FlowUpload';
 
 const props = defineProps({
     uploadUrl: {

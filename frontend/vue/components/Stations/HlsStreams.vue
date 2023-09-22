@@ -8,10 +8,16 @@
             </p>
         </template>
         <template #actions>
-            <add-button
-                :text="$gettext('Add HLS Stream')"
-                @click="doCreate"
-            />
+            <button
+                type="button"
+                class="btn btn-primary"
+                @click.prevent="doCreate"
+            >
+                <icon icon="add" />
+                <span>
+                    {{ $gettext('Add HLS Stream') }}
+                </span>
+            </button>
         </template>
 
         <data-table
@@ -61,18 +67,18 @@
     />
 </template>
 
-<script setup lang="ts">
-import DataTable from '~/components/Common/DataTable.vue';
-import EditModal from './HlsStreams/EditModal.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable';
+import EditModal from './HlsStreams/EditModal';
+import Icon from '~/components/Common/Icon';
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
 import {useMayNeedRestart} from "~/functions/useMayNeedRestart";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import useHasEditModal, {EditModalTemplateRef} from "~/functions/useHasEditModal";
+import useHasDatatable from "~/functions/useHasDatatable";
+import useHasEditModal from "~/functions/useHasEditModal";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
 import CardPage from "~/components/Common/CardPage.vue";
 import {getStationApiUrl} from "~/router";
-import AddButton from "~/components/Common/AddButton.vue";
 
 const listUrl = getStationApiUrl('/hls_streams');
 
@@ -93,10 +99,10 @@ const upper = (data) => {
     return upper.join(' ');
 };
 
-const $dataTable = ref<DataTableTemplateRef>(null);
+const $dataTable = ref(); // DataTable
 const {relist} = useHasDatatable($dataTable);
 
-const $editModal = ref<EditModalTemplateRef>(null);
+const $editModal = ref(); // EditModal
 const {doCreate, doEdit} = useHasEditModal($editModal);
 
 const {mayNeedRestart, needsRestart} = useMayNeedRestart();

@@ -63,7 +63,7 @@ final class QueueBuilder implements EventSubscriberInterface
      */
     public function calculateNextSong(BuildQueue $event): void
     {
-        $this->logger->info('CloudmuCast AutoDJ is calculating the next song to play...');
+        $this->logger->info('AzuraCast AutoDJ is calculating the next song to play...');
 
         $station = $event->getStation();
         $expectedPlayTime = $event->getExpectedPlayTime();
@@ -174,11 +174,7 @@ final class QueueBuilder implements EventSubscriberInterface
             }
         }
 
-        if ($event->isInterrupting()) {
-            $this->logger->info('No interrupting tracks to play.');
-        } else {
-            $this->logger->error('No playable tracks were found.');
-        }
+        $this->logger->error('No playable tracks were found.');
     }
 
     /**

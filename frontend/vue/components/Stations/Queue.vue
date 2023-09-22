@@ -6,7 +6,7 @@
                 class="btn btn-danger"
                 @click="doClear()"
             >
-                <icon :icon="IconRemove" />
+                <icon icon="remove" />
                 <span>
                     {{ $gettext('Clear Upcoming Song Queue') }}
                 </span>
@@ -69,29 +69,28 @@
     <queue-logs-modal ref="$logsModal" />
 </template>
 
-<script setup lang="ts">
-import DataTable, { DataTableField } from '../Common/DataTable.vue';
-import QueueLogsModal from './Queue/LogsModal.vue';
-import Icon from "~/components/Common/Icon.vue";
+<script setup>
+import DataTable from '../Common/DataTable';
+import QueueLogsModal from './Queue/LogsModal';
+import Icon from "~/components/Common/Icon";
 import {useAzuraCast, useAzuraCastStation} from "~/vendor/azuracast";
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";
-import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
+import useHasDatatable from "~/functions/useHasDatatable";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import {useSweetAlert} from "~/vendor/sweetalert";
 import CardPage from "~/components/Common/CardPage.vue";
 import {useLuxon} from "~/vendor/luxon";
 import {getStationApiUrl} from "~/router";
-import {IconRemove} from "~/components/Common/icons";
 
 const listUrl = getStationApiUrl('/queue');
 const clearUrl = getStationApiUrl('/queue/clear');
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'actions', label: $gettext('Actions'), sortable: false},
     {key: 'song_title', isRowHeader: true, label: $gettext('Song Title'), sortable: false},
     {key: 'played_at', label: $gettext('Expected to Play at'), sortable: false},
@@ -113,10 +112,10 @@ const formatTime = (time) => getDateTime(time).toLocaleString(
 
 const formatRelativeTime = (time) => getDateTime(time).toRelative();
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 const {relist} = useHasDatatable($datatable);
 
-const $logsModal = ref<InstanceType<typeof QueueLogsModal> | null>(null);
+const $logsModal = ref(); // Template Ref
 const doShowLogs = (logs) => {
     $logsModal.value?.show(logs);
 };
@@ -127,7 +126,7 @@ const {doDelete} = useConfirmAndDelete(
 );
 
 const {confirmDelete} = useSweetAlert();
-const {notifySuccess} = useNotify();
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doClear = () => {
@@ -136,7 +135,9 @@ const doClear = () => {
         confirmButtonText: $gettext('Clear'),
     }).then((result) => {
         if (result.value) {
-            axios.post(clearUrl.value).then((resp) => {
+            wrapWithLoading(
+                axios.post(clearUrl.value)
+            ).then((resp) => {
                 notifySuccess(resp.data.message);
                 relist();
             });

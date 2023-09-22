@@ -5,23 +5,22 @@
         size="xl"
         centered
         :title="langHeader"
-        @hidden="onHidden()"
     >
-        <div class="d-flex flex-column flex-md-row mb-3 align-items-center">
-            <div class="flex-shrink m-2 m-md-0 me-md-3">
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-6">
                 <button
                     type="button"
                     class="btn btn-sm btn-primary"
                     :disabled="dirHistory.length === 0"
                     @click="pageBack"
                 >
-                    <icon :icon="IconChevronLeft" />
+                    <icon icon="chevron_left" />
                     <span>
                         {{ $gettext('Back') }}
                     </span>
                 </button>
             </div>
-            <div class="flex-fill m-2 m-md-0 text-end">
+            <div class="col-md-6 text-end">
                 <h6 class="m-0">
                     {{ destinationDirectory }}
                 </h6>
@@ -39,9 +38,9 @@
                     :request-config="requestConfig"
                 >
                     <template #cell(directory)="row">
-                        <div class="is_dir d-flex align-items-center">
-                            <span class="file-icon me-2">
-                                <icon :icon="IconFolder" />
+                        <div class="is_dir">
+                            <span class="file-icon">
+                                <icon icon="folder" />
                             </span>
 
                             <a
@@ -59,7 +58,7 @@
             <button
                 type="button"
                 class="btn btn-secondary"
-                @click="hide"
+                @click="close"
             >
                 {{ $gettext('Close') }}
             </button>
@@ -74,18 +73,15 @@
     </modal>
 </template>
 
-<script setup lang="ts">
-import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
+<script setup>
+import DataTable from '~/components/Common/DataTable.vue';
 import {forEach} from 'lodash';
-import Icon from '~/components/Common/Icon.vue';
+import Icon from '~/components/Common/Icon';
 import {computed, h, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import {useNotify} from "~/functions/useNotify";
 import {useAxios} from "~/vendor/axios";
 import Modal from "~/components/Common/Modal.vue";
-import {IconChevronLeft, IconFolder} from "~/components/Common/icons";
-import {DataTableTemplateRef} from "~/functions/useHasDatatable.ts";
-import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 
 const props = defineProps({
     selectedItems: {
@@ -113,7 +109,7 @@ const dirHistory = ref([]);
 
 const {$gettext} = useTranslate();
 
-const fields: DataTableField[] = [
+const fields = [
     {key: 'directory', label: $gettext('Directory'), sortable: false}
 ];
 
@@ -124,25 +120,32 @@ const langHeader = computed(() => {
     );
 });
 
-const $modal = ref<ModalTemplateRef>(null);
-const {show: open, hide} = useHasModal($modal);
+const $modal = ref(); // Template Ref
 
-const onHidden = () => {
+const close = () => {
     dirHistory.value = [];
     destinationDirectory.value = '';
-}
 
-const {notifySuccess} = useNotify();
+    $modal.value.hide();
+};
+
+const open = () => {
+    $modal.value.show();
+};
+
+const {wrapWithLoading, notifySuccess} = useNotify();
 const {axios} = useAxios();
 
 const doMove = () => {
-    (props.selectedItems.all.length) && axios.put(props.batchUrl, {
+    (props.selectedItems.all.length) && wrapWithLoading(
+        axios.put(props.batchUrl, {
             'do': 'move',
             'currentDirectory': props.currentDirectory,
             'directory': destinationDirectory.value,
             'files': props.selectedItems.files,
             'dirs': props.selectedItems.directories
-    }).then(() => {
+        })
+    ).then(() => {
         const notifyMessage = $gettext('Files moved:');
         const itemNameNodes = [];
         forEach(props.selectedItems.all, (item) => {
@@ -153,18 +156,18 @@ const doMove = () => {
             title: notifyMessage
         });
     }).finally(() => {
-        hide();
+        close();
         emit('relist');
     });
 };
 
-const $datatable = ref<DataTableTemplateRef>(null);
+const $datatable = ref(); // Template Ref
 
 const enterDirectory = (path) => {
     dirHistory.value.push(path);
     destinationDirectory.value = path;
 
-    $datatable.value?.refresh();
+    $datatable.value.refresh();
 };
 
 const pageBack = () => {
@@ -176,7 +179,7 @@ const pageBack = () => {
     }
 
     destinationDirectory.value = newDirectory;
-    $datatable.value?.refresh();
+    $datatable.value.refresh();
 };
 
 const requestConfig = (config) => {

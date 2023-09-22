@@ -25,7 +25,7 @@
                         class="col-md-12"
                         :field="v$.backend_config.record_streams"
                         :label="$gettext('Record Live Broadcasts')"
-                        :description="$gettext('If enabled, CloudmuCast will automatically record any live broadcasts made to this station to per-broadcast recordings.')"
+                        :description="$gettext('If enabled, AzuraCast will automatically record any live broadcasts made to this station to per-broadcast recordings.')"
                     />
                 </div>
 
@@ -127,8 +127,8 @@
     </tab>
 </template>
 
-<script setup lang="ts">
-import FormFieldset from "~/components/Form/FormFieldset.vue";
+<script setup>
+import FormFieldset from "~/components/Form/FormFieldset";
 import FormGroupField from "~/components/Form/FormGroupField.vue";
 import {BackendAdapter} from "~/components/Entity/RadioAdapters";
 import FormGroupCheckbox from "~/components/Form/FormGroupCheckbox.vue";
@@ -160,9 +160,7 @@ const form = useVModel(props, 'form', emit);
 
 const {v$, tabClass} = useVuelidateOnFormTab(
     computed(() => {
-        let validations: {
-            [key: string | number]: any
-        } = {
+        let validations = {
             enable_streamers: {},
             disconnect_deactivate_streamer: {},
             backend_config: {
@@ -189,9 +187,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     }),
     form,
     () => {
-        let blankForm: {
-            [key: string | number]: any
-        } = {
+        let blankForm = {
             enable_streamers: false,
             disconnect_deactivate_streamer: 0,
             backend_config: {
