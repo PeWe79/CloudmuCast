@@ -76,13 +76,13 @@
         </div>
         <div class="card-body">
             <p class="card-text">
-                {{ $gettext('Setup instructions for broadcasting software are available on the AzuraCast wiki.') }}
+                {{ $gettext('Setup instructions for broadcasting software are available on the CloudmuCast wiki.') }}
                 <br>
                 <a
                     href="https://docs.azuracast.com/en/user-guide/streaming-software"
                     target="_blank"
                 >
-                    {{ $gettext('AzuraCast Wiki') }}
+                    {{ $gettext('CloudmuCast Wiki') }}
                 </a>
             </p>
         </div>

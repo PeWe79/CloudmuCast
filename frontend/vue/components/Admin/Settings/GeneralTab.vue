@@ -18,8 +18,8 @@
                     id="edit_form_instance_name"
                     class="col-md-6"
                     :field="v$.instance_name"
-                    :label="$gettext('AzuraCast Instance Name')"
-                    :description="$gettext('This name will appear as a sub-header next to the AzuraCast logo, to help identify this server.')"
+                    :label="$gettext('CloudmuCast Instance Name')"
+                    :description="$gettext('This name will appear as a sub-header next to the CloudmuCast logo, to help identify this server.')"
                 />
 
                 <form-group-checkbox

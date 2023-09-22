@@ -125,7 +125,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
                 url: '{{ station.listen_url }}',
                 author: '{{ live.streamer_name }}',
                 thumbnail: '{{ now_playing.song.art }}',
-                footer: $gettext('Powered by AzuraCast'),
+                footer: $gettext('Powered by CloudmuCast'),
             }
         }
     }

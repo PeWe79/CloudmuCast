@@ -151,7 +151,7 @@
         <a
             href="https://www.azuracast.com/"
             target="_blank"
-        >AzuraCast</a>
+        >CloudmuCast</a>
         &bull;
         <span v-html="version" />
         &bull;

@@ -62,7 +62,7 @@ export function useAdminMenu(): array {
                 },
                 {
                     key: 'updates',
-                    label: computed(() => $gettext('Update AzuraCast')),
+                    label: computed(() => $gettext('Update CloudmuCast')),
                     url: {
                         name: 'admin:updates:index'
                     },
