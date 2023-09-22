@@ -23,7 +23,7 @@
         </div>
         <div
             v-if="userAllowedForStation(StationPermission.Profile)"
-            class="flex-shrink-0 ms-3"
+            class="buttons"
         >
             <router-link
                 class="btn btn-primary"

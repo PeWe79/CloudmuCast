@@ -57,13 +57,15 @@
                         </form-markup>
                     </form-fieldset>
 
-                    <button
-                        type="submit"
-                        class="btn"
-                        :class="(v$.$invalid) ? 'btn-danger' : 'btn-primary'"
-                    >
-                        {{ $gettext('Save Changes') }}
-                    </button>
+                    <div class="buttons">
+                        <button
+                            type="submit"
+                            class="btn"
+                            :class="(v$.$invalid) ? 'btn-danger' : 'btn-primary'"
+                        >
+                            {{ $gettext('Save Changes') }}
+                        </button>
+                    </div>
                 </div>
             </loading>
         </section>

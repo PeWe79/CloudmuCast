@@ -116,9 +116,7 @@
                         </form-group-field>
                     </div>
 
-                    <div
-                        class="card-body buttons"
-                    >
+                    <div class="buttons">
                         <button
                             class="btn btn-primary mt-3"
                             type="submit"

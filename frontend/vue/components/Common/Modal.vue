@@ -39,7 +39,7 @@
                     </div>
                     <div
                         v-if="slots['modal-footer']"
-                        class="modal-footer"
+                        class="modal-footer buttons"
                     >
                         <slot name="modal-footer" />
                     </div>

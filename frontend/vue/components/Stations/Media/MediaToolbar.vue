@@ -171,7 +171,7 @@
                 </span>
             </button>
         </div>
-        <div class="col-md-4 text-end">
+        <div class="col-md-4 text-end buttons">
             <button
                 type="button"
                 class="btn btn-primary"

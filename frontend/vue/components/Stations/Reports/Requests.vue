@@ -35,7 +35,7 @@
 
         <div
             v-if="activeType === 'pending'"
-            class="card-body"
+            class="card-body buttons"
         >
             <button
                 type="button"

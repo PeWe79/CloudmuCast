@@ -72,12 +72,14 @@
                         </form-group-field>
                     </div>
 
-                    <button
-                        class="btn btn-primary mt-3"
-                        type="submit"
-                    >
-                        {{ $gettext('Save Changes') }}
-                    </button>
+                    <div class="buttons">
+                        <button
+                            class="btn btn-primary mt-3"
+                            type="submit"
+                        >
+                            {{ $gettext('Save Changes') }}
+                        </button>
+                    </div>
                 </div>
             </loading>
         </section>

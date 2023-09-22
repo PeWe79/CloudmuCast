@@ -99,13 +99,15 @@
                     </form-group-checkbox>
                 </form-fieldset>
 
-                <button
-                    type="submit"
-                    class="btn mt-2"
-                    :class="(v$.$invalid) ? 'btn-danger' : 'btn-primary'"
-                >
-                    {{ $gettext('Generate Report') }}
-                </button>
+                <div class="buttons">
+                    <button
+                        type="submit"
+                        class="btn mt-2"
+                        :class="(v$.$invalid) ? 'btn-danger' : 'btn-primary'"
+                    >
+                        {{ $gettext('Generate Report') }}
+                    </button>
+                </div>
             </div>
         </form>
     </section>
