@@ -12,7 +12,7 @@
         </div>
         <div
             v-if="slots.action"
-            class="flex-shrink-0 ms-md-3 mt-3 mt-md-0"
+            class="flex-shrink-0 ms-md-3 mt-3 mt-md-0 buttons"
         >
             <slot name="action" />
         </div>

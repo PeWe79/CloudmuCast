@@ -53,6 +53,7 @@
 .buttons {
   & > * {
     margin-right: .75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
   & > *:last-child {
@@ -66,5 +67,6 @@
 
   .btn {
     display: block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 }

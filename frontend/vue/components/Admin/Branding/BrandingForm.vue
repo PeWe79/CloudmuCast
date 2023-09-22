@@ -116,12 +116,16 @@
                         </form-group-field>
                     </div>
 
-                    <button
-                        class="btn btn-primary mt-3"
-                        type="submit"
+                    <div
+                        class="card-body buttons"
                     >
-                        {{ $gettext('Save Changes') }}
-                    </button>
+                        <button
+                            class="btn btn-primary mt-3"
+                            type="submit"
+                        >
+                            {{ $gettext('Save Changes') }}
+                        </button>
+                    </div>
                 </loading>
             </div>
         </section>

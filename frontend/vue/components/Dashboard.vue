@@ -82,7 +82,7 @@
                     </div>
                     <div
                         v-if="notification.actionLabel && notification.actionUrl"
-                        class="flex-shrink-0 ms-md-3 mt-3 mt-md-0"
+                        class="flex-shrink-0 ms-md-3 mt-3 mt-md-0 buttons"
                     >
                         <a
                             class="btn btn-sm"
@@ -111,7 +111,7 @@
                             {{ $gettext('Listeners Per Station') }}
                         </h3>
                     </div>
-                    <div class="flex-shrink-0">
+                    <div class="flex-shrink-0 buttons">
                         <button
                             type="button"
                             class="btn btn-sm btn-dark py-2"
@@ -147,7 +147,7 @@
                     </div>
                     <div
                         v-if="showAdmin"
-                        class="flex-shrink-0"
+                        class="flex-shrink-0 buttons"
                     >
                         <a
                             class="btn btn-dark py-2"
@@ -268,7 +268,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-end">
+                                <td class="text-end buttons">
                                     <a
                                         class="btn btn-primary"
                                         :href="item.links.manage"
