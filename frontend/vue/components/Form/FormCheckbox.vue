@@ -12,7 +12,7 @@ import {useVModel} from "@vueuse/core";
 
 const props = defineProps({
     modelValue: {
-        type: Boolean,
+        type: [String, Object, Boolean, Array, Number, Function],
         required: true
     }
 });

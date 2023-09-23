@@ -104,7 +104,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import EditModal from './StorageLocations/EditModal.vue';
 import {computed, nextTick, ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";

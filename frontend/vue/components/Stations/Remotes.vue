@@ -71,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import RemoteEditModal from "./Remotes/EditModal.vue";
 import '~/vendor/sweetalert';
 import {useMayNeedRestart} from "~/functions/useMayNeedRestart";

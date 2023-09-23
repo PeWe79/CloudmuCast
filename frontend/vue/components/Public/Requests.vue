@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import {forEach} from 'lodash';
 import AlbumArt from '~/components/Common/AlbumArt.vue';
 import {computed} from "vue";

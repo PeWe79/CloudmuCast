@@ -228,7 +228,7 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import useHasDatatable, {DataTableTemplateRef} from "~/functions/useHasDatatable";
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
+import DataTable, {DataTableField} from "~/components/Common/DataTable.vue";
 import {useTranslate} from "~/vendor/gettext";
 import CardPage from "~/components/Common/CardPage.vue";
 import {useLuxon} from "~/vendor/luxon";

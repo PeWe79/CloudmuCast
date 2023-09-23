@@ -1,4 +1,4 @@
-import { createInjectionState } from "@vueuse/core";
+import {createInjectionState} from "@vueuse/core";
 import {Ref, ref, watch} from "vue";
 
 const [useProvidePassthroughSync, useInjectPassthroughSync] = createInjectionState(

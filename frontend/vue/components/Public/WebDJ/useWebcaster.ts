@@ -1,4 +1,4 @@
-import { createInjectionState } from "@vueuse/core";
+import {createInjectionState} from "@vueuse/core";
 import {ref, shallowRef} from "vue";
 import {useNotify} from "~/functions/useNotify";
 import {useTranslate} from "~/vendor/gettext";

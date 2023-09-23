@@ -93,7 +93,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import Icon from "~/components/Common/Icon.vue";
 import {useAzuraCast, useAzuraCastStation} from "~/vendor/azuracast";
 import {computed, nextTick, ref} from "vue";

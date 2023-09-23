@@ -74,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import AdminStationsEditModal from "./Stations/EditModal.vue";
 import {get} from "lodash";
 import AdminStationsCloneModal from "./Stations/CloneModal.vue";

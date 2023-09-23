@@ -1,5 +1,5 @@
 import {useTranslate} from "~/vendor/gettext.ts";
-import filterMenu, { MenuCategory, ReactiveMenu } from "~/functions/filterMenu.ts";
+import filterMenu, {MenuCategory, ReactiveMenu} from "~/functions/filterMenu.ts";
 import {StationPermission, userAllowedForStation} from "~/acl.ts";
 import {useAzuraCast} from "~/vendor/azuracast.ts";
 import {computed, reactive} from "vue";

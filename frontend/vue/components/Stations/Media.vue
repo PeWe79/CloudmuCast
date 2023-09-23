@@ -241,7 +241,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import MediaToolbar from './Media/MediaToolbar.vue';
 import Breadcrumb from './Media/Breadcrumb.vue';
 import FileUpload from './Media/FileUpload.vue';

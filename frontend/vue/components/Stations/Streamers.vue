@@ -116,7 +116,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import EditModal from './Streamers/EditModal.vue';
 import BroadcastsModal from './Streamers/BroadcastsModal.vue';
 import Schedule from '~/components/Common/ScheduleView.vue';

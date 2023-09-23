@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
+import DataTable, {DataTableField} from "~/components/Common/DataTable.vue";
 import {ref} from "vue";
 import {useTranslate} from "~/vendor/gettext";
 import useConfirmAndDelete from "~/functions/useConfirmAndDelete";

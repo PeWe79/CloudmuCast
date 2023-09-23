@@ -77,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import EditModal from './Users/EditModal.vue';
 import {useTranslate} from "~/vendor/gettext";
 import {ref} from "vue";

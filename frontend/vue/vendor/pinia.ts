@@ -1,5 +1,5 @@
 import {createPinia, Pinia} from 'pinia';
-import { App } from 'vue';
+import {App} from 'vue';
 
 const pinia: Pinia = createPinia();
 

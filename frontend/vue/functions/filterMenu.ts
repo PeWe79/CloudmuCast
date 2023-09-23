@@ -1,7 +1,7 @@
 import {filter, get, map} from "lodash";
 import { ComputedRef, UnwrapNestedRefs } from "vue";
-import { Icon } from "../components/Common/icons";
-import { RouteLocationRaw } from "vue-router";
+import {Icon} from "../components/Common/icons";
+import {RouteLocationRaw} from "vue-router";
 
 export type ReactiveMenu = UnwrapNestedRefs<Array<MenuCategory>>;
 

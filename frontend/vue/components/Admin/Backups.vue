@@ -151,7 +151,7 @@
 
 <script setup lang="ts">
 import Icon from "~/components/Common/Icon.vue";
-import DataTable, { DataTableField } from "~/components/Common/DataTable.vue";
+import DataTable, {DataTableField} from "~/components/Common/DataTable.vue";
 import AdminBackupsLastOutputModal from "./Backups/LastOutputModal.vue";
 import formatFileSize from "~/functions/formatFileSize";
 import AdminBackupsConfigureModal from "~/components/Admin/Backups/ConfigureModal.vue";

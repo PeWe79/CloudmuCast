@@ -1,6 +1,6 @@
 import {useTranslate} from "~/vendor/gettext.ts";
 import {GlobalPermission, userAllowed} from "~/acl.ts";
-import filterMenu, { MenuCategory, ReactiveMenu } from "~/functions/filterMenu.ts";
+import filterMenu, {MenuCategory, ReactiveMenu} from "~/functions/filterMenu.ts";
 import {computed, reactive} from "vue";
 import {IconGroups, IconRadio, IconRouter} from "~/components/Common/icons.ts";
 

@@ -300,7 +300,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import Schedule from '~/components/Common/ScheduleView.vue';
 import EditModal from './Playlists/EditModal.vue';
 import ReorderModal from './Playlists/ReorderModal.vue';

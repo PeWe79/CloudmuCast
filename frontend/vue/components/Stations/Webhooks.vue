@@ -104,7 +104,7 @@
 </template>
 
 <script setup lang="ts">
-import DataTable, { DataTableField } from '~/components/Common/DataTable.vue';
+import DataTable, {DataTableField} from '~/components/Common/DataTable.vue';
 import EditModal from './Webhooks/EditModal.vue';
 import {get, map} from 'lodash';
 import StreamingLogModal from "~/components/Common/StreamingLogModal.vue";
