@@ -85,15 +85,15 @@ import AddButton from "~/components/Common/AddButton.vue";
 
 const props = defineProps({
     stations: {
-        type: Array,
+        type: Object,
         required: true
     },
     globalPermissions: {
-        type: Array,
+        type: Object,
         required: true
     },
     stationPermissions: {
-        type: Array,
+        type: Object,
         required: true
     }
 });
