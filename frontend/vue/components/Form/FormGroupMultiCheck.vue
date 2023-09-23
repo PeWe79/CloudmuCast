@@ -36,7 +36,6 @@
                     <template
                         v-for="(_, slot) of useSlotsExcept(['default', 'label', 'description'])"
                         #[slot]="scope"
-                        #default=""
                     >
                         <slot
                             :name="slot"
