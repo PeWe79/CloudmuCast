@@ -4,17 +4,17 @@ import {glob} from "glob";
 import {resolve} from "path";
 import eslint from "vite-plugin-eslint";
 
-const inputs = glob.sync('./vue/pages/**/*.js').reduce((acc, path) => {
+const inputs = glob.sync('./src/js/pages/**/*.js').reduce((acc, path) => {
     // vue/pages/Admin/Index becomes AdminIndex
     const entry = path.replace(/\.js$/g, '')
-        .replace(/^vue\/pages\//g, '')
+        .replace(/^src\/pages\//g, '')
         .replace(/\//g, '');
 
     acc[entry] = resolve(__dirname, path)
     return acc
 }, {});
 
-inputs['Layout'] = resolve(__dirname, './js/layout.js');
+inputs['Layout'] = resolve(__dirname, './src/js/layout.js');
 
 console.log(inputs);
 
