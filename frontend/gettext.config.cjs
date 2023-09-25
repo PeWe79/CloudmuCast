@@ -1,6 +1,6 @@
 module.exports = {
     input: {
-        path: './src',
+        path: './vue',
         include: ["**/*.js", "**/*.ts", "**/*.vue"]
     },
     output: {

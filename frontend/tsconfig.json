@@ -3,10 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "~/*": [
-        "src/*"
+        "vue/*"
       ],
-      "./*":[
-        "./*"
+      "!/*": [
+        "*"
       ]
     },
     "target": "ES2020",
@@ -32,9 +32,9 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+    "vue/**/*.ts",
+    "vue/**/*.d.ts",
+    "vue/**/*.tsx",
+    "vue/**/*.vue"
   ]
 }
