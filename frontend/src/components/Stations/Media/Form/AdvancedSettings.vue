@@ -79,7 +79,7 @@ const props = defineProps({
         required: true
     },
     songLength: {
-        type: String,
+        type: Number,
         required: true
     }
 });

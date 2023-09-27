@@ -255,7 +255,7 @@ const notifyNoFiles = () => {
     notifyError($gettext('No files selected.'));
 };
 
-const doBatch = (action, notifyMessage) => {
+const doBatch = (action: any, notifyMessage: any) => {
     if (props.selectedItems.all.length) {
         axios.put(props.batchUrl, {
             'do': action,

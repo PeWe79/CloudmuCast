@@ -1,7 +1,7 @@
 <template>
     <div
         class="toast align-items-center toast-notification mb-3"
-        :class="'text-bg-'+variant"
+        :class="'text-bg-'+props.variant"
         role="alert"
         aria-live="assertive"
         aria-atomic="true"
@@ -12,7 +12,7 @@
                 class="toast-header"
             >
                 <strong class="me-auto">
-                    {{ title }}
+                    {{ props.title }}
                 </strong>
                 <button
                     type="button"
@@ -23,7 +23,7 @@
             </div>
             <div class="toast-body">
                 <slot>
-                    {{ message }}
+                    {{ props.message }}
                 </slot>
             </div>
         </template>
@@ -31,7 +31,7 @@
             <div class="d-flex">
                 <div class="toast-body">
                     <slot>
-                        {{ message }}
+                        {{ props.message }}
                     </slot>
                 </div>
                 <button
@@ -59,5 +59,5 @@ const props = defineProps({
         type: String,
         default: 'info'
     }
-})
+});
 </script>

@@ -201,17 +201,17 @@ onMounted(() => {
     });
 
     flow.on('fileProgress', (file: OriginalFlowFile) => {
-      files.get(file).progressPercent = toInteger(file.progress() * 100);
+        files.get(file).progressPercent = toInteger(file.progress() * 100);
     });
 
-    flow.on('fileSuccess', (file: OriginalFlowFile, message) => {
+    flow.on('fileSuccess', (file: OriginalFlowFile, message: any) => {
         files.get(file).isCompleted = true;
 
         const messageJson = JSON.parse(message);
         emit('success', file, messageJson);
     });
 
-    flow.on('error', (message, file: OriginalFlowFile, chunk) => {
+    flow.on('error', (message: any, file: OriginalFlowFile, chunk: any) => {
         console.error(message, file, chunk);
 
         let messageText = $gettext('Could not upload file.');
