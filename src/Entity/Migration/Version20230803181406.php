@@ -9,8 +9,8 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 #[
-    StableMigration('0.19.1'),
-    StableMigration('0.19.0')
+    StableMigration('0.1.1'),
+    StableMigration('0.1.0')
 ]
 final class Version20230803181406 extends AbstractMigration
 {

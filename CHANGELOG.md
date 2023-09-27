@@ -46,7 +46,7 @@ release channel, you can take advantage of these new features and fixes.
 
 ---
 
-# AzuraCast 0.19.1 (Aug 21, 2023)
+# AzuraCast 0.1.0 (Sept 27, 2023)
 
 ## New Features/Changes
 
