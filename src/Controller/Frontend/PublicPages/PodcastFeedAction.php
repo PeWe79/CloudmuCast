@@ -28,8 +28,8 @@ use MarcW\RssWriter\Extension\Core\Enclosure as RssEnclosure;
 use MarcW\RssWriter\Extension\Core\Guid as RssGuid;
 use MarcW\RssWriter\Extension\Core\Image as RssImage;
 use MarcW\RssWriter\Extension\Core\Item as RssItem;
-use MarcW\RssWriter\Extension\DublinCore\DublinCore;
-use MarcW\RssWriter\Extension\DublinCore\DublinCoreWriter;
+// use MarcW\RssWriter\Extension\DublinCore\DublinCore;
+// use MarcW\RssWriter\Extension\DublinCore\DublinCoreWriter;
 use MarcW\RssWriter\Extension\Itunes\ItunesChannel;
 use MarcW\RssWriter\Extension\Itunes\ItunesItem;
 use MarcW\RssWriter\Extension\Itunes\ItunesOwner;
@@ -120,7 +120,7 @@ final class PodcastFeedAction implements SingleActionInterface
         $rssWriter->registerWriter(new SyWriter());
         $rssWriter->registerWriter(new SlashWriter());
         $rssWriter->registerWriter(new AtomWriter());
-        $rssWriter->registerWriter(new DublinCoreWriter());
+        // $rssWriter->registerWriter(new DublinCoreWriter());
 
         return $rssWriter;
     }
@@ -176,7 +176,7 @@ final class PodcastFeedAction implements SingleActionInterface
                 ->setHref((string)$serverRequest->getUri())
                 ->setType('application/rss+xml')
         );
-        $channel->addExtension(new DublinCore());
+        // $channel->addExtension(new DublinCore());
 
         return $channel;
     }
