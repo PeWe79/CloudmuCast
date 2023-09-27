@@ -74,6 +74,7 @@ import {computed, onMounted, onUnmounted, reactive, ref} from "vue";
 import Flow from "@flowjs/flow.js";
 import {useAzuraCast} from "~/vendor/azuracast";
 import {useTranslate} from "~/vendor/gettext";
+import {useNotify} from "~/functions/useNotify";
 import {IconUpload} from "~/components/Common/icons";
 
 const props = defineProps({
@@ -164,6 +165,7 @@ const $fileDropTarget = ref<HTMLDivElement | null>(null);
 const {apiCsrf} = useAzuraCast();
 
 const {$gettext} = useTranslate();
+const {notifySuccess} = useNotify();
 
 onMounted(() => {
     const defaultConfig = {
@@ -204,10 +206,23 @@ onMounted(() => {
         files.get(file).progressPercent = toInteger(file.progress() * 100);
     });
 
-    flow.on('fileSuccess', (file: OriginalFlowFile, message: any) => {
+    flow.on('fileSuccess', (file: OriginalFlowFile, msg: any) => {
         files.get(file).isCompleted = true;
 
-        const messageJson = JSON.parse(message);
+        const messageJson = JSON.parse(msg);
+        const itemNameNodes = [file.name];
+        let messageSuccess = $gettext('');
+
+        try {
+            messageSuccess = messageJson.message;
+            notifySuccess(itemNameNodes, {
+                title: messageSuccess,
+                message: file.name
+            });
+        } catch (e) {
+            // Noop
+        }
+
         emit('success', file, messageJson);
     });
 
