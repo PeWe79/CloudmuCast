@@ -4,7 +4,7 @@
         :dark="isDark"
         range
         :partial-range="false"
-        :preset-ranges="ranges"
+        :preset-dates="ranges"
         :min-date="minDate"
         :max-date="maxDate"
         :locale="localeWithDashes"
@@ -68,7 +68,7 @@ const props = defineProps({
         required: true
     },
     customRanges: {
-        type: [Object, Boolean],
+        type: [Object, Boolean, Date],
         default: null,
     }
 });

@@ -214,35 +214,35 @@ const dateRange = ref({
 const {$gettext} = useTranslate();
 
 const fields: DataTableField[] = [
-  {key: 'ip', label: $gettext('IP'), sortable: false},
-  {key: 'time', label: $gettext('Time'), sortable: false},
-  {key: 'time_sec', label: $gettext('Time (sec)'), sortable: false},
-  {key: 'user_agent', isRowHeader: true, label: $gettext('User Agent'), sortable: false},
-  {key: 'stream', label: $gettext('Stream'), sortable: false},
-  {key: 'location', label: $gettext('Location'), sortable: false}
+    {key: 'ip', label: $gettext('IP'), sortable: false},
+    {key: 'time', label: $gettext('Time'), sortable: false},
+    {key: 'time_sec', label: $gettext('Time (sec)'), sortable: false},
+    {key: 'user_agent', isRowHeader: true, label: $gettext('User Agent'), sortable: false},
+    {key: 'stream', label: $gettext('Stream'), sortable: false},
+    {key: 'location', label: $gettext('Location'), sortable: false}
 ];
 
 const exportUrl = computed(() => {
     const exportUrl = new URL(apiUrl.value, document.location.href);
     const exportUrlParams = exportUrl.searchParams;
-  exportUrlParams.set('format', 'csv');
+    exportUrlParams.set('format', 'csv');
 
-  if (!isLive.value) {
-    exportUrlParams.set('start', DateTime.fromJSDate(dateRange.value.startDate).toISO());
-    exportUrlParams.set('end', DateTime.fromJSDate(dateRange.value.endDate).toISO());
-  }
+    if (!isLive.value) {
+        exportUrlParams.set('start', DateTime.fromJSDate(dateRange.value.startDate).toISO());
+        exportUrlParams.set('end', DateTime.fromJSDate(dateRange.value.endDate).toISO());
+    }
 
-  return exportUrl.toString();
+    return exportUrl.toString();
 });
 
 const totalListenerHours = computed(() => {
-  let tlh_seconds = 0;
-  listeners.value.forEach(function (listener) {
-    tlh_seconds += listener.connected_time;
-  });
+    let tlh_seconds = 0;
+    listeners.value.forEach(function (listener) {
+        tlh_seconds += listener.connected_time;
+    });
 
-  const tlh_hours = tlh_seconds / 3600;
-  return Math.round((tlh_hours + 0.00001) * 100) / 100;
+    const tlh_hours = tlh_seconds / 3600;
+    return Math.round((tlh_hours + 0.00001) * 100) / 100;
 });
 
 const {axios} = useAxios();

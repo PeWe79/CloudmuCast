@@ -10,7 +10,7 @@
 <script setup lang="ts">
 const props = defineProps({
     modelValue: {
-        type: [Object],
+        type: Object,
         default: null
     }
 });
