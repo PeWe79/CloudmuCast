@@ -8,6 +8,7 @@
                 id="form_config_broadcastsubdomain"
                 class="col-md-12"
                 :field="v$.config.broadcastsubdomain"
+                :label="$gettext('Radio.de Broadcast Subdomain')"
             />
 
             <form-group-field
@@ -45,8 +46,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
     {
         config: {
             broadcastsubdomain: {required},
-            apikey: {required},
-            station_id: {required}
+            apikey: {required}
         }
     },
     form,
