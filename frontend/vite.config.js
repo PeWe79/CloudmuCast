@@ -4,10 +4,10 @@ import {glob} from "glob";
 import {resolve} from "path";
 import eslint from "vite-plugin-eslint";
 
-const inputs = glob.sync('./src/pages/**/*.js').reduce((acc, path) => {
+const inputs = glob.sync('./src/js/pages/**/*.js').reduce((acc, path) => {
     // vue/pages/Admin/Index becomes AdminIndex
     const entry = path.replace(/\.js$/g, '')
-        .replace(/^src\/pages\//g, '')
+        .replace(/^src\/js\/pages\//g, '')
         .replace(/\//g, '');
 
     acc[entry] = resolve(__dirname, path)
