@@ -6,4 +6,5 @@ declare module '@vue/runtime-core' {
     }
 }
 
-export {}
+// export {}
+declare export default {}

@@ -69,8 +69,8 @@
 
 <script setup lang="ts">
 import WS from 'wavesurfer.js';
-import timeline from 'wavesurfer.js/dist/plugins/timeline.js';
-import regions from 'wavesurfer.js/dist/plugins/regions.js';
+import timeline from 'wavesurfer.js/dist/plugins/timeline.esm.js';
+import regions from 'wavesurfer.js/dist/plugins/regions.esm.js';
 import getLogarithmicVolume from '~/functions/getLogarithmicVolume';
 import Icon from './Icon.vue';
 import {onMounted, onUnmounted, ref, watch} from "vue";
