@@ -1867,9 +1867,9 @@
       }
     },
     "node_modules/@vuepic/vue-datepicker": {
-      "version": "5.4.0",
-      "resolved": "https://registry.npmjs.org/@vuepic/vue-datepicker/-/vue-datepicker-5.4.0.tgz",
-      "integrity": "sha512-9f1ZqRDfak/UmBbD81BdqMDpUku2YphTwQXG8DF6hsrjIXsq5sX7BWJB6LhyVgvX9QFrSyFIp4fsHE3UFofZ7A==",
+      "version": "7.0.0",
+      "resolved": "https://registry.npmjs.org/@vuepic/vue-datepicker/-/vue-datepicker-7.0.0.tgz",
+      "integrity": "sha512-9qM5RsnjDDe82qQusEC4s+56yTEXj1Z0ZKV4k01u1v+BSr/eBySwlsEwRqObPpP/yehZ6oXdC2KGcERPyX0bnA==",
       "dependencies": {
         "date-fns": "^2.30.0",
         "date-fns-tz": "^1.3.7"
