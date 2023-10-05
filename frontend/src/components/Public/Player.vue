@@ -329,9 +329,14 @@ watch(np, onNowPlayingUpdated, {immediate: true});
 
         .now-playing-title,
         .now-playing-artist {
+            text-transform: capitalize;
             text-overflow: ellipsis;
+            text-align: left !important;
             overflow: hidden;
+            display: -webkit-box;
             white-space: nowrap;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
 
             &:hover {
                 text-overflow: clip;
