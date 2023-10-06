@@ -66,7 +66,7 @@
                                             target="_blank"
                                         >
                                             <img
-                                                class="rounded"
+                                                class="cover-art"
                                                 :src="np.now_playing.song.art"
                                                 alt="Album Art"
                                                 style="width: 50px;"
@@ -140,7 +140,7 @@
                                         >
                                             <img
                                                 :src="np.playing_next.song.art"
-                                                class="rounded"
+                                                class="cover-art"
                                                 alt="Album Art"
                                                 style="width: 40px;"
                                             >
@@ -276,3 +276,12 @@ const makeApiCall = (uri) => {
     emit('api-call', uri);
 };
 </script>
+
+<style>
+.cover-art {
+    border-radius: 3px;
+    box-shadow: 4px 1px 9px rgba(0,0,0,.2);
+    -moz-box-shadow: 4px 1px 9px rgba(0,0,0,.2);
+    -webkit-box-shadow: 4px 1px 9px rgba(0,0,0,.2);
+}
+</style>

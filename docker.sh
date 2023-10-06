@@ -536,18 +536,13 @@ install-dev() {
     .env --file .env set AZURACAST_PODMAN_MODE=true
   fi
 
-  chown -R `whoami` ./frontend/
-
   chmod 777 ./frontend/ ./web/ ./vendor/ \
     ./web/static/ ./web/static/api/ \
     ./web/static/img/
 
   dc build
   dc run --rm web -- azuracast_install "$@"
-
-  dc -p azuracast_frontend -f docker-compose.frontend.yml build
-  dc -p azuracast_frontend -f docker-compose.frontend.yml run --rm frontend npm run build
-
+  
   dc up -d
   exit
 }
@@ -851,7 +846,7 @@ rollback() {
   AZURACAST_ROLLBACK_VERSION="$1"
 
   if [[ -z "$AZURACAST_ROLLBACK_VERSION" ]]; then
-    echo "No version specified. Specify a version, like 0.19.0."
+    echo "No version specified. Specify a version, like 0.1.0."
     exit 1
   fi
 
@@ -907,12 +902,12 @@ change-ports() {
 # Helper scripts for basic Docker Compose functions
 #
 up() {
-  echo "Starting up AzuraCast services..."
+  echo "Starting up CloudmuCast services..."
   dc up -d
 }
 
 down() {
-  echo "Shutting down AzuraCast services..."
+  echo "Shutting down CloudmuCast services..."
   dc down --timeout 60
 }
 

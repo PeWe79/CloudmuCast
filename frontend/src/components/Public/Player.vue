@@ -292,13 +292,15 @@ watch(np, onNowPlayingUpdated, {immediate: true});
             padding-right: .5rem;
 
             img {
-                width: 75px;
+                width: 120px;
                 height: auto;
                 border-radius: 5px;
-                box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
+                box-shadow: 4px 1px 9px rgba(0,0,0,.2);
+                -moz-box-shadow: 4px 1px 9px rgba(0,0,0,.2);
+                -webkit-box-shadow: 4px 1px 9px rgba(0,0,0,.2);
 
                 @media (max-width: 575px) {
-                    width: 50px;
+                    width: 75px;
                 }
             }
         }
@@ -306,6 +308,8 @@ watch(np, onNowPlayingUpdated, {immediate: true});
         .now-playing-main {
             flex: 1;
             min-width: 0;
+            position: relative;
+            transition: max-width ease .4s;
         }
 
         h4, h5, h6 {
