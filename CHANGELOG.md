@@ -44,6 +44,8 @@ release channel, you can take advantage of these new features and fixes.
 
 - Fixed an issue preventing web updates from going through correctly.
 
+- Fixed an issue where disabled stations wouldn't show their profile pages at all.
+
 ---
 
 # AzuraCast 0.1.0 (Sept 27, 2023)
