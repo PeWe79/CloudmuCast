@@ -61,6 +61,7 @@ export function useAzuraCastStation(): AzuraCastStationConstants {
     return (station !== null) ? station : {
         id: null,
         name: null,
+        isEnabled: null,
         shortName: null,
         timezone: null,
         offlineText: null
