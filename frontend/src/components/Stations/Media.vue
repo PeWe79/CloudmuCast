@@ -321,7 +321,7 @@ const fields = computed<DataTableField[]>(() => {
         {key: 'media.length', label: $gettext('Length'), sortable: true, selectable: true, visible: true}
     ];
 
-    forEach({...props.customFields}, (field) => {
+    forEach({...props.customFields}, (field: any) => {
         fields.push({
             key: 'media.custom_fields[' + field.id + ']',
             label: field.name,
@@ -371,7 +371,7 @@ const selectedItems = ref({
 const currentDirectory = ref('');
 const searchPhrase = ref('');
 
-const onRowSelected = (items) => {
+const onRowSelected = (items: any) => {
     const splitItems = partition(items, 'is_dir');
 
     selectedItems.value = {
@@ -387,7 +387,7 @@ const onTriggerNavigate = () => {
     $datatable.value?.navigate();
 };
 
-const filter = (newFilter) => {
+const filter = (newFilter: any) => {
     $datatable.value?.setFilter(newFilter);
 };
 
@@ -398,23 +398,23 @@ const onTriggerRelist = () => {
     $datatable.value?.relist();
 };
 
-const onAddPlaylist = (row) => {
+const onAddPlaylist = (row: any) => {
     playlists.value.push(row);
 };
 
-const onFiltered = (newFilter) => {
+const onFiltered = (newFilter: any) => {
     searchPhrase.value = newFilter;
 };
 
 const $renameModal = ref<InstanceType<typeof RenameModal> | null>(null);
 
-const rename = (path) => {
+const rename = (path: any) => {
     $renameModal.value?.open(path);
 };
 
 const $editModal = ref<InstanceType<typeof EditModal> | null>(null);
 
-const edit = (recordUrl, albumArtUrl, audioUrl, waveformUrl) => {
+const edit = (recordUrl: any, albumArtUrl: any, audioUrl: any, waveformUrl: any) => {
     $editModal.value?.open(recordUrl, albumArtUrl, audioUrl, waveformUrl);
 };
 
@@ -430,18 +430,18 @@ const moveFiles = () => {
     $moveFilesModal.value?.open();
 }
 
-const requestConfig = (config) => {
+const requestConfig = (config: any) => {
     config.params.currentDirectory = currentDirectory.value;
     return config;
 };
 
-const isFilterString = (str) =>
+const isFilterString = (str: any) =>
     (str.substring(0, 9) === 'playlist:' || str.substring(0, 8) === 'special:');
 
 const router = useRouter();
 const route = useRoute();
 
-const changeDirectory = (newDir) => {
+const changeDirectory = (newDir: any) => {
     router.push({
         name: 'stations:files:index',
         params: {

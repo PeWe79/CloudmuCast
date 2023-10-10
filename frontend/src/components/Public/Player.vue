@@ -292,7 +292,7 @@ watch(np, onNowPlayingUpdated, {immediate: true});
             padding-right: .5rem;
 
             img {
-                width: 120px;
+                width: 75px;
                 height: auto;
                 border-radius: 5px;
                 box-shadow: 4px 1px 9px rgba(0,0,0,.2);
@@ -300,7 +300,7 @@ watch(np, onNowPlayingUpdated, {immediate: true});
                 -webkit-box-shadow: 4px 1px 9px rgba(0,0,0,.2);
 
                 @media (max-width: 575px) {
-                    width: 75px;
+                    width: 50px;
                 }
             }
         }
