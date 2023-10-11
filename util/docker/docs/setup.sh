@@ -8,7 +8,7 @@ mkdir -p /tmp/docs
 cd /tmp/docs
 
 # Updated 2023-10-10
-git clone https://github.com/AzuraCast/azuracast.com.git .
+git clone https://github.com/PeWe79/cloudmucast.com.git .
 cd builtin
 bash build.sh
 
