@@ -63,7 +63,7 @@ final class NowPlayingApiGenerator
         } else {
             $np->is_online = $this->adapters->getBackendAdapter($station)?->isRunning($station) ?? false;
         }
-        
+
         $np->station = $this->stationApiGenerator->__invoke($station, $baseUri);
         $np->listeners = new Listeners(
             total: $npResult->listeners->total,
