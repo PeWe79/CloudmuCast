@@ -11,7 +11,6 @@ use App\Entity\Api\Error;
 use App\Entity\Api\Status;
 use App\Http\Response;
 use App\Http\ServerRequest;
-use BaconQrCode;
 use InvalidArgumentException;
 use OTPHP\TOTP;
 use ParagonIE\ConstantTime\Base32;
@@ -44,7 +43,7 @@ final class PutTwoFactorAction implements SingleActionInterface
             $user = $request->getUser();
 
             $totp = TOTP::create($secret);
-            $totp->setLabel($user->getEmail() ?: 'CloudmuCast');
+            $totp->setLabel($user->getEmail() ?: 'AzuraCast');
 
             if (!empty($params['otp'])) {
                 if ($totp->verify($params['otp'], null, Auth::TOTP_WINDOW)) {
@@ -61,23 +60,12 @@ final class PutTwoFactorAction implements SingleActionInterface
             }
 
             // Further customize TOTP code (with metadata that won't be stored in the DB)
-            $totp->setIssuer('CloudmuCast');
+            $totp->setIssuer('AzuraCast');
             $totp->setParameter('image', 'https://www.azuracast.com/img/logo.png');
-
-            // Generate QR code
-            $totpUri = $totp->getProvisioningUri();
-
-            $renderer = new BaconQrCode\Renderer\ImageRenderer(
-                new BaconQrCode\Renderer\RendererStyle\RendererStyle(300),
-                new BaconQrCode\Renderer\Image\SvgImageBackEnd()
-            );
-            $qrCodeImage = (new BaconQrCode\Writer($renderer))->writeString($totpUri);
-            $qrCodeBase64 = 'data:image/svg+xml;base64,' . base64_encode($qrCodeImage);
 
             return $response->withJson([
                 'secret' => $secret,
-                'totp_uri' => $totpUri,
-                'qr_code' => $qrCodeBase64,
+                'totp_uri' => $totp->getProvisioningUri(),
             ]);
         } catch (Throwable $e) {
             return $response->withStatus(400)->withJson(Error::fromException($e));
