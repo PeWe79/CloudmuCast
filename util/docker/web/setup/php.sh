@@ -26,4 +26,3 @@ echo 'ffi.enable="true"' >> /etc/php/${PHP_VERSION}/mods-available/ffi.ini
 
 # Install Composer
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
-
