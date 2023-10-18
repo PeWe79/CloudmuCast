@@ -51,4 +51,3 @@ generate-locales:
 
 import-locales:
 	docker-compose exec --user=azuracast web azuracast_cli locale:import
-
