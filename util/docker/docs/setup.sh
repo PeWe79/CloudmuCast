@@ -7,7 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 mkdir -p /tmp/docs
 cd /tmp/docs
 
-# Updated 2023-10-10
+# Cached commit: 95821573a0df20c307bcf1e86ceba71034fe41cc
 git clone https://github.com/PeWe79/cloudmucast.com.git .
 cd builtin
 bash build.sh
