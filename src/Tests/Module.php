@@ -37,7 +37,7 @@ class Module extends Framework implements DoctrineProvider
 
         $this->requiredFields = ['container'];
     }
-    
+
     public function _initialize(): void
     {
         $this->app = AppFactory::createApp(
