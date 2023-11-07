@@ -6,7 +6,7 @@
         "*"
       ],
       "~/*": [
-        "vue/*"
+        "src/*"
       ],
       "./node_modules/*": [
         "*"
@@ -35,10 +35,10 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "vue/**/*.ts",
-    "vue/**/*.d.ts",
-    "vue/**/*.tsx",
-    "vue/**/*.vue",
-    "vue/**/*.js"
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.js"
   ]
 }

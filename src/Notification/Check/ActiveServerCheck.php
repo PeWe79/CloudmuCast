@@ -31,7 +31,7 @@ final class ActiveServerCheck
             $notification = new Notification();
             $notification->title = __('This server is not the current active instance.');
             $notification->body = __(
-                'This likely means that multiple AzuraCast instances are connecting to the same database. This instance is not the current active one, so synchronized tasks won\'t run on this server. If this is intentional, you can disregard this message.'
+                'This likely means that multiple CloudmuCast instances are connecting to the same database. This instance is not the current active one, so synchronized tasks won\'t run on this server. If this is intentional, you can disregard this message.'
             );
             $notification->type = FlashLevels::Warning->value;
             // phpcs:enable

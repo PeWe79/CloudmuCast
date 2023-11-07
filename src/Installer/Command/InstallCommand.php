@@ -172,7 +172,7 @@ final class InstallCommand extends Command
         // Display header messages
         if ($isNewInstall) {
             $io->title(
-                __('AzuraCast Installer')
+                __('CloudmuCast Installer')
             );
             $io->block(
                 __('Welcome to AzuraCast! Complete the initial server setup by answering a few questions.')
@@ -181,7 +181,7 @@ final class InstallCommand extends Command
             $customize = !$defaults;
         } else {
             $io->title(
-                __('AzuraCast Updater')
+                __('CloudmuCast Updater')
             );
 
             if ($defaults) {
@@ -197,7 +197,7 @@ final class InstallCommand extends Command
         if ($customize) {
             // Port customization
             $io->writeln(
-                __('AzuraCast is currently configured to listen on the following ports:'),
+                __('CloudmuCast is currently configured to listen on the following ports:'),
             );
             $io->listing(
                 [

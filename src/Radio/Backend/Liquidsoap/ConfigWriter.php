@@ -318,7 +318,7 @@ final class ConfigWriter implements EventSubscriberInterface
                 protocol.add(
                     "media",
                     azuracast_media_protocol,
-                    doc="Pull files from AzuraCast media directory.",
+                    doc="Pull files from CloudmuCast media directory.",
                     syntax="media:uri"
                 )
                 LIQ
@@ -339,7 +339,7 @@ final class ConfigWriter implements EventSubscriberInterface
                     "media",
                     azuracast_media_protocol,
                     temporary=true,
-                    doc="Pull files from AzuraCast media directory.",
+                    doc="Pull files from CloudmuCast media directory.",
                     syntax="media:uri"
                 )
                 LIQ

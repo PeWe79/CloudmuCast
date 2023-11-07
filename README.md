@@ -17,12 +17,12 @@ currently beta software.
 
 ![](https://www.azuracast.com/img/ScreenshotTour.gif)
 
-You can learn more about AzuraCast via our [Documentation](https://docs.azuracast.com/):
+You can learn more about AzuraCast via our [Documentation](https://www.azuracast.com/docs):
 
-- [About AzuraCast](https://docs.azuracast.com/en/home#core-features)
-- [Included Software](https://docs.azuracast.com/en/home#whats-included)
-- [System Requirements](https://docs.azuracast.com/en/getting-started/requirements)
-- [Installation](https://docs.azuracast.com/en/getting-started/installation)
+- [About AzuraCast](https://www.azuracast.com/docs/#core-features)
+- [Included Software](https://www.azuracast.com/docs/#whats-included)
+- [System Requirements](https://www.azuracast.com/docs/getting-started/requirements/)
+- [Installation](https://www.azuracast.com/docs/getting-started/installation/)
 
 ## Live Demo
 
@@ -40,9 +40,9 @@ CloudmuCast is powered by Docker and uses pre-built images that contain every co
 ## Let's start
 Installing CloudmuCast yourself requires a basic understanding of the Linux shell/terminal environment, as well as root (or "sudo") access to the computer you're installing CloudmuCast on.
 Docker installation now supports ARM64 devices as well, so you can follow these same installation steps.
-- [System Requirements](https://docs.azuracast.com/en/getting-started/requirements)
-- [Installation Guide](https://docs.azuracast.com/en/getting-started/installation/docker)
-- [Developing with CloudmuCast](https://docs.azuracast.com/en/developers/getting-started)
+- [System Requirements](https://www.azuracast.com/en/getting-started/requirements)
+- [Installation Guide](https://www.azuracast.com/docs/getting-started/installation/)
+- [Developing with CloudmuCast](https://www.azuracast.com/en/developers/getting-started)
 
 ## Install AzuraCast
 
@@ -63,7 +63,7 @@ chmod a+x docker.sh
 ./docker.sh install
 ```
 
-Or follow AzuraCast master **[installation guide](https://docs.azuracast.com/en/getting-started/installation)** for instructions on how
+Or follow AzuraCast master **[installation guide](https://www.azuracast.com/en/getting-started/installation)** for instructions on how
 to install AzuraCast on your own server.
 
 ## License
@@ -76,7 +76,7 @@ and open-source software, and pull requests are always welcome.
 ## Need Help?
 
 If you need help with AzuraCast, the first place you should visit is
-our [Support page](https://docs.azuracast.com/en/user-guide/troubleshooting)
+our [Support page](https://www.azuracast.com/docs/help/troubleshooting/)
 , which features solutions to a number of commonly encountered issues and questions, as well as instructions on how to
 check your server's log files for more details. If you do need our help via GitHub, supplying these logs is absolutely
 essential in helping us diagnose and resolve your issue.

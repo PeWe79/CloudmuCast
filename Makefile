@@ -30,12 +30,15 @@ build: # Rebuild all containers and restart
 	docker-compose build
 	$(MAKE) restart
 
-update: # Update everything (i.e. after a branch update)
-	docker-compose build
+post-update:
 	$(MAKE) down
 	docker-compose run --rm web gosu azuracast composer install
 	docker-compose run --rm web azuracast_cli azuracast:setup --update
 	$(MAKE) up
+
+update: # Update everything (i.e. after a branch update)
+	docker-compose build
+	$(MAKE) post-update
 
 test:
 	docker-compose exec --user=azuracast web composer run cleanup-and-test
@@ -47,12 +50,8 @@ bash-root:
 	docker-compose exec web bash
 
 generate-locales:
-	docker-compose -p azuracast_frontend -f docker-compose.frontend.yml build
-	docker-compose -p azuracast_frontend -f docker-compose.frontend.yml run -e NODE_ENV=development --rm frontend npm run generate-locales
 	docker-compose exec --user=azuracast web azuracast_cli locale:generate
 
 import-locales:
-	docker-compose -p azuracast_frontend -f docker-compose.frontend.yml build
-	docker-compose -p azuracast_frontend -f docker-compose.frontend.yml run -e NODE_ENV=development --rm frontend npm run import-locales
 	docker-compose exec --user=azuracast web azuracast_cli locale:import
 

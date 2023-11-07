@@ -35,7 +35,7 @@ final class Station implements ResolvableUrlInterface
 
     #[OA\Property(
         description: 'Station description',
-        example: 'An AzuraCast station!'
+        example: 'An CloudmuCast station!'
     )]
     public string $description = '';
 
