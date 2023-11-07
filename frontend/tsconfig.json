@@ -2,13 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "!/*": [
-        "*"
-      ],
       "~/*": [
         "src/*"
       ],
-      "./node_modules/*": [
+      "!/*": [
         "*"
       ]
     },
@@ -30,7 +27,8 @@
     "jsx": "preserve",
     /* Linting */
     "strict": false,
-    "noUnusedLocals": true,
+    "allowJs": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
@@ -38,7 +36,6 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
-    "src/**/*.js"
+    "src/**/*.vue"
   ]
 }
