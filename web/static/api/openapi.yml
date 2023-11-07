@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: AzuraCast
-  description: 'AzuraCast is a standalone, turnkey web radio management tool. Radio stations hosted by AzuraCast expose a public API for viewing now playing data, making requests and more.'
+  description: 'CloudmuCast is a standalone, turnkey web radio management tool. Radio stations hosted by CloudmuCast expose a public API for viewing now playing data, making requests and more.'
   license:
     name: 'Apache 2.0'
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
@@ -9,7 +9,7 @@ info:
 servers:
   -
     url: 'https://demo.azuracast.com/api'
-    description: 'AzuraCast Public Demo Server'
+    description: 'CloudmuCast Public Demo Server'
 paths:
   /admin/custom_fields:
     get:
@@ -3310,7 +3310,7 @@ components:
         description:
           description: 'Station description'
           type: string
-          example: 'An AzuraCast station!'
+          example: 'An CloudmuCast station!'
           nullable: true
         url:
           description: 'Station homepage URL'
@@ -3720,7 +3720,7 @@ components:
         description:
           description: 'Station description'
           type: string
-          example: 'An AzuraCast station!'
+          example: 'An CloudmuCast station!'
         frontend:
           description: 'Which broadcasting software (frontend) the station uses'
           type: string
@@ -4314,9 +4314,9 @@ components:
           example: 'https://your.azuracast.site'
           nullable: true
         instance_name:
-          description: 'AzuraCast Instance Name'
+          description: 'CloudmuCast Instance Name'
           type: string
-          example: 'My AzuraCast Instance'
+          example: 'My CloudmuCast Instance'
           nullable: true
         prefer_browser_url:
           description: 'Prefer Browser URL (If Available)'
@@ -4391,7 +4391,7 @@ components:
           example: SAMPLE-API-KEY
           nullable: true
         hide_product_name:
-          description: 'Hide AzuraCast Branding on Public Pages'
+          description: 'Hide CloudmuCast Branding on Public Pages'
           type: boolean
           example: 'false'
         public_custom_css:
@@ -5153,5 +5153,5 @@ tags:
   -
     name: Miscellaneous
 externalDocs:
-  description: 'AzuraCast on GitHub'
-  url: 'https://github.com/AzuraCast/AzuraCast'
+  description: 'CloudmuCast on GitHub'
+  url: 'https://github.com/PeWe79/CloudmuCast'

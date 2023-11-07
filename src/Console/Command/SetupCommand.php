@@ -61,7 +61,7 @@ final class SetupCommand extends CommandAbstract
         } else {
             $io->title(__('CloudmuCast Setup'));
             $io->writeln(
-                __('Welcome to CloudmuCast. Please wait while some key dependencies of CloudmuCast are set up...')
+                __('Welcome to AzuraCast. Please wait while some key dependencies of CloudmuCast are set up...')
             );
             $io->newLine();
         }

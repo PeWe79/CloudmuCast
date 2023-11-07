@@ -13,7 +13,7 @@ use OpenApi\Attributes as OA;
             version: AZURACAST_VERSION,
             description: "CloudmuCast is a standalone, turnkey web radio management tool. Radio stations hosted by"
             . " CloudmuCast expose a public API for viewing now playing data, making requests and more.",
-            title: 'CloudmuCast',
+            title: 'AzuraCast',
             license: new OA\License(
                 name: 'Apache 2.0',
                 url: "https://www.apache.org/licenses/LICENSE-2.0.html"

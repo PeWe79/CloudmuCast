@@ -110,7 +110,7 @@ final class SetupController
             component: 'Setup/Register',
             id: 'setup-register',
             layout: 'minimal',
-            title: __('Set Up CloudmuCast'),
+            title: __('Set Up AzuraCast'),
             props: [
                 'csrf' => $csrf->generate('register'),
                 'error' => $error,
@@ -165,12 +165,17 @@ final class SetupController
             return $response->withRedirect($router->named('setup:' . $currentStep));
         }
 
+        $router = $request->getRouter();
+
         return $request->getView()->renderVuePage(
             response: $response,
             component: 'Setup/Settings',
             id: 'setup-settings',
             title: __('System Settings'),
-            props: $this->settingsComponent->getProps($request),
+            props: [
+                ...$this->settingsComponent->getProps($request),
+                'continueUrl' => $router->named('dashboard'),
+            ],
         );
     }
 
