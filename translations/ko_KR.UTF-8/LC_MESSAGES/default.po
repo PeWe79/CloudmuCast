@@ -325,7 +325,7 @@ msgid "Alert"
 msgstr ""
 
 #: vue/components/Admin/Settings/ServicesTab.vue:57
-msgid "All listed domain names should point to this AzuraCast installation. Separate multiple domain names with commas."
+msgid "All listed domain names should point to this CloudmuCast installation. Separate multiple domain names with commas."
 msgstr ""
 
 #: vue/components/Stations/Playlists.vue:29
@@ -637,40 +637,40 @@ msgid "Avoid Duplicate Artists/Titles"
 msgstr "아티스트/제목 중복 방지"
 
 #: vue/components/Setup/Register.vue:12
-msgid "AzuraCast First-Time Setup"
-msgstr "AzuraCast 최초 설정"
+msgid "CloudmuCast First-Time Setup"
+msgstr "CloudmuCast 최초 설정"
 
 #: vue/components/Admin/Settings/GeneralTab.vue:21
-msgid "AzuraCast Instance Name"
-msgstr "AzuraCast 인스턴스 이름"
+msgid "CloudmuCast Instance Name"
+msgstr "CloudmuCast 인스턴스 이름"
 
 #: vue/components/Admin/GeoLite.vue:21
-msgid "AzuraCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated."
+msgid "CloudmuCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated."
 msgstr ""
 
 #: vue/components/Admin/Settings/ServicesTab.vue:8
-msgid "AzuraCast Update Checks"
-msgstr "AzuraCast 업데이트 체크"
+msgid "CloudmuCast Update Checks"
+msgstr "CloudmuCast 업데이트 체크"
 
 #: vue/components/Account.vue:34
 #: vue/components/Dashboard.vue:379
-msgid "AzuraCast User"
-msgstr "AzuraCast 사용자"
+msgid "CloudmuCast User"
+msgstr "CloudmuCast 사용자"
 
 #: vue/components/Admin/Permissions.vue:6
-msgid "AzuraCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles."
+msgid "CloudmuCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles."
 msgstr ""
 
 #: vue/components/Stations/Streamers/ConnectionInfo.vue:82
-msgid "AzuraCast Wiki"
-msgstr "AzuraCast 위키"
+msgid "CloudmuCast Wiki"
+msgstr "CloudmuCast 위키"
 
 #: vue/components/Stations/Playlists/ImportModal.vue:67
-msgid "AzuraCast will scan the uploaded file for matches in this station's music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed."
+msgid "CloudmuCast will scan the uploaded file for matches in this station's music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed."
 msgstr "AzuraCast는 이 방송국의 음악 라이브러리에서 업로드된 파일의 일치하는 내용을 검색합니다. 이 단계를 실행하기 전에 미디어를 미리 업로드해야 합니다. 필요한 횟수만큼 이 도구를 다시 실행할 수 있습니다."
 
 #: vue/components/Admin/Relays.vue:6
-msgid "AzuraRelay is a standalone service that connects to your AzuraCast instance, automatically relays your stations via its own server, then reports the listener details back to your main instance. This page shows all currently connected instances."
+msgid "AzuraRelay is a standalone service that connects to your CloudmuCast instance, automatically relays your stations via its own server, then reports the listener details back to your main instance. This page shows all currently connected instances."
 msgstr ""
 
 #: vue/components/Stations/Media/MoveFilesModal.vue:19
@@ -1346,7 +1346,7 @@ msgid "Customize Administrator Password"
 msgstr "관리자 암호 사용자 지정"
 
 #: vue/components/Setup/Settings.vue:10
-msgid "Customize AzuraCast Settings"
+msgid "Customize CloudmuCast Settings"
 msgstr ""
 
 #: vue/components/Admin/Stations/Form/FrontendForm.vue:72
@@ -2044,7 +2044,7 @@ msgid "Enable to allow this account to log in and stream."
 msgstr "이 계정이 로그인하고 스트리밍할 수 있도록 활성화합니다."
 
 #: vue/components/Admin/Backups/ConfigureModal.vue:18
-msgid "Enable to have AzuraCast automatically run nightly backups at the time specified."
+msgid "Enable to have CloudmuCast automatically run nightly backups at the time specified."
 msgstr ""
 
 #: vue/components/Account.vue:121
@@ -2352,7 +2352,7 @@ msgid "Hide Album Art on Public Pages"
 msgstr ""
 
 #: vue/components/Admin/Branding/BrandingForm.vue:49
-msgid "Hide AzuraCast Branding on Public Pages"
+msgid "Hide CloudmuCast Branding on Public Pages"
 msgstr ""
 
 #: vue/components/Dashboard.vue:359
@@ -2441,7 +2441,7 @@ msgid "If a song has no album art, this URL will be listed instead. Leave blank 
 msgstr ""
 
 #: vue/components/Admin/Branding/BrandingForm.vue:59
-msgid "If a visitor is not signed in and visits the AzuraCast homepage, you can automatically redirect them to the URL specified here. Leave blank to redirect them to the login screen by default."
+msgid "If a visitor is not signed in and visits the CloudmuCast homepage, you can automatically redirect them to the URL specified here. Leave blank to redirect them to the login screen by default."
 msgstr ""
 
 #: vue/components/Stations/Playlists/Form/BasicInfo.vue:20
@@ -2457,11 +2457,11 @@ msgid "If enabled, a download button will also be present on the public \"On-Dem
 msgstr ""
 
 #: vue/components/Admin/Stations/Form/StreamersForm.vue:28
-msgid "If enabled, AzuraCast will automatically record any live broadcasts made to this station to per-broadcast recordings."
+msgid "If enabled, CloudmuCast will automatically record any live broadcasts made to this station to per-broadcast recordings."
 msgstr ""
 
 #: vue/components/Stations/Reports/SoundExchange.vue:96
-msgid "If enabled, AzuraCast will connect to the MusicBrainz database to attempt to find an ISRC for any files where one is missing. Disabling this may improve performance."
+msgid "If enabled, CloudmuCast will connect to the MusicBrainz database to attempt to find an ISRC for any files where one is missing. Disabling this may improve performance."
 msgstr ""
 
 #: vue/components/Admin/Stations/Form/ProfileForm.vue:107
@@ -2497,7 +2497,7 @@ msgid "If selected, album art will not display on public-facing radio pages."
 msgstr ""
 
 #: vue/components/Admin/Branding/BrandingForm.vue:50
-msgid "If selected, this will remove the AzuraCast branding from public-facing pages."
+msgid "If selected, this will remove the CloudmuCast branding from public-facing pages."
 msgstr ""
 
 #: vue/components/Admin/Backups/ConfigureModal.vue:31
@@ -2777,7 +2777,7 @@ msgid "Learn about Advanced Playlists"
 msgstr "고급 재생 목록에 대해 알아보기"
 
 #: vue/components/Admin/Settings/ServicesTab.vue:19
-msgid "Learn more about release channels in the AzuraCast docs."
+msgid "Learn more about release channels in the CloudmuCast docs."
 msgstr ""
 
 #: vue/components/Admin/Settings/SecurityPrivacyTab.vue:69
@@ -3483,7 +3483,7 @@ msgid "Note: If your media metadata has UTF-8 characters, you should use a sprea
 msgstr ""
 
 #: vue/components/Admin/Stations/Form/ProfileForm.vue:36
-msgid "Note: This should be the public-facing homepage of the radio station, not the AzuraCast URL. It will be included in broadcast details."
+msgid "Note: This should be the public-facing homepage of the radio station, not the CloudmuCast URL. It will be included in broadcast details."
 msgstr ""
 
 #: vue/components/Stations/Streamers.vue:160
@@ -4597,7 +4597,7 @@ msgid "Settings"
 msgstr "설정"
 
 #: vue/components/Stations/Streamers/ConnectionInfo.vue:79
-msgid "Setup instructions for broadcasting software are available on the AzuraCast wiki."
+msgid "Setup instructions for broadcasting software are available on the CloudmuCast wiki."
 msgstr ""
 
 #: vue/components/Admin/StorageLocations/Form/Sftp.vue:11
@@ -4647,7 +4647,7 @@ msgid "Shoutcast 2 DNAS is not currently installed on this installation."
 msgstr ""
 
 #: vue/components/Admin/Shoutcast.vue:17
-msgid "Shoutcast 2 DNAS is not free software, and its restrictive license does not allow AzuraCast to distribute the Shoutcast binary."
+msgid "Shoutcast 2 DNAS is not free software, and its restrictive license does not allow CloudmuCast to distribute the Shoutcast binary."
 msgstr ""
 
 #: vue/components/Stations/Streamers/ConnectionInfo.vue:44
@@ -4684,7 +4684,7 @@ msgid "Show HLS Stream on Public Player"
 msgstr ""
 
 #: vue/components/Admin/Settings/ServicesTab.vue:36
-msgid "Show new releases within your update channel on the AzuraCast homepage."
+msgid "Show new releases within your update channel on the CloudmuCast homepage."
 msgstr ""
 
 #: vue/components/Stations/Mounts/Form/BasicInfo.vue:28
@@ -5051,7 +5051,7 @@ msgid "Stereo Tool is not currently installed on this installation."
 msgstr ""
 
 #: vue/components/Admin/StereoTool.vue:31
-msgid "Stereo Tool is not free software, and its restrictive license does not allow AzuraCast to distribute the Stereo Tool binary."
+msgid "Stereo Tool is not free software, and its restrictive license does not allow CloudmuCast to distribute the Stereo Tool binary."
 msgstr ""
 
 #: vue/components/Admin/Stations/Form/BackendForm.vue:145
@@ -5523,7 +5523,7 @@ msgid "This name should always begin with a slash (/), and must be a valid URL, 
 msgstr "이 이름은 항상 슬래시(/)로 시작해야 하며 /autodj.mp3 와 같은 유효한 URL이어야 합니다."
 
 #: vue/components/Admin/Settings/GeneralTab.vue:22
-msgid "This name will appear as a sub-header next to the AzuraCast logo, to help identify this server."
+msgid "This name will appear as a sub-header next to the CloudmuCast logo, to help identify this server."
 msgstr ""
 
 #: vue/components/Admin/ApiKeys.vue:6
@@ -5551,7 +5551,7 @@ msgid "This port is not used by any external process. Only modify this port if t
 msgstr ""
 
 #: vue/components/Stations/Playlists/QueueModal.vue:11
-msgid "This queue contains the remaining tracks in the order they will be queued by the AzuraCast AutoDJ (if the tracks are eligible to be played)."
+msgid "This queue contains the remaining tracks in the order they will be queued by the CloudmuCast AutoDJ (if the tracks are eligible to be played)."
 msgstr ""
 
 #: vue/components/Admin/Settings/ServicesTab.vue:236
@@ -5883,7 +5883,7 @@ msgid "Update AzuraCast"
 msgstr ""
 
 #: vue/components/Admin/Updates.vue:74
-msgid "Update AzuraCast via Web"
+msgid "Update CloudmuCast via Web"
 msgstr ""
 
 #: vue/components/Admin/Updates.vue:217
@@ -5959,8 +5959,8 @@ msgid "Use (Us)"
 msgstr ""
 
 #: vue/components/Account.vue:134
-msgid "Use API keys to authenticate with the AzuraCast API using the same permissions as your user account."
-msgstr "API 키를 사용해 사용자 계정과 동일한 권한을 사용하여 AzuraCast API로 인증"
+msgid "Use API keys to authenticate with the CloudmuCast API using the same permissions as your user account."
+msgstr "API 키를 사용해 사용자 계정과 동일한 권한을 사용하여 CloudmuCast API로 인증"
 
 #: vue/components/Account/EditForm.vue:61
 msgid "Use Browser Default"
@@ -6264,7 +6264,7 @@ msgid "You can only perform the actions your user account is allowed to perform.
 msgstr ""
 
 #: vue/components/Stations/Mounts/Form/Advanced.vue:13
-msgid "You can set a custom URL for this stream that AzuraCast will use when referring to it. Leave empty to use the default value."
+msgid "You can set a custom URL for this stream that CloudmuCast will use when referring to it. Leave empty to use the default value."
 msgstr ""
 
 #: vue/components/Stations/SftpUsers.vue:62
@@ -6321,15 +6321,15 @@ msgid "Fixtures loaded."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:60
-msgid "AzuraCast Initializing..."
+msgid "CloudmuCast Initializing..."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:62
-msgid "AzuraCast Setup"
-msgstr "AzuraCast 설치"
+msgid "CloudmuCast Setup"
+msgstr "CloudmuCast 설치"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:64
-msgid "Welcome to AzuraCast. Please wait while some key dependencies of AzuraCast are set up..."
+msgid "Welcome to AzuraCast. Please wait while some key dependencies of CloudmuCast are set up..."
 msgstr "AzuraCast에 오신 것을 환영합니다. AzuraCast의 일부 주요 종속성을 설정하는 동안 잠시 기다려 주십시오..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:69
@@ -6353,12 +6353,12 @@ msgid "Refreshing All Stations"
 msgstr "모든 스테이션 새로 고침"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:125
-msgid "AzuraCast is now updated to the latest version!"
+msgid "CloudmuCast is now updated to the latest version!"
 msgstr "AzuraCast가 최신 버전으로 업데이트되었습니다!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:134
-msgid "AzuraCast installation complete!"
-msgstr "AzuraCast 설치 완료!"
+msgid "CloudmuCast installation complete!"
+msgstr "CloudmuCast 설치 완료!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:136
 #, php-format
@@ -6366,8 +6366,8 @@ msgid "Visit %s to complete setup."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:26
-msgid "AzuraCast Settings"
-msgstr "AzuraCast 설정"
+msgid "CloudmuCast Settings"
+msgstr "CloudmuCast 설정"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:29
 msgid "Setting Key"
@@ -6448,7 +6448,7 @@ msgid "Backup path %s not found!"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:96
-msgid "AzuraCast Backup"
+msgid "CloudmuCast Backup"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:97
@@ -6710,19 +6710,19 @@ msgid "Create a new storage location based on the base directory."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:80
-msgid "AzuraCast Application Log"
-msgstr "AzuraCast 응용 프로그램 로그"
+msgid "CloudmuCast Application Log"
+msgstr "CloudmuCast 응용 프로그램 로그"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:86
-msgid "AzuraCast Now Playing Log"
+msgid "CloudmuCast Now Playing Log"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:92
-msgid "AzuraCast Synchronized Task Log"
+msgid "CloudmuCast Synchronized Task Log"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:98
-msgid "AzuraCast Queue Worker Log"
+msgid "CloudmuCast Queue Worker Log"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:104
@@ -6872,7 +6872,7 @@ msgid "Storage location %s already exists."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:54
-msgid "New AzuraCast Stable Release Available"
+msgid "New CloudmuCast Stable Release Available"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:58
@@ -6881,7 +6881,7 @@ msgid "Version %s is now available. You are currently running version %s. Updati
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:75
-msgid "New AzuraCast Rolling Release Available"
+msgid "New CloudmuCast Rolling Release Available"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:79
@@ -6902,7 +6902,7 @@ msgid "The performance profiling extension is currently enabled on this installa
 msgstr "성능 프로파일링 확장이 현재 이 설치에서 실행되어 있습니다."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ProfilerAdvisorCheck.php:35
-msgid "You can track the execution time and memory usage of any AzuraCast page or application from the profiler page."
+msgid "You can track the execution time and memory usage of any CloudmuCast page or application from the profiler page."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ProfilerAdvisorCheck.php:41
@@ -6922,7 +6922,7 @@ msgid "This server is not the current active instance."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ActiveServerCheck.php:33
-msgid "This likely means that multiple AzuraCast instances are connecting to the same database. This instance is not the current active one, so synchronized tasks won't run on this server. If this is intentional, you can disregard this message."
+msgid "This likely means that multiple CloudmuCast instances are connecting to the same database. This instance is not the current active one, so synchronized tasks won't run on this server. If this is intentional, you can disregard this message."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ServiceCheck.php:34
@@ -7482,7 +7482,7 @@ msgid "GeoLite database not configured for this installation. See System Adminis
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:175
-msgid "AzuraCast Installer"
+msgid "CloudmuCast Installer"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:178
@@ -7490,15 +7490,15 @@ msgid "Welcome to AzuraCast! Complete the initial server setup by answering a fe
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:184
-msgid "AzuraCast Updater"
-msgstr "AzuraCast 업데이터"
+msgid "CloudmuCast Updater"
+msgstr "CloudmuCast 업데이터"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:191
 msgid "Change installation settings?"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:200
-msgid "AzuraCast is currently configured to listen on the following ports:"
+msgid "CloudmuCast is currently configured to listen on the following ports:"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:204
@@ -7546,7 +7546,7 @@ msgid "HTTP Port"
 msgstr "HTTP 포트"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:43
-msgid "The main port AzuraCast listens to for insecure HTTP connections."
+msgid "The main port CloudmuCast listens to for insecure HTTP connections."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:49
@@ -7554,11 +7554,11 @@ msgid "HTTPS Port"
 msgstr "HTTPS 포트"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:50
-msgid "The main port AzuraCast listens to for secure HTTPS connections."
+msgid "The main port CloudmuCast listens to for secure HTTPS connections."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:57
-msgid "The port AzuraCast listens to for SFTP file management connections."
+msgid "The port CloudmuCast listens to for SFTP file management connections."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:63
@@ -7566,7 +7566,7 @@ msgid "Station Ports"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:64
-msgid "The ports AzuraCast should listen to for station broadcasts and incoming DJ connections."
+msgid "The ports CloudmuCast should listen to for station broadcasts and incoming DJ connections."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:70

@@ -337,7 +337,7 @@ msgid "Alert"
 msgstr ""
 
 #: vue/components/Admin/Settings/ServicesTab.vue:57
-msgid "All listed domain names should point to this AzuraCast installation. Separate multiple domain names with commas."
+msgid "All listed domain names should point to this CloudmuCast installation. Separate multiple domain names with commas."
 msgstr "Veškéré domény by měli odkazovat na tuto instalaci AzuraCast. Oddělte více domén čárkami."
 
 #: vue/components/Stations/Playlists.vue:29
@@ -649,40 +649,40 @@ msgid "Avoid Duplicate Artists/Titles"
 msgstr "Vyhnout se duplicitním Umělcům/Titulům"
 
 #: vue/components/Setup/Register.vue:12
-msgid "AzuraCast First-Time Setup"
+msgid "CloudmuCast First-Time Setup"
 msgstr "První nastavení AzuraCast"
 
 #: vue/components/Admin/Settings/GeneralTab.vue:21
-msgid "AzuraCast Instance Name"
+msgid "CloudmuCast Instance Name"
 msgstr "Název instance AzuraCast"
 
 #: vue/components/Admin/GeoLite.vue:21
-msgid "AzuraCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated."
-msgstr "AzuraCast je vybavena bezplatnou IP geolokační databází. Můžete raději použít službu MaxMind GeoLite pro dosažení přesnějších výsledků. Použití MaxMind GeoLite vyžaduje licenční klíč, ale jakmile je klíč poskytnut, budeme databázi automaticky aktualizovat."
+msgid "CloudmuCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated."
+msgstr "CloudmuCast je vybavena bezplatnou IP geolokační databází. Můžete raději použít službu MaxMind GeoLite pro dosažení přesnějších výsledků. Použití MaxMind GeoLite vyžaduje licenční klíč, ale jakmile je klíč poskytnut, budeme databázi automaticky aktualizovat."
 
 #: vue/components/Admin/Settings/ServicesTab.vue:8
-msgid "AzuraCast Update Checks"
+msgid "CloudmuCast Update Checks"
 msgstr "Kontrola aktualizací AzuraCast"
 
 #: vue/components/Account.vue:34
 #: vue/components/Dashboard.vue:379
-msgid "AzuraCast User"
+msgid "CloudmuCast User"
 msgstr "Uživatel AzuraCast"
 
 #: vue/components/Admin/Permissions.vue:6
-msgid "AzuraCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles."
-msgstr "AzuraCast používá systém řízení přístupu založený na rolích. Role mají oprávnění pro určité části webu, uživatelé jsou poté přiřazeni k těmto rolím."
+msgid "CloudmuCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles."
+msgstr "CloudmuCast používá systém řízení přístupu založený na rolích. Role mají oprávnění pro určité části webu, uživatelé jsou poté přiřazeni k těmto rolím."
 
 #: vue/components/Stations/Streamers/ConnectionInfo.vue:82
-msgid "AzuraCast Wiki"
-msgstr "AzuraCast Wiki"
+msgid "CloudmuCast Wiki"
+msgstr "CloudmuCast Wiki"
 
 #: vue/components/Stations/Playlists/ImportModal.vue:67
-msgid "AzuraCast will scan the uploaded file for matches in this station's music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed."
-msgstr "AzuraCast naskenuje nahraný soubor pro výsledky v hudební knihovně této stanice. Média by měla být nahrána ještě před spuštěním tohoto kroku. Tento nástroj můžete spustit znovu, kolikrát je potřeba."
+msgid "CloudmuCast will scan the uploaded file for matches in this station's music library. Media should already be uploaded before running this step. You can re-run this tool as many times as needed."
+msgstr "CloudmuCast naskenuje nahraný soubor pro výsledky v hudební knihovně této stanice. Média by měla být nahrána ještě před spuštěním tohoto kroku. Tento nástroj můžete spustit znovu, kolikrát je potřeba."
 
 #: vue/components/Admin/Relays.vue:6
-msgid "AzuraRelay is a standalone service that connects to your AzuraCast instance, automatically relays your stations via its own server, then reports the listener details back to your main instance. This page shows all currently connected instances."
+msgid "AzuraRelay is a standalone service that connects to your CloudmuCast instance, automatically relays your stations via its own server, then reports the listener details back to your main instance. This page shows all currently connected instances."
 msgstr ""
 
 #: vue/components/Stations/Media/MoveFilesModal.vue:19
@@ -1358,7 +1358,7 @@ msgid "Customize Administrator Password"
 msgstr "Přizpůsobit heslo administrátora"
 
 #: vue/components/Setup/Settings.vue:10
-msgid "Customize AzuraCast Settings"
+msgid "Customize CloudmuCast Settings"
 msgstr "Přizpůsobit nastavení AzuraCast"
 
 #: vue/components/Admin/Stations/Form/FrontendForm.vue:72
@@ -2056,8 +2056,8 @@ msgid "Enable to allow this account to log in and stream."
 msgstr "Povolit přihlašování a streamování tohoto účtu."
 
 #: vue/components/Admin/Backups/ConfigureModal.vue:18
-msgid "Enable to have AzuraCast automatically run nightly backups at the time specified."
-msgstr "Povolit, aby AzuraCast v určeném čase automaticky spouštěla noční zálohování."
+msgid "Enable to have CloudmuCast automatically run nightly backups at the time specified."
+msgstr "Povolit, aby CloudmuCast v určeném čase automaticky spouštěla noční zálohování."
 
 #: vue/components/Account.vue:121
 msgid "Enable Two-Factor"
@@ -2364,8 +2364,8 @@ msgid "Hide Album Art on Public Pages"
 msgstr "Skrýt obal alba na veřejných stránkách"
 
 #: vue/components/Admin/Branding/BrandingForm.vue:49
-msgid "Hide AzuraCast Branding on Public Pages"
-msgstr "Skrýt AzuraCast značku na veřejných stránkách"
+msgid "Hide CloudmuCast Branding on Public Pages"
+msgstr "Skrýt CloudmuCast značku na veřejných stránkách"
 
 #: vue/components/Dashboard.vue:359
 msgid "Hide Charts"
@@ -2453,7 +2453,7 @@ msgid "If a song has no album art, this URL will be listed instead. Leave blank 
 msgstr "Pokud skladba nemá žádný obrázek alba, bude zobrazen obrázek z této URL adresy. Chcete-li použít standardní zástupný obrázek, ponechte prázdné."
 
 #: vue/components/Admin/Branding/BrandingForm.vue:59
-msgid "If a visitor is not signed in and visits the AzuraCast homepage, you can automatically redirect them to the URL specified here. Leave blank to redirect them to the login screen by default."
+msgid "If a visitor is not signed in and visits the CloudmuCast homepage, you can automatically redirect them to the URL specified here. Leave blank to redirect them to the login screen by default."
 msgstr "Pokud není návštěvník přihlášen a navštíví domovskou stránku AzuraCast, můžete ho automaticky přesměrovat na zde uvedenou URL adresu. Chcete-li ho přesměrovat na výchozí přihlašovací obrazovku, ponechte prázdné."
 
 #: vue/components/Stations/Playlists/Form/BasicInfo.vue:20
@@ -2469,12 +2469,12 @@ msgid "If enabled, a download button will also be present on the public \"On-Dem
 msgstr "Pokud je tato možnost povolena, bude na veřejné stránce \"On-Demand\" k dispozici také tlačítko pro stažení."
 
 #: vue/components/Admin/Stations/Form/StreamersForm.vue:28
-msgid "If enabled, AzuraCast will automatically record any live broadcasts made to this station to per-broadcast recordings."
-msgstr "Pokud je tato funkce povolena, bude AzuraCast automaticky nahrávat všechna živá vysílání této stanice do nahrávek na vysílání."
+msgid "If enabled, CloudmuCast will automatically record any live broadcasts made to this station to per-broadcast recordings."
+msgstr "Pokud je tato funkce povolena, bude CloudmuCast automaticky nahrávat všechna živá vysílání této stanice do nahrávek na vysílání."
 
 #: vue/components/Stations/Reports/SoundExchange.vue:96
-msgid "If enabled, AzuraCast will connect to the MusicBrainz database to attempt to find an ISRC for any files where one is missing. Disabling this may improve performance."
-msgstr "Pokud je tato funkce povolena, AzuraCast se připojí k databázi MusicBrainz a pokusí se najít ISRC pro všechny soubory, u kterých chybí. Vypnutí této funkce může zlepšit výkon."
+msgid "If enabled, CloudmuCast will connect to the MusicBrainz database to attempt to find an ISRC for any files where one is missing. Disabling this may improve performance."
+msgstr "Pokud je tato funkce povolena, CloudmuCast se připojí k databázi MusicBrainz a pokusí se najít ISRC pro všechny soubory, u kterých chybí. Vypnutí této funkce může zlepšit výkon."
 
 #: vue/components/Admin/Stations/Form/ProfileForm.vue:107
 msgid "If enabled, music from playlists with on-demand streaming enabled will be available to stream via a specialized public page."
@@ -2509,8 +2509,8 @@ msgid "If selected, album art will not display on public-facing radio pages."
 msgstr "Pokud je vybráno, nebude se obal alba zobrazovat na veřejně přístupných stránkách."
 
 #: vue/components/Admin/Branding/BrandingForm.vue:50
-msgid "If selected, this will remove the AzuraCast branding from public-facing pages."
-msgstr "Pokud je tato možnost vybrána, odstraní se značka AzuraCast ze stránek, které jsou veřejně přístupné."
+msgid "If selected, this will remove the CloudmuCast branding from public-facing pages."
+msgstr "Pokud je tato možnost vybrána, odstraní se značka CloudmuCast ze stránek, které jsou veřejně přístupné."
 
 #: vue/components/Admin/Backups/ConfigureModal.vue:31
 #: vue/components/Stations/Playlists/Form/ScheduleRow.vue:45
@@ -2789,7 +2789,7 @@ msgid "Learn about Advanced Playlists"
 msgstr "Přečtěte si o pokročilých seznamech skladeb"
 
 #: vue/components/Admin/Settings/ServicesTab.vue:19
-msgid "Learn more about release channels in the AzuraCast docs."
+msgid "Learn more about release channels in the CloudmuCast docs."
 msgstr "Další informace o kanálech vydání najdete v dokumentech k AzuraCastu."
 
 #: vue/components/Admin/Settings/SecurityPrivacyTab.vue:69
@@ -3495,7 +3495,7 @@ msgid "Note: If your media metadata has UTF-8 characters, you should use a sprea
 msgstr "Poznámka: Pokud metadata médií obsahují znaky UTF-8, měli byste použít tabulkový editor, který podporuje kódování UTF-8, například OpenOffice."
 
 #: vue/components/Admin/Stations/Form/ProfileForm.vue:36
-msgid "Note: This should be the public-facing homepage of the radio station, not the AzuraCast URL. It will be included in broadcast details."
+msgid "Note: This should be the public-facing homepage of the radio station, not the CloudmuCast URL. It will be included in broadcast details."
 msgstr "Poznámka: Toto by měla být veřejná domovská stránka rozhlasové stanice, nikoli adresa URL AzuraCast. Bude uvedena v podrobnostech o vysílání."
 
 #: vue/components/Stations/Streamers.vue:160
@@ -4609,7 +4609,7 @@ msgid "Settings"
 msgstr "Nastavení"
 
 #: vue/components/Stations/Streamers/ConnectionInfo.vue:79
-msgid "Setup instructions for broadcasting software are available on the AzuraCast wiki."
+msgid "Setup instructions for broadcasting software are available on the CloudmuCast wiki."
 msgstr "Pokyny k nastavení vysílacího softwaru jsou k dispozici na wiki AzuraCast."
 
 #: vue/components/Admin/StorageLocations/Form/Sftp.vue:11
@@ -4659,8 +4659,8 @@ msgid "Shoutcast 2 DNAS is not currently installed on this installation."
 msgstr "Služba Shoutcast 2 DNAS není v současné době v této instalaci nainstalována."
 
 #: vue/components/Admin/Shoutcast.vue:17
-msgid "Shoutcast 2 DNAS is not free software, and its restrictive license does not allow AzuraCast to distribute the Shoutcast binary."
-msgstr "Shoutcast 2 DNAS není free software a jeho omezující licence neumožňuje společnosti AzuraCast distribuovat binární soubor Shoutcast."
+msgid "Shoutcast 2 DNAS is not free software, and its restrictive license does not allow CloudmuCast to distribute the Shoutcast binary."
+msgstr "Shoutcast 2 DNAS není free software a jeho omezující licence neumožňuje společnosti CloudmuCast distribuovat binární soubor Shoutcast."
 
 #: vue/components/Stations/Streamers/ConnectionInfo.vue:44
 msgid "Shoutcast Clients"
@@ -4696,7 +4696,7 @@ msgid "Show HLS Stream on Public Player"
 msgstr "Zobrazit Stream HLS ve Veřejném Přehrávači"
 
 #: vue/components/Admin/Settings/ServicesTab.vue:36
-msgid "Show new releases within your update channel on the AzuraCast homepage."
+msgid "Show new releases within your update channel on the CloudmuCast homepage."
 msgstr "Zobrazení nových verzí v rámci aktualizačního kanálu na domovské stránce AzuraCastu."
 
 #: vue/components/Stations/Mounts/Form/BasicInfo.vue:28
@@ -5063,8 +5063,8 @@ msgid "Stereo Tool is not currently installed on this installation."
 msgstr "Nástroj Stereo Tool není v současné době v této instalaci nainstalován."
 
 #: vue/components/Admin/StereoTool.vue:31
-msgid "Stereo Tool is not free software, and its restrictive license does not allow AzuraCast to distribute the Stereo Tool binary."
-msgstr "Stereo Tool není free software a jeho omezující licence neumožňuje společnosti AzuraCast šířit binární soubor Stereo Tool."
+msgid "Stereo Tool is not free software, and its restrictive license does not allow CloudmuCast to distribute the Stereo Tool binary."
+msgstr "Stereo Tool není free software a jeho omezující licence neumožňuje společnosti CloudmuCast šířit binární soubor Stereo Tool."
 
 #: vue/components/Admin/Stations/Form/BackendForm.vue:145
 msgid "Stereo Tool License Key"
@@ -5535,7 +5535,7 @@ msgid "This name should always begin with a slash (/), and must be a valid URL, 
 msgstr "Tento řetězec by měl vždy začínat lomítkem (/) a musí být platnou adresou URL, například /autodj.mp3"
 
 #: vue/components/Admin/Settings/GeneralTab.vue:22
-msgid "This name will appear as a sub-header next to the AzuraCast logo, to help identify this server."
+msgid "This name will appear as a sub-header next to the CloudmuCast logo, to help identify this server."
 msgstr "Tento název se zobrazí jako dílčí záhlaví vedle loga AzuraCast, aby bylo možné tento server identifikovat."
 
 #: vue/components/Admin/ApiKeys.vue:6
@@ -5563,8 +5563,8 @@ msgid "This port is not used by any external process. Only modify this port if t
 msgstr "Tento port není používán žádným externím procesem. Tento port upravte pouze v případě, že je přiřazený port používán. Pro automatické přiřazení portu ponechte prázdné pole."
 
 #: vue/components/Stations/Playlists/QueueModal.vue:11
-msgid "This queue contains the remaining tracks in the order they will be queued by the AzuraCast AutoDJ (if the tracks are eligible to be played)."
-msgstr "Tato fronta obsahuje zbývající skladby v pořadí, v jakém je AzuraCast AutoDJ zařadí do fronty (pokud je možné je přehrát)."
+msgid "This queue contains the remaining tracks in the order they will be queued by the CloudmuCast AutoDJ (if the tracks are eligible to be played)."
+msgstr "Tato fronta obsahuje zbývající skladby v pořadí, v jakém je CloudmuCast AutoDJ zařadí do fronty (pokud je možné je přehrát)."
 
 #: vue/components/Admin/Settings/ServicesTab.vue:236
 msgid "This service can provide album art for tracks where none is available locally."
@@ -5895,8 +5895,8 @@ msgid "Update AzuraCast"
 msgstr "Aktualizovat AzuraCast"
 
 #: vue/components/Admin/Updates.vue:74
-msgid "Update AzuraCast via Web"
-msgstr "Aktualizovat AzuraCast prostřednictvím Webu"
+msgid "Update CloudmuCast via Web"
+msgstr "Aktualizovat CloudmuCast prostřednictvím Webu"
 
 #: vue/components/Admin/Updates.vue:217
 msgid "Update AzuraCast? Your installation will restart."
@@ -5971,8 +5971,8 @@ msgid "Use (Us)"
 msgstr "Využití (Us)"
 
 #: vue/components/Account.vue:134
-msgid "Use API keys to authenticate with the AzuraCast API using the same permissions as your user account."
-msgstr "Použitím klíčů API se můžete ověřit pomocí rozhraní AzuraCast API se stejnými oprávněními jako váš uživatelský účet."
+msgid "Use API keys to authenticate with the CloudmuCast API using the same permissions as your user account."
+msgstr "Použitím klíčů API se můžete ověřit pomocí rozhraní CloudmuCast API se stejnými oprávněními jako váš uživatelský účet."
 
 #: vue/components/Account/EditForm.vue:61
 msgid "Use Browser Default"
@@ -6276,8 +6276,8 @@ msgid "You can only perform the actions your user account is allowed to perform.
 msgstr "Můžete provádět pouze akce, které má váš uživatelský účet povolen."
 
 #: vue/components/Stations/Mounts/Form/Advanced.vue:13
-msgid "You can set a custom URL for this stream that AzuraCast will use when referring to it. Leave empty to use the default value."
-msgstr "Pro tento stream můžete nastavit vlastní adresu URL, kterou bude služba AzuraCast používat, když na ni bude odkazováno. Chcete-li použít výchozí hodnotu, ponechte prázdné."
+msgid "You can set a custom URL for this stream that CloudmuCast will use when referring to it. Leave empty to use the default value."
+msgstr "Pro tento stream můžete nastavit vlastní adresu URL, kterou bude služba CloudmuCast používat, když na ni bude odkazováno. Chcete-li použít výchozí hodnotu, ponechte prázdné."
 
 #: vue/components/Stations/SftpUsers.vue:62
 msgid "You may need to connect directly to your IP address:"
@@ -6333,15 +6333,15 @@ msgid "Fixtures loaded."
 msgstr "Načtené položky."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:60
-msgid "AzuraCast Initializing..."
+msgid "CloudmuCast Initializing..."
 msgstr "Inicializace systému AzuraCast..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:62
-msgid "AzuraCast Setup"
+msgid "CloudmuCast Setup"
 msgstr "Nastavení AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:64
-msgid "Welcome to AzuraCast. Please wait while some key dependencies of AzuraCast are set up..."
+msgid "Welcome to AzuraCast. Please wait while some key dependencies of CloudmuCast are set up..."
 msgstr "Vítejte v AzuraCastu. Počkejte prosím, než se nastaví některé klíčové závislosti AzuraCastu..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:69
@@ -6365,12 +6365,12 @@ msgid "Refreshing All Stations"
 msgstr "Aktualizace Všech Stanic"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:125
-msgid "AzuraCast is now updated to the latest version!"
-msgstr "AzuraCast je nyní aktualizován na nejnovější verzi!"
+msgid "CloudmuCast is now updated to the latest version!"
+msgstr "CloudmuCast je nyní aktualizován na nejnovější verzi!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:134
-msgid "AzuraCast installation complete!"
-msgstr "Instalace AzuraCast je dokončena!"
+msgid "CloudmuCast installation complete!"
+msgstr "Instalace CloudmuCast je dokončena!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:136
 #, php-format
@@ -6378,7 +6378,7 @@ msgid "Visit %s to complete setup."
 msgstr "Navštivte %s pro dokončení nastavení."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:26
-msgid "AzuraCast Settings"
+msgid "CloudmuCast Settings"
 msgstr "Nastavení AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:29
@@ -6460,7 +6460,7 @@ msgid "Backup path %s not found!"
 msgstr "Zálohovací cesta %s nebyla nalezena!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:96
-msgid "AzuraCast Backup"
+msgid "CloudmuCast Backup"
 msgstr "Záloha AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:97
@@ -6722,19 +6722,19 @@ msgid "Create a new storage location based on the base directory."
 msgstr "Vytvořit nové úložiště založené na základním adresáři."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:80
-msgid "AzuraCast Application Log"
+msgid "CloudmuCast Application Log"
 msgstr "Protokol aplikace AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:86
-msgid "AzuraCast Now Playing Log"
+msgid "CloudmuCast Now Playing Log"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:92
-msgid "AzuraCast Synchronized Task Log"
+msgid "CloudmuCast Synchronized Task Log"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:98
-msgid "AzuraCast Queue Worker Log"
+msgid "CloudmuCast Queue Worker Log"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:104
@@ -6884,7 +6884,7 @@ msgid "Storage location %s already exists."
 msgstr "Umístění úložiště %s již existuje."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:54
-msgid "New AzuraCast Stable Release Available"
+msgid "New CloudmuCast Stable Release Available"
 msgstr "K dispozici je nová stabilní verze AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:58
@@ -6893,8 +6893,8 @@ msgid "Version %s is now available. You are currently running version %s. Updati
 msgstr "Verze %s je nyní k dispozici. V současné době používáte verzi %s. Doporučujeme provést aktualizaci."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:75
-msgid "New AzuraCast Rolling Release Available"
-msgstr "Nová verze AzuraCast Rolling Release je k dispozici"
+msgid "New CloudmuCast Rolling Release Available"
+msgstr "Nová verze CloudmuCast Rolling Release je k dispozici"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:79
 #, php-format
@@ -6914,8 +6914,8 @@ msgid "The performance profiling extension is currently enabled on this installa
 msgstr "Rozšíření profilování výkonu je v současné době povoleno."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ProfilerAdvisorCheck.php:35
-msgid "You can track the execution time and memory usage of any AzuraCast page or application from the profiler page."
-msgstr "Můžete sledovat čas provádění a využití paměti jakékoli stránky AzuraCast nebo aplikace z profileru stránky."
+msgid "You can track the execution time and memory usage of any CloudmuCast page or application from the profiler page."
+msgstr "Můžete sledovat čas provádění a využití paměti jakékoli stránky CloudmuCast nebo aplikace z profileru stránky."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ProfilerAdvisorCheck.php:41
 msgid "Profiler Control Panel"
@@ -6934,7 +6934,7 @@ msgid "This server is not the current active instance."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ActiveServerCheck.php:33
-msgid "This likely means that multiple AzuraCast instances are connecting to the same database. This instance is not the current active one, so synchronized tasks won't run on this server. If this is intentional, you can disregard this message."
+msgid "This likely means that multiple CloudmuCast instances are connecting to the same database. This instance is not the current active one, so synchronized tasks won't run on this server. If this is intentional, you can disregard this message."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ServiceCheck.php:34
@@ -7494,7 +7494,7 @@ msgid "GeoLite database not configured for this installation. See System Adminis
 msgstr "Databáze GeoLite není pro tuto instalaci nakonfigurována. Instrukce viz Správa systému."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:175
-msgid "AzuraCast Installer"
+msgid "CloudmuCast Installer"
 msgstr "Instalátor AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:178
@@ -7502,7 +7502,7 @@ msgid "Welcome to AzuraCast! Complete the initial server setup by answering a fe
 msgstr "Vítejte na AzuraCast! Dokončete počáteční nastavení serveru zodpovězením několika otázek."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:184
-msgid "AzuraCast Updater"
+msgid "CloudmuCast Updater"
 msgstr "Aktualizace AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:191
@@ -7510,8 +7510,8 @@ msgid "Change installation settings?"
 msgstr "Změnit nastavení instalace?"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:200
-msgid "AzuraCast is currently configured to listen on the following ports:"
-msgstr "AzuraCast je v nakonfigurován pro poslouchání na následujících portech:"
+msgid "CloudmuCast is currently configured to listen on the following ports:"
+msgstr "CloudmuCast je v nakonfigurován pro poslouchání na následujících portech:"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:204
 #, php-format
@@ -7558,28 +7558,28 @@ msgid "HTTP Port"
 msgstr "HTTP Port"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:43
-msgid "The main port AzuraCast listens to for insecure HTTP connections."
-msgstr "Hlavní port, kterému AzuraCast naslouchá pro nezabezpečená připojení HTTP."
+msgid "The main port CloudmuCast listens to for insecure HTTP connections."
+msgstr "Hlavní port, kterému CloudmuCast naslouchá pro nezabezpečená připojení HTTP."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:49
 msgid "HTTPS Port"
 msgstr "HTTPS Port"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:50
-msgid "The main port AzuraCast listens to for secure HTTPS connections."
-msgstr "Hlavní port, kterému AzuraCast naslouchá pro zabezpečená připojení HTTPS."
+msgid "The main port CloudmuCast listens to for secure HTTPS connections."
+msgstr "Hlavní port, kterému CloudmuCast naslouchá pro zabezpečená připojení HTTPS."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:57
-msgid "The port AzuraCast listens to for SFTP file management connections."
-msgstr "Port, na kterém AzuraCast naslouchá pro připojení správy souborů SFTP."
+msgid "The port CloudmuCast listens to for SFTP file management connections."
+msgstr "Port, na kterém CloudmuCast naslouchá pro připojení správy souborů SFTP."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:63
 msgid "Station Ports"
 msgstr "Porty Stanic"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:64
-msgid "The ports AzuraCast should listen to for station broadcasts and incoming DJ connections."
-msgstr "Porty, na kterých má AzuraCast poslouchat vysílání stanic a příchozí připojení DJ."
+msgid "The ports CloudmuCast should listen to for station broadcasts and incoming DJ connections."
+msgstr "Porty, na kterých má CloudmuCast poslouchat vysílání stanic a příchozí připojení DJ."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/EnvFile.php:70
 msgid "Docker User UID"
