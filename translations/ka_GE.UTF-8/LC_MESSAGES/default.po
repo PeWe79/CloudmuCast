@@ -2,24 +2,24 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Domain: default\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: azuracast\n"
 "X-Crowdin-Project-ID: 217396\n"
-"X-Crowdin-Language: ja\n"
+"X-Crowdin-Language: ka\n"
 "X-Crowdin-File: /main/translations/default.pot\n"
 "X-Crowdin-File-ID: 4\n"
 "Project-Id-Version: azuracast\n"
-"Language-Team: Japanese\n"
-"Language: ja_JP\n"
+"Language-Team: Georgian\n"
+"Language: ka_GE\n"
 "PO-Revision-Date: 2023-11-07 15:47\n"
 
 #: src/components/Stations/Podcasts/ListView.vue:125
 msgid "# Episodes"
-msgstr ""
+msgstr "# ეპიზოდი"
 
 #: src/components/Stations/Playlists.vue:343
 msgid "# Songs"
-msgstr ""
+msgstr "# სიმღერა"
 
 #: src/components/Stations/Webhooks/Form/Common/SocialPostFields.vue:115
 msgid "%{ dj } is now live on %{ station }! Tune in now: %{ url }"
@@ -27,15 +27,15 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Common/RateLimitFields.vue:45
 msgid "%{ hours } hours"
-msgstr ""
+msgstr "%{ hours } საათი"
 
 #: src/components/Stations/Webhooks/Form/Common/RateLimitFields.vue:44
 msgid "%{ minutes } minutes"
-msgstr ""
+msgstr "%{ minutes } წუთი"
 
 #: src/components/Stations/Webhooks/Form/Common/RateLimitFields.vue:43
 msgid "%{ seconds } seconds"
-msgstr ""
+msgstr "%{ seconds } წამი"
 
 #: src/components/Stations/Webhooks/Form/Common/SocialPostFields.vue:135
 msgid "%{ station } is back online! Tune in now: %{ url }"
@@ -48,12 +48,14 @@ msgstr ""
 #: src/components/Stations/Common/Quota.vue:93
 msgid "%{filesCount} File"
 msgid_plural "%{filesCount} Files"
-msgstr[0] ""
+msgstr[0] "%{filesCount} ფაილი"
+msgstr[1] "%{filesCount} ფაილი"
 
 #: src/components/Stations/Profile/NowPlayingPanel.vue:261
 msgid "%{listeners} Listener"
 msgid_plural "%{listeners} Listeners"
-msgstr[0] ""
+msgstr[0] "%{listeners} მსმენელი"
+msgstr[1] "%{listeners} მსმენელი"
 
 #: src/components/Admin/Debug.vue:145
 msgid "%{messages} queued messages"
@@ -61,37 +63,39 @@ msgstr ""
 
 #: src/components/Stations/Playlists/CloneModal.vue:81
 msgid "%{name} - Copy"
-msgstr ""
+msgstr "%{name} - ასლი"
 
 #: src/components/Stations/Profile/BackendPanel.vue:113
 msgid "%{numPlaylists} playlist"
 msgid_plural "%{numPlaylists} playlists"
-msgstr[0] ""
+msgstr[0] "%{numPlaylists} დასაკრავი სია"
+msgstr[1] "%{numPlaylists} დასაკრავი სია"
 
 #: src/components/Stations/Profile/BackendPanel.vue:106
 msgid "%{numSongs} uploaded song"
 msgid_plural "%{numSongs} uploaded songs"
-msgstr[0] ""
+msgstr[0] "%{numSongs} ატვირთული სიმღერა"
+msgstr[1] "%{numSongs} ატვირთული სიმღერა"
 
 #: src/components/Stations/Common/Quota.vue:76
 msgid "%{spaceUsed} of %{spaceTotal} Used"
-msgstr ""
+msgstr "გამოყენებულია %{spaceUsed} %{spaceTotal}დან"
 
 #: src/components/Stations/Common/Quota.vue:84
 msgid "%{spaceUsed} Used"
-msgstr ""
+msgstr "გამოყენებულია %{spaceUsed}"
 
 #: src/components/Admin/Stations/CloneModal.vue:51
 msgid "%{station} - Copy"
-msgstr ""
+msgstr "%{station} - ასლი"
 
 #: src/components/Account/EditForm.vue:81
 msgid "12 Hour"
-msgstr ""
+msgstr "12 საათი"
 
 #: src/components/Account/EditForm.vue:85
 msgid "24 Hour"
-msgstr ""
+msgstr "24 საათი"
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:343
 msgid "A completely random track is picked for playback every time the queue is populated."
@@ -115,25 +119,25 @@ msgstr ""
 
 #: src/components/Admin/Relays.vue:11
 msgid "About AzuraRelay"
-msgstr ""
+msgstr "AzuraRelay-ის შესახებ"
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:83
 msgid "About Master_me"
-msgstr ""
+msgstr "Master_me-ის შესახებ"
 
 #: src/components/Admin/Updates.vue:60
 #: src/components/Admin/Updates.vue:64
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:100
 msgid "About Release Channels"
-msgstr ""
+msgstr "გამოშვების არხების შესახებ"
 
 #: src/components/Admin/StorageLocations/Form/Dropbox.vue:66
 msgid "Access Code"
-msgstr ""
+msgstr "წვდომის კოდი"
 
 #: src/components/Admin/StorageLocations/Form/S3.vue:11
 msgid "Access Key ID"
-msgstr ""
+msgstr "წვდომის გასაღების იდენთიფიკატორი"
 
 #: src/components/Stations/Webhooks/Form/Mastodon.vue:50
 msgid "Access Token"
@@ -141,15 +145,15 @@ msgstr ""
 
 #: src/components/Dashboard.vue:9
 msgid "Account Details"
-msgstr ""
+msgstr "ანგარიშის დეტალები"
 
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:47
 msgid "Account is Active"
-msgstr ""
+msgstr "ანგარიში აქტიურია"
 
 #: src/components/Stations/Streamers.vue:32
 msgid "Account List"
-msgstr ""
+msgstr "ანგარიშების სია"
 
 #: src/components/Account.vue:289
 #: src/components/Admin/ApiKeys.vue:59
@@ -177,7 +181,7 @@ msgstr ""
 #: src/components/Stations/Streamers/BroadcastsModal.vue:133
 #: src/components/Stations/Webhooks.vue:134
 msgid "Actions"
-msgstr ""
+msgstr "მოქმედებები"
 
 #: src/components/Admin/StorageLocations.vue:128
 msgid "Adapter"
@@ -186,22 +190,22 @@ msgstr ""
 #: src/components/Account.vue:152
 #: src/components/Account/ApiKeyModal.vue:7
 msgid "Add API Key"
-msgstr "เพิ่มคีย์ API"
+msgstr "API გასაღების დამატება"
 
 #: src/components/Admin/CustomFields.vue:12
 #: src/components/Admin/CustomFields/EditModal.vue:69
 msgid "Add Custom Field"
-msgstr "เพิ่มฟิลด์ที่กำหนดเอง"
+msgstr ""
 
 #: src/components/Stations/Podcasts/EpisodeEditModal.vue:146
 #: src/components/Stations/Podcasts/EpisodesView.vue:44
 msgid "Add Episode"
-msgstr ""
+msgstr "ეპიზოდის დამატება"
 
 #: src/components/Public/WebDJ/PlaylistPanel.vue:103
 #: src/components/Public/WebDJ/PlaylistPanel.vue:110
 msgid "Add Files to Playlist"
-msgstr ""
+msgstr "ფაილების დამატება დასაკრავ სიაში"
 
 #: src/components/Stations/HlsStreams.vue:12
 #: src/components/Stations/HlsStreams/EditModal.vue:68
@@ -211,26 +215,26 @@ msgstr ""
 #: src/components/Stations/Mounts.vue:12
 #: src/components/Stations/Mounts/EditModal.vue:119
 msgid "Add Mount Point"
-msgstr "เพิ่ม Mount Point"
+msgstr ""
 
 #: src/components/Stations/Logs.vue:67
 msgid "Add New GitHub Issue"
-msgstr ""
+msgstr "ახალი GitHub პრობლემის დამატება"
 
 #: src/components/Stations/Playlists.vue:35
 #: src/components/Stations/Playlists/EditModal.vue:80
 msgid "Add Playlist"
-msgstr ""
+msgstr "დასაკრავი სიის დამატება"
 
 #: src/components/Stations/Podcasts/ListView.vue:24
 #: src/components/Stations/Podcasts/PodcastEditModal.vue:101
 msgid "Add Podcast"
-msgstr ""
+msgstr "პოდკასტის დამატება"
 
 #: src/components/Stations/Remotes.vue:12
 #: src/components/Stations/Remotes/EditModal.vue:71
 msgid "Add Remote Relay"
-msgstr "เพิ่มรีเลย์ระยะไกล"
+msgstr ""
 
 #: src/components/Admin/Permissions.vue:12
 #: src/components/Admin/Permissions/EditModal.vue:125
@@ -245,13 +249,13 @@ msgstr ""
 #: src/components/Stations/SftpUsers.vue:10
 #: src/components/Stations/SftpUsers/EditModal.vue:57
 msgid "Add SFTP User"
-msgstr "เพิ่มผู้ใช้ SFTP"
+msgstr "SFTP მომხმარებლის დამატება"
 
 #: src/components/Admin/Permissions/Form/StationForm.vue:18
 #: src/components/Admin/Stations.vue:5
 #: src/components/Admin/Stations/EditModal.vue:79
 msgid "Add Station"
-msgstr ""
+msgstr "სადგურის დამატება"
 
 #: src/components/Admin/StorageLocations.vue:32
 #: src/components/Admin/StorageLocations/EditModal.vue:109
@@ -266,12 +270,12 @@ msgstr ""
 #: src/components/Admin/Users.vue:5
 #: src/components/Admin/Users/EditModal.vue:73
 msgid "Add User"
-msgstr "เพิ่มผู้ใช้"
+msgstr "მომხმარებლის დამატება"
 
 #: src/components/Stations/Webhooks.vue:12
 #: src/components/Stations/Webhooks/EditModal.vue:161
 msgid "Add Web Hook"
-msgstr "เพิ่ม Web Hook"
+msgstr ""
 
 #: src/components/Admin/Index.vue:4
 #: src/components/Admin/Sidebar.vue:4
@@ -281,7 +285,7 @@ msgstr "เพิ่ม Web Hook"
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Admin/IndexAction.php:23
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/ServiceCheck.php:42
 msgid "Administration"
-msgstr "การจัดการระบบ"
+msgstr "ადმინისტრირება"
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:175
 #: src/components/Admin/Stations/Form/FrontendForm.vue:142
@@ -305,7 +309,7 @@ msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:20
 msgid "Aggregate listener statistics are used to show station reports across the system. IP-based listener statistics are used to view live listener tracking and may be required for royalty reports."
-msgstr "สถิติผู้ฟังโดยรวมใช้เพื่อแสดงรายงานสถานีทั่วทั้งระบบ สถิติผู้ฟังตาม IP ใช้เพื่อดูการติดตามผู้ฟังสดและอาจจำเป็นสำหรับรายงานค่าลิขสิทธิ์"
+msgstr ""
 
 #: src/components/Public/OnDemand.vue:133
 #: src/components/Public/Requests.vue:95
@@ -313,20 +317,20 @@ msgstr "สถิติผู้ฟังโดยรวมใช้เพื่
 #: src/components/Stations/Playlists/ReorderModal.vue:30
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:80
 msgid "Album"
-msgstr "อัลบั้ม"
+msgstr "ალბომი"
 
 #: src/components/Admin/Settings/ServicesTab.vue:208
 #: src/components/Stations/Media/EditModal.vue:21
 msgid "Album Art"
-msgstr ""
+msgstr "ალბომის ყდა"
 
 #: src/components/Admin/Debug/TaskOutput.vue:96
 msgid "Alert"
-msgstr ""
+msgstr "გაფრთხილება"
 
 #: src/components/Stations/Reports/Overview/ListenersByTimePeriodTab.vue:174
 msgid "All Days"
-msgstr ""
+msgstr "ყველა დღე"
 
 #: src/components/Admin/Settings/ServicesTab.vue:57
 msgid "All listed domain names should point to this CloudmuCast installation. Separate multiple domain names with commas."
@@ -334,11 +338,11 @@ msgstr ""
 
 #: src/components/Stations/Playlists.vue:30
 msgid "All Playlists"
-msgstr ""
+msgstr "ყველა დასაკრავი სია"
 
 #: src/components/Stations/Podcasts/EpisodesView.vue:40
 msgid "All Podcasts"
-msgstr ""
+msgstr "ყველა პოდკასტი"
 
 #: src/components/Stations/Webhooks/Form/Common/FormattingInfo.vue:14
 msgid "All values in the NowPlaying API response are available for use. Any empty fields are ignored."
@@ -350,19 +354,19 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/RequestsForm.vue:21
 msgid "Allow Song Requests"
-msgstr "อนุญาตให้ขอเพลง"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:16
 msgid "Allow Streamers / DJs"
-msgstr "อนุญาตให้สตรีมเมอร์ / ดีเจ"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:101
 msgid "Allowed IP Addresses"
-msgstr ""
+msgstr "დაშვებული IP მისამართები"
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:35
 msgid "Always Use HTTPS"
-msgstr "ใช้ HTTPS เสมอ"
+msgstr "ყოველთვის მოხდეს HTTPS-ის გამოყენება"
 
 #: src/components/Stations/Media/Form/AdvancedSettings.vue:16
 msgid "Amplify: Amplification (dB)"
@@ -371,11 +375,11 @@ msgstr ""
 #: src/functions/useNotify.ts:49
 #: src/vendor/axios.ts:37
 msgid "An error occurred and your request could not be completed."
-msgstr ""
+msgstr "დაფიქსირდა შეცდომა და თქვენი მოთხოვნა ვერ შესრულდა."
 
 #: src/components/Stations/ProfileEdit.vue:18
 msgid "An error occurred while loading the station profile:"
-msgstr ""
+msgstr "სადგურის პროფილის ჩატვირთვისას დაფიქსირდა შეცდომა:"
 
 #: src/components/Public/WebDJ/useWebcaster.ts:77
 msgid "An error occurred with the WebDJ socket."
@@ -383,7 +387,7 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/TypeSelect.vue:35
 msgid "Analytics"
-msgstr ""
+msgstr "ანალიტიკა"
 
 #: src/components/Stations/Media/MediaToolbar.vue:153
 msgid "Analyze and reprocess the selected media"
@@ -391,7 +395,7 @@ msgstr ""
 
 #: src/components/Admin/StereoTool.vue:76
 msgid "Any of the following file types are accepted:"
-msgstr ""
+msgstr "დასაშვებია ნებისმიერი შემდეგი ტიპის ფაილი:"
 
 #: src/entities/Webhooks.ts:56
 msgid "Any time a live streamer/DJ connects to the stream"
@@ -419,7 +423,7 @@ msgstr ""
 
 #: src/components/Account.vue:138
 msgid "API Documentation"
-msgstr ""
+msgstr "API დოკუმენტაცია"
 
 #: src/components/Account.vue:284
 #: src/components/Account/ApiKeyModal.vue:28
@@ -431,7 +435,7 @@ msgstr ""
 #: src/components/Admin/ApiKeys.vue:2
 #: src/components/Admin/menu.ts:105
 msgid "API Keys"
-msgstr ""
+msgstr "API გასაღებები"
 
 #: src/components/Stations/Webhooks/Form/GetMeRadio.vue:11
 msgid "API Token"
@@ -439,11 +443,11 @@ msgstr ""
 
 #: src/components/Admin/StorageLocations/Form/S3.vue:46
 msgid "API Version"
-msgstr ""
+msgstr "API ვერსია"
 
 #: src/components/Admin/StorageLocations/Form/Dropbox.vue:35
 msgid "App Key"
-msgstr ""
+msgstr "აპლიკაციის გასაღები"
 
 #: src/components/Admin/StorageLocations/Form/Dropbox.vue:42
 msgid "App Secret"
@@ -451,7 +455,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:472
 msgid "Apple Podcasts"
-msgstr ""
+msgstr "Apple პოდკასტები"
 
 #: src/components/Admin/Settings/ServicesTab.vue:239
 msgid "Apply for an API key at Last.fm"
@@ -483,7 +487,7 @@ msgstr ""
 #: src/components/Stations/Profile/EnabledProfile.vue:159
 #: src/components/Stations/Restart.vue:135
 msgid "Are you sure?"
-msgstr ""
+msgstr "დარწმუნებული ხართ?"
 
 #: src/components/Public/OnDemand.vue:116
 #: src/components/Stations/Podcasts/EpisodesView.vue:144
@@ -500,7 +504,7 @@ msgstr ""
 #: src/components/Stations/Playlists/ReorderModal.vue:27
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:84
 msgid "Artist"
-msgstr "ศิลปิน"
+msgstr "შემსრულებელი"
 
 #: src/components/Stations/Podcasts/Common/Artwork.vue:2
 #: src/components/Stations/Podcasts/Common/Artwork.vue:29
@@ -523,7 +527,7 @@ msgstr ""
 
 #: src/components/Stations/HlsStreams/Form/BasicInfo.vue:27
 msgid "Audio Format"
-msgstr ""
+msgstr "აუდიო ფორმატი"
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:45
 msgid "Audio Post-processing"
@@ -545,7 +549,7 @@ msgstr ""
 #: src/components/Stations/Podcasts/PodcastForm/BasicInfo.vue:44
 #: src/components/Stations/Webhooks/Form/Discord.vue:55
 msgid "Author"
-msgstr ""
+msgstr "ავტორი"
 
 #: src/components/Admin/CustomFields.vue:89
 msgid "Auto-Assign Value"
@@ -567,7 +571,7 @@ msgstr ""
 #: src/components/Stations/Mounts/Form/AutoDj.vue:38
 #: src/components/Stations/Remotes/Form/AutoDj.vue:38
 msgid "AutoDJ Bitrate (kbps)"
-msgstr "บิตเรต AutoDJ (kbps)"
+msgstr ""
 
 #: src/components/Stations/Profile/BackendNonePanel.vue:5
 msgid "AutoDJ Disabled"
@@ -576,7 +580,7 @@ msgstr ""
 #: src/components/Stations/Mounts/Form/AutoDj.vue:27
 #: src/components/Stations/Remotes/Form/AutoDj.vue:27
 msgid "AutoDJ Format"
-msgstr "รูปแบบ AutoDJ"
+msgstr ""
 
 #: src/components/Stations/Profile/BackendNonePanel.vue:10
 msgid "AutoDJ has been disabled for this station. No music will automatically be played when a source is not live."
@@ -588,12 +592,12 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:226
 msgid "AutoDJ Queue Length"
-msgstr "ความยาวคิว AutoDJ"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:14
 #: src/components/Stations/Profile/BackendPanel.vue:8
 msgid "AutoDJ Service"
-msgstr "บริการ AutoDJ"
+msgstr ""
 
 #: src/components/Admin/Backups.vue:11
 msgid "Automatic Backups"
@@ -617,7 +621,7 @@ msgstr ""
 
 #: src/components/Admin/CustomFields/Form.vue:28
 msgid "Automatically Set from ID3v2 Value"
-msgstr "ตั้งค่าโดยอัตโนมัติจากค่า ID3v2"
+msgstr ""
 
 #: src/components/Stations/Logs.vue:11
 msgid "Available Logs"
@@ -710,11 +714,11 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:121
 msgid "Banned Countries"
-msgstr ""
+msgstr "დაბლოკილი ქვეყნები"
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:92
 msgid "Banned IP Addresses"
-msgstr "ที่อยู่ IP ที่ถูกห้าม"
+msgstr "დაბლოკილი IP მისამართები"
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:110
 msgid "Banned User Agents"
@@ -722,11 +726,11 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/AdminForm.vue:21
 msgid "Base Station Directory"
-msgstr "ไดเรกทอรีสถานีหลัก"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:33
 msgid "Base Theme for Public Pages"
-msgstr "ธีมพื้นฐานสำหรับหน้าสาธารณะ"
+msgstr ""
 
 #: src/components/Admin/StorageLocations/Form.vue:3
 #: src/components/Stations/HlsStreams/Form/BasicInfo.vue:3
@@ -736,13 +740,13 @@ msgstr "ธีมพื้นฐานสำหรับหน้าสาธา
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:3
 #: src/components/Stations/Webhooks/Form/BasicInfo.vue:3
 msgid "Basic Info"
-msgstr ""
+msgstr "ზოგადი ინფორმაცია"
 
 #: src/components/Stations/Media/EditModal.vue:12
 #: src/components/Stations/Podcasts/EpisodeForm/BasicInfo.vue:3
 #: src/components/Stations/Podcasts/PodcastForm/BasicInfo.vue:3
 msgid "Basic Information"
-msgstr ""
+msgstr "ზოგადი ინფორმაცია"
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:429
 msgid "Basic Normalization and Compression"
@@ -766,30 +770,30 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Telegram.vue:11
 msgid "Bot Token"
-msgstr "โทเค็นบอท"
+msgstr ""
 
 #: src/components/Stations/menu.ts:51
 msgid "Branding"
-msgstr ""
+msgstr "ბრენდინგი"
 
 #: src/components/Admin/Branding/BrandingForm.vue:12
 #: src/components/Stations/Branding/BrandingForm.vue:12
 msgid "Branding Settings"
-msgstr ""
+msgstr "ბრენდინგის პარამეტრები"
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:11
 msgid "Broadcast AutoDJ to Remote Station"
-msgstr "ถ่ายทอดเสียง AutoDJ ไปยังสถานีระยะไกล"
+msgstr "AutoDJ-ის მაუწყებლობა დისტანციურ სადგურზე"
 
 #: src/components/Admin/Stations.vue:118
 #: src/components/Admin/Stations/Form/FrontendForm.vue:3
 #: src/components/Stations/menu.ts:235
 msgid "Broadcasting"
-msgstr "การถ่ายทอดเสียง"
+msgstr "მაუწყებლობა"
 
 #: src/components/Stations/Profile/FrontendPanel.vue:9
 msgid "Broadcasting Service"
-msgstr "บริการถ่ายทอดเสียง"
+msgstr "მაუწყებლობის სერვისი"
 
 #: src/components/Stations/Streamers.vue:49
 #: src/components/Stations/Streamers.vue:52
@@ -798,7 +802,7 @@ msgstr "บริการถ่ายทอดเสียง"
 #: src/components/Stations/Streamers.vue:67
 #: src/components/Stations/Streamers.vue:71
 msgid "Broadcasts"
-msgstr ""
+msgstr "მაუწყებლობები"
 
 #: src/components/Stations/Reports/Overview/BrowsersTab.vue:6
 msgid "Browser"
@@ -822,7 +826,7 @@ msgstr ""
 
 #: src/components/Stations/menu.ts:131
 msgid "Bulk Media Import/Export"
-msgstr ""
+msgstr "მედია ფაილების მასობრივი იმპორტი/ექსპორტი"
 
 #: src/components/Admin/Settings/GeneralTab.vue:43
 msgid "By default, radio stations broadcast on their own ports (i.e. 8000). If you're using a service like CloudFlare or accessing your radio station by SSL, you should enable this feature, which routes all radio through the web ports (80 and 443)."
@@ -831,44 +835,44 @@ msgstr ""
 #: src/components/Admin/Index/MemoryStatsHelpModal.vue:13
 #: src/components/Admin/Index/MemoryStatsPanel.vue:54
 msgid "Cached"
-msgstr ""
+msgstr "ქეშირებული"
 
 #: src/components/Common/DateRangeDropdown.vue:12
 #: src/vendor/sweetalert.ts:10
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #: src/components/Stations/Podcasts/PodcastForm/BasicInfo.vue:63
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcasts.phtml:56
 msgid "Categories"
-msgstr ""
+msgstr "კატეგორიები"
 
 #: src/components/Stations/Reports/Overview/BestAndWorstTab.vue:21
 #: src/components/Stations/Reports/Overview/BestAndWorstTab.vue:61
 #: src/components/Stations/Reports/Timeline.vue:154
 msgid "Change"
-msgstr ""
+msgstr "შეცვლა"
 
 #: src/components/Account.vue:99
 #: src/components/Account/ChangePasswordModal.vue:34
 #: src/components/Account/ChangePasswordModal.vue:6
 msgid "Change Password"
-msgstr ""
+msgstr "პაროლის შეცვლა"
 
 #: src/components/Admin/AuditLog.vue:71
 #: src/components/Admin/AuditLog/DetailsModal.vue:5
 msgid "Changes"
-msgstr ""
+msgstr "ცვლილებები"
 
 #: src/components/Admin/Branding/BrandingForm.vue:224
 #: src/components/Admin/Settings.vue:119
 #: src/functions/useNotify.ts:63
 msgid "Changes saved."
-msgstr ""
+msgstr "ცვლილებები შენახულია."
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:237
 msgid "Character Set Encoding"
-msgstr "ตั้งค่าการเข้ารหัสตัวอักษร"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Telegram.vue:27
 msgid "Chat ID"
@@ -877,7 +881,7 @@ msgstr ""
 #: src/components/Admin/Updates.vue:34
 #: src/components/Admin/Updates.vue:38
 msgid "Check for Updates"
-msgstr ""
+msgstr "განახლებების შემოწმება"
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:75
 msgid "Check this box to apply post-processing to all audio, including live streams. Uncheck this box to only apply post-processing to the AutoDJ."
@@ -897,22 +901,22 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/BasicInfo.vue:12
 msgid "Choose a name for this webhook that will help you distinguish it from others. This will only be shown on the administration page."
-msgstr "เลือกชื่อสำหรับ Webhook นี้ที่จะช่วยให้คุณแตกต่างจากผู้อื่น สิ่งนี้จะแสดงในหน้าการดูแลระบบเท่านั้น"
+msgstr ""
 
 #: src/components/Recover.vue:18
 msgid "Choose a new password for your account."
-msgstr ""
+msgstr "აირჩიეთ ახალი პაროლი თქვენი ანგარიშისთვის."
 
 #: src/components/Stations/Media/MediaToolbar.vue:87
 #: src/components/Stations/Media/MediaToolbar.vue:90
 #: src/components/Stations/Queue.vue:136
 #: src/components/Stations/Reports/Requests.vue:181
 msgid "Clear"
-msgstr ""
+msgstr "გასუფთავება"
 
 #: src/components/Stations/Playlists.vue:456
 msgid "Clear all media from playlist?"
-msgstr ""
+msgstr "გასუფთავდეს ყველა მედია ფაილი დასაკრავი სიიდან?"
 
 #: src/components/Admin/Debug.vue:32
 #: src/components/Admin/Debug.vue:42
@@ -921,17 +925,17 @@ msgstr ""
 
 #: src/components/Stations/Reports/Requests.vue:180
 msgid "Clear All Pending Requests?"
-msgstr ""
+msgstr "გასუფთავდეს მოლოდინში მყოფი ყველა მოთხოვნა?"
 
 #: src/components/Stations/Podcasts/Common/Artwork.vue:35
 #: src/components/Stations/Streamers/Form/Artwork.vue:35
 msgid "Clear Artwork"
-msgstr ""
+msgstr "ილუსტრაციის გასუფთავება"
 
 #: src/components/Admin/Debug.vue:10
 #: src/components/Admin/Debug.vue:20
 msgid "Clear Cache"
-msgstr ""
+msgstr "ქეშის გასუფთავება"
 
 #: src/components/Stations/Fallback.vue:53
 #: src/components/Stations/Fallback.vue:57
@@ -940,7 +944,7 @@ msgstr ""
 #: src/components/Stations/StereoToolConfig.vue:63
 #: src/components/Stations/StereoToolConfig.vue:67
 msgid "Clear File"
-msgstr ""
+msgstr "ფაილის გასუფთავება"
 
 #: src/components/Admin/Branding/CustomAssetForm.vue:18
 #: src/components/Admin/Branding/CustomAssetForm.vue:19
@@ -951,16 +955,16 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:127
 msgid "Clear List"
-msgstr ""
+msgstr "სიის გასუფთავება"
 
 #: src/components/Stations/Podcasts/EpisodeForm/Media.vue:38
 #: src/components/Stations/Podcasts/EpisodeForm/Media.vue:43
 msgid "Clear Media"
-msgstr ""
+msgstr "მედია ფაილების გასუფთავება"
 
 #: src/components/Stations/Reports/Requests.vue:47
 msgid "Clear Pending Requests"
-msgstr ""
+msgstr "მოლოდინში მყოფი მოთხოვნების გასუფთავება"
 
 #: src/components/Admin/Debug.vue:154
 #: src/components/Admin/Debug.vue:190
@@ -969,7 +973,7 @@ msgstr ""
 #: src/components/Stations/Playlists/QueueModal.vue:46
 #: src/components/Stations/Playlists/QueueModal.vue:50
 msgid "Clear Queue"
-msgstr ""
+msgstr "რიგის გასუფთავება"
 
 #: src/components/Stations/Queue.vue:11
 msgid "Clear Upcoming Song Queue"
@@ -981,7 +985,7 @@ msgstr ""
 
 #: src/components/Admin/Debug.vue:14
 msgid "Clearing the application cache may log you out of your session."
-msgstr ""
+msgstr "აპლიკაციის ქეშის გასუფთავებამ შესაძლოა გამოიწვიოს თქვენი სესიიდან გამოსვლა."
 
 #: src/components/Admin/GeoLite.vue:42
 msgid "Click \"Generate new license key\"."
@@ -1005,11 +1009,11 @@ msgstr ""
 
 #: src/components/Stations/Reports/Overview/ClientsTab.vue:6
 msgid "Client"
-msgstr ""
+msgstr "კლიენტი"
 
 #: src/components/Stations/Reports/Overview.vue:53
 msgid "Clients"
-msgstr ""
+msgstr "კლიენტები"
 
 #: src/components/Stations/Reports/Overview/ClientsTab.vue:12
 msgid "Clients by Connected Time"
@@ -1054,7 +1058,7 @@ msgstr ""
 #: src/components/Stations/Playlists/QueueModal.vue:43
 #: src/components/Stations/Streamers/BroadcastsModal.vue:52
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:149
 msgid "CloudFlare (CF-Connecting-IP)"
@@ -1062,7 +1066,7 @@ msgstr ""
 
 #: src/components/Account/TwoFactorModal.vue:39
 msgid "Code from Authenticator App"
-msgstr "รหัสรับรองความถูกต้องจากแอป"
+msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:126
 msgid "Collect aggregate listener statistics and IP-based listener statistics"
@@ -1070,7 +1074,7 @@ msgstr ""
 
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:38
 msgid "Comments"
-msgstr "ความคิดเห็น"
+msgstr "კომენტარები"
 
 #: src/components/Setup/Settings.vue:15
 msgid "Complete the setup process by providing some information about your broadcast environment. These settings can be changed later from the administration panel."
@@ -1082,15 +1086,15 @@ msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:5
 msgid "Configure Backups"
-msgstr "กำหนดค่าการสำรองข้อมูล"
+msgstr ""
 
 #: src/vendor/sweetalert.ts:9
 msgid "Confirm"
-msgstr ""
+msgstr "დადასტურება"
 
 #: src/components/Account/ChangePasswordModal.vue:30
 msgid "Confirm New Password"
-msgstr "ยืนยันรหัสผ่านใหม่"
+msgstr ""
 
 #: src/components/Admin/menu.ts:136
 #: src/components/Admin/Relays.vue:2
@@ -1126,7 +1130,7 @@ msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:57
 msgid "Copies older than the specified number of days will automatically be deleted. Set to zero to disable automatic deletion."
-msgstr "สำเนาที่เก่ากว่าจำนวนวันที่ระบุจะถูกลบโดยอัตโนมัติ ตั้งค่าเป็นศูนย์เพื่อปิดใช้งานการลบอัตโนมัติ"
+msgstr ""
 
 #: src/components/Stations/Playlists/CloneModal.vue:67
 msgid "Copy associated media and folders."
@@ -1144,7 +1148,7 @@ msgstr ""
 #: src/components/Common/StreamingLogModal.vue:32
 #: src/components/Stations/Queue/LogsModal.vue:22
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "გაცვლის ბუფერში დაკოპირება"
 
 #: src/components/Admin/Stations/CloneModalForm.vue:24
 msgid "Copy to New Station"
@@ -1152,15 +1156,15 @@ msgstr ""
 
 #: src/components/Common/FlowUpload.vue:217
 msgid "Could not upload file."
-msgstr ""
+msgstr "ფაილის ატვირთვა ვერ მოხერხდა."
 
 #: src/components/Stations/Reports/Overview.vue:73
 msgid "Countries"
-msgstr ""
+msgstr "ქვეყნები"
 
 #: src/components/Stations/Reports/Overview/CountriesTab.vue:6
 msgid "Country"
-msgstr ""
+msgstr "ქვეყანა"
 
 #: src/components/Admin/Index/CpuStatsPanel.vue:6
 msgid "CPU Load"
@@ -1181,7 +1185,7 @@ msgstr ""
 
 #: src/components/Setup/Register.vue:91
 msgid "Create Account"
-msgstr "สร้างบัญชี"
+msgstr "ანგარიშის შექმნა"
 
 #: src/components/Admin/GeoLite.vue:29
 msgid "Create an account on the MaxMind developer site."
@@ -1189,7 +1193,7 @@ msgstr ""
 
 #: src/components/Setup/Station.vue:33
 msgid "Create and Continue"
-msgstr ""
+msgstr "შექმნა და გაგრძელება"
 
 #: src/components/Admin/CustomFields.vue:6
 msgid "Create custom fields to store extra metadata about each media file uploaded to your station libraries."
@@ -1211,15 +1215,15 @@ msgstr ""
 
 #: src/components/Admin/Debug/TaskOutput.vue:95
 msgid "Critical"
-msgstr ""
+msgstr "კრიტიკული"
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:38
 msgid "Crossfade Duration (Seconds)"
-msgstr "ระยะเวลาการเปลี่ยนแทร็ก (วินาที)"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:28
 msgid "Crossfade Method"
-msgstr "วิธีการเปลี่ยนแทร็ก"
+msgstr ""
 
 #: src/components/Public/WebDJ/MicrophonePanel.vue:25
 #: src/components/Public/WebDJ/MicrophonePanel.vue:30
@@ -1245,7 +1249,7 @@ msgstr ""
 #: src/components/Admin/Shoutcast.vue:52
 #: src/components/Admin/StereoTool.vue:94
 msgid "Current Installed Version"
-msgstr "เวอร์ชันที่ติดตั้งปัจจุบัน"
+msgstr ""
 
 #: src/components/Stations/Mounts/Form/Intro.vue:29
 msgid "Current Intro File"
@@ -1253,7 +1257,7 @@ msgstr ""
 
 #: src/components/Account/ChangePasswordModal.vue:16
 msgid "Current Password"
-msgstr "รหัสผ่านปัจจุบัน"
+msgstr "მიმდინარე პაროლი"
 
 #: src/components/Stations/Podcasts/EpisodeForm/Media.vue:29
 msgid "Current Podcast Media"
@@ -1275,16 +1279,16 @@ msgstr ""
 #: src/components/Admin/Stations/Form/FrontendForm.vue:140
 #: src/components/Admin/Stations/Form/FrontendForm.vue:160
 msgid "Custom Configuration"
-msgstr "กำหนดค่าแบบกำหนดเอง"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:106
 msgid "Custom CSS for Internal Pages"
-msgstr "CSS ที่กำหนดเองสำหรับหน้าภายใน"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:74
 #: src/components/Stations/Branding/BrandingForm.vue:46
 msgid "Custom CSS for Public Pages"
-msgstr "CSS ที่กำหนดเองสำหรับหน้าสาธารณะ"
+msgstr ""
 
 #: src/components/Stations/Media/Form/AdvancedSettings.vue:56
 msgid "Custom Cues: Cue-In Point (seconds)"
@@ -1319,12 +1323,12 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/Advanced.vue:27
 msgid "Custom Frontend Configuration"
-msgstr "กำหนดค่าหน้าเว็บไซต์แบบกำหนดเอง"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:90
 #: src/components/Stations/Branding/BrandingForm.vue:62
 msgid "Custom JS for Public Pages"
-msgstr "Custom JS สำหรับหน้าสาธารณะ"
+msgstr ""
 
 #: src/components/Stations/Profile/EmbedModal.vue:18
 msgid "Customize"
@@ -1332,7 +1336,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:52
 msgid "Customize Administrator Password"
-msgstr "กำหนดรหัสผ่านของผู้ดูแลระบบเอง"
+msgstr ""
 
 #: src/components/Setup/Settings.vue:10
 msgid "Customize CloudmuCast Settings"
@@ -1340,7 +1344,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:72
 msgid "Customize Broadcasting Port"
-msgstr "กำหนดพอร์ตถ่ายทอดเสียงเอง"
+msgstr ""
 
 #: src/components/Stations/Playlists/CloneModal.vue:24
 msgid "Customize Copy"
@@ -1348,23 +1352,23 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:112
 msgid "Customize DJ/Streamer Mount Point"
-msgstr "ปรับแต่ง DJ / Streamer Mount Point"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:83
 msgid "Customize DJ/Streamer Port"
-msgstr "ปรับแต่งพอร์ต DJ / Streamer"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:216
 msgid "Customize Internal Request Processing Port"
-msgstr "ปรับแต่งพอร์ตประมวลผลคำขอภายใน"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:44
 msgid "Customize Source Password"
-msgstr "กำหนดรหัสผ่านเอง"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:73
 msgid "Customize the number of songs that will appear in the \"Song History\" section for this station and in all public APIs."
-msgstr "กำหนดจำนวนเพลงที่จะปรากฏในส่วน \"ประวัติเพลง\" สำหรับสถานีนี้และใน API สาธารณะทั้งหมด"
+msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:52
 msgid "Customize this setting to ensure you get the correct IP address for remote users. Only change this setting if you use a reverse proxy, either within Docker or a third-party service like CloudFlare."
@@ -1409,7 +1413,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:66
 msgid "Deactivate Streamer on Disconnect (Seconds)"
-msgstr "ปิดใช้งาน Streamer เมื่อยกเลิกการเชื่อมต่อ (วินาที)"
+msgstr ""
 
 #: src/components/Admin/Debug/TaskOutput.vue:90
 msgid "Debug"
@@ -1423,7 +1427,7 @@ msgstr ""
 #: src/components/Admin/Branding/BrandingForm.vue:66
 #: src/components/Stations/Branding/BrandingForm.vue:38
 msgid "Default Album Art URL"
-msgstr "URL หน้าปกอัลบั้มเริ่มต้น"
+msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:201
 msgid "Default Avatar URL"
@@ -1620,7 +1624,7 @@ msgstr ""
 #: src/components/Stations/Podcasts/PodcastForm/BasicInfo.vue:27
 #: src/components/Stations/Webhooks/Form/Discord.vue:40
 msgid "Description"
-msgstr "รายละเอียด"
+msgstr "აღწერა"
 
 #: src/components/Stations/Reports/Listeners.vue:131
 msgid "Desktop Device"
@@ -1628,13 +1632,13 @@ msgstr ""
 
 #: src/components/Admin/Debug/TaskOutput.vue:25
 msgid "Details"
-msgstr ""
+msgstr "დეტალები"
 
 #: src/components/Stations/Media/MoveFilesModal.vue:117
 #: src/components/Stations/Playlists/ApplyToModal.vue:88
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Files/ListAction.php:244
 msgid "Directory"
-msgstr "ไดเรกทอรี"
+msgstr ""
 
 #: src/components/Stations/Media/NewDirectoryModal.vue:15
 msgid "Directory Name"
@@ -1647,7 +1651,7 @@ msgstr ""
 #: src/components/Stations/Profile/StreamersPanel.vue:35
 #: src/components/Stations/Webhooks.vue:142
 msgid "Disable"
-msgstr "ปิดใช้งาน"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:416
 msgid "Disable Crossfading"
@@ -1680,7 +1684,7 @@ msgstr ""
 #: src/components/Stations/Streamers.vue:54
 #: src/components/Stations/Webhooks.vue:31
 msgid "Disabled"
-msgstr "ปิดการใช้งาน"
+msgstr ""
 
 #: src/components/Stations/Profile/NowPlayingPanel.vue:223
 msgid "Disconnect Streamer"
@@ -1711,11 +1715,11 @@ msgstr ""
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:21
 #: src/components/Stations/Streamers.vue:154
 msgid "Display Name"
-msgstr "แสดงชื่อ"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:102
 msgid "DJ/Streamer Buffer Time (Seconds)"
-msgstr "เวลาบัฟเฟอร์ DJ / Streamer (วินาที)"
+msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:136
 msgid "Do not collect any listener analytics"
@@ -1732,7 +1736,7 @@ msgstr ""
 #: src/components/PanelLayout.vue:102
 #: src/components/PanelLayout.vue:106
 msgid "Documentation"
-msgstr ""
+msgstr "დოკუმენტაცია"
 
 #: src/components/Admin/Settings/ServicesTab.vue:56
 msgid "Domain Name(s)"
@@ -1806,7 +1810,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:258
 msgid "Duplicate Prevention Time Range (Minutes)"
-msgstr "ช่วงเวลาป้องกันซ้ำ (นาที)"
+msgstr ""
 
 #: src/components/Stations/menu.ts:83
 msgid "Duplicate Songs"
@@ -1814,7 +1818,7 @@ msgstr ""
 
 #: src/components/Stations/Podcasts/PodcastForm/BasicInfo.vue:53
 msgid "E-Mail"
-msgstr ""
+msgstr "ელექტრონული ფოსტა"
 
 #: src/components/Account/EditForm.vue:17
 #: src/components/Admin/Settings/TestMessageModal.vue:14
@@ -1825,15 +1829,15 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot.phtml:21
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot.phtml:25
 msgid "E-mail Address"
-msgstr "メールアドレス"
+msgstr "ელექტრონული ფოსტის მისამართი"
 
 #: src/components/Admin/Settings/ServicesTab.vue:65
 msgid "E-mail Address (Optional)"
-msgstr ""
+msgstr "ელექტრონული ფოსტის მისამართი (არ არის სავალდებულო)"
 
 #: src/components/Stations/Webhooks/Form/Email.vue:12
 msgid "E-mail addresses can be separated by commas."
-msgstr ""
+msgstr "ელექტრონული ფოსტის მისამართები შეიძლება გამოიყოს მძიმეებით."
 
 #: src/components/Admin/Settings/ServicesTab.vue:90
 msgid "E-mail Delivery Service"
@@ -1869,19 +1873,19 @@ msgstr ""
 #: src/components/Stations/Streamers.vue:64
 #: src/components/Stations/Webhooks.vue:61
 msgid "Edit"
-msgstr ""
+msgstr "რედაქტირება"
 
 #: src/components/Stations/Profile/PublicPagesPanel.vue:87
 msgid "Edit Branding"
-msgstr ""
+msgstr "ბრენდინგის რედაქტირება"
 
 #: src/components/Admin/CustomFields/EditModal.vue:68
 msgid "Edit Custom Field"
-msgstr ""
+msgstr "მორგებული ველის რედაქტირება"
 
 #: src/components/Stations/Podcasts/EpisodeEditModal.vue:145
 msgid "Edit Episode"
-msgstr ""
+msgstr "ეპიზოდის რედაქტირება"
 
 #: src/components/Stations/HlsStreams/EditModal.vue:67
 msgid "Edit HLS Stream"
@@ -1890,11 +1894,11 @@ msgstr ""
 #: src/components/Stations/LiquidsoapConfig.vue:13
 #: src/components/Stations/menu.ts:272
 msgid "Edit Liquidsoap Configuration"
-msgstr "แก้ไขการกำหนดค่า Liquidsoap"
+msgstr "Liquidsoap კონფიგურაციის რედაქტირება"
 
 #: src/components/Stations/Media/EditModal.vue:5
 msgid "Edit Media"
-msgstr ""
+msgstr "მედია ფაილის რედაქტირება"
 
 #: src/components/Stations/Mounts/EditModal.vue:118
 msgid "Edit Mount Point"
@@ -1902,11 +1906,11 @@ msgstr ""
 
 #: src/components/Stations/Playlists/EditModal.vue:79
 msgid "Edit Playlist"
-msgstr ""
+msgstr "დასაკრავი სიის რედაქტირება"
 
 #: src/components/Stations/Podcasts/PodcastEditModal.vue:100
 msgid "Edit Podcast"
-msgstr ""
+msgstr "პოდკასტის რედაქტირება"
 
 #: src/components/Account.vue:66
 #: src/components/Account/EditModal.vue:5
@@ -1915,7 +1919,7 @@ msgstr ""
 #: src/components/Stations/Profile/StationDisabledPanel.vue:19
 #: src/components/Stations/Sidebar.vue:24
 msgid "Edit Profile"
-msgstr "แก้ไขโปรไฟล์"
+msgstr "პროფილის რედაქტირება"
 
 #: src/components/Stations/Remotes/EditModal.vue:70
 msgid "Edit Remote Relay"
@@ -1923,35 +1927,35 @@ msgstr ""
 
 #: src/components/Admin/Permissions/EditModal.vue:124
 msgid "Edit Role"
-msgstr ""
+msgstr "როლის რედაქტირება"
 
 #: src/components/Stations/SftpUsers/EditModal.vue:56
 msgid "Edit SFTP User"
-msgstr ""
+msgstr "SFTP მომხმარებლის რედაქტირება"
 
 #: src/components/Admin/Stations/EditModal.vue:78
 msgid "Edit Station"
-msgstr ""
+msgstr "რადიოსადგურის რედაქტირება"
 
 #: src/components/Stations/ProfileEdit.vue:9
 msgid "Edit Station Profile"
-msgstr ""
+msgstr "რადიოსადგურის პროფილის რედაქტირება"
 
 #: src/components/Admin/StorageLocations/EditModal.vue:108
 msgid "Edit Storage Location"
-msgstr ""
+msgstr "შენახვის ადგილმდებარეობის რედაქტირება"
 
 #: src/components/Stations/Streamers/EditModal.vue:95
 msgid "Edit Streamer"
-msgstr ""
+msgstr "სტრიმერის რედაქტირება"
 
 #: src/components/Admin/Users/EditModal.vue:72
 msgid "Edit User"
-msgstr ""
+msgstr "მომხმარებლის რედაქტირება"
 
 #: src/components/Stations/Webhooks/EditModal.vue:157
 msgid "Edit Web Hook"
-msgstr ""
+msgstr "Web Hook-ის რედაქტირება"
 
 #: src/components/Stations/Profile/EmbedModal.vue:55
 msgid "Embed Code"
@@ -1986,11 +1990,11 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/AutoDj.vue:11
 msgid "Enable AutoDJ"
-msgstr "เปิดใช้งาน AutoDJ"
+msgstr "AutoDJ-ის ჩართვა"
 
 #: src/components/Admin/Stations/Form/AdminForm.vue:11
 msgid "Enable Broadcasting"
-msgstr "เปิดใช้งานการถ่ายทอดเสียง"
+msgstr "მაუწყებლობის ჩართვა"
 
 #: src/components/Admin/Settings/GeneralTab.vue:70
 msgid "Enable certain advanced features in the web interface, including advanced playlist configuration, station port assignment, changing base media directories and other functionality that should only be used by users who are comfortable with advanced functionality."
@@ -2018,7 +2022,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:89
 msgid "Enable Public Pages"
-msgstr ""
+msgstr "საჯარო გვერდების ჩართვა"
 
 #: src/components/Admin/StorageLocations/Form/S3.vue:54
 msgid "Enable this option if your S3 provider is using paths instead of sub-domains for their S3 endpoint; for example, when using MinIO or with other self-hosted S3 storage solutions that are accessible via a path on a domain/IP instead of a subdomain."
@@ -2030,7 +2034,7 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:57
 msgid "Enable to advertise this mount point on \"Yellow Pages\" public radio directories."
-msgstr "เปิดใช้งานเพื่อโฆษณา Mount Point นี้ในไดเรกทอรีวิทยุสาธารณะ \"สมุดหน้าเหลือง\""
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:82
 msgid "Enable to advertise this relay on \"Yellow Pages\" public radio directories."
@@ -2038,11 +2042,11 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:28
 msgid "Enable to allow listeners to select this mount point on this station's public pages."
-msgstr "เปิดใช้งานเพื่อให้ผู้ฟังเลือก Mount Point นี้บนหน้าสาธารณะของสถานีนี้"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:64
 msgid "Enable to allow listeners to select this relay on this station's public pages."
-msgstr "เปิดใช้งานเพื่อให้ผู้ฟังเลือกรีเลย์นี้ในหน้าสาธารณะของสถานีนี้"
+msgstr ""
 
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:48
 msgid "Enable to allow this account to log in and stream."
@@ -2050,7 +2054,7 @@ msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:18
 msgid "Enable to have CloudmuCast automatically run nightly backups at the time specified."
-msgstr "เปิดใช้งานเพื่อเรียกใช้การสำรองข้อมูลทุกคืนโดยอัตโนมัติตามเวลาที่กำหนด"
+msgstr ""
 
 #: src/components/Account.vue:121
 msgid "Enable Two-Factor"
@@ -2109,11 +2113,11 @@ msgstr ""
 
 #: src/components/Account/TwoFactorModal.vue:40
 msgid "Enter the current code provided by your authenticator app to verify that it's working correctly."
-msgstr "ป้อนรหัสรับรองความถูกต้องจากแอปของคุณเพื่อตรวจสอบว่าทำงานถูกต้อง"
+msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:44
 msgid "Enter the full URL of another stream to relay its broadcast through this mount point."
-msgstr "ป้อน URL แบบเต็มของสตรีมอื่นที่จะถ่ายทอดออกอากาศผ่าน Mount Point นี้"
+msgstr ""
 
 #: src/components/Admin/StorageLocations/Form/Dropbox.vue:26
 msgid "Enter your app secret and app key below."
@@ -2126,7 +2130,7 @@ msgstr ""
 #: src/components/Stations/Podcasts/EpisodeForm/BasicInfo.vue:11
 #: src/components/Stations/Podcasts/EpisodesView.vue:145
 msgid "Episode"
-msgstr ""
+msgstr "ეპიზოდი"
 
 #: src/components/Stations/Podcasts/EpisodesView.vue:18
 #: src/components/Stations/Podcasts/ListView.vue:39
@@ -2138,11 +2142,11 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcasts.phtml:72
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcast-episodes.phtml:35
 msgid "Episodes"
-msgstr ""
+msgstr "ეპიზოდები"
 
 #: src/components/Admin/Debug/TaskOutput.vue:94
 msgid "Error"
-msgstr ""
+msgstr "შეცდომა"
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:33
 msgid "Example: if the remote radio URL is http://station.example.com:8000/radio.mp3, enter \"http://station.example.com:8000\"."
@@ -2151,15 +2155,15 @@ msgstr ""
 #: src/components/Admin/Backups/ConfigureModal.vue:46
 #: src/components/Admin/Backups/RunBackupModal.vue:64
 msgid "Exclude Media from Backup"
-msgstr "ยกเว้นสื่อจากการสำรองข้อมูล"
+msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:47
 msgid "Excluding media from automated backups will save space, but you should make sure to back up your media elsewhere. Note that only locally stored media will be backed up."
-msgstr "การยกเว้นสื่อจากการสำรองข้อมูลอัตโนมัติจะช่วยประหยัดพื้นที่ แต่คุณควรสำรองข้อมูลสื่อของคุณไว้ที่อื่น โปรดทราบว่าจะสำรองเฉพาะสื่อที่จัดเก็บไว้ในเครื่องเท่านั้น"
+msgstr ""
 
 #: src/components/Stations/Reports/Listeners/InnerMap.vue:40
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "სრული ეკრანიდან გამოსვლა"
 
 #: src/components/Stations/Queue.vue:97
 msgid "Expected to Play at"
@@ -2187,20 +2191,20 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:98
 msgid "Fallback Mount"
-msgstr "Mount สำรอง"
+msgstr ""
 
 #: src/components/Admin/AuditLog/DetailsModal.vue:16
 #: src/components/Admin/CustomFields.vue:84
 #: src/components/Admin/CustomFields/Form.vue:7
 msgid "Field Name"
-msgstr "ชื่อฟิลด์"
+msgstr ""
 
 #: src/components/Admin/Backups.vue:205
 #: src/components/Admin/Backups/RunBackupModal.vue:37
 #: src/components/Stations/Media/Form/BasicInfo.vue:7
 #: src/components/Stations/Podcasts/EpisodesView.vue:146
 msgid "File Name"
-msgstr ""
+msgstr "ფაილის სახელი"
 
 #: src/components/Stations/Media/MediaToolbar.vue:302
 msgid "Files marked for reprocessing:"
@@ -2265,14 +2269,14 @@ msgstr ""
 
 #: src/components/Stations/HlsStreams.vue:83
 msgid "Format"
-msgstr ""
+msgstr "ფორმატი"
 
 #: src/components/Stations/Playlists/Form/ScheduleRow.vue:149
 #: src/components/Stations/Reports/Overview/ListenersByTimePeriodTab.vue:179
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:149
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:114
 msgid "Friday"
-msgstr "ศุกร์"
+msgstr ""
 
 #: src/components/Account/TwoFactorModal.vue:20
 msgid "From your smartphone, scan the code to the right using an authentication app of your choice (FreeOTP, Authy, etc)."
@@ -2280,11 +2284,11 @@ msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:125
 msgid "Full"
-msgstr ""
+msgstr "სრული"
 
 #: src/components/Common/Waveform.vue:58
 msgid "Full Volume"
-msgstr ""
+msgstr "სრული ხმა"
 
 #: src/components/Stations/Playlists.vue:124
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:112
@@ -2294,7 +2298,7 @@ msgstr ""
 
 #: src/components/Admin/StorageLocations/Form/Dropbox.vue:50
 msgid "Generate Access Code"
-msgstr ""
+msgstr "წვდომის კოდის გენერირება"
 
 #: src/components/Stations/Reports/SoundExchange.vue:99
 msgid "Generate Report"
@@ -2317,7 +2321,7 @@ msgstr ""
 #: src/components/Stations/Media.vue:319
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:100
 msgid "Genre"
-msgstr "ประเภทเพลง"
+msgstr "ჟანრი"
 
 #: src/components/Admin/GeoLite.vue:63
 msgid "GeoLite is not currently installed on this installation."
@@ -2365,15 +2369,15 @@ msgstr ""
 #: src/components/PanelLayout.vue:112
 #: src/components/PanelLayout.vue:116
 msgid "Help"
-msgstr ""
+msgstr "დახმარება"
 
 #: src/components/Admin/Branding/BrandingForm.vue:42
 msgid "Hide Album Art on Public Pages"
-msgstr "ซ่อนปกอัลบั้มในหน้าสาธารณะ"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:49
 msgid "Hide CloudmuCast Branding on Public Pages"
-msgstr "ซ่อนการสร้างแบรนด์ CloudmuCast บนหน้าสาธารณะ"
+msgstr ""
 
 #: src/components/Dashboard.vue:361
 msgid "Hide Charts"
@@ -2398,7 +2402,7 @@ msgstr ""
 #: src/components/Stations/Profile/EmbedModal.vue:121
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/PublicPages/HistoryAction.php:45
 msgid "History"
-msgstr ""
+msgstr "ისტორია"
 
 #: src/components/Admin/Stations/Form/HlsForm.vue:3
 #: src/components/Public/Player.vue:192
@@ -2408,7 +2412,7 @@ msgstr ""
 #: src/components/Stations/HlsStreams.vue:2
 #: src/components/Stations/menu.ts:248
 msgid "HLS Streams"
-msgstr ""
+msgstr "HLS სტრიმები"
 
 #: src/components/Stations/Media/Breadcrumb.vue:5
 msgid "Home"
@@ -2416,11 +2420,11 @@ msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:58
 msgid "Homepage Redirect URL"
-msgstr "URL การเปลี่ยนเส้นทางหน้าแรก"
+msgstr ""
 
 #: src/components/Common/Charts/HourChart.vue:42
 msgid "Hour"
-msgstr ""
+msgstr "საათი"
 
 #: src/components/Stations/Webhooks/Form/Telegram.vue:138
 msgid "HTML"
@@ -2441,7 +2445,7 @@ msgstr ""
 
 #: src/components/Stations/Streamers/ConnectionInfo.vue:17
 msgid "Icecast Clients"
-msgstr ""
+msgstr "Icecast კლიენტები"
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:355
 msgid "Icecast/Shoutcast Stream URL"
@@ -2458,11 +2462,11 @@ msgstr ""
 #: src/components/Admin/Branding/BrandingForm.vue:67
 #: src/components/Stations/Branding/BrandingForm.vue:39
 msgid "If a song has no album art, this URL will be listed instead. Leave blank to use the standard placeholder art."
-msgstr "หากเพลงไม่มีหน้าปกอัลบั้ม, URL นี้จะแสดงแทน. เว้นว่างไว้เพื่อใช้ภาพตัวยึดมาตรฐาน"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:59
 msgid "If a visitor is not signed in and visits the CloudmuCast homepage, you can automatically redirect them to the URL specified here. Leave blank to redirect them to the login screen by default."
-msgstr "หากผู้เยี่ยมชมไม่ได้ลงชื่อเข้าใช้และเข้าไปที่หน้าแรก, คุณสามารถเปลี่ยนเส้นทางไปยัง URL ที่ระบุไว้ที่นี่โดยอัตโนมัติ. เว้นว่างไว้เพื่อเปลี่ยนเส้นทางไปยังหน้าจอเข้าสู่ระบบตามค่าเริ่มต้น"
+msgstr ""
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:19
 msgid "If disabled, the playlist will not be included in radio playback, but can still be managed."
@@ -2470,7 +2474,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/AdminForm.vue:12
 msgid "If disabled, the station will not broadcast or shuffle its AutoDJ."
-msgstr "หากปิดใช้งานสถานีจะไม่ออกอากาศหรือสับเปลี่ยน AutoDJ"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:118
 msgid "If enabled, a download button will also be present on the public \"On-Demand\" page."
@@ -2494,11 +2498,11 @@ msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:12
 msgid "If enabled, the AutoDJ on this installation will automatically play music to this mount point."
-msgstr "หากเปิดใช้งาน AutoDJ จะเล่นเพลงไปยัง Mount Point นี้โดยอัตโนมัติ"
+msgstr ""
 
 #: src/components/Stations/Mounts/Form/AutoDj.vue:12
 msgid "If enabled, the AutoDJ will automatically play music to this mount point."
-msgstr "หากเปิดใช้งาน AutoDJ จะเล่นเพลงไปยัง Mount Point นี้โดยอัตโนมัติ"
+msgstr ""
 
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:56
 msgid "If enabled, this streamer will only be able to connect during their scheduled broadcast times."
@@ -2514,11 +2518,11 @@ msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:43
 msgid "If selected, album art will not display on public-facing radio pages."
-msgstr "หากเลือก, ปกอัลบั้มจะไม่แสดงบนหน้าวิทยุสาธารณะ"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:50
 msgid "If selected, this will remove the CloudmuCast branding from public-facing pages."
-msgstr "หากเลือกการดำเนินการนี้จะลบการสร้างแบรนด์ CloudmuCast จากหน้าที่เปิดเผยต่อสาธารณะ"
+msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:31
 #: src/components/Stations/Playlists/Form/ScheduleRow.vue:45
@@ -2539,11 +2543,11 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:36
 msgid "If this mount is the default, it will be played on the radio preview and the public radio page in this system."
-msgstr "หากการติดตั้งนี้เป็นค่าเริ่มต้นจะเล่นบนหน้าตัวอย่างวิทยุและหน้าวิทยุสาธารณะในระบบนี้"
+msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:99
 msgid "If this mount point is not playing audio, listeners will automatically be redirected to this mount point. The default is /error.mp3, a repeating error message."
-msgstr "หาก Mount Point นี้ไม่เล่นเสียง ผู้ฟังจะถูกเปลี่ยนเส้นทางไปยัง Mount Point นี้โดยอัตโนมัติ ค่าเริ่มต้นคือ /error.mp3 ซึ่งเป็นข้อความแสดงข้อผิดพลาดที่เกิดซ้ำ"
+msgstr ""
 
 #: src/components/Admin/Settings/GeneralTab.vue:33
 msgid "If this setting is set to \"Yes\", the browser URL will be used instead of the base URL when it's available. Set to \"No\" to always use the base URL."
@@ -2555,11 +2559,11 @@ msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:70
 msgid "If you are broadcasting using AutoDJ, enter the source password here."
-msgstr "หากคุณกำลังออกอากาศโดยใช้ AutoDJ ให้ป้อนรหัสผ่านต้นทางที่นี่"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:62
 msgid "If you are broadcasting using AutoDJ, enter the source username here. This may be blank."
-msgstr "หากคุณกำลังออกอากาศโดยใช้ AutoDJ ให้ป้อนชื่อผู้ใช้ต้นทางที่นี่ หากไม่ทราบให้ปล่อยว่างไว้"
+msgstr ""
 
 #: src/components/Stations/Logs.vue:54
 msgid "If you're experiencing a bug or error, you can submit a GitHub issue using the link below."
@@ -2583,11 +2587,11 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:61
 msgid "If your web hook requires HTTP basic authentication, provide the password here."
-msgstr "หาก Webhook ของคุณต้องการการตรวจสอบสิทธิ์พื้นฐาน HTTP โปรดระบุรหัสผ่านที่นี่"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:53
 msgid "If your web hook requires HTTP basic authentication, provide the username here."
-msgstr "หาก Webhook ของคุณต้องการการตรวจสอบสิทธิ์ขั้นพื้นฐานของ HTTP โปรดระบุชื่อผู้ใช้ที่นี่"
+msgstr ""
 
 #: src/components/Stations/BulkMedia.vue:48
 #: src/components/Stations/BulkMedia.vue:78
@@ -2619,11 +2623,11 @@ msgstr ""
 
 #: src/components/Admin/Shoutcast.vue:22
 msgid "In order to install Shoutcast:"
-msgstr ""
+msgstr "Shoutcast-ის დასაყენებლად:"
 
 #: src/components/Admin/StereoTool.vue:36
 msgid "In order to install Stereo Tool:"
-msgstr ""
+msgstr "Stereo Tool-ის დასაყენებლად:"
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:33
 msgid "In order to process quickly, web hooks have a short timeout, so the responding service should be optimized to handle the request in under 2 seconds."
@@ -2656,20 +2660,20 @@ msgstr ""
 #: src/components/Admin/GeoLite.vue:4
 #: src/components/Admin/menu.ts:160
 msgid "Install GeoLite IP Database"
-msgstr "ติดตั้งฐานข้อมูล GeoLite IP"
+msgstr "GeoLite IP მონაცემთა ბაზის დაყენება"
 
 #: src/components/Admin/menu.ts:144
 msgid "Install Shoutcast"
-msgstr ""
+msgstr "Shoutcast-ის დაყენება"
 
 #: src/components/Admin/Shoutcast.vue:4
 msgid "Install Shoutcast 2 DNAS"
-msgstr ""
+msgstr "Shoutcast 2 DNAS-ის დაყენება"
 
 #: src/components/Admin/menu.ts:152
 #: src/components/Admin/StereoTool.vue:4
 msgid "Install Stereo Tool"
-msgstr ""
+msgstr "Stereo Tool-ის დაყენება"
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:201
 msgid "Instruct Liquidsoap to use any replaygain metadata associated with a song to control its volume level. This may increase CPU consumption."
@@ -2679,7 +2683,7 @@ msgstr ""
 #: src/components/Admin/Shoutcast.vue:12
 #: src/components/Admin/StereoTool.vue:25
 msgid "Instructions"
-msgstr "คำแนะนำ"
+msgstr "ინსტრუქციები"
 
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:39
 msgid "Internal notes or comments about the user, visible only on this control panel."
@@ -2704,7 +2708,7 @@ msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:51
 msgid "IP Address Source"
-msgstr ""
+msgstr "IP მისამართის წყარო"
 
 #: src/components/Admin/GeoLite.vue:8
 msgid "IP Geolocation is used to guess the approximate location of your listeners based on the IP address they connect with. Use the free built-in IP Geolocation library or enter a license key on this page to use MaxMind GeoLite."
@@ -2733,33 +2737,33 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:106
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcasts.phtml:52
 msgid "Language"
-msgstr "ภาษา"
+msgstr "ენა"
 
 #: src/components/Admin/Settings/GeneralTab.vue:127
 #: src/components/Common/DateRangeDropdown.vue:132
 msgid "Last 14 Days"
-msgstr ""
+msgstr "ბოლო 14 დღე"
 
 #: src/components/Admin/Settings/GeneralTab.vue:143
 msgid "Last 2 Years"
-msgstr ""
+msgstr "ბოლო 2 წელი"
 
 #: src/components/Common/DateRangeDropdown.vue:104
 msgid "Last 24 Hours"
-msgstr ""
+msgstr "ბოლო 24 საათი"
 
 #: src/components/Admin/Settings/GeneralTab.vue:131
 #: src/components/Common/DateRangeDropdown.vue:139
 msgid "Last 30 Days"
-msgstr ""
+msgstr "ბოლო 30 დღე"
 
 #: src/components/Admin/Settings/GeneralTab.vue:135
 msgid "Last 60 Days"
-msgstr ""
+msgstr "ბოლო 60 დღე"
 
 #: src/components/Common/DateRangeDropdown.vue:125
 msgid "Last 7 Days"
-msgstr ""
+msgstr "ბოლო 7 დღე"
 
 #: src/components/Admin/Backups.vue:210
 msgid "Last Modified"
@@ -2812,7 +2816,7 @@ msgstr ""
 #: src/components/Admin/Stations/Form/FrontendForm.vue:45
 #: src/components/Admin/Stations/Form/FrontendForm.vue:53
 msgid "Leave blank to automatically generate a new password."
-msgstr "เว้นว่างไว้เพื่อสร้างรหัสผ่านใหม่โดยอัตโนมัติ"
+msgstr "დატოვეთ ცარიელი ახალი პაროლის ავტომატური გენერირებისთვის."
 
 #: src/components/Stations/Playlists/Form/ScheduleRow.vue:94
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:98
@@ -2822,16 +2826,16 @@ msgstr ""
 #: src/components/Admin/Users/Form.vue:19
 #: src/components/Stations/SftpUsers/Form.vue:33
 msgid "Leave blank to use the current password."
-msgstr "เว้นว่างไว้เพื่อใช้รหัสผ่านปัจจุบัน"
+msgstr "დატოვეთ ცარიელი მიმდინარე პაროლის გამოსაყენებლად."
 
 #: src/components/Stations/Webhooks/Form/Telegram.vue:36
 msgid "Leave blank to use the default Telegram API URL (recommended)."
-msgstr ""
+msgstr "დატოვეთ ცარიელი Telegram API-ის სტანდარტული ბმულის გამოსაყენებლად (რეკომენდებულია)"
 
 #: src/components/Stations/Media.vue:321
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:107
 msgid "Length"
-msgstr "ระยะเวลา"
+msgstr ""
 
 #: src/components/Setup/Register.vue:28
 msgid "Let's get started by creating your Super Administrator account."
@@ -2865,7 +2869,7 @@ msgstr ""
 #: src/components/Admin/Stations/Form/FrontendForm.vue:102
 #: src/components/Admin/Stations/Form/FrontendForm.vue:93
 msgid "List one IP address or group (in CIDR format) per line."
-msgstr "แสดงรายการที่อยู่ IP หนึ่งรายการหรือกลุ่ม (ในรูปแบบ CIDR) ต่อบรรทัด"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:111
 msgid "List one user agent per line. Wildcards (*) are allowed."
@@ -2873,7 +2877,7 @@ msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:19
 msgid "Listener Analytics Collection"
-msgstr "รวบรวมสถิติผู้ฟัง"
+msgstr ""
 
 #: src/entities/Webhooks.ts:47
 msgid "Listener Gained"
@@ -2918,22 +2922,22 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:133
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:222
 msgid "Listeners"
-msgstr "ผู้ฟัง"
+msgstr ""
 
 #: src/components/Stations/Reports/Overview/ListenersByTimePeriodTab.vue:42
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:54
 msgid "Listeners by Day"
-msgstr "ผู้ฟังตามวัน"
+msgstr ""
 
 #: src/components/Stations/Reports/Overview/ListenersByTimePeriodTab.vue:55
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:102
 msgid "Listeners by Day of Week"
-msgstr "ผู้ฟังตามวันของสัปดาห์"
+msgstr ""
 
 #: src/components/Stations/Reports/Overview/ListenersByTimePeriodTab.vue:69
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:197
 msgid "Listeners by Hour"
-msgstr "ผู้ฟังตามชั่วโมง"
+msgstr ""
 
 #: src/components/Stations/Reports/Overview/ListeningTimeTab.vue:5
 msgid "Listeners by Listening Time"
@@ -2960,11 +2964,11 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:53
 msgid "Live Broadcast Recording Bitrate (kbps)"
-msgstr "บิตเรตการบันทึกการถ่ายทอดสด (kbps)"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:43
 msgid "Live Broadcast Recording Format"
-msgstr "รูปแบบการบันทึกการถ่ายทอดสด"
+msgstr ""
 
 #: src/components/Stations/Reports/Listeners.vue:47
 #: src/components/Stations/Reports/Listeners.vue:50
@@ -2973,7 +2977,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/AdminForm.vue:41
 msgid "Live Recordings Storage Location"
-msgstr "สถานที่จัดเก็บบันทึกการถ่ายทอดสด"
+msgstr ""
 
 #: src/components/Stations/Reports/Timeline.vue:76
 msgid "Live Streamer:"
@@ -3043,7 +3047,7 @@ msgstr ""
 #: src/components/Stations/menu.ts:308
 #: src/components/Stations/Queue.vue:25
 msgid "Logs"
-msgstr ""
+msgstr "აღრიცხვის ფაილები"
 
 #: src/components/Admin/Logs.vue:16
 msgid "Logs by Station"
@@ -3086,7 +3090,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:184
 msgid "Manual AutoDJ Mode"
-msgstr "โหมด AutoDJ ด้วยตนเอง"
+msgstr ""
 
 #: src/components/Admin/Updates.vue:129
 msgid "Manual Updates"
@@ -3154,7 +3158,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:80
 msgid "Maximum Listeners"
-msgstr "จำนวนผู้ฟังสูงสุด"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:81
 msgid "Maximum number of total listeners across all streams. Leave blank to use the default."
@@ -3187,7 +3191,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/AdminForm.vue:33
 msgid "Media Storage Location"
-msgstr "ตำแหน่งที่เก็บสื่อ"
+msgstr ""
 
 #: src/components/Admin/Index/MemoryStatsPanel.vue:6
 msgid "Memory"
@@ -3283,7 +3287,7 @@ msgstr ""
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:145
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:110
 msgid "Monday"
-msgstr "จันทร์"
+msgstr ""
 
 #: src/components/Stations/Media/MediaToolbar.vue:123
 #: src/components/Stations/Playlists.vue:42
@@ -3314,7 +3318,7 @@ msgstr ""
 #: src/components/Stations/Mounts/Form/Advanced.vue:12
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:11
 msgid "Mount Point URL"
-msgstr "URL Mount Point"
+msgstr ""
 
 #: src/components/Admin/Stations/CloneModalForm.vue:63
 #: src/components/Stations/menu.ts:240
@@ -3381,7 +3385,7 @@ msgstr ""
 #: src/components/Stations/Mounts.vue:101
 #: src/components/Stations/Remotes.vue:93
 msgid "Name"
-msgstr "ชื่อ"
+msgstr ""
 
 #: src/components/Stations/Webhooks.vue:132
 msgid "Name/Type"
@@ -3417,12 +3421,12 @@ msgstr ""
 
 #: src/components/Account/ApiKeyNewKey.vue:3
 msgid "New Key Generated"
-msgstr ""
+msgstr "ახალი გასაღები გენერირებულია"
 
 #: src/components/Account/ChangePasswordModal.vue:23
 #: src/components/Stations/SftpUsers/Form.vue:20
 msgid "New Password"
-msgstr "รหัสผ่านใหม่"
+msgstr "ახალი პაროლი"
 
 #: src/components/Stations/Media/MediaToolbar.vue:77
 msgid "New Playlist"
@@ -3434,11 +3438,11 @@ msgstr ""
 
 #: src/components/Admin/Stations/CloneModalForm.vue:15
 msgid "New Station Description"
-msgstr "คำอธิบายสถานีใหม่"
+msgstr "ახალი რადიოსადგურის აღწერა"
 
 #: src/components/Admin/Stations/CloneModalForm.vue:7
 msgid "New Station Name"
-msgstr "ชื่อสถานีใหม่"
+msgstr "ახალი რადიოსადგურის სათაური"
 
 #: src/components/Admin/Debug.vue:293
 msgid "Next Run"
@@ -3446,15 +3450,15 @@ msgstr ""
 
 #: src/components/Admin/Relays.vue:41
 msgid "No"
-msgstr "いいえ"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/Common/BackendDisabled.vue:4
 msgid "No AutoDJ Enabled"
-msgstr ""
+msgstr "AutoDJ არ არის ჩართული"
 
 #: src/components/Stations/Media/MediaToolbar.vue:255
 msgid "No files selected."
-msgstr ""
+msgstr "ფაილები არ არის არჩეული."
 
 #: src/components/Stations/Webhooks/Form/Common/RateLimitFields.vue:49
 msgid "No Limit"
@@ -3467,7 +3471,7 @@ msgstr ""
 #: src/components/Admin/Stations/Form/FrontendForm.vue:73
 #: src/components/Admin/Stations/Form/StreamersForm.vue:87
 msgid "No other program can be using this port. Leave blank to automatically assign a port."
-msgstr "ไม่มีโปรแกรมอื่นที่สามารถใช้พอร์ตนี้ได้ เว้นว่างไว้เพื่อกำหนดพอร์ตโดยอัตโนมัติ"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:425
 msgid "No Post-processing"
@@ -3475,18 +3479,18 @@ msgstr ""
 
 #: src/components/Public/FullPlayer/SongHistory.vue:4
 msgid "No records to display."
-msgstr ""
+msgstr "საჩვენებელი ჩანაწერები არ არის."
 
 #: src/components/Common/DataTable.vue:206
 msgid "No records."
-msgstr ""
+msgstr "ჩანაწერები არ არის."
 
 #: src/components/Admin/CustomFields.vue:92
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:135
 #: src/components/Stations/Playlists.vue:363
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StorageLocationRepository.php:74
 msgid "None"
-msgstr "ไม่มี"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:412
 msgid "Normal Mode"
@@ -3523,7 +3527,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:35
 msgid "Note: This should be the public-facing homepage of the radio station, not the CloudmuCast URL. It will be included in broadcast details."
-msgstr "หมายเหตุ: นี่ควรเป็นหน้าแรกของสถานีวิทยุที่เปิดเผยต่อสาธารณะไม่ใช่ URL ของ CloudmuCast จะรวมอยู่ในรายละเอียดการออกอากาศ"
+msgstr ""
 
 #: src/components/Stations/Streamers.vue:156
 msgid "Notes"
@@ -3566,7 +3570,7 @@ msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:56
 msgid "Number of Backup Copies to Keep"
-msgstr "จำนวนการสำรองข้อมูลที่คัดลอกไปเก็บ"
+msgstr ""
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:157
 msgid "Number of Minutes Between Plays"
@@ -3574,7 +3578,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:39
 msgid "Number of seconds to overlap songs."
-msgstr "จำนวนวินาทีในการซ้อนเพลง"
+msgstr ""
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:139
 msgid "Number of Songs Between Plays"
@@ -3662,11 +3666,11 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:60
 msgid "Optional: HTTP Basic Authentication Password"
-msgstr "ตัวเลือก: รหัสผ่าน HTTP ตรวจสอบสิทธิ์พื้นฐาน"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:52
 msgid "Optional: HTTP Basic Authentication Username"
-msgstr "ตัวเลือก: พื้นฐาน HTTP รับรองความถูกต้องชื่อผู้ใช้"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:70
 msgid "Optional: Request Timeout (Seconds)"
@@ -3674,7 +3678,7 @@ msgstr ""
 
 #: src/components/Admin/CustomFields/Form.vue:30
 msgid "Optionally select an ID3v2 metadata field that, if present, will be used to set this field's value."
-msgstr "เลือกฟิลด์ข้อมูลเมตา ID3v2 ซึ่งหากมีอยู่จะถูกใช้เพื่อตั้งค่าของฟิลด์นี้"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:57
 msgid "Optionally specify a short URL-friendly name, such as \"my_station_name\", that will be used in this station's URLs. Leave this field blank to automatically create one based on the station name."
@@ -3690,7 +3694,7 @@ msgstr ""
 
 #: src/components/Stations/SftpUsers/Form.vue:51
 msgid "Optionally supply SSH public keys this user can use to connect instead of a password. Enter one key per line."
-msgstr "เลือกใส่คีย์สาธารณะ SSH ที่ผู้ใช้นี้สามารถใช้เพื่อเชื่อมต่อแทนรหัสผ่าน ป้อนหนึ่งคีย์ต่อบรรทัด"
+msgstr ""
 
 #: src/components/Stations/Streamers/ConnectionInfo.vue:72
 msgid "or"
@@ -3720,14 +3724,14 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:55
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:59
 msgid "Password"
-msgstr "パスワード"
+msgstr "პაროლი"
 
 #: src/components/Stations/Profile/FrontendPanel.vue:42
 #: src/components/Stations/Profile/FrontendPanel.vue:74
 #: src/components/Stations/Profile/FrontendPanel.vue:95
 #: src/components/Stations/Streamers/ConnectionInfo.vue:68
 msgid "Password:"
-msgstr ""
+msgstr "პაროლი:"
 
 #: src/components/Admin/GeoLite.vue:45
 msgid "Paste the generated license key into the field on this page."
@@ -3896,11 +3900,11 @@ msgstr ""
 
 #: src/components/PanelLayout.vue:157
 msgid "Powered by"
-msgstr ""
+msgstr "უზრუნველყოფილია"
 
 #: src/components/Stations/Webhooks/Form/Discord.vue:128
 msgid "Powered by AzuraCast"
-msgstr ""
+msgstr "უზრუნველყოფილია AzuraCast-ის მიერ"
 
 #: src/components/Admin/Settings/GeneralTab.vue:29
 msgid "Prefer Browser URL (If Available)"
@@ -3913,26 +3917,26 @@ msgstr ""
 
 #: src/components/Admin/AuditLog/DetailsModal.vue:17
 msgid "Previous"
-msgstr ""
+msgstr "წინა"
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:8
 msgid "Privacy"
-msgstr ""
+msgstr "კონფიდენციალურობა"
 
 #: src/components/Stations/Webhooks/Form/Mastodon.vue:132
 msgid "Private"
-msgstr ""
+msgstr "პირადი"
 
 #: src/components/Account.vue:11
 #: src/components/Admin/Stations/Form/ProfileForm.vue:3
 #: src/components/Stations/menu.ts:31
 msgid "Profile"
-msgstr ""
+msgstr "პროფილი"
 
 #: src/components/Admin/CustomFields/Form.vue:15
 #: src/components/Stations/HlsStreams/Form/BasicInfo.vue:11
 msgid "Programmatic Name"
-msgstr "ชื่อโปรแกรม"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:150
 msgid "Provide a valid license key from Thimeo. Functionality is limited without a license key."
@@ -3940,7 +3944,7 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Mastodon.vue:124
 msgid "Public"
-msgstr ""
+msgstr "საჯარო"
 
 #: src/components/Dashboard.vue:212
 #: src/components/Stations/menu.ts:61
@@ -3954,17 +3958,17 @@ msgstr ""
 #: src/components/Stations/Podcasts/ListView.vue:43
 #: src/components/Stations/Profile/PublicPagesPanel.vue:21
 msgid "Public Page"
-msgstr ""
+msgstr "საჯარო გვერდი"
 
 #: src/components/Admin/Branding.vue:17
 #: src/components/Stations/Branding.vue:22
 msgid "Public Page Background"
-msgstr ""
+msgstr "საჯარო გვერდის ფონი"
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:81
 #: src/components/Stations/Profile/PublicPagesPanel.vue:5
 msgid "Public Pages"
-msgstr ""
+msgstr "საჯარო გვერდები"
 
 #: src/components/Stations/Podcasts/EpisodeForm/BasicInfo.vue:36
 msgid "Publish Date"
@@ -3977,7 +3981,7 @@ msgstr ""
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:53
 #: src/components/Stations/Remotes/Form/AutoDj.vue:79
 msgid "Publish to \"Yellow Pages\" Directories"
-msgstr "เผยแพร่ไปยังไดเรกทอรี \"สมุดหน้าเหลือง\""
+msgstr ""
 
 #: src/components/Stations/Media/MediaToolbar.vue:130
 msgid "Queue"
@@ -3997,15 +4001,15 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/RadioDe.vue:18
 msgid "Radio.de API Key"
-msgstr ""
+msgstr "Radio.de API გასაღები"
 
 #: src/components/Stations/Webhooks/Form/RadioDe.vue:11
 msgid "Radio.de Broadcast Subdomain"
-msgstr ""
+msgstr "Radio.de მაუწყებლობის ქვედომენი"
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:342
 msgid "Random"
-msgstr ""
+msgstr "შემთხვევითი"
 
 #: src/components/Stations/Sidebar.vue:39
 msgid "Ready to start broadcasting? Click to start your station."
@@ -4017,7 +4021,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/StreamersForm.vue:27
 msgid "Record Live Broadcasts"
-msgstr "บันทึกการถ่ายทอดสด"
+msgstr ""
 
 #: src/components/Recover.vue:11
 #: src/components/Recover.vue:60
@@ -4028,7 +4032,7 @@ msgstr ""
 #: src/components/Admin/Debug.vue:125
 #: src/components/Admin/Debug.vue:74
 msgid "Refresh"
-msgstr ""
+msgstr "განახლება"
 
 #: src/components/Common/DataTable.vue:51
 msgid "Refresh rows"
@@ -4045,7 +4049,7 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:43
 msgid "Relay Stream URL"
-msgstr "URL สตรีมรีเลย์"
+msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:15
 #: src/components/Admin/Updates.vue:46
@@ -4055,12 +4059,12 @@ msgstr ""
 
 #: src/components/Stations/ProfileEdit.vue:36
 msgid "Reload"
-msgstr ""
+msgstr "ხელახლა ჩატვირთვა"
 
 #: src/components/Stations/Restart.vue:15
 #: src/components/Stations/Restart.vue:43
 msgid "Reload Configuration"
-msgstr ""
+msgstr "კონფიგურაციის ხელახლა ჩატვირთვა"
 
 #: src/components/Stations/Sidebar.vue:50
 msgid "Reload to Apply Changes"
@@ -4091,35 +4095,35 @@ msgstr ""
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:55
 msgid "Remote Station Administrator Password"
-msgstr "รหัสผ่านผู้ดูแลสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:42
 msgid "Remote Station Listening Mountpoint/SID"
-msgstr "Mount Point/ISD การฟังสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:29
 msgid "Remote Station Listening URL"
-msgstr "URL การฟังสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:53
 msgid "Remote Station Source Mountpoint/SID"
-msgstr "Mountpoint/SID ของแหล่งที่มาสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:69
 msgid "Remote Station Source Password"
-msgstr "รหัสผ่านของแหล่งที่มาสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:45
 msgid "Remote Station Source Port"
-msgstr "พอร์ตต้นทางสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/AutoDj.vue:61
 msgid "Remote Station Source Username"
-msgstr "ชื่อผู้ใช้ต้นทางของสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:14
 msgid "Remote Station Type"
-msgstr "ประเภทสถานีระยะไกล"
+msgstr ""
 
 #: src/components/Stations/Playlists.vue:84
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:200
@@ -4162,7 +4166,7 @@ msgstr ""
 #: src/components/Admin/GeoLite.vue:87
 #: src/components/Admin/GeoLite.vue:90
 msgid "Remove Key"
-msgstr ""
+msgstr "გასაღების წაშლა"
 
 #: src/components/Stations/Media.vue:202
 #: src/components/Stations/Media/RenameModal.vue:25
@@ -4192,7 +4196,7 @@ msgstr ""
 #: src/components/Public/WebDJ/PlaylistPanel.vue:137
 #: src/components/Public/WebDJ/PlaylistPanel.vue:142
 msgid "Repeat"
-msgstr ""
+msgstr "გამეორება"
 
 #: src/components/Stations/Media/Form/AlbumArt.vue:23
 msgid "Replace Album Cover Art"
@@ -4210,36 +4214,36 @@ msgstr ""
 #: src/components/Public/Requests.vue:15
 #: src/components/Public/Requests.vue:28
 msgid "Request"
-msgstr ""
+msgstr "მოთხოვნა"
 
 #: src/components/Public/FullPlayer/RequestModal.vue:6
 msgid "Request a Song"
-msgstr ""
+msgstr "სიმღერის მოთხოვნა"
 
 #: src/components/Stations/Reports/Requests.vue:135
 msgid "Request History"
-msgstr ""
+msgstr "მოთხოვნების ისტორია"
 
 #: src/components/Admin/Stations/Form/RequestsForm.vue:46
 msgid "Request Last Played Threshold (Minutes)"
-msgstr "เกณฑ์การขอที่เล่นล่าสุด (นาที)"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/RequestsForm.vue:36
 msgid "Request Minimum Delay (Minutes)"
-msgstr "การหน่วงเวลาในขอขั้นต่ำ (นาที)"
+msgstr ""
 
 #: src/components/Public/FullPlayer.vue:33
 msgid "Request Song"
-msgstr ""
+msgstr "სიმღერის მოთხოვნა"
 
 #: src/components/Stations/Reports/Requests.vue:124
 msgid "Requester IP"
-msgstr ""
+msgstr "მომთხოვნის IP მისამართი"
 
 #: src/components/Stations/Profile/EmbedModal.vue:132
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/PublicPages/RequestsAction.php:41
 msgid "Requests"
-msgstr ""
+msgstr "მოთხოვნები"
 
 #: src/components/Form/FormLabel.vue:9
 msgid "Required"
@@ -4260,7 +4264,7 @@ msgstr ""
 #: src/components/Stations/Profile/BackendPanel.vue:53
 #: src/components/Stations/Profile/FrontendPanel.vue:132
 msgid "Restart"
-msgstr ""
+msgstr "გადატვირთვა"
 
 #: src/components/Stations/menu.ts:298
 #: src/components/Stations/Restart.vue:70
@@ -4287,12 +4291,12 @@ msgstr ""
 #: src/components/Admin/Permissions.vue:106
 #: src/components/Admin/Permissions/Form/GlobalForm.vue:8
 msgid "Role Name"
-msgstr "ชื่อบทบาท"
+msgstr ""
 
 #: src/components/Admin/Users.vue:104
 #: src/components/Admin/Users/Form.vue:38
 msgid "Roles"
-msgstr "บทบาท"
+msgstr ""
 
 #: src/components/Admin/menu.ts:89
 #: src/components/Admin/Permissions.vue:2
@@ -4317,14 +4321,14 @@ msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:17
 msgid "Run Automatic Nightly Backups"
-msgstr "เรียกใช้การสำรองข้อมูลอัตโนมัติทุกคืน"
+msgstr ""
 
 #: src/components/Admin/Backups.vue:100
 #: src/components/Admin/Backups/RunBackupModal.vue:7
 #: src/components/Admin/Backups/RunBackupModal.vue:84
 #: src/components/Admin/Backups/RunBackupModal.vue:91
 msgid "Run Manual Backup"
-msgstr "เรียกใช้การสำรองข้อมูลด้วยตนเอง"
+msgstr ""
 
 #: src/components/Admin/Debug.vue:210
 #: src/components/Admin/Debug.vue:62
@@ -4347,15 +4351,15 @@ msgstr ""
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:150
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:115
 msgid "Saturday"
-msgstr "เสาร์"
+msgstr "შაბათი"
 
 #: src/components/Stations/Media/MediaToolbar.vue:84
 msgid "Save"
-msgstr ""
+msgstr "შენახვა"
 
 #: src/components/Setup/Settings.vue:20
 msgid "Save and Continue"
-msgstr ""
+msgstr "შენახვა და გაგრძელება"
 
 #: src/components/Admin/Branding/BrandingForm.vue:120
 #: src/components/Admin/GeoLite.vue:84
@@ -4369,7 +4373,7 @@ msgstr ""
 #: src/components/Stations/Branding/BrandingForm.vue:76
 #: src/components/Stations/LiquidsoapConfig.vue:67
 msgid "Save Changes"
-msgstr "บันทึก"
+msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:173
 #: src/components/Admin/Settings/ServicesTab.vue:80
@@ -4396,7 +4400,7 @@ msgstr ""
 
 #: src/components/Admin/Backups/ConfigureModal.vue:30
 msgid "Scheduled Backup Time"
-msgstr "กำหนดเวลาสำรองข้อมูล"
+msgstr ""
 
 #: src/components/Stations/Playlists/Form/ScheduleRow.vue:93
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:97
@@ -4405,7 +4409,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:44
 msgid "Scheduled playlists and other timed items will be controlled by this time zone."
-msgstr "เพลย์ลิสต์ที่กำหนดเวลาไว้และรายการตามกำหนดเวลาอื่น ๆ จะถูกควบคุมโดยเขตเวลานี้"
+msgstr ""
 
 #: src/components/Stations/Playlists/Form/ScheduleRow.vue:6
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:6
@@ -4471,7 +4475,7 @@ msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:34
 msgid "Select a theme to use as a base for station public pages and the login page."
-msgstr "เลือกธีมเพื่อใช้เป็นธีมพื้นฐานสำหรับหน้าสาธารณะของสถานีและหน้าล็อกอิน"
+msgstr ""
 
 #: src/components/Common/DataTable.vue:157
 msgid "Select All Rows"
@@ -4495,7 +4499,7 @@ msgstr ""
 
 #: src/components/Common/FlowUpload.vue:55
 msgid "Select File"
-msgstr "เลือกไฟล์"
+msgstr ""
 
 #: src/components/Stations/Mounts/Form/Intro.vue:9
 msgid "Select Intro File"
@@ -4597,7 +4601,7 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:35
 msgid "Set as Default Mount Point"
-msgstr "ตั้งค่าเป็น Mount Point เริ่มต้น"
+msgstr ""
 
 #: src/components/Stations/Media/Form/WaveformEditor.vue:4
 msgid "Set cue and fade points using the visual editor. The timestamps will be saved to the corresponding fields in the advanced playback settings."
@@ -4641,7 +4645,7 @@ msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:39
 msgid "Set to \"Yes\" to always use \"https://\" secure URLs, and to automatically redirect to the secure URL when an insecure URL is visited."
-msgstr "ตั้งค่าเป็น \"ใช่\" เพื่อใช้ URL ที่ปลอดภัย \"https://\" เสมอและเปลี่ยนเส้นทางไปยัง URL ที่ปลอดภัยโดยอัตโนมัติเมื่อมีการเยี่ยมชม URL ที่ไม่ปลอดภัย"
+msgstr ""
 
 #: src/components/Admin/Settings/SecurityPrivacyTab.vue:65
 msgid "Set to * to allow all sources, or specify a list of origins separated by a comma (,)."
@@ -4740,20 +4744,20 @@ msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:36
 msgid "Show new releases within your update channel on the CloudmuCast homepage."
-msgstr "แสดงเวอร์ชั่นใหม่ที่อยู่ในช่องการอัปเดตของคุณบนหน้าแรกของ AzuraCast"
+msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:27
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:63
 msgid "Show on Public Pages"
-msgstr "แสดงบนหน้าสาธารณะ"
+msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:90
 msgid "Show the station in public pages and general API results."
-msgstr "แสดงสถานีในหน้าสาธารณะและผล API ทั่วไป"
+msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:35
 msgid "Show Update Announcements"
-msgstr "แสดงประกาศการอัปเดต"
+msgstr ""
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:337
 msgid "Shuffled"
@@ -4826,7 +4830,7 @@ msgstr ""
 
 #: src/components/Stations/Media/Form/BasicInfo.vue:22
 msgid "Song Artist"
-msgstr "ศิลปิน"
+msgstr ""
 
 #: src/entities/Webhooks.ts:39
 msgid "Song Change"
@@ -4875,7 +4879,7 @@ msgstr ""
 #: src/components/Stations/Reports/Requests.vue:123
 #: src/components/Stations/Reports/Timeline.vue:161
 msgid "Song Title"
-msgstr "ชื่อเพลง"
+msgstr ""
 
 #: src/components/Stations/Playlists.vue:81
 msgid "Song-based"
@@ -4891,7 +4895,7 @@ msgstr ""
 
 #: src/components/Stations/Reports/SoundExchange.vue:3
 msgid "SoundExchange Report"
-msgstr "รายงาน SoundExchange"
+msgstr ""
 
 #: src/components/Stations/menu.ts:226
 msgid "SoundExchange Royalties"
@@ -4922,7 +4926,7 @@ msgstr ""
 
 #: src/components/Stations/SftpUsers/Form.vue:47
 msgid "SSH Public Keys"
-msgstr "คีย์สาธารณะ SSH"
+msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:341
 #: src/components/Admin/Updates.vue:190
@@ -5133,7 +5137,7 @@ msgstr ""
 #: src/components/Admin/Backups/ConfigureModal.vue:64
 #: src/components/Admin/Backups/RunBackupModal.vue:30
 msgid "Storage Location"
-msgstr "สถานที่จัดเก็บ"
+msgstr ""
 
 #: src/components/Admin/menu.ts:42
 #: src/components/Admin/StorageLocations.vue:4
@@ -5195,7 +5199,7 @@ msgstr ""
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:151
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:116
 msgid "Sunday"
-msgstr "อาทิตย์"
+msgstr ""
 
 #: src/components/Stations/Logs.vue:46
 msgid "Support Documents"
@@ -5239,7 +5243,7 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/SetupController.php:174
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/BaseUrlCheck.php:58
 msgid "System Settings"
-msgstr "การตั้งค่าระบบ"
+msgstr ""
 
 #: src/components/Admin/AuditLog.vue:127
 msgid "Target"
@@ -5311,11 +5315,11 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:20
 msgid "The display name assigned to this mount point when viewing it on administrative or public pages. Leave blank to automatically generate one."
-msgstr "ชื่อที่แสดงที่กำหนดให้กับ Mount Point นี้เมื่อดูบนเพจสำหรับผู้ดูแลระบบหรือเพจสาธารณะ เว้นว่างไว้เพื่อสร้างโดยอัตโนมัติ"
+msgstr ""
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:22
 msgid "The display name assigned to this relay when viewing it on administrative or public pages. Leave blank to automatically generate one."
-msgstr "ชื่อที่แสดงที่กำหนดให้กับรีเลย์นี้เมื่อดูบนหน้าระดับผู้ดูแลระบบหรือหน้าสาธารณะ เว้นว่างไว้เพื่อสร้างโดยอัตโนมัติ"
+msgstr ""
 
 #: src/components/Stations/LiquidsoapConfig.vue:28
 msgid "The editable text boxes are areas where you can insert custom configuration code. The non-editable sections are automatically generated by AzuraCast."
@@ -5371,7 +5375,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/AdminForm.vue:22
 msgid "The parent directory where station playlist and configuration files are stored. Leave blank to use default directory."
-msgstr "ไดเร็กทอรีหลักที่เก็บรายการเพลงของสถานีและการตั้งค่าไฟล์ที่เก็บไว้ เว้นว่างไว้เพื่อใช้ไดเร็กทอรีเริ่มต้น"
+msgstr ""
 
 #: src/components/Stations/Media/Form/BasicInfo.vue:8
 msgid "The relative path of the file in the station's media directory."
@@ -5411,7 +5415,7 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:45
 msgid "The URL that will receive the POST messages any time an event is triggered."
-msgstr "URL ที่จะรับข้อความ POST ทุกครั้งที่มีการทริกเกอร์เหตุการณ์"
+msgstr ""
 
 #: src/components/Stations/Media/Form/AdvancedSettings.vue:17
 msgid "The volume in decibels to amplify the track with. Leave blank to use the system default."
@@ -5467,11 +5471,11 @@ msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:107
 msgid "This CSS will be applied to the main management pages, like this one."
-msgstr "CSS นี้จะนำไปใช้กับหน้าการจัดการหลัก เช่นหน้านี้"
+msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:75
 msgid "This CSS will be applied to the station public pages and login page."
-msgstr "CSS นี้จะนำไปใช้กับหน้าสาธารณะของสถานีและหน้าล็อกอิน"
+msgstr ""
 
 #: src/components/Stations/Branding/BrandingForm.vue:47
 msgid "This CSS will be applied to the station public pages."
@@ -5563,7 +5567,7 @@ msgstr ""
 
 #: src/components/Admin/Branding/BrandingForm.vue:91
 msgid "This javascript code will be applied to the station public pages and login page."
-msgstr "รหัสจาวาสคริปต์นี้จะถูกนำไปใช้กับหน้าสาธารณะของสถานีและหน้าล็อกอิน"
+msgstr ""
 
 #: src/components/Stations/Branding/BrandingForm.vue:63
 msgid "This javascript code will be applied to the station public pages."
@@ -5579,7 +5583,7 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:12
 msgid "This name should always begin with a slash (/), and must be a valid URL, such as /autodj.mp3"
-msgstr "ชื่อนี้ควรขึ้นต้นด้วยเครื่องหมายทับ (/) เสมอและต้องเป็น URL ที่ถูกต้องเช่น /autodj.mp3"
+msgstr ""
 
 #: src/components/Admin/Settings/GeneralTab.vue:22
 msgid "This name will appear as a sub-header next to the CloudmuCast logo, to help identify this server."
@@ -5664,7 +5668,7 @@ msgstr ""
 
 #: src/components/Admin/CustomFields/Form.vue:8
 msgid "This will be used as the label when editing individual songs, and will show in API results."
-msgstr "สิ่งนี้จะใช้เป็นป้ายกำกับเมื่อแก้ไขแต่ละเพลงและจะแสดงในผลลัพธ์ของ API"
+msgstr ""
 
 #: src/components/Admin/Debug.vue:36
 msgid "This will clear any pending unprocessed messages in all message queues."
@@ -5672,7 +5676,7 @@ msgstr ""
 
 #: src/components/Admin/Backups/RunBackupModal.vue:65
 msgid "This will produce a significantly smaller backup, but you should make sure to back up your media elsewhere. Note that only locally stored media will be backed up."
-msgstr "การดำเนินการนี้จะทำให้เกิดการสำรองข้อมูลที่น้อยลงอย่างมาก แต่คุณควรสำรองข้อมูลสื่อของคุณไว้ที่อื่น โปรดทราบว่าจะสำรองเฉพาะสื่อที่จัดเก็บไว้ในเครื่องเท่านั้น"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Discord.vue:63
 msgid "Thumbnail Image URL"
@@ -5683,7 +5687,7 @@ msgstr ""
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:148
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:113
 msgid "Thursday"
-msgstr "พฤหัสบดี"
+msgstr ""
 
 #: src/components/Stations/Reports/Listeners.vue:218
 #: src/components/Stations/Reports/Overview/CommonMetricsView.vue:89
@@ -5709,7 +5713,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:43
 msgid "Time Zone"
-msgstr "เขตเวลา"
+msgstr ""
 
 #: src/components/Public/OnDemand.vue:119
 #: src/components/Public/Requests.vue:79
@@ -5720,7 +5724,7 @@ msgstr "เขตเวลา"
 #: src/components/Stations/Webhooks/Form/Discord.vue:32
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:133
 msgid "Title"
-msgstr "ชื่อเรื่อง"
+msgstr ""
 
 #: src/components/Admin/Index/CpuStatsHelpModal.vue:24
 msgid "To alleviate this potential problem with shared CPU resources, hosts assign \"credits\" to a VPS which are used up according to an algorithm based on the CPU load as well as the time over which the CPU load is generated. If your VM's assigned credit is used up, they will take CPU time from your VM and assign it to other VMs on the machine. This is seen as the \"Steal\" or \"St\" value."
@@ -5744,7 +5748,7 @@ msgstr ""
 
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:56
 msgid "To retrieve detailed unique listeners and client details, an administrator password is often required."
-msgstr "ในการดึงข้อมูลผู้ฟังและรายละเอียดไคลเอนต์ที่ไม่ซ้ำกันโดยละเอียดมักต้องใช้รหัสผ่านผู้ดูแลระบบ"
+msgstr ""
 
 #: src/components/Stations/Playlists/Form/ScheduleRow.vue:70
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:80
@@ -5820,7 +5824,7 @@ msgstr ""
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:146
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:111
 msgid "Tuesday"
-msgstr "อังคาร"
+msgstr ""
 
 #: src/entities/Webhooks.ts:99
 msgid "TuneIn AIR"
@@ -6010,7 +6014,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:53
 msgid "URL Stub"
-msgstr "ของ URL แบบสั้น"
+msgstr ""
 
 #: src/components/Admin/Index/CpuStatsPanel.vue:60
 msgid "Use"
@@ -6054,7 +6058,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:197
 msgid "Use Replaygain Metadata"
-msgstr "ใช้ Replaygain Metadata"
+msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:143
 msgid "Use Secure (TLS) SMTP Connection"
@@ -6107,7 +6111,7 @@ msgstr ""
 #: src/components/Stations/SftpUsers/Form.vue:9
 #: src/components/Stations/Streamers.vue:155
 msgid "Username"
-msgstr "ユーザー名"
+msgstr ""
 
 #: src/components/Stations/Profile/FrontendPanel.vue:38
 #: src/components/Stations/Profile/FrontendPanel.vue:70
@@ -6118,7 +6122,7 @@ msgstr ""
 #: src/components/Admin/menu.ts:76
 #: src/components/Admin/Users.vue:2
 msgid "Users"
-msgstr "ユーザー"
+msgstr ""
 
 #: src/components/Admin/Permissions/Form/GlobalForm.vue:18
 msgid "Users with this role will have these permissions across the entire installation."
@@ -6214,19 +6218,19 @@ msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:8
 msgid "Web Hook Details"
-msgstr "รายละเอียด Webhook"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/BasicInfo.vue:11
 msgid "Web Hook Name"
-msgstr "ชื่อ Webhook"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/BasicInfo.vue:22
 msgid "Web Hook Triggers"
-msgstr "ทริกเกอร์ Webhook"
+msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Generic.vue:44
 msgid "Web Hook URL"
-msgstr "URL ของ Webhook"
+msgstr ""
 
 #: src/components/Admin/Stations/CloneModalForm.vue:79
 #: src/components/Stations/menu.ts:182
@@ -6244,7 +6248,7 @@ msgstr ""
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:34
 msgid "Web Site URL"
-msgstr "URL ของเว็บไซต์"
+msgstr ""
 
 #: src/components/Admin/Updates.vue:94
 msgid "Web updates are not available for your installation. To update your installation, perform the manual update process instead."
@@ -6268,7 +6272,7 @@ msgstr ""
 #: src/components/Stations/Streamers/Form/ScheduleRow.vue:147
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ChartsAction.php:112
 msgid "Wednesday"
-msgstr "พุธ"
+msgstr ""
 
 #: src/components/Setup/Register.vue:19
 msgid "Welcome to AzuraCast!"
@@ -6304,7 +6308,7 @@ msgstr ""
 
 #: src/components/Admin/Relays.vue:38
 msgid "Yes"
-msgstr "はい"
+msgstr ""
 
 #: src/components/Common/DateRangeDropdown.vue:118
 msgid "Yesterday"
@@ -6332,7 +6336,7 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/Advanced.vue:13
 msgid "You can set a custom URL for this stream that CloudmuCast will use when referring to it. Leave empty to use the default value."
-msgstr "คุณสามารถตั้งค่า URL ที่กำหนดเองสำหรับสตรีมนี้ที่ CloudmuCast จะใช้เมื่ออ้างถึง เว้นว่างไว้เพื่อใช้ค่าเริ่มต้น"
+msgstr ""
 
 #: src/components/Stations/SftpUsers.vue:56
 msgid "You may need to connect directly to your IP address:"
@@ -6385,20 +6389,20 @@ msgstr ""
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:77
 msgid "YP Directory Authorization Hash"
-msgstr "แฮชการอนุญาตไดเรกทอรี YP"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Service/IpGeolocator/GeoLite.php:35
 #, php-format
 msgid "This product includes GeoLite2 data created by MaxMind, available from %s."
-msgstr "ผลิตภัณฑ์นี้มีข้อมูล GeoLite2 ที่สร้างโดย MaxMind ซึ่งหาได้จาก %s."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Service/IpGeolocator/DbIp.php:29
 msgid "IP Geolocation by DB-IP"
-msgstr "IP Geolocation โดย DB-IP"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Service/IpGeolocation.php:56
 msgid "GeoLite database not configured for this installation. See System Administration for instructions."
-msgstr "ไม่ได้กำหนดค่าฐานข้อมูล GeoLite สำหรับการติดตั้งนี้ ดูระบบการบริหารสำหรับคำแนะนำ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Service/ServiceControl.php:80
 msgid "Runs routine synchronized tasks"
@@ -6443,12 +6447,12 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Http/ErrorHandler.php:168
 #: /home/runner/work/AzuraCast/AzuraCast/src/Http/ErrorHandler.php:180
 msgid "You must be logged in to access this page."
-msgstr "คุณต้องเข้าสู่ระบบเพื่อเข้าถึงหน้านี้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Http/ErrorHandler.php:198
 #: /home/runner/work/AzuraCast/AzuraCast/src/Http/ErrorHandler.php:210
 msgid "You do not have permission to access this portion of the site."
-msgstr "คุณไม่ได้รับอนุญาตให้เข้าถึงส่วนนี้ของเว็บไซต์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:81
 msgid "Album Artist"
@@ -6472,7 +6476,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:87
 msgid "Comment"
-msgstr "ความคิดเห็น"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:88
 msgid "Commercial Information"
@@ -6480,7 +6484,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:89
 msgid "Composer"
-msgstr "ผู้แต่งเพลง"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:90
 msgid "Composer Sort Order"
@@ -6496,7 +6500,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:93
 msgid "Copyright"
-msgstr "ลิขสิทธิ์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:94
 msgid "Copyright Message"
@@ -6504,7 +6508,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:95
 msgid "Encoded By"
-msgstr "เข้ารหัสโดย"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:96
 msgid "Encoder Settings"
@@ -6680,11 +6684,11 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Media/Enums/MetadataTags.php:144
 msgid "Year"
-msgstr "ปี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Frontend/Dashboard/ChartsAction.php:136
 msgid "All Stations"
-msgstr "ทุกสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/LogsAction.php:86
 msgid "Station Nginx Configuration"
@@ -6692,23 +6696,23 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/LogsAction.php:93
 msgid "Liquidsoap Log"
-msgstr "บันทึก Liquidsoap"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/LogsAction.php:98
 msgid "Liquidsoap Configuration"
-msgstr "กำหนดค่า Liquidsoap"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/LogsAction.php:107
 msgid "Icecast Access Log"
-msgstr "บันทึกการเข้าถึง Icecast"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/LogsAction.php:112
 msgid "Icecast Error Log"
-msgstr "บันทึกข้อผิดพลาด Icecast"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/LogsAction.php:117
 msgid "Icecast Configuration"
-msgstr "กำหนดค่า Icecast"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/LogsAction.php:125
 msgid "Shoutcast Log"
@@ -6720,7 +6724,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/FilesController.php:201
 msgid "This station is out of available storage space."
-msgstr "สถานีนี้ไม่มีพื้นที่เก็บข้อมูลเหลืออยู่"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ByCountry.php:75
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Reports/Overview/ByStream.php:99
@@ -6775,11 +6779,11 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Files/RenameAction.php:32
 msgid "File not specified."
-msgstr "ไม่ได้ระบุไฟล์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Files/RenameAction.php:38
 msgid "New path not specified."
-msgstr "ไม่ได้ระบุเส้นทางใหม่"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Files/ListAction.php:251
 #, php-format
@@ -6796,12 +6800,12 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Files/MakeDirectoryAction.php:33
 msgid "No directory specified"
-msgstr "ไม่มีไดเรกทอรีที่ระบุ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/OnDemand/ListAction.php:28
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/OnDemand/DownloadAction.php:36
 msgid "This station does not support on-demand streaming."
-msgstr "สถานีนี้ไม่รองรับการสตรีมแบบออนดีมานด์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/ServicesController.php:161
 msgid "Station reloaded."
@@ -6809,7 +6813,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/ServicesController.php:187
 msgid "Station restarted."
-msgstr "รีสตาร์ทสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/ServicesController.php:209
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/ServicesController.php:265
@@ -6833,11 +6837,11 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/ServicesController.php:255
 msgid "Song skipped."
-msgstr "ข้ามเพลง"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/ServicesController.php:260
 msgid "Streamer disconnected."
-msgstr "ตัดการเชื่อมต่อสตรีมเมอร์แล้ว"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/BulkMedia/UploadAction.php:171
 #, php-format
@@ -6846,12 +6850,12 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Streamers/BroadcastsController.php:153
 msgid "No recording available."
-msgstr "ไม่มีบันทึกที่มีอยู่"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Playlists/ImportAction.php:200
 #, php-format
 msgid "Playlist successfully imported; %d of %d files were successfully matched."
-msgstr "นำเข้าเพลย์ลิสต์สำเร็จ; %d จาก %d ไฟล์ถูกจับคู่สำเร็จ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Playlists/EmptyAction.php:36
 msgid "This playlist is not song-based."
@@ -6872,19 +6876,19 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Playlists/GetOrderAction.php:41
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Playlists/PutOrderAction.php:39
 msgid "This playlist is not a sequential playlist."
-msgstr "รายการเพลงนี้ไม่ได้เป็นรายการที่จะเล่นตามลำดับ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Playlists/ReshuffleAction.php:38
 msgid "Playlist reshuffled."
-msgstr "สับเปลี่ยนเพลย์ลิสต์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Playlists/ToggleAction.php:39
 msgid "Playlist enabled."
-msgstr "เปิดใช้งานเพลย์ลิสต์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Playlists/ToggleAction.php:40
 msgid "Playlist disabled."
-msgstr "ปิดใช้งานเพลย์ลิสต์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Requests/SubmitAction.php:83
 msgid "Your request has been submitted and will be played soon."
@@ -6896,7 +6900,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Webhooks/ToggleAction.php:39
 msgid "Web hook enabled."
-msgstr "เปิดใช้งาน Web Hook"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Stations/Webhooks/ToggleAction.php:40
 msgid "Web hook disabled."
@@ -6908,11 +6912,11 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/Backups/AbstractFileAction.php:39
 msgid "Backup not found."
-msgstr "ไม่พบข้อมูลสำรอง"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:80
 msgid "CloudmuCast Application Log"
-msgstr "บันทึกแอปพลิเคชัน AzuraCast"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:86
 msgid "CloudmuCast Now Playing Log"
@@ -6933,31 +6937,31 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:119
 msgid "Nginx Access Log"
-msgstr "บันทึกการเข้าถึง Nginx"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:124
 msgid "Nginx Error Log"
-msgstr "บันทึกข้อผิดพลาด Nginx"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:129
 msgid "PHP Application Log"
-msgstr "บันทึกแอปพลิเคชัน PHP"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:134
 msgid "Supervisord Log"
-msgstr "บันทึกหัวหน้างาน"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/UsersController.php:217
 msgid "You cannot modify yourself."
-msgstr ""
+msgstr "თქვენ ვერ შეძლებთ საკუთარი თავის შეცვლას."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/UsersController.php:252
 msgid "You cannot remove yourself."
-msgstr "คุณไม่สามารถลบตัวคุณเองได้"
+msgstr "თქვენ ვერ შეძლებთ საკუთარი თავის წაშლას."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/Stations/StorageLocationsAction.php:21
 msgid "Create a new storage location based on the base directory."
-msgstr "สร้างที่เก็บข้อมูลใหม่ตามไดเร็กทอรีหลัก"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/SendTestMessageAction.php:50
 msgid "Test Message"
@@ -6981,24 +6985,24 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/MasqueradeAction.php:40
 msgid "User not found."
-msgstr "ไม่พบผู้ใช้"
+msgstr "მომხმარებელი არ მოიძებნა."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/MasqueradeAction.php:47
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/TwoFactorAction.php:31
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/LoginAction.php:101
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/LoginAction.php:109
 msgid "Logged in successfully."
-msgstr "เข้าสู่ระบบสำเร็จ"
+msgstr "წარმატებით შეხვედით."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/TwoFactorAction.php:43
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/LoginAction.php:119
 msgid "Login unsuccessful"
-msgstr "เข้าสู่ระบบไม่สำเร็จ"
+msgstr "წარუმატებელი შესვლა"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/TwoFactorAction.php:43
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/LoginAction.php:119
 msgid "Your credentials could not be verified."
-msgstr "ไม่สามารถยืนยันข้อมูลรับรองของคุณได้"
+msgstr "თქვენი მონაცემების გადამოწმება ვერ მოხერხდა."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/RecoverAction.php:41
 msgid "Invalid token specified."
@@ -7014,15 +7018,15 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/LoginAction.php:64
 msgid "Too many login attempts"
-msgstr "พยายามเข้าสู่ระบบมากเกินไป"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/LoginAction.php:65
 msgid "You have attempted to log in too many times. Please wait 30 seconds and try again."
-msgstr "คุณพยายามเข้าสู่ระบบหลายครั้งเกินไป กรุณารอ 30 วินาทีแล้วลองอีกครั้ง"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/LoginAction.php:102
 msgid "Complete the setup process to get started."
-msgstr "ดำเนินขั้นตอนการตั้งค่าให้เสร็จสมบูรณ์เพื่อเริ่มต้น"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/ForgotPasswordAction.php:47
 msgid "Too many forgot password attempts"
@@ -7035,15 +7039,15 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/ForgotPasswordAction.php:65
 #: /home/runner/work/AzuraCast/AzuraCast/templates/mail/forgot.phtml:8
 msgid "Account Recovery"
-msgstr ""
+msgstr "ანგარიშის აღდგენა"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/ForgotPasswordAction.php:83
 msgid "Account recovery e-mail sent."
-msgstr ""
+msgstr "ანგარიშის აღდგენის ელფოსტა გაიგზავნა."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/Account/ForgotPasswordAction.php:84
 msgid "If the e-mail address you provided is in the system, check your inbox for a password reset message."
-msgstr ""
+msgstr "თუ თქვენს მიერ მოწოდებული ელ. ფოსტის მისამართი სისტემაშია, შეამოწმეთ შემოსული წერილები პაროლის აღდგენის შეტყობინებისთვის."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/SetupController.php:113
 msgid "Set Up AzuraCast"
@@ -7051,34 +7055,34 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/SetupController.php:192
 msgid "Setup has already been completed!"
-msgstr "การตั้งค่าเสร็จเรียบร้อย!"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:24
 #, php-format
 msgid "%s is not recognized as a service."
-msgstr "%s ไม่ได้รับการยอมรับว่าเป็นบริการ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:27
 msgid "It may not be registered with Supervisor yet. Restarting broadcasting may help."
-msgstr "อาจยังไม่ได้ลงทะเบียนกับหัวหน้างาน การรีสตาร์ทการออกอากาศใหม่อาจช่วยได้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:36
 #, php-format
 msgid "%s cannot start"
-msgstr "%s ไม่สามารถเริ่มได้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:39
 msgid "It is already running."
-msgstr "มันทำงานอยู่แล้ว"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:48
 #, php-format
 msgid "%s cannot stop"
-msgstr "%s ไม่สามารถหยุด"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:51
 msgid "It is not running."
-msgstr "มันไม่ทำงาน"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:63
 #, php-format
@@ -7087,7 +7091,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Exception/SupervisorException.php:67
 msgid "Check the log for details."
-msgstr "ตรวจสอบบันทึกเพื่อดูรายละเอียด"
+msgstr "დეტალებისთვის, შეამოწმეთ აღრიცხვის ფაილი."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Validator/Constraints/StorageLocationValidator.php:41
 #, php-format
@@ -7106,11 +7110,11 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Validator/Constraints/StationPortCheckerValidator.php:41
 #, php-format
 msgid "The port %s is in use by another station."
-msgstr "พอร์ต %s ถูกใช้งานโดยสถานีอื่น"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Doctrine/Repository.php:108
 msgid "Select..."
-msgstr "เลือก..."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:175
 msgid "CloudmuCast Installer"
@@ -7522,7 +7526,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Api/Status.php:33
 msgid "Changes saved successfully."
-msgstr "บันทึกการเปลี่ยนแปลงเรียบร้อยแล้ว"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Api/Status.php:38
 msgid "Record created successfully."
@@ -7534,15 +7538,15 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Api/Status.php:48
 msgid "Record deleted successfully."
-msgstr "ลบบันทึกเรียบร้อยแล้ว"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StationRequestRepository.php:66
 msgid "This station does not accept requests currently."
-msgstr "สถานีนี้ไม่ได้รับการร้องขอในขณะนี้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StationRequestRepository.php:73
 msgid "Search engine crawlers are not permitted to use this feature."
-msgstr "โปรแกรมรวบรวมข้อมูลของเครื่องมือค้นหาไม่ได้รับอนุญาตให้ใช้คุณลักษณะนี้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StationRequestRepository.php:78
 msgid "You are not permitted to submit requests."
@@ -7550,68 +7554,68 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StationRequestRepository.php:85
 msgid "The song ID you specified cannot be requested for this station."
-msgstr "รหัสเพลงที่คุณระบุไม่สามารถขอให้สถานีนี้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StationRequestRepository.php:116
 msgid "You have submitted a request too recently! Please wait before submitting another one."
-msgstr "คุณส่งคำขอมาเร็วเกินไป! กรุณารอสักครู่ก่อนที่จะส่งรายการอื่น"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StationRequestRepository.php:161
 msgid "Duplicate request: this song was already requested and will play soon."
-msgstr "คำขอที่ซ้ำกัน: เพลงนี้ได้รับการร้องขอแล้วและจะเล่นเร็ว ๆ นี้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Entity/Repository/StationRequestRepository.php:240
 msgid "This song or artist has been played too recently. Wait a while before requesting it again."
-msgstr "เพลงหรือศิลปินนี้ถูกเล่นเมื่อเร็ว ๆ นี้มากเกินไป รอสักครู่ก่อนที่จะขออีกครั้ง"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:26
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:22
 msgid "All Permissions"
-msgstr "สิทธิ์การใช้งานทั้งหมด"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:27
 msgid "View Station Page"
-msgstr "ดูหน้าสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:28
 msgid "View Station Reports"
-msgstr "ดูรายงานสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:29
 msgid "View Station Logs"
-msgstr "ดูบันทึกสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:30
 msgid "Manage Station Profile"
-msgstr "จัดการโปรไฟล์สถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:31
 msgid "Manage Station Broadcasting"
-msgstr "จัดการสถานีออกอากาศ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:32
 msgid "Manage Station Streamers"
-msgstr "จัดการสถานีสตรีมเมอร์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:33
 msgid "Manage Station Mount Points"
-msgstr "จัดการ Mount Points สถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:34
 msgid "Manage Station Remote Relays"
-msgstr "จัดการรีเลย์ระยะไกลสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:35
 msgid "Manage Station Media"
-msgstr "จัดการสื่อสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:36
 msgid "Manage Station Automation"
-msgstr "จัดการสถานีอัตโนมัติ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:37
 msgid "Manage Station Web Hooks"
-msgstr "จัดการ Web Hook สถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/StationPermissions.php:38
 msgid "Manage Station Podcasts"
@@ -7619,35 +7623,35 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:23
 msgid "View Administration Page"
-msgstr "ดูหน้าผู้ดูแลระบบ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:24
 msgid "View System Logs"
-msgstr "ดูบันทึกระบบ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:25
 msgid "Administer Settings"
-msgstr "ตั้งค่าผู้ดูแลระบบ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:26
 msgid "Administer API Keys"
-msgstr "จัดการคีย์ API"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:27
 msgid "Administer Stations"
-msgstr "จัดการสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:28
 msgid "Administer Custom Fields"
-msgstr "จัดการฟิลด์ที่กำหนดเอง"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:29
 msgid "Administer Backups"
-msgstr "จัดการการสำรองข้อมูล"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Enums/GlobalPermissions.php:30
 msgid "Administer Storage Locations"
-msgstr "จัดการสถานที่จัดเก็บข้อมูล"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/MigrateDbCommand.php:25
 msgid "Database Migrations"
@@ -7674,49 +7678,49 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:26
 msgid "CloudmuCast Settings"
-msgstr "ตั้งค่า AzuraCast"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:29
 msgid "Setting Key"
-msgstr "ตั้งค่าคีย์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:30
 msgid "Setting Value"
-msgstr "ตั้งค่าค่า"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/RestoreCommand.php:76
 #, php-format
 msgid "Backup path %s not found!"
-msgstr "ไม่พบเส้นทางสำรองข้อมูล %s!"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:96
 msgid "CloudmuCast Backup"
-msgstr "สำรองข้อมูล AzuraCast"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:97
 msgid "Please wait while a backup is generated..."
-msgstr "กรุณารอสักครู่ในขณะที่ทำการสำรองข้อมูล..."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:100
 msgid "Creating temporary directories..."
-msgstr "สร้างไดเรกทอรีชั่วคราว..."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:113
 msgid "Backing up MariaDB..."
-msgstr "สำรองข้อมูล MariaDB..."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:139
 msgid "Creating backup archive..."
-msgstr "กำลังสร้างที่เก็บข้อมูลสำรอง..."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:215
 msgid "Cleaning up temporary files..."
-msgstr "ทำความสะอาดไฟล์ชั่วคราว..."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:227
 #, php-format
 msgid "Backup complete in %.2f seconds."
-msgstr "สำรองข้อมูลเสร็จสมบูรณ์ใน %.2f วินาที"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:60
 msgid "CloudmuCast Initializing..."
@@ -7724,44 +7728,44 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:62
 msgid "CloudmuCast Setup"
-msgstr "ตั้งค่า AzuraCast"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:64
 msgid "Welcome to AzuraCast. Please wait while some key dependencies of CloudmuCast are set up..."
-msgstr "ยินดีต้อนรับสู่ CloudmuCast โปรดรอสักครู่ในขณะที่การอ้างอิงคีย์ของ CloudmuCast ถูกตั้งค่า..."
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:69
 msgid "Running Database Migrations"
-msgstr "กำลังเรียกใช้การย้ายฐานข้อมูล"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:77
 msgid "Generating Database Proxy Classes"
-msgstr "การสร้างคลาสพร็อกซีฐานข้อมูล"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:82
 msgid "Reload System Data"
-msgstr "โหลดข้อมูลระบบใหม่"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:92
 msgid "Installing Data Fixtures"
-msgstr "ติดตั้งข้อมูลแบบคงที่"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:98
 msgid "Refreshing All Stations"
-msgstr "รีเฟรชทุกสถานี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:125
 msgid "CloudmuCast is now updated to the latest version!"
-msgstr "CloudmuCast ได้รับการอัปเดตเป็นเวอร์ชันล่าสุดแล้ว!"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:134
 msgid "CloudmuCast installation complete!"
-msgstr "การติดตั้ง CloudmuCast เสร็จสมบูรณ์!"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:136
 #, php-format
 msgid "Visit %s to complete setup."
-msgstr "ไปที่ %s เพื่อตั้งค่าให้เสร็จสมบูรณ์"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/AbstractDatabaseCommand.php:101
 msgid "Backing up initial database state..."
@@ -7795,19 +7799,19 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Users/SetAdministratorCommand.php:60
 #, php-format
 msgid "The account associated with e-mail address \"%s\" has been set as an administrator"
-msgstr "บัญชีที่เชื่อมโยงกับที่อยู่อีเมล \"%s\" ได้รับการตั้งค่าให้เป็นผู้ดูแลระบบ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Users/SetAdministratorCommand.php:68
 msgid "Account not found."
-msgstr "ไม่พบบัญชี"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/MigrateConfigCommand.php:108
 msgid "Configuration successfully written."
-msgstr "กำหนดค่าเขียนสำเร็จ"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupFixturesCommand.php:59
 msgid "Fixtures loaded."
-msgstr "โหลดข้อมูลแบบคงที่"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/RollbackDbCommand.php:43
 msgid "Roll Back Database"
@@ -7821,7 +7825,7 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Locale/ImportCommand.php:58
 #, php-format
 msgid "Imported locale: %s"
-msgstr "สถานที่นำเข้า: %s"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:54
 msgid "New CloudmuCast Stable Release Available"
@@ -7900,7 +7904,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/RecentBackupCheck.php:47
 msgid "Installation Not Recently Backed Up"
-msgstr "การติดตั้งไม่ได้สำรองไว้เมื่อเร็ว ๆ นี้"
+msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/RecentBackupCheck.php:48
 msgid "This installation has not been backed up in the last two weeks."
@@ -7930,11 +7934,11 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/mail/forgot.phtml:12
 msgid "Click the link below to log in to your account."
-msgstr ""
+msgstr "დააწკაპუნეთ ქვემოთ მოცემულ ბმულზე, რათა შეხვიდეთ თქვენს ანგარიშში."
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/minimal.phtml:56
 msgid "Footer"
-msgstr ""
+msgstr "ქვედა კოლონტიტული"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/minimal.phtml:58
 #, php-format
@@ -7943,21 +7947,21 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcasts.phtml:87
 msgid "No entries found."
-msgstr ""
+msgstr "ჩანაწერები ვერ მოიძებნა."
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcast-episodes.phtml:62
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcast-episodes.phtml:107
 msgid "View Details"
-msgstr ""
+msgstr "დეტალების ნახვა"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:25
 msgid "Welcome!"
-msgstr ""
+msgstr "მოგესალმებით!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:28
 #, php-format
 msgid "Welcome to %s!"
-msgstr ""
+msgstr "მოგესალმებათ %s!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:48
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot.phtml:23
@@ -7966,11 +7970,11 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:57
 msgid "Enter your password"
-msgstr ""
+msgstr "შეიყვანეთ პაროლი"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:66
 msgid "Remember me"
-msgstr ""
+msgstr "დამიმახსოვრე"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:71
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:74
@@ -7978,15 +7982,15 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/two_factor.phtml:23
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot.phtml:29
 msgid "Sign in"
-msgstr ""
+msgstr "შესვლა"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:79
 msgid "Please log in to continue."
-msgstr ""
+msgstr "გასაგრძელებლად, გთხოვთ, გაიაროთ ავტორიზაცია."
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/login.phtml:82
 msgid "Forgot your password?"
-msgstr ""
+msgstr "დაგავიწყდათ პაროლი?"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/two_factor.phtml:11
 msgid "Enter Two-Factor Code"
@@ -7999,7 +8003,7 @@ msgstr ""
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/two_factor.phtml:18
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/two_factor.phtml:20
 msgid "Security Code"
-msgstr ""
+msgstr "უსაფრთხოების კოდი"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot.phtml:6
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot.phtml:15
@@ -8010,7 +8014,7 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot.phtml:32
 msgid "Send Recovery E-mail"
-msgstr ""
+msgstr "აღდგენის ელ. ფოსტის გაგზავნა"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot_disabled.phtml:22
 msgid "This installation's administrator has not configured this functionality."
@@ -8018,9 +8022,9 @@ msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot_disabled.phtml:25
 msgid "Contact an administrator to reset your password following the instructions in our documentation:"
-msgstr ""
+msgstr "დაუკავშირდით ადმინისტრატორს თქვენი პაროლის აღსადგენად, ჩვენს დოკუმენტაციაში მოცემული ინსტრუქციის შესაბამისად:"
 
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/account/forgot_disabled.phtml:31
 msgid "Password Reset Instructions"
-msgstr ""
+msgstr "პაროლის აღდგენის ინსტრუქცია"
 
