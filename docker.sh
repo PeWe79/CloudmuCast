@@ -713,18 +713,18 @@ backup() {
 }
 
 #
-# Restore an AzuraCast backup into Docker.
+# Restore an CloudmuCast backup into Docker.
 # Usage:
 # ./docker.sh restore [/custom/backup/dir/custombackupname.zip]
 #
 restore() {
   if [[ ! -f .env ]] || [[ ! -f azuracast.env ]]; then
-    echo "AzuraCast hasn't been installed yet on this server."
+    echo "CloudmuCast hasn't been installed yet on this server."
     echo "You should run './docker.sh install' first before restoring."
     exit 1
   fi
 
-  if ask "Restoring will remove any existing AzuraCast installation data, replacing it with your backup. Continue?" Y; then
+  if ask "Restoring will remove any existing CloudmuCast installation data, replacing it with your backup. Continue?" Y; then
     if [[ $1 != "" ]]; then
       local BACKUP_PATH BACKUP_DIR BACKUP_FILENAME BACKUP_EXT
       BACKUP_PATH=$(readlink -f ${1:-"./backup.tar.gz"})
@@ -740,7 +740,7 @@ restore() {
 
       dc down
 
-      # Remove most AzuraCast volumes but preserve some essential ones.
+      # Remove most CloudmuCast volumes but preserve some essential ones.
       d volume rm -f $(d volume ls | grep 'azuracast' | grep -v 'station\|install' | awk 'NR>1 {print $2}')
       d volume create azuracast_backups
 
@@ -767,7 +767,7 @@ restore() {
     else
       dc down
 
-      # Remove most AzuraCast volumes but preserve some essential ones.
+      # Remove most CloudmuCast volumes but preserve some essential ones.
       d volume rm -f $(d volume ls | grep 'azuracast' | grep -v 'station\|backups\|install' | awk 'NR>1 {print $2}')
 
       dc run --rm web -- azuracast_restore "$@"
@@ -827,7 +827,7 @@ uninstall() {
     dc rm -f
     d volume prune -f
 
-    echo "All AzuraCast Docker containers and volumes were removed."
+    echo "All CloudmuCast Docker containers and volumes were removed."
     echo "To remove *all* Docker containers and volumes, run:"
     echo "  docker stop \$(docker ps -a -q)"
     echo "  docker rm \$(docker ps -a -q)"

@@ -7,7 +7,7 @@ contact_links :
 
   - name : CloudmuCast Help Page
     url : https://docs.azuracast.com/en/user-guide/troubleshooting
-    about : Check the AzuraCast help page for solutions to common problems.
+    about : Check the CloudmuCast help page for solutions to common problems.
 
   - name : New Feature Suggestion
     url : https://features.azuracast.com

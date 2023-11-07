@@ -204,7 +204,7 @@
                   "email": "buster@busterneece.com"
               }
           ],
-          "description": "A lightweight PHP adapter for viewing the current now playing data in Icecast and SHOUTcast 1/2. A part of the AzuraCast software suite.",
+          "description": "A lightweight PHP adapter for viewing the current now playing data in Icecast and SHOUTcast 1/2. A part of the CloudmuCast software suite.",
           "support": {
               "issues": "https://github.com/AzuraCast/nowplaying/issues",
               "source": "https://github.com/AzuraCast/nowplaying/tree/main"
