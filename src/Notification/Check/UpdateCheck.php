@@ -41,7 +41,7 @@ final class UpdateCheck
 
         $router = $event->getRequest()->getRouter();
 
-        $actionLabel = __('Update AzuraCast');
+        $actionLabel = __('Update CloudmuCast');
         $actionUrl = $router->named('admin:updates:index');
 
         $releaseChannel = $this->version->getReleaseChannelEnum();

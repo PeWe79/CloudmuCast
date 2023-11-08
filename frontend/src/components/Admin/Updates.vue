@@ -1,6 +1,6 @@
 <template>
     <h2 class="outside-card-header mb-1">
-        {{ $gettext('Update AzuraCast') }}
+        {{ $gettext('Update CloudmuCast') }}
     </h2>
 
     <div class="row row-of-cards">
@@ -212,7 +212,7 @@ const {showAlert} = useSweetAlert();
 
 const doUpdate = () => {
     showAlert({
-        title: $gettext('Update AzuraCast? Your installation will restart.')
+        title: $gettext('Update CloudmuCast? Your installation will restart.')
     }).then((result) => {
         if (result.value) {
             axios.put(updatesApiUrl.value).then(() => {

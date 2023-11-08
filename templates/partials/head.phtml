@@ -10,7 +10,7 @@ if ($environment->isDevelopment()) {
     HTML;
 }
 
-$componentDeps = $this->getVueComponentInfo('js/layout.js');
+$componentDeps = $this->getVueComponentInfo('src/js/layout.js');
 
 echo <<<HTML
     <script type="module" src="{$componentDeps['js']}"></script>
@@ -51,5 +51,3 @@ foreach ($componentDeps['css'] as $cssDep) {
 <meta name="msapplication-TileColor" content="#2196F3">
 <meta name="msapplication-TileImage" content="<?= $customization->getBrowserIconUrl(144) ?>">
 <meta name="theme-color" content="#2196F3">
-<meta name="referrer" content="origin">
-<meta name="referrer" content="origin-when-crossorigin">

@@ -15,7 +15,7 @@ final class StationFixture extends AbstractFixture
     public function load(ObjectManager $manager): void
     {
         $station = new Station();
-        $station->setName('AzuraTest Radio');
+        $station->setName('CloudmuTest Radio');
         $station->setDescription('A test radio station.');
         $station->setEnableRequests(true);
         $station->setFrontendType(FrontendAdapters::Icecast);
