@@ -171,9 +171,9 @@ immediately:
 
 ---
 
-# AzuraCast 0.18.3 (Jun 5, 2023)
+# CloudmuCast 0.1.0 (Sept 27, 2023)
 
-This release solely exists to bump the version of AzuraCast up to 0.18.3, which was erroneously listed as the stable
+This release solely exists to bump the version of AzuraCast up to 0.1.0, which was erroneously listed as the stable
 release where the bug reports in 0.18.2 were fixed.
 
 ---
