@@ -158,10 +158,10 @@ return static function (CallableEventDispatcherInterface $dispatcher) {
         Event\GetNotifications::class,
         App\Notification\Check\ProfilerAdvisorCheck::class
     );
-    $dispatcher->addCallableListener(
-        Event\GetNotifications::class,
-        App\Notification\Check\DonateAdvisorCheck::class
-    );
+    // $dispatcher->addCallableListener(
+    //     Event\GetNotifications::class,
+    //     App\Notification\Check\DonateAdvisorCheck::class
+    // );
     $dispatcher->addCallableListener(
         Event\GetNotifications::class,
         App\Notification\Check\ServiceCheck::class
