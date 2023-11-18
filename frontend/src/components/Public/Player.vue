@@ -1,7 +1,6 @@
 <template>
     <div class="radio-player-widget">
         <audio-player
-            ref="$player"
             :title="np.now_playing.song.text"
             :volume="volume"
             :is-muted="isMuted"
@@ -213,8 +212,6 @@ const streams = computed<CurrentStreamDescriptor[]>(() => {
 
     return allStreams;
 });
-
-const $player = ref<InstanceType<typeof AudioPlayer> | null>(null);
 
 const volume = usePlayerVolume();
 
