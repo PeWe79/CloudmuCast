@@ -25,9 +25,20 @@ if [ ! -f "$ACME_DIR/default.crt" ]; then
         -out "$ACME_DIR/default.crt"
 fi
 
+# Check for broken symlinks (may be caused by storage location changes)
+if [ ! -e "$ACME_DIR/ssl.crt" ]; then
+    rm -rf "$ACME_DIR/ssl.key" || true
+    rm -rf "$ACME_DIR/ssl.crt" || true
+fi
+
 if [ ! -f "$ACME_DIR/ssl.crt" ]; then
-    ln -s "$ACME_DIR/default.key" "$ACME_DIR/ssl.key"
-    ln -s "$ACME_DIR/default.crt" "$ACME_DIR/ssl.crt"
+    if [ -f "$ACME_DIR/acme.crt" ]; then
+        ln -s "$ACME_DIR/acme.key" "$ACME_DIR/ssl.key"
+        ln -s "$ACME_DIR/acme.crt" "$ACME_DIR/ssl.crt"
+    else
+        ln -s "$ACME_DIR/default.key" "$ACME_DIR/ssl.key"
+        ln -s "$ACME_DIR/default.crt" "$ACME_DIR/ssl.crt"
+    fi
 fi
 
 chown -R azuracast:azuracast "$ACME_DIR" || true
