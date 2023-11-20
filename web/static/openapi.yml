@@ -3323,7 +3323,7 @@ components:
         name:
           description: 'Station name'
           type: string
-          example: 'AzuraTest Radio'
+          example: 'CloudmuTest Radio'
           nullable: true
         shortcode:
           description: 'Station "short code", used for URL and folder paths'
@@ -3504,7 +3504,7 @@ components:
               type: array
               items:
                 type: string
-                example: 'AzuraTest Radio'
+                example: 'CloudmuTest Radio'
               nullable: true
     Api_DetailedSongHistory:
       type: object
@@ -3735,7 +3735,7 @@ components:
         name:
           description: 'Station name'
           type: string
-          example: 'AzuraTest Radio'
+          example: 'CloudmuTest Radio'
         shortcode:
           description: 'Station "short code", used for URL and folder paths'
           type: string
@@ -4583,7 +4583,7 @@ components:
             name:
               description: 'The full display name of the station.'
               type: string
-              example: 'AzuraTest Radio'
+              example: 'CloudmuTest Radio'
             short_name:
               description: 'The URL-friendly name for the station, typically auto-generated from the full station name.'
               type: string

@@ -17,7 +17,7 @@ export interface ApiAdminRelay {
   id?: number;
   /**
    * Station name
-   * @example "AzuraTest Radio"
+   * @example "CloudmuTest Radio"
    */
   name?: string | null;
   /**
@@ -385,7 +385,7 @@ export interface ApiNowPlayingStation {
   id?: number;
   /**
    * Station name
-   * @example "AzuraTest Radio"
+   * @example "CloudmuTest Radio"
    */
   name?: string;
   /**
@@ -1136,7 +1136,7 @@ export type SftpUser = HasAutoIncrementId & {
 export type Station = HasAutoIncrementId & {
   /**
    * The full display name of the station.
-   * @example "AzuraTest Radio"
+   * @example "CloudmuTest Radio"
    */
   name?: string;
   /**
