@@ -95,13 +95,17 @@
                     </form-group-checkbox>
                 </form-fieldset>
 
-                <button
-                    type="submit"
-                    class="btn"
-                    :class="(v$.$invalid) ? 'btn-danger' : 'btn-primary'"
+                <div
+                    class="card-body buttons"
                 >
-                    {{ $gettext('Generate Report') }}
-                </button>
+                    <button
+                        type="submit"
+                        class="btn"
+                        :class="(v$.$invalid) ? 'btn-danger' : 'btn-primary'"
+                    >
+                        {{ $gettext('Generate Report') }}
+                    </button>
+                </div>
             </div>
         </form>
     </card-page>

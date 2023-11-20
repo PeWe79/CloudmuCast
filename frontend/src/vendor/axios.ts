@@ -51,7 +51,7 @@ export default function installAxios(vueApp: App) {
         notifyError(notifyMessage);
     };
 
-    const axiosSilent = axiosInstance.create({});
+    const axiosSilent = axios.create({});
 
     const {setLoading} = useNProgress();
 

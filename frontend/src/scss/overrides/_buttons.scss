@@ -18,6 +18,7 @@
 .buttons {
   & > * {
     margin-right: .75rem;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 5px 15px rgba(0, 0, 0, 0.2);
   }
 
   & > *:last-child {
@@ -28,6 +29,7 @@
 .block-buttons {
   display: grid;
   gap: 0.5rem;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 5px 15px rgba(0, 0, 0, 0.2);
 
   .btn {
     display: block;

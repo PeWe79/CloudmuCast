@@ -135,16 +135,18 @@
                         }}
                     </p>
 
-                    <a
-                        class="btn btn-info"
-                        href="/docs/getting-started/updates/"
-                        target="_blank"
-                    >
-                        <icon :icon="IconInfo" />
-                        <span>
-                            {{ $gettext('Update Instructions') }}
-                        </span>
-                    </a>
+                    <div class="buttons">
+                        <a
+                            class="btn btn-info"
+                            href="/docs/getting-started/updates/"
+                            target="_blank"
+                        >
+                            <icon :icon="IconInfo" />
+                            <span>
+                                {{ $gettext('Update Instructions') }}
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </card-page>
         </div>

@@ -292,6 +292,9 @@ watch(np, onNowPlayingUpdated, {immediate: true});
                 width: 75px;
                 height: auto;
                 border-radius: 5px;
+                box-shadow: 4px 1px 9px rgba(0,0,0,.2);
+                -moz-box-shadow: 4px 1px 9px rgba(0,0,0,.2);
+                -webkit-box-shadow: 4px 1px 9px rgba(0,0,0,.2);
 
                 @media (max-width: 575px) {
                     width: 50px;

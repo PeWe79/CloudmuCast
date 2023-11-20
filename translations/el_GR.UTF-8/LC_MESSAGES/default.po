@@ -3,12 +3,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Domain: default\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Crowdin-Project: CloudmuCast\n"
+"X-Crowdin-Project: azuracast\n"
 "X-Crowdin-Project-ID: 217396\n"
 "X-Crowdin-Language: el\n"
 "X-Crowdin-File: /main/translations/default.pot\n"
 "X-Crowdin-File-ID: 4\n"
-"Project-Id-Version: CloudmuCast\n"
+"Project-Id-Version: azuracast\n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
 "PO-Revision-Date: 2023-11-07 15:47\n"
@@ -334,7 +334,7 @@ msgstr ""
 
 #: src/components/Admin/Settings/ServicesTab.vue:57
 msgid "All listed domain names should point to this CloudmuCast installation. Separate multiple domain names with commas."
-msgstr "Όλα τα ονόματα τομέα που αναφέρονται θα πρέπει να δείχνουν σε αυτή την εγκατάσταση CloudmuCast. Διαχωρίστε πολλαπλά ονόματα τομέα με κόμματα."
+msgstr "Όλα τα ονόματα τομέα που αναφέρονται θα πρέπει να δείχνουν σε αυτή την εγκατάσταση AzuraCast. Διαχωρίστε πολλαπλά ονόματα τομέα με κόμματα."
 
 #: src/components/Stations/Playlists.vue:30
 msgid "All Playlists"
@@ -659,12 +659,12 @@ msgstr "Το CloudmuCast στέλνει με μια ενσωματωμένη δ�
 
 #: src/components/Admin/Settings/ServicesTab.vue:8
 msgid "CloudmuCast Update Checks"
-msgstr "Έλεγχοι Ενημέρωσης CloudmuCast"
+msgstr "Έλεγχοι Ενημέρωσης AzuraCast"
 
 #: src/components/Account.vue:34
 #: src/components/Dashboard.vue:381
 msgid "CloudmuCast User"
-msgstr "Χρήστης CloudmuCast"
+msgstr "Χρήστης AzuraCast"
 
 #: src/components/Admin/Permissions.vue:6
 msgid "CloudmuCast uses a role-based access control system. Roles are given permissions to certain sections of the site, then users are assigned into those roles."
@@ -1340,7 +1340,7 @@ msgstr "Προσαρμογή Κωδικού Διαχειριστή"
 
 #: src/components/Setup/Settings.vue:10
 msgid "Customize CloudmuCast Settings"
-msgstr "Προσαρμογή Ρυθμίσεων CloudmuCast"
+msgstr "Προσαρμογή Ρυθμίσεων AzuraCast"
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:72
 msgid "Customize Broadcasting Port"
@@ -1743,8 +1743,8 @@ msgid "Domain Name(s)"
 msgstr "Όνομα Τομέα"
 
 #: src/components/PanelLayout.vue:171
-msgid "Donate to support CloudmuCast!"
-msgstr "Δωρεά για υποστήριξη CloudmuCast!"
+msgid "Donate to support AzuraCast!"
+msgstr "Δωρεά για υποστήριξη AzuraCast!"
 
 #: src/components/Stations/Playlists/ReorderModal.vue:61
 msgid "Down"
@@ -2466,7 +2466,7 @@ msgstr "Αν ένα τραγούδι δεν έχει εξώφυλλο άλμπο
 
 #: src/components/Admin/Branding/BrandingForm.vue:59
 msgid "If a visitor is not signed in and visits the CloudmuCast homepage, you can automatically redirect them to the URL specified here. Leave blank to redirect them to the login screen by default."
-msgstr "Αν ένας επισκέπτης δεν είναι συνδεδεμένος και επισκέπτεται την αρχική σελίδα CloudmuCast, μπορείτε να τον ανακατευθύνετε αυτόματα στη διεύθυνση URL που καθορίζεται εδώ. Αφήστε κενό για να τους ανακατευθύνετε στην οθόνη σύνδεσης από προεπιλογή."
+msgstr "Αν ένας επισκέπτης δεν είναι συνδεδεμένος και επισκέπτεται την αρχική σελίδα AzuraCast, μπορείτε να τον ανακατευθύνετε αυτόματα στη διεύθυνση URL που καθορίζεται εδώ. Αφήστε κενό για να τους ανακατευθύνετε στην οθόνη σύνδεσης από προεπιλογή."
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:19
 msgid "If disabled, the playlist will not be included in radio playback, but can still be managed."
@@ -3903,7 +3903,7 @@ msgid "Powered by"
 msgstr ""
 
 #: src/components/Stations/Webhooks/Form/Discord.vue:128
-msgid "Powered by CloudmuCast"
+msgid "Powered by AzuraCast"
 msgstr ""
 
 #: src/components/Admin/Settings/GeneralTab.vue:29
@@ -4744,7 +4744,7 @@ msgstr "Εμφάνιση ροής HLS στον δημόσιο πρόγραμμα
 
 #: src/components/Admin/Settings/ServicesTab.vue:36
 msgid "Show new releases within your update channel on the CloudmuCast homepage."
-msgstr "Εμφάνιση νέων κυκλοφοριών μέσα στο κανάλι ενημέρωσης στην αρχική σελίδα του CloudmuCast."
+msgstr "Εμφάνιση νέων κυκλοφοριών μέσα στο κανάλι ενημέρωσης στην αρχική σελίδα του AzuraCast."
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:27
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:63
@@ -5322,8 +5322,8 @@ msgid "The display name assigned to this relay when viewing it on administrative
 msgstr "Το όνομα εμφάνισης που αντιστοιχίστηκε σε αυτόν τον ρελέ κατά την προβολή του σε διοικητικές ή δημόσιες σελίδες. Αφήστε κενό για να δημιουργηθεί αυτόματα μία."
 
 #: src/components/Stations/LiquidsoapConfig.vue:28
-msgid "The editable text boxes are areas where you can insert custom configuration code. The non-editable sections are automatically generated by CloudmuCast."
-msgstr "Τα επεξεργάσιμα πλαίσια κειμένου είναι περιοχές όπου μπορείτε να εισάγετε προσαρμοσμένο κώδικα διαμόρφωσης. Τα μη επεξεργάσιμα τμήματα δημιουργούνται αυτόματα από το CloudmuCast."
+msgid "The editable text boxes are areas where you can insert custom configuration code. The non-editable sections are automatically generated by AzuraCast."
+msgstr "Τα επεξεργάσιμα πλαίσια κειμένου είναι περιοχές όπου μπορείτε να εισάγετε προσαρμοσμένο κώδικα διαμόρφωσης. Τα μη επεξεργάσιμα τμήματα δημιουργούνται αυτόματα από το AzuraCast."
 
 #: src/components/Stations/Podcasts/PodcastForm/BasicInfo.vue:54
 msgid "The email of the podcast contact. May be required in order to list the podcast on services like Apple Podcasts, Spotify, Google Podcasts, etc."
@@ -5554,8 +5554,8 @@ msgid "This is a 3-5 digit number."
 msgstr ""
 
 #: src/components/Stations/LiquidsoapConfig.vue:33
-msgid "This is an advanced feature and custom code is not officially supported by CloudmuCast. You may break your station by adding custom code, but removing it should fix any issues."
-msgstr "Αυτό είναι ένα προηγμένο χαρακτηριστικό και προσαρμοσμένος κώδικας δεν υποστηρίζεται επίσημα από CloudmuCast. Μπορείτε να σπάσετε το σταθμό σας προσθέτοντας προσαρμοσμένο κώδικα, αλλά η αφαίρεση του θα πρέπει να διορθώσει τυχόν προβλήματα."
+msgid "This is an advanced feature and custom code is not officially supported by AzuraCast. You may break your station by adding custom code, but removing it should fix any issues."
+msgstr "Αυτό είναι ένα προηγμένο χαρακτηριστικό και προσαρμοσμένος κώδικας δεν υποστηρίζεται επίσημα από AzuraCast. Μπορείτε να σπάσετε το σταθμό σας προσθέτοντας προσαρμοσμένο κώδικα, αλλά η αφαίρεση του θα πρέπει να διορθώσει τυχόν προβλήματα."
 
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:30
 msgid "This is the informal display name that will be shown in API responses if the streamer/DJ is live."
@@ -5574,7 +5574,7 @@ msgid "This javascript code will be applied to the station public pages."
 msgstr ""
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:188
-msgid "This mode disables CloudmuCast's AutoDJ management, using Liquidsoap itself to manage song playback. \"next song\" and some other features will not be available."
+msgid "This mode disables AzuraCast's AutoDJ management, using Liquidsoap itself to manage song playback. \"next song\" and some other features will not be available."
 msgstr ""
 
 #: src/components/Common/DateRangeDropdown.vue:146
@@ -5945,15 +5945,15 @@ msgstr "Ενημέρωση"
 #: src/components/Admin/menu.ts:66
 #: src/components/Admin/Updates.vue:3
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:44
-msgid "Update CloudmuCast"
-msgstr "Ενημέρωση CloudmuCast"
+msgid "Update AzuraCast"
+msgstr "Ενημέρωση AzuraCast"
 
 #: src/components/Admin/Updates.vue:74
 msgid "Update CloudmuCast via Web"
 msgstr ""
 
 #: src/components/Admin/Updates.vue:215
-msgid "Update CloudmuCast? Your installation will restart."
+msgid "Update AzuraCast? Your installation will restart."
 msgstr ""
 
 #: src/components/Admin/Updates.vue:10
@@ -6275,8 +6275,8 @@ msgid "Wednesday"
 msgstr "Τετάρτη"
 
 #: src/components/Setup/Register.vue:19
-msgid "Welcome to CloudmuCast!"
-msgstr "Καλώς ήλθατε στο CloudmuCast!"
+msgid "Welcome to AzuraCast!"
+msgstr "Καλώς ήλθατε στο AzuraCast!"
 
 #: src/components/Account/ApiKeyNewKey.vue:24
 msgid "When making API calls, you can pass this value in the \"X-API-Key\" header to authenticate as yourself."
@@ -6916,7 +6916,7 @@ msgstr "Δεν βρέθηκε αντίγραφο ασφαλείας."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:80
 msgid "CloudmuCast Application Log"
-msgstr "Αρχείο Καταγραφής Εφαρμογών CloudmuCast"
+msgstr "Αρχείο Καταγραφής Εφαρμογών AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:86
 msgid "CloudmuCast Now Playing Log"
@@ -6968,8 +6968,8 @@ msgid "Test Message"
 msgstr "Δοκιμαστικό Μήνυμα"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/SendTestMessageAction.php:53
-msgid "This is a test message from CloudmuCast. If you are receiving this message, it means your e-mail settings are configured correctly."
-msgstr "Αυτό είναι ένα δοκιμαστικό μήνυμα από το CloudmuCast. Αν λαμβάνετε αυτό το μήνυμα, σημαίνει ότι οι ρυθμίσεις του e-mail σας έχουν ρυθμιστεί σωστά."
+msgid "This is a test message from AzuraCast. If you are receiving this message, it means your e-mail settings are configured correctly."
+msgstr "Αυτό είναι ένα δοκιμαστικό μήνυμα από το AzuraCast. Αν λαμβάνετε αυτό το μήνυμα, σημαίνει ότι οι ρυθμίσεις του e-mail σας έχουν ρυθμιστεί σωστά."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/SendTestMessageAction.php:67
 msgid "Test message sent successfully."
@@ -7050,8 +7050,8 @@ msgid "If the e-mail address you provided is in the system, check your inbox for
 msgstr "Εάν η διεύθυνση ηλεκτρονικού ταχυδρομείου που δώσατε είναι στο σύστημα, ελέγξτε τα εισερχόμενά σας για ένα μήνυμα επαναφοράς κωδικού πρόσβασης."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/SetupController.php:113
-msgid "Set Up CloudmuCast"
-msgstr "Ρύθμιση CloudmuCast"
+msgid "Set Up AzuraCast"
+msgstr "Ρύθμιση AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/SetupController.php:192
 msgid "Setup has already been completed!"
@@ -7118,11 +7118,11 @@ msgstr "Επιλογή..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:175
 msgid "CloudmuCast Installer"
-msgstr "Εγκατάσταση CloudmuCast"
+msgstr "Εγκατάσταση AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:178
-msgid "Welcome to CloudmuCast! Complete the initial server setup by answering a few questions."
-msgstr "Καλώς ήρθατε στο CloudmuCast! Ολοκληρώστε την αρχική εγκατάσταση του διακομιστή απαντώντας σε μερικές ερωτήσεις."
+msgid "Welcome to AzuraCast! Complete the initial server setup by answering a few questions."
+msgstr "Καλώς ήρθατε στο AzuraCast! Ολοκληρώστε την αρχική εγκατάσταση του διακομιστή απαντώντας σε μερικές ερωτήσεις."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:184
 msgid "CloudmuCast Updater"
@@ -7157,8 +7157,8 @@ msgid "Radio Ports: %s"
 msgstr "Ραδιοθυρίδες: %s"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:212
-msgid "Customize ports used for CloudmuCast?"
-msgstr "Προσαρμόστε τις θύρες που χρησιμοποιούνται για το CloudmuCast;"
+msgid "Customize ports used for AzuraCast?"
+msgstr "Προσαρμόστε τις θύρες που χρησιμοποιούνται για το AzuraCast;"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:261
 msgid "Writing configuration files..."
@@ -7169,8 +7169,8 @@ msgid "Server configuration complete!"
 msgstr "Η ρύθμιση παραμέτρων του διακομιστή ολοκληρώθηκε!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/AbstractEnvFile.php:92
-msgid "This file was automatically generated by CloudmuCast."
-msgstr "Αυτό το αρχείο δημιουργήθηκε αυτόματα από το CloudmuCast."
+msgid "This file was automatically generated by AzuraCast."
+msgstr "Αυτό το αρχείο δημιουργήθηκε αυτόματα από το AzuraCast."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/AbstractEnvFile.php:93
 msgid "You can modify it as necessary. To apply changes, restart the Docker containers."
@@ -7678,7 +7678,7 @@ msgstr "Συγχώνευση βάσης δεδομένων ολοκληρώθη�
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:26
 msgid "CloudmuCast Settings"
-msgstr "Ρυθμίσεις CloudmuCast"
+msgstr "Ρυθμίσεις AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:29
 msgid "Setting Key"
@@ -7695,7 +7695,7 @@ msgstr "Η διαδρομή αντιγράφου ασφαλείας %s δεν β
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:96
 msgid "CloudmuCast Backup"
-msgstr "Αντίγραφο Ασφαλείας CloudmuCast"
+msgstr "Αντίγραφο Ασφαλείας AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:97
 msgid "Please wait while a backup is generated..."
@@ -7728,11 +7728,11 @@ msgstr "CloudmuCast Αρχικοποίηση..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:62
 msgid "CloudmuCast Setup"
-msgstr "Ρυθμίσεις CloudmuCast"
+msgstr "Ρυθμίσεις AzuraCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:64
-msgid "Welcome to CloudmuCast. Please wait while some key dependencies of CloudmuCast are set up..."
-msgstr "Καλώς ήρθατε στο CloudmuCast. Παρακαλώ περιμένετε ενώ κάποιες βασικές εξαρτήσεις του CloudmuCast έχουν ρυθμιστεί..."
+msgid "Welcome to AzuraCast. Please wait while some key dependencies of CloudmuCast are set up..."
+msgstr "Καλώς ήρθατε στο AzuraCast. Παρακαλώ περιμένετε ενώ κάποιες βασικές εξαρτήσεις του CloudmuCast έχουν ρυθμιστεί..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:69
 msgid "Running Database Migrations"
@@ -7894,8 +7894,8 @@ msgid "You may want to update your base URL to ensure it is correct."
 msgstr "Μπορεί να θέλετε να ενημερώσετε το βασικό URL σας για να βεβαιωθείτε ότι είναι σωστή."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/BaseUrlCheck.php:45
-msgid "If you regularly use different URLs to access CloudmuCast, you should enable the \"Prefer Browser URL\" setting."
-msgstr "Αν χρησιμοποιείτε τακτικά διαφορετικές διευθύνσεις URL για να αποκτήσετε πρόσβαση στο CloudmuCast, θα πρέπει να ενεργοποιήσετε τη ρύθμιση \"Prefer Browser URL\"."
+msgid "If you regularly use different URLs to access AzuraCast, you should enable the \"Prefer Browser URL\" setting."
+msgstr "Αν χρησιμοποιείτε τακτικά διαφορετικές διευθύνσεις URL για να αποκτήσετε πρόσβαση στο AzuraCast, θα πρέπει να ενεργοποιήσετε τη ρύθμιση \"Prefer Browser URL\"."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/BaseUrlCheck.php:52
 #, php-format
