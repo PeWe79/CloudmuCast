@@ -11,7 +11,7 @@ release channel, you can take advantage of these new features and fixes.
 
 ---
 
-# AzuraCast 0.19.3 (Nov 18, 2023)
+# AzuraCast 0.19.3 (Nov 18, 2023) / CloudmuCast 0.1.2 (Nov 18, 2023)
 
 ## New Features/Changes
 
@@ -91,7 +91,8 @@ release channel, you can take advantage of these new features and fixes.
 
 ---
 
-# AzuraCast 0.1.0 (Sept 27, 2023)
+# CloudmuCast 0.1.1
+# AzuraCast 0.19.1 (Aug 21, 2023)
 
 ## New Features/Changes
 
