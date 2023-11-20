@@ -139,7 +139,9 @@ const moveUp = (index) => {
 };
 
 useProvidePlayerStore('reorder');
+
 const {stop} = usePlayerStore();
+
 const onHidden = () => {
     stop();
 };
