@@ -7,8 +7,8 @@ export DEBIAN_FRONTEND=noninteractive
 mkdir -p /tmp/docs
 cd /tmp/docs
 
-# Cached commit: ff7abc40a61281e2474c724cc6f578dd382e7320
-git clone https://github.com/AzuraCast/azuracast.com.git .
+# Cached commit: 95821573a0df20c307bcf1e86ceba71034fe41cc
+git clone https://github.com/PeWe79/cloudmucast.com.git .
 cd builtin
 bash build.sh
 
