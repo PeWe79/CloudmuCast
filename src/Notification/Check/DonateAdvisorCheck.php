@@ -26,14 +26,14 @@ final class DonateAdvisorCheck
         }
 
         $notification = new Notification();
-        $notification->title = __('AzuraCast is free and open-source software.');
+        $notification->title = __('CloudmuCast is free and open-source software.');
         $notification->body = __(
-            'If you are enjoying AzuraCast, please consider donating to support our work. We depend ' .
-            'on donations to build new features, fix bugs, and keep AzuraCast modern, accessible and free.',
+            'If you are enjoying CloudmuCast, please consider donating to support our work. We depend ' .
+            'on donations to build new features, fix bugs, and keep CloudmuCast modern, accessible and free.',
         );
         $notification->type = FlashLevels::Info->value;
 
-        $notification->actionLabel = __('Donate to AzuraCast');
+        $notification->actionLabel = __('Donate to CloudmuCast');
         $notification->actionUrl = 'https://donate.azuracast.com/';
 
         $event->addNotification($notification);
