@@ -63,7 +63,7 @@ chmod a+x docker.sh
 ./docker.sh install
 ```
 
-Or follow AzuraCast master **[installation guide](https://www.azuracast.com/en/getting-started/installation)** for instructions on how
+Or follow AzuraCast master **[installation guide](https://www.azuracast.com/getting-started/installation)** for instructions on how
 to install AzuraCast on your own server.
 
 ## License
