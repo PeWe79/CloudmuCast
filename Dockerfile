@@ -15,7 +15,7 @@ RUN go install github.com/centrifugal/centrifugo/v5@v5.1.1
 #
 # MariaDB dependencies build step
 #
-FROM mariadb:10.9-jammy AS mariadb
+FROM mariadb:10.10-jammy AS mariadb
 
 #
 # Final build image
