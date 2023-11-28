@@ -107,69 +107,82 @@ import {ModalTemplateRef, useHasModal} from "~/functions/useHasModal.ts";
 import FormMarkup from "~/components/Form/FormMarkup.vue";
 import {getApiUrl} from "~/router.ts";
 import useWebAuthn from "~/functions/useWebAuthn.ts";
+
 const emit = defineEmits(['relist']);
+
 const registerWebAuthnUrl = getApiUrl('/frontend/account/webauthn/register');
+
 const error = ref(null);
+
 const {form, resetForm, v$, validate} = useVuelidateOnForm(
     {
         name: {required},
         createResponse: {required}
     },
     {
-      name: '',
+        name: '',
         createResponse: null
     }
 );
+
 const clearContents = () => {
     resetForm();
     error.value = null;
 };
+
 const $modal = ref<ModalTemplateRef>(null);
 const {show, hide} = useHasModal($modal);
+
 const create = () => {
     clearContents();
     show();
 };
+
+const {isSupported, doRegister, cancel} = useWebAuthn();
+
 const onHidden = () => {
-  clearContents();
-  emit('relist');
+    clearContents();
+    cancel();
+    emit('relist');
 };
+
 const {axios} = useAxios();
-const {isSupported, processServerArgs, processRegisterResponse} = useWebAuthn();
+
 const selectPasskey = async () => {
-  // GET registration options from the endpoint that calls
-    const registerArgs = await axios.get(registerWebAuthnUrl.value).then(r => processServerArgs(r.data));
-  let attResp;
-  try {
-    // Pass the options to the authenticator and wait for a response
-      attResp = await navigator.credentials.create(registerArgs);
-      form.value.createResponse = processRegisterResponse(attResp);
-  } catch (error) {
-    // Some basic error handling
-    if (error.name === 'InvalidStateError') {
-      error.value = 'Error: Authenticator was probably already registered by user';
-    } else {
-      error.value = error;
+    const registerArgs = await axios.get(registerWebAuthnUrl.value).then(r => r.data);
+
+    try {
+        form.value.createResponse = await doRegister(registerArgs);
+    } catch (err) {
+        if (err.name === 'InvalidStateError') {
+            error.value = 'Error: Authenticator was probably already registered by user';
+        } else {
+            error.value = err;
+        }
+
+        throw err;
     }
-    throw error;
-  }
 };
+
 const doSubmit = async () => {
     const isValid = await validate();
     if (!isValid) {
         return;
     }
-  error.value = null;
+
+    error.value = null;
+
     axios({
-      method: 'PUT',
-      url: registerWebAuthnUrl.value,
+        method: 'PUT',
+        url: registerWebAuthnUrl.value,
         data: form.value
     }).then(() => {
-      hide();
+        hide();
     }).catch((error) => {
         error.value = error.response.data.message;
     });
 };
+
 defineExpose({
     create
 });
