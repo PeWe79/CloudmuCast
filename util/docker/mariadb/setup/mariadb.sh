@@ -15,7 +15,7 @@ set -x
 
 apt-get update
 
-apt-get install -q -y --no-install-recommends \
+apt-get install -q -y --no-install-recommends apt-transport-https curl \
   mariadb-server mariadb-backup \
   ca-certificates gpg gpgv libjemalloc2 pwgen tzdata xz-utils zstd
 
