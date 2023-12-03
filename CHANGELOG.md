@@ -9,9 +9,11 @@ release channel, you can take advantage of these new features and fixes.
 
 ## Bug Fixes
 
+- A bug preventing SSL (HTTPS) certificates from loading from the new storage location has been fixed.
+
 ---
 
-# AzuraCast 0.19.3 (Nov 18, 2023)
+# AzuraCast 0.19.3 (Nov 18, 2023) / CloudmuCast 0.1.2 (Nov 18, 2023)
 
 ## New Features/Changes
 
@@ -89,6 +91,7 @@ release channel, you can take advantage of these new features and fixes.
 
 ---
 
+# CloudmuCast 0.1.1
 # AzuraCast 0.19.1 (Aug 21, 2023)
 
 ## New Features/Changes
@@ -190,9 +193,9 @@ immediately:
 
 ---
 
-# AzuraCast 0.18.3 (Jun 5, 2023)
+# CloudmuCast 0.1.0 (Sept 27, 2023)
 
-This release solely exists to bump the version of AzuraCast up to 0.18.3, which was erroneously listed as the stable
+This release solely exists to bump the version of AzuraCast up to 0.1.0, which was erroneously listed as the stable
 release where the bug reports in 0.18.2 were fixed.
 
 ---
