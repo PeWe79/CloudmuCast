@@ -8,8 +8,6 @@
 [![Ethical Open Source](https://img.shields.io/badge/open-ethical-%234baaaa)](https://ethicalsource.dev/definition/)
 [![Mastodon Follow](https://img.shields.io/mastodon/follow/000062116?domain=https%3A%2F%2Ffosstodon.org&style=social)](https://fosstodon.org/@AzuraCast)
 
-[![Built with Depot](https://depot.dev/badges/built-with-depot.svg)](https://depot.dev/?utm_source=AzuraCast)
-
 **AzuraCast** is a self-hosted, all-in-one web radio management suite. Using its easy installer and powerful but
 intuitive web interface, you can start up a fully working web radio station in a few quick minutes. AzuraCast works for
 web radio stations of all types and sizes, and is built to run on even the most affordable VPS web hosts. AzuraCast is
@@ -127,8 +125,6 @@ We would like to thank the following organizations for their support of AzuraCas
   primary [azuracast.com](https://www.azuracast.com/) web site.
 - [BrowserStack](https://www.browserstack.com/) for giving us tools to help test our software's accessibility and
   features across multiple browsers and operating systems.
-- [Depot](https://depot.dev/?utm_source=AzuraCast) for powering our Docker image builds.
-
 - The creators and maintainers of the many free and open-source tools that AzuraCast is built on, who have done so much
   to help move FOSS forward
 

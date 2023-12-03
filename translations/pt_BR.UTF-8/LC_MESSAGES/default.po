@@ -3,12 +3,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Domain: default\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Crowdin-Project: azuracast\n"
+"X-Crowdin-Project: CloudmuCast\n"
 "X-Crowdin-Project-ID: 217396\n"
 "X-Crowdin-Language: pt-BR\n"
 "X-Crowdin-File: /main/translations/default.pot\n"
 "X-Crowdin-File-ID: 4\n"
-"Project-Id-Version: azuracast\n"
+"Project-Id-Version: CloudmuCast\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
 "PO-Revision-Date: 2023-11-07 15:47\n"
@@ -334,7 +334,7 @@ msgstr "Diariamente"
 
 #: src/components/Admin/Settings/ServicesTab.vue:57
 msgid "All listed domain names should point to this CloudmuCast installation. Separate multiple domain names with commas."
-msgstr "Todos os nomes de domínio listados devem apontar para esta instalação do AzuraCast. Separe vários nomes de domínio com vírgulas."
+msgstr "Todos os nomes de domínio listados devem apontar para esta instalação do CloudmuCast. Separe vários nomes de domínio com vírgulas."
 
 #: src/components/Stations/Playlists.vue:30
 msgid "All Playlists"
@@ -651,7 +651,7 @@ msgstr "Configuração do CloudmuCast pela primeira vez"
 
 #: src/components/Admin/Settings/GeneralTab.vue:21
 msgid "CloudmuCast Instance Name"
-msgstr "Nome da instância do AzuraCast"
+msgstr "Nome da instância do CloudmuCast"
 
 #: src/components/Admin/GeoLite.vue:21
 msgid "CloudmuCast ships with a built-in free IP geolocation database. You may prefer to use the MaxMind GeoLite service instead to achieve more accurate results. Using MaxMind GeoLite requires a license key, but once the key is provided, we will automatically keep the database updated."
@@ -659,7 +659,7 @@ msgstr "O CloudmuCast vem com um banco de dados de geolocalização de IP gratui
 
 #: src/components/Admin/Settings/ServicesTab.vue:8
 msgid "CloudmuCast Update Checks"
-msgstr "Verificar Atualizações do Azuracast"
+msgstr "Verificar Atualizações do CloudmuCast"
 
 #: src/components/Account.vue:34
 #: src/components/Dashboard.vue:381
@@ -680,7 +680,7 @@ msgstr "O CloudmuCast irá procurar no arquivo carregado por correspondências n
 
 #: src/components/Admin/Relays.vue:6
 msgid "AzuraRelay is a standalone service that connects to your CloudmuCast instance, automatically relays your stations via its own server, then reports the listener details back to your main instance. This page shows all currently connected instances."
-msgstr "AzuraRelay é um serviço autônomo que se conecta à sua instância AzuraCast, retransmite automaticamente suas estações por meio de seu próprio servidor e, em seguida, relata os detalhes do ouvinte de volta à sua instância principal. Esta página mostra todas as instâncias atualmente conectadas."
+msgstr "AzuraRelay é um serviço autônomo que se conecta à sua instância CloudmuCast, retransmite automaticamente suas estações por meio de seu próprio servidor e, em seguida, relata os detalhes do ouvinte de volta à sua instância principal. Esta página mostra todas as instâncias atualmente conectadas."
 
 #: src/components/Stations/Media/MoveFilesModal.vue:20
 #: /home/runner/work/AzuraCast/AzuraCast/templates/frontend/public/podcast-episode.phtml:86
@@ -1340,7 +1340,7 @@ msgstr "Personalizar a Senha do Administrador"
 
 #: src/components/Setup/Settings.vue:10
 msgid "Customize CloudmuCast Settings"
-msgstr "Personalizar as Configurações do AzuraCast"
+msgstr "Personalizar as Configurações do CloudmuCast"
 
 #: src/components/Admin/Stations/Form/FrontendForm.vue:72
 msgid "Customize Broadcasting Port"
@@ -1743,8 +1743,8 @@ msgid "Domain Name(s)"
 msgstr "Nome(s) de Domínio"
 
 #: src/components/PanelLayout.vue:171
-msgid "Donate to support AzuraCast!"
-msgstr "Doe para apoiar o AzuraCast!"
+msgid "Donate to support CloudmuCast!"
+msgstr "Doe para apoiar o CloudmuCast!"
 
 #: src/components/Stations/Playlists/ReorderModal.vue:61
 msgid "Down"
@@ -2466,7 +2466,7 @@ msgstr "Se uma música não tem capa do álbum, esta URL será listada em vez di
 
 #: src/components/Admin/Branding/BrandingForm.vue:59
 msgid "If a visitor is not signed in and visits the CloudmuCast homepage, you can automatically redirect them to the URL specified here. Leave blank to redirect them to the login screen by default."
-msgstr "Se um visitante não estiver logado e visitar a página inicial do AzuraCast, você pode redirecionar automaticamente para a URL especificada aqui. Deixe em branco para redirecionar para a tela de login por padrão."
+msgstr "Se um visitante não estiver logado e visitar a página inicial do CloudmuCast, você pode redirecionar automaticamente para a URL especificada aqui. Deixe em branco para redirecionar para a tela de login por padrão."
 
 #: src/components/Stations/Playlists/Form/BasicInfo.vue:19
 msgid "If disabled, the playlist will not be included in radio playback, but can still be managed."
@@ -2803,7 +2803,7 @@ msgstr "Saiba mais sobre o impacto na CPU do pós-processamento"
 
 #: src/components/Admin/Settings/ServicesTab.vue:19
 msgid "Learn more about release channels in the CloudmuCast docs."
-msgstr "Saiba mais sobre lançamento de canais na documentação do AzuraCast."
+msgstr "Saiba mais sobre lançamento de canais na documentação do CloudmuCast."
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:203
 msgid "Learn More about Replaygain"
@@ -3527,7 +3527,7 @@ msgstr "Observação: se seus metadados de mídia tiverem caracteres UTF-8, voc�
 
 #: src/components/Admin/Stations/Form/ProfileForm.vue:35
 msgid "Note: This should be the public-facing homepage of the radio station, not the CloudmuCast URL. It will be included in broadcast details."
-msgstr "Nota: Esta deve ser a página inicial pública da estação de rádio, não a URL do AzuraCast. Será incluído nos detalhes da transmissão."
+msgstr "Nota: Esta deve ser a página inicial pública da estação de rádio, não a URL do CloudmuCast. Será incluído nos detalhes da transmissão."
 
 #: src/components/Stations/Streamers.vue:156
 msgid "Notes"
@@ -3903,8 +3903,8 @@ msgid "Powered by"
 msgstr "Desenvolvido por"
 
 #: src/components/Stations/Webhooks/Form/Discord.vue:128
-msgid "Powered by AzuraCast"
-msgstr "Desenvolvido por AzuraCast"
+msgid "Powered by CloudmuCast"
+msgstr "Desenvolvido por CloudmuCast"
 
 #: src/components/Admin/Settings/GeneralTab.vue:29
 msgid "Prefer Browser URL (If Available)"
@@ -4657,7 +4657,7 @@ msgstr "Configurações"
 
 #: src/components/Stations/Streamers/ConnectionInfo.vue:79
 msgid "Setup instructions for broadcasting software are available on the CloudmuCast wiki."
-msgstr "Instruções para configurar softwares de transmissão estão disponíveis na wiki do AzuraCast."
+msgstr "Instruções para configurar softwares de transmissão estão disponíveis na wiki do CloudmuCast."
 
 #: src/components/Admin/StorageLocations/Form/Sftp.vue:11
 msgid "SFTP Host"
@@ -4744,7 +4744,7 @@ msgstr "Mostrar a Transmissão HLS no Player Público"
 
 #: src/components/Admin/Settings/ServicesTab.vue:36
 msgid "Show new releases within your update channel on the CloudmuCast homepage."
-msgstr "Mostrar novos lançamentos em seu canal de atualização na página do AzuraCast."
+msgstr "Mostrar novos lançamentos em seu canal de atualização na página do CloudmuCast."
 
 #: src/components/Stations/Mounts/Form/BasicInfo.vue:27
 #: src/components/Stations/Remotes/Form/BasicInfo.vue:63
@@ -5322,8 +5322,8 @@ msgid "The display name assigned to this relay when viewing it on administrative
 msgstr "O nome de exibição atribuído a este ponto de montagem ao visualizá-lo em páginas administrativas ou públicas. Deixe em branco para gerar automaticamente um."
 
 #: src/components/Stations/LiquidsoapConfig.vue:28
-msgid "The editable text boxes are areas where you can insert custom configuration code. The non-editable sections are automatically generated by AzuraCast."
-msgstr "As caixas de texto editáveis são áreas onde você pode inserir um código de configuração personalizado. As seções não editáveis são geradas automaticamente pelo AzuraCast."
+msgid "The editable text boxes are areas where you can insert custom configuration code. The non-editable sections are automatically generated by CloudmuCast."
+msgstr "As caixas de texto editáveis são áreas onde você pode inserir um código de configuração personalizado. As seções não editáveis são geradas automaticamente pelo CloudmuCast."
 
 #: src/components/Stations/Podcasts/PodcastForm/BasicInfo.vue:54
 msgid "The email of the podcast contact. May be required in order to list the podcast on services like Apple Podcasts, Spotify, Google Podcasts, etc."
@@ -5554,8 +5554,8 @@ msgid "This is a 3-5 digit number."
 msgstr "Este é um número de 3 a 5 dígitos."
 
 #: src/components/Stations/LiquidsoapConfig.vue:33
-msgid "This is an advanced feature and custom code is not officially supported by AzuraCast. You may break your station by adding custom code, but removing it should fix any issues."
-msgstr "Este é um recurso avançado e o código personalizado não é oficialmente suportado pelo AzuraCast. Você pode interromper sua estação adicionando um código personalizado, mas removê-lo deve resolver todos os problemas."
+msgid "This is an advanced feature and custom code is not officially supported by CloudmuCast. You may break your station by adding custom code, but removing it should fix any issues."
+msgstr "Este é um recurso avançado e o código personalizado não é oficialmente suportado pelo CloudmuCast. Você pode interromper sua estação adicionando um código personalizado, mas removê-lo deve resolver todos os problemas."
 
 #: src/components/Stations/Streamers/Form/BasicInfo.vue:30
 msgid "This is the informal display name that will be shown in API responses if the streamer/DJ is live."
@@ -5574,8 +5574,8 @@ msgid "This javascript code will be applied to the station public pages."
 msgstr "Este código javascript será aplicado nas páginas públicas da estação."
 
 #: src/components/Admin/Stations/Form/BackendForm.vue:188
-msgid "This mode disables AzuraCast's AutoDJ management, using Liquidsoap itself to manage song playback. \"next song\" and some other features will not be available."
-msgstr "Este modo desativa o gerenciamento do AutoDJ pelo AzuraCast, usando o próprio Liquidsoap para gerenciar a reprodução da música. \"próxima música\" e alguns outros recursos não estarão disponíveis."
+msgid "This mode disables CloudmuCast's AutoDJ management, using Liquidsoap itself to manage song playback. \"next song\" and some other features will not be available."
+msgstr "Este modo desativa o gerenciamento do AutoDJ pelo CloudmuCast, usando o próprio Liquidsoap para gerenciar a reprodução da música. \"próxima música\" e alguns outros recursos não estarão disponíveis."
 
 #: src/components/Common/DateRangeDropdown.vue:146
 msgid "This Month"
@@ -5587,7 +5587,7 @@ msgstr "Este nome deve sempre começar com uma barra (/) e deve ser uma URL vál
 
 #: src/components/Admin/Settings/GeneralTab.vue:22
 msgid "This name will appear as a sub-header next to the CloudmuCast logo, to help identify this server."
-msgstr "Este nome irá aparecer como um sub cabeçalho próximo ao logo do AzuraCast, para ajudar a identificar este servidor."
+msgstr "Este nome irá aparecer como um sub cabeçalho próximo ao logo do CloudmuCast, para ajudar a identificar este servidor."
 
 #: src/components/Admin/ApiKeys.vue:6
 msgid "This page lists all API keys assigned to all users across the system. To manage your own API keys, visit your account profile."
@@ -5946,16 +5946,16 @@ msgstr "Atualizar"
 #: src/components/Admin/menu.ts:66
 #: src/components/Admin/Updates.vue:3
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/UpdateCheck.php:44
-msgid "Update AzuraCast"
-msgstr "Atualizar o AzuraCast"
+msgid "Update CloudmuCast"
+msgstr "Atualizar o CloudmuCast"
 
 #: src/components/Admin/Updates.vue:74
 msgid "Update CloudmuCast via Web"
 msgstr "Atualizar o CloudmuCast pela Web"
 
 #: src/components/Admin/Updates.vue:215
-msgid "Update AzuraCast? Your installation will restart."
-msgstr "Atualizar o AzuraCast? Sua instalação será reiniciada."
+msgid "Update CloudmuCast? Your installation will restart."
+msgstr "Atualizar o CloudmuCast? Sua instalação será reiniciada."
 
 #: src/components/Admin/Updates.vue:10
 msgid "Update Details"
@@ -6276,8 +6276,8 @@ msgid "Wednesday"
 msgstr "Quarta-feira"
 
 #: src/components/Setup/Register.vue:19
-msgid "Welcome to AzuraCast!"
-msgstr "Bem-vindo ao AzuraCast!"
+msgid "Welcome to CloudmuCast!"
+msgstr "Bem-vindo ao CloudmuCast!"
 
 #: src/components/Account/ApiKeyNewKey.vue:24
 msgid "When making API calls, you can pass this value in the \"X-API-Key\" header to authenticate as yourself."
@@ -6917,19 +6917,19 @@ msgstr "Backup não encontrado."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:80
 msgid "CloudmuCast Application Log"
-msgstr "Log do AzuraCast"
+msgstr "Log do CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:86
 msgid "CloudmuCast Now Playing Log"
-msgstr "Registro do Tocando Agora do Azuracast"
+msgstr "Registro do Tocando Agora do CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:92
 msgid "CloudmuCast Synchronized Task Log"
-msgstr "Registro das tarefas sincronizadas do AzuraCast"
+msgstr "Registro das tarefas sincronizadas do CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:98
 msgid "CloudmuCast Queue Worker Log"
-msgstr "Registro da fila do Worker do Azuracast"
+msgstr "Registro da fila do Worker do CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/LogsAction.php:104
 #, php-format
@@ -6969,8 +6969,8 @@ msgid "Test Message"
 msgstr "Mensagem de Teste"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/SendTestMessageAction.php:53
-msgid "This is a test message from AzuraCast. If you are receiving this message, it means your e-mail settings are configured correctly."
-msgstr "Esta é uma mensagem de teste do AzuraCast. Se você estiver recebendo esta mensagem, significa que suas configurações de e-mail estão configuradas corretamente."
+msgid "This is a test message from CloudmuCast. If you are receiving this message, it means your e-mail settings are configured correctly."
+msgstr "Esta é uma mensagem de teste do CloudmuCast. Se você estiver recebendo esta mensagem, significa que suas configurações de e-mail estão configuradas corretamente."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Api/Admin/SendTestMessageAction.php:67
 msgid "Test message sent successfully."
@@ -7051,8 +7051,8 @@ msgid "If the e-mail address you provided is in the system, check your inbox for
 msgstr "Se o endereço de e-mail fornecido estiver no sistema, verifique se há uma mensagem de redefinição de senha em sua caixa de entrada."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/SetupController.php:113
-msgid "Set Up AzuraCast"
-msgstr "Configurar o AzuraCast"
+msgid "Set Up CloudmuCast"
+msgstr "Configurar o CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Controller/Frontend/SetupController.php:192
 msgid "Setup has already been completed!"
@@ -7119,15 +7119,15 @@ msgstr "Selecionar..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:175
 msgid "CloudmuCast Installer"
-msgstr "Instalador do AzuraCast"
+msgstr "Instalador do CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:178
-msgid "Welcome to AzuraCast! Complete the initial server setup by answering a few questions."
-msgstr "Bem-vindo ao AzuraCast! Complete a configuração inicial do servidor respondendo algumas perguntas."
+msgid "Welcome to CloudmuCast! Complete the initial server setup by answering a few questions."
+msgstr "Bem-vindo ao CloudmuCast! Complete a configuração inicial do servidor respondendo algumas perguntas."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:184
 msgid "CloudmuCast Updater"
-msgstr "Atualizador do AzuraCast"
+msgstr "Atualizador do CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:191
 msgid "Change installation settings?"
@@ -7158,8 +7158,8 @@ msgid "Radio Ports: %s"
 msgstr "Portas de Rádio: %s"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:212
-msgid "Customize ports used for AzuraCast?"
-msgstr "Personalizar portas usadas para o AzuraCast?"
+msgid "Customize ports used for CloudmuCast?"
+msgstr "Personalizar portas usadas para o CloudmuCast?"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:261
 msgid "Writing configuration files..."
@@ -7170,8 +7170,8 @@ msgid "Server configuration complete!"
 msgstr "Configuração do servidor completa!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/AbstractEnvFile.php:92
-msgid "This file was automatically generated by AzuraCast."
-msgstr "Este arquivo foi gerado automaticamente pelo AzuraCast."
+msgid "This file was automatically generated by CloudmuCast."
+msgstr "Este arquivo foi gerado automaticamente pelo CloudmuCast."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/EnvFiles/AbstractEnvFile.php:93
 msgid "You can modify it as necessary. To apply changes, restart the Docker containers."
@@ -7679,7 +7679,7 @@ msgstr "Migração de banco de dados concluída!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:26
 msgid "CloudmuCast Settings"
-msgstr "Configurações AzuraCast"
+msgstr "Configurações CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Settings/ListCommand.php:29
 msgid "Setting Key"
@@ -7696,7 +7696,7 @@ msgstr "Caminho de backup %s não encontrado!"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:96
 msgid "CloudmuCast Backup"
-msgstr "Backup AzuraCast"
+msgstr "Backup CloudmuCast"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/Backup/BackupCommand.php:97
 msgid "Please wait while a backup is generated..."
@@ -7725,15 +7725,15 @@ msgstr "Backup concluído em %.2f segundos."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:60
 msgid "CloudmuCast Initializing..."
-msgstr "Inicializando o AzuraCast..."
+msgstr "Inicializando o CloudmuCast..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:62
 msgid "CloudmuCast Setup"
 msgstr "CloudmuCast Setup"
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:64
-msgid "Welcome to AzuraCast. Please wait while some key dependencies of CloudmuCast are set up..."
-msgstr "Bem-vindo ao AzuraCast. Por favor, aguarde enquanto algumas dependências fundamentais do CloudmuCast são configuradas..."
+msgid "Welcome to CloudmuCast. Please wait while some key dependencies of CloudmuCast are set up..."
+msgstr "Bem-vindo ao CloudmuCast. Por favor, aguarde enquanto algumas dependências fundamentais do CloudmuCast são configuradas..."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Console/Command/SetupCommand.php:69
 msgid "Running Database Migrations"
@@ -7895,8 +7895,8 @@ msgid "You may want to update your base URL to ensure it is correct."
 msgstr "Você pode querer atualizar sua URL base para garantir que ela esteja correta."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/BaseUrlCheck.php:45
-msgid "If you regularly use different URLs to access AzuraCast, you should enable the \"Prefer Browser URL\" setting."
-msgstr "Se você usa regularmente URLs diferentes para acessar o AzuraCast, você deve habilitar a configuração \"Preferir URL do Navegador\"."
+msgid "If you regularly use different URLs to access CloudmuCast, you should enable the \"Prefer Browser URL\" setting."
+msgstr "Se você usa regularmente URLs diferentes para acessar o CloudmuCast, você deve habilitar a configuração \"Preferir URL do Navegador\"."
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Notification/Check/BaseUrlCheck.php:52
 #, php-format

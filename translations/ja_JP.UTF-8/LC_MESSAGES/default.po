@@ -6271,7 +6271,7 @@ msgid "Wednesday"
 msgstr "พุธ"
 
 #: src/components/Setup/Register.vue:19
-msgid "Welcome to AzuraCast!"
+msgid "Welcome to CloudmuCast!"
 msgstr ""
 
 #: src/components/Account/ApiKeyNewKey.vue:24
@@ -7117,7 +7117,7 @@ msgid "CloudmuCast Installer"
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:178
-msgid "Welcome to AzuraCast! Complete the initial server setup by answering a few questions."
+msgid "Welcome to CloudmuCast! Complete the initial server setup by answering a few questions."
 msgstr ""
 
 #: /home/runner/work/AzuraCast/AzuraCast/src/Installer/Command/InstallCommand.php:184

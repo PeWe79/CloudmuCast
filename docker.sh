@@ -139,7 +139,7 @@ version-number() {
   echo "$@" | awk -F. '{ printf("%03d%03d%03d\n", $1,$2,$3); }'
 }
 
-# Get the current release channel for AzuraCast
+# Get the current release channel for CloudmuCast
 get-release-channel() {
   local AZURACAST_VERSION="latest"
   if [[ -f .env ]]; then
@@ -537,14 +537,11 @@ install-dev() {
   fi
 
   chmod 777 ./frontend/ ./web/ ./vendor/ \
-    ./web/static/ ./web/static/api/ \
+    ./web/static/ ./web/static/icons/ \
     ./web/static/img/
 
   dc build
   dc run --rm web -- azuracast_install "$@"
-
-  dc -p azuracast_frontend -f docker-compose.frontend.yml build
-  dc -p azuracast_frontend -f docker-compose.frontend.yml run --rm frontend npm run build
 
   dc up -d
   exit
@@ -716,7 +713,7 @@ backup() {
 }
 
 #
-# Restore an AzuraCast backup into Docker.
+# Restore an CloudmuCast backup into Docker.
 # Usage:
 # ./docker.sh restore [/custom/backup/dir/custombackupname.zip]
 #
@@ -743,7 +740,7 @@ restore() {
 
       dc down
 
-      # Remove most AzuraCast volumes but preserve some essential ones.
+      # Remove most CloudmuCast volumes but preserve some essential ones.
       d volume rm -f $(d volume ls | grep 'azuracast' | grep -v 'station\|install' | awk 'NR>1 {print $2}')
       d volume create azuracast_backups
 
@@ -770,7 +767,7 @@ restore() {
     else
       dc down
 
-      # Remove most AzuraCast volumes but preserve some essential ones.
+      # Remove most CloudmuCast volumes but preserve some essential ones.
       d volume rm -f $(d volume ls | grep 'azuracast' | grep -v 'station\|backups\|install' | awk 'NR>1 {print $2}')
 
       dc run --rm web -- azuracast_restore "$@"

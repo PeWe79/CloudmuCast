@@ -175,7 +175,7 @@ final class InstallCommand extends Command
                 __('CloudmuCast Installer')
             );
             $io->block(
-                __('Welcome to AzuraCast! Complete the initial server setup by answering a few questions.')
+                __('Welcome to CloudmuCast! Complete the initial server setup by answering a few questions.')
             );
 
             $customize = !$defaults;
@@ -209,7 +209,7 @@ final class InstallCommand extends Command
             );
 
             $customizePorts = $io->confirm(
-                __('Customize ports used for AzuraCast?'),
+                __('Customize ports used for CloudmuCast?'),
                 false
             );
 

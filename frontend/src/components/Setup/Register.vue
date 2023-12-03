@@ -16,7 +16,7 @@
                         </h2>
                         <h3 class="text-center">
                             <small class="text-muted">
-                                {{ $gettext('Welcome to AzuraCast!') }}
+                                {{ $gettext('Welcome to CloudmuCast!') }}
                             </small>
                         </h3>
                     </div>

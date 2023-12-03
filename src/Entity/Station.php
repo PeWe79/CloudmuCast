@@ -55,7 +55,7 @@ class Station implements Stringable, IdentifiableEntityInterface
     #[
         OA\Property(
             description: "The URL-friendly name for the station, typically auto-generated from the full station name.",
-            example: "CloudmuTest_radio"
+            example: "cloudmutest_radio"
         ),
         ORM\Column(length: 100, nullable: false),
         Assert\NotBlank,
@@ -143,7 +143,7 @@ class Station implements Stringable, IdentifiableEntityInterface
     protected ?string $genre = null;
 
     #[
-        OA\Property(example: "/var/azuracast/stations/CloudmuTest_radio"),
+        OA\Property(example: "/var/azuracast/stations/cloudmutest_radio"),
         ORM\Column(length: 255, nullable: true),
         Serializer\Groups([EntityGroupsInterface::GROUP_ADMIN, EntityGroupsInterface::GROUP_ALL])
     ]
@@ -496,7 +496,7 @@ class Station implements Stringable, IdentifiableEntityInterface
     }
 
     /**
-     * Whether the station uses AzuraCast to directly manage the AutoDJ or lets the backend handle it.
+     * Whether the station uses CloudmuCast to directly manage the AutoDJ or lets the backend handle it.
      */
     public function useManualAutoDJ(): bool
     {

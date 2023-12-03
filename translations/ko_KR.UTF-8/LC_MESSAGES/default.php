@@ -396,7 +396,7 @@
       'Web Site URL' => '웹 사이트 URL',
       'Website' => '웹사이트',
       'Wednesday' => '수요일',
-      'Welcome to AzuraCast!' => 'AzuraCast에 오신 것을 환영합니다!',
+      'Welcome to CloudmuCast!' => 'AzuraCast에 오신 것을 환영합니다!',
       'Whether the AutoDJ should attempt to avoid duplicate artists and track titles when playing media from this playlist.' => 'AutoDJ가 이 재생 목록에서 미디어를 재생할 때 아티스트가 중복되지 않도록 하고 제목을 추적해야 하는지 여부입니다.',
       'Widget Type' => '위젯 종류',
       'You can also upload files in bulk via SFTP.' => 'SFTP를 통해 파일을 대량으로 업로드할 수도 있습니다.',

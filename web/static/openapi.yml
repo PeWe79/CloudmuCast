@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: AzuraCast
-  description: 'AzuraCast is a standalone, turnkey web radio management tool. Radio stations hosted by AzuraCast expose a public API for viewing now playing data, making requests and more.'
+  description: 'CloudmuCast is a standalone, turnkey web radio management tool. Radio stations hosted by CloudmuCast expose a public API for viewing now playing data, making requests and more.'
   license:
     name: 'Apache 2.0'
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
@@ -9,7 +9,7 @@ info:
 servers:
   -
     url: 'https://demo.azuracast.com/api'
-    description: 'AzuraCast Public Demo Server'
+    description: 'CloudmuCast Public Demo Server'
 paths:
   /admin/custom_fields:
     get:
@@ -3328,12 +3328,12 @@ components:
         shortcode:
           description: 'Station "short code", used for URL and folder paths'
           type: string
-          example: azuratest_radio
+          example: cloudmutest_radio
           nullable: true
         description:
           description: 'Station description'
           type: string
-          example: 'An AzuraCast station!'
+          example: 'An CloudmuCast station!'
           nullable: true
         url:
           description: 'Station homepage URL'
@@ -3389,7 +3389,7 @@ components:
             path:
               description: 'The local path, if the local adapter is used, or path prefix for S3/remote adapters.'
               type: string
-              example: /var/azuracast/stations/azuratest_radio/media
+              example: /var/azuracast/stations/cloudmutest_radio/media
               nullable: true
             s3CredentialKey:
               description: 'The credential key for S3 adapters.'
@@ -3739,11 +3739,11 @@ components:
         shortcode:
           description: 'Station "short code", used for URL and folder paths'
           type: string
-          example: azuratest_radio
+          example: cloudmutest_radio
         description:
           description: 'Station description'
           type: string
-          example: 'An AzuraCast station!'
+          example: 'An CloudmuCast station!'
         frontend:
           description: 'Which broadcasting software (frontend) the station uses'
           type: string
@@ -3787,7 +3787,7 @@ components:
           example: true
         hls_url:
           description: 'The full URL to listen to the HLS stream for the station.'
-          example: 'https://example.com/hls/azuratest_radio/live.m3u8'
+          example: 'https://example.com/hls/cloudmutest_radio/live.m3u8'
           nullable: true
         hls_listeners:
           description: 'HLS Listeners'
@@ -4337,9 +4337,9 @@ components:
           example: 'https://your.azuracast.site'
           nullable: true
         instance_name:
-          description: 'AzuraCast Instance Name'
+          description: 'CloudmuCast Instance Name'
           type: string
-          example: 'My AzuraCast Instance'
+          example: 'My CloudmuCast Instance'
           nullable: true
         prefer_browser_url:
           description: 'Prefer Browser URL (If Available)'
@@ -4414,7 +4414,7 @@ components:
           example: SAMPLE-API-KEY
           nullable: true
         hide_product_name:
-          description: 'Hide AzuraCast Branding on Public Pages'
+          description: 'Hide CloudmuCast Branding on Public Pages'
           type: boolean
           example: 'false'
         public_custom_css:
@@ -4587,7 +4587,7 @@ components:
             short_name:
               description: 'The URL-friendly name for the station, typically auto-generated from the full station name.'
               type: string
-              example: azuratest_radio
+              example: cloudmutest_radio
             is_enabled:
               description: "If set to 'false', prevents the station from broadcasting but leaves it in the database."
               type: boolean
@@ -4620,7 +4620,7 @@ components:
               nullable: true
             radio_base_dir:
               type: string
-              example: /var/azuracast/stations/azuratest_radio
+              example: /var/azuracast/stations/cloudmutest_radio
               nullable: true
             enable_requests:
               description: 'Whether listeners can request songs to play on this station.'
@@ -5176,5 +5176,5 @@ tags:
   -
     name: Miscellaneous
 externalDocs:
-  description: 'AzuraCast on GitHub'
+  description: 'CloudmuCast on GitHub'
   url: 'https://github.com/AzuraCast/AzuraCast'
