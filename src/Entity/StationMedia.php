@@ -409,7 +409,7 @@ class StationMedia implements
             $lengthRemoved = $length - $cueOut;
             $length -= $lengthRemoved;
         }
-        
+
         $cueIn = $this->getCueIn();
         if ($cueIn > 0) {
             $length -= $cueIn;
