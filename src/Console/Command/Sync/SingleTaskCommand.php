@@ -9,6 +9,7 @@ use App\Container\ContainerAwareTrait;
 use App\Container\LoggerAwareTrait;
 use App\Sync\Task\AbstractTask;
 use InvalidArgumentException;
+use App\Utilities\Types;
 use Monolog\LogRecord;
 use ReflectionClass;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -42,7 +43,9 @@ final class SingleTaskCommand extends AbstractSyncCommand
         $this->logToExtraFile('app_sync.log');
 
         $io = new SymfonyStyle($input, $output);
-        $task = $input->getArgument('task');
+
+        /** @var class-string $task */
+        $task = Types::string($input->getArgument('task'));
 
         try {
             $this->runTask($task);
