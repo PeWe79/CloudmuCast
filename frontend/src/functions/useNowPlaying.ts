@@ -9,12 +9,12 @@ import formatTime from "~/functions/formatTime.ts";
 export const nowPlayingProps = {
     stationShortName: {
         type: String,
-        required: true
+        required: true,
     },
     useStatic: {
         type: Boolean,
         required: false,
-        default: false
+        default: false,
     },
     useSse: {
         type: Boolean,

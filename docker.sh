@@ -537,7 +537,7 @@ install-dev() {
   fi
 
   chmod 777 ./frontend/ ./web/ ./vendor/ \
-    ./web/static/ ./web/static/api/ \
+    ./web/static/ ./web/static/icons/ \
     ./web/static/img/
 
   dc build
