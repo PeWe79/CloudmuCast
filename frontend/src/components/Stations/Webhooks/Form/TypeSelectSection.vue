@@ -32,7 +32,7 @@ const props = defineProps({
         required: true
     },
     types: {
-        type: Array,
+        type: Object,
         required: true
     }
 });

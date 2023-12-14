@@ -64,7 +64,7 @@ const {v$, tabClass} = useVuelidateOnFormTab(
 
 const triggerOptions = map(
     props.triggers,
-    (trigger) => {
+    (trigger: any) => {
         return {
             value: trigger.key,
             text: trigger.title,
