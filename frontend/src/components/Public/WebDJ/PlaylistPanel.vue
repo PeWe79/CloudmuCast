@@ -272,7 +272,7 @@ const langHeader = computed(() => {
         : $gettext('Playlist 2');
 });
 
-const addNewFiles = (newFiles) => {
+const addNewFiles = (newFiles: any) => {
     forEach(newFiles, (file) => {
         file.readTaglibMetadata((data) => {
             files.value.push({
@@ -284,7 +284,7 @@ const addNewFiles = (newFiles) => {
     });
 };
 
-const selectFile = (options = {}) => {
+const selectFile = (options: any) => {
     if (files.value.length === 0) {
         return;
     }
@@ -330,7 +330,7 @@ const play = (options = {}) => {
 
     const destination = prepare();
 
-    createAudioSource(file, (newSource) => {
+    createAudioSource(file, (newSource: any) => {
         source.value = newSource;
         newSource.connect(destination);
 

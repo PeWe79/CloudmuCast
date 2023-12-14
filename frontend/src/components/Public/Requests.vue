@@ -108,7 +108,7 @@ const fields = computed<DataTableField[]>(() => {
         }
     ];
 
-    forEach({...props.customFields}, (field) => {
+    forEach({...props.customFields}, (field: any) => {
         fields.push({
             key: 'custom_field_' + field.id,
             label: field.name,

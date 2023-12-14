@@ -138,7 +138,7 @@ const fields: DataTableField[] = [
     }
 ];
 
-forEach(props.customFields.slice(), (field) => {
+forEach(props.customFields.slice(), (field: any) => {
     fields.push({
         key: field.display_key,
         label: field.label,
