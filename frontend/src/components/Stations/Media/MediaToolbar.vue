@@ -207,7 +207,7 @@ const props = defineProps({
         required: true
     },
     playlists: {
-        type: Array,
+        type: Object,
         default: () => {
             return [];
         }

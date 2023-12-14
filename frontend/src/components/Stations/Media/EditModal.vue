@@ -124,7 +124,7 @@ const buildForm = () => {
         custom_fields: {}
     };
 
-    forEach(props.customFields.slice(), (field) => {
+    forEach(props.customFields.slice(), (field: any) => {
         validations.custom_fields[field.short_name] = {};
         blankForm.custom_fields[field.short_name] = null;
     });
@@ -189,7 +189,7 @@ const open = (newRecordUrl, newAlbumArtUrl, newAudioUrl, newWaveformUrl) => {
             custom_fields: {}
         };
 
-        forEach(props.customFields.slice(), (field) => {
+        forEach(props.customFields.slice(), (field: any) => {
             newForm.custom_fields[field.short_name] = defaultTo(d.custom_fields[field.short_name], null);
         });
 

@@ -20,7 +20,7 @@ const props = defineProps({
         required: true
     },
     customFields: {
-        type: Array,
+        type: Object,
         required: true
     }
 });

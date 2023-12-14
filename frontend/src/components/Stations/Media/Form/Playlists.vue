@@ -28,7 +28,7 @@ const props = defineProps({
 });
 
 const options = computed(() => {
-    return map(props.playlists, function (row) {
+    return map(props.playlists, function (row: any) {
         return {
             text: row.name,
             value: row.id
