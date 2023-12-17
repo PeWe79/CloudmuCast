@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 namespace App\Enums;
-use App\Exception\StationUnsupportedException;
 
 use App\Entity\Station;
+use App\Exception\StationUnsupportedException;
 
 enum StationFeatures
 {
