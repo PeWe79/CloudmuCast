@@ -461,7 +461,7 @@ watch(
             });
             filter(path);
         } else {
-            currentDirectory.value = path;
+            currentDirectory.value == path;
             onTriggerNavigate();
         }
     },
