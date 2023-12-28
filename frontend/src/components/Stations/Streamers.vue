@@ -12,13 +12,8 @@
                                 {{ $gettext('Streamer/DJ Accounts') }}
                             </h2>
                         </div>
-                        <div class="col-md-6 text-end text-muted">
-                            {{
-                                $gettext(
-                                    'This station\'s time zone is currently %{tz}.',
-                                    {tz: timezone}
-                                )
-                            }}
+                        <div class="col-md-6 text-end">
+                            <time-zone />
                         </div>
                     </div>
                 </template>
@@ -133,6 +128,7 @@ import {getStationApiUrl} from "~/router";
 import Tabs from "~/components/Common/Tabs.vue";
 import Tab from "~/components/Common/Tab.vue";
 import AddButton from "~/components/Common/AddButton.vue";
+import TimeZone from "~/components/Stations/Common/TimeZone.vue";
 
 const props = defineProps({
     connectionInfo: {
