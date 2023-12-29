@@ -112,18 +112,10 @@ onMounted(() => {
         container: '#waveform_container',
         waveColor: '#2196f3',
         progressColor: '#4081CF',
+        plugins: [timeline.create()]
     });
 
-    wavesurfer.registerPlugin(timeline.create({
-        primaryColor: '#222',
-        secondaryColor: '#888',
-        primaryFontColor: '#222',
-        secondaryFontColor: '#888'
-    }));
-
-    wsRegions = wavesurfer.registerPlugin(regions.create({
-        regions: []
-    }));
+    wsRegions = wavesurfer.registerPlugin(regions.create());
 
     wavesurfer.on('ready', () => {
         wavesurfer.setVolume(getLogarithmicVolume(volume.value));
