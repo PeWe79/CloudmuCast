@@ -334,6 +334,7 @@ export interface ApiNowPlayingLive {
 }
 
 export interface ApiNowPlaying {
+  loading?: any;
   station?: ApiNowPlayingStation;
   listeners?: ApiNowPlayingListeners;
   live?: ApiNowPlayingLive;
