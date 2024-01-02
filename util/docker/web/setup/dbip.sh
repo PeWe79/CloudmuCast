@@ -7,8 +7,7 @@ cd /tmp
 YEAR=$(date +'%Y')
 MONTH=$(date +'%m')
 
-# wget --quiet -O dbip-city-lite.mmdb.gz "https://download.db-ip.com/free/dbip-city-lite-${YEAR}-${MONTH}.mmdb.gz"
-wget --quiet -O dbip-city-lite.mmdb.gz "https://download.db-ip.com/free/dbip-city-lite-2023-12.mmdb.gz"
+wget --quiet -O dbip-city-lite.mmdb.gz "https://download.db-ip.com/free/dbip-city-lite-${YEAR}-${MONTH}.mmdb.gz"
 gunzip dbip-city-lite.mmdb.gz
 
 mv dbip-city-lite.mmdb /var/azuracast/dbip/
