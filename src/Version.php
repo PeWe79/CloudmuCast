@@ -18,7 +18,7 @@ use Throwable;
 final class Version
 {
     /** @var string Version that is displayed if no Git repository information is present. */
-    public const FALLBACK_VERSION = '0.1.2';
+    public const FALLBACK_VERSION = '0.1.3';
 
     private string $repoDir;
 
