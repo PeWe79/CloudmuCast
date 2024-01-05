@@ -8,10 +8,10 @@ parameters:
 
     checkMissingIterableValueType: false
 
-	doctrine:
+    doctrine:
         objectManagerLoader: util/phpstan-doctrine.php
 
-	paths:
+    paths:
         - bin
         - config
         - src
