@@ -6,6 +6,7 @@ namespace App\Console\Command\Settings;
 
 use App\Console\Command\CommandAbstract;
 use App\Container\SettingsAwareTrait;
+use App\Utilities\Types;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,7 +15,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
     name: 'azuracast:settings:set',
-    description: 'Set the value of a setting in the CloudmuCast settings database.',
+    description: 'Set the value of a setting in the AzuraCast settings database.',
 )]
 final class SetCommand extends CommandAbstract
 {
@@ -30,10 +31,10 @@ final class SetCommand extends CommandAbstract
     {
         $io = new SymfonyStyle($input, $output);
 
-        $settingKey = $input->getArgument('setting-key');
-        $settingValue = $input->getArgument('setting-value');
+        $settingKey = Types::string($input->getArgument('setting-key'));
+        $settingValue = Types::string($input->getArgument('setting-value'));
 
-        $io->title('CloudmuCast Settings');
+        $io->title('AzuraCast Settings');
 
         if (strtolower($settingValue) === 'null') {
             $this->writeSettings([$settingKey => null]);

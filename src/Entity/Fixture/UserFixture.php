@@ -21,7 +21,7 @@ final class UserFixture extends AbstractFixture implements DependentFixtureInter
             $demoUser = new User();
             $demoUser->setEmail('demo@azuracast.com');
             $demoUser->setNewPassword('demo');
-            $demoUser->setName('CloudmuCast Demo User');
+            $demoUser->setName('AzuraCast Demo User');
 
             /** @var Role $demoRole */
             $demoRole = $this->getReference('demo_role');

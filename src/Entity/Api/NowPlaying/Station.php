@@ -23,7 +23,7 @@ final class Station implements ResolvableUrlInterface
 
     #[OA\Property(
         description: 'Station name',
-        example: 'CloudmuTest Radio'
+        example: 'AzuraTest Radio'
     )]
     public string $name;
 
@@ -35,7 +35,7 @@ final class Station implements ResolvableUrlInterface
 
     #[OA\Property(
         description: 'Station description',
-        example: 'An CloudmuCast station!'
+        example: 'An AzuraCast station!'
     )]
     public string $description = '';
 
@@ -100,6 +100,12 @@ final class Station implements ResolvableUrlInterface
         example: true
     )]
     public bool $hls_enabled = false;
+
+    #[OA\Property(
+        description: 'If the HLS stream should be the default one for the station.',
+        example: true
+    )]
+    public bool $hls_is_default = false;
 
     #[OA\Property(
         description: 'The full URL to listen to the HLS stream for the station.',

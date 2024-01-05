@@ -12,6 +12,7 @@ use App\Installer\EnvFiles\AzuraCastEnvFile;
 use App\Installer\EnvFiles\EnvFile;
 use App\Radio\Configuration;
 use App\Utilities\Strings;
+use App\Utilities\Types;
 use InvalidArgumentException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -45,12 +46,12 @@ final class InstallCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $baseDir = $input->getArgument('base-dir') ?? self::DEFAULT_BASE_DIRECTORY;
-        $update = (bool)$input->getOption('update');
-        $defaults = (bool)$input->getOption('defaults');
-        $httpPort = $input->getOption('http-port');
-        $httpsPort = $input->getOption('https-port');
-        $releaseChannel = $input->getOption('release-channel');
+        $baseDir = Types::string($input->getArgument('base-dir'), self::DEFAULT_BASE_DIRECTORY);
+        $update = Types::bool($input->getOption('update'));
+        $defaults = Types::bool($input->getOption('defaults'));
+        $httpPort = Types::intOrNull($input->getOption('http-port'));
+        $httpsPort = Types::intOrNull($input->getOption('https-port'));
+        $releaseChannel = Types::stringOrNull($input->getOption('release-channel'));
 
         $devMode = ($baseDir !== self::DEFAULT_BASE_DIRECTORY);
 
@@ -172,16 +173,16 @@ final class InstallCommand extends Command
         // Display header messages
         if ($isNewInstall) {
             $io->title(
-                __('CloudmuCast Installer')
+                __('AzuraCast Installer')
             );
             $io->block(
-                __('Welcome to CloudmuCast! Complete the initial server setup by answering a few questions.')
+                __('Welcome to AzuraCast! Complete the initial server setup by answering a few questions.')
             );
 
             $customize = !$defaults;
         } else {
             $io->title(
-                __('CloudmuCast Updater')
+                __('AzuraCast Updater')
             );
 
             if ($defaults) {
@@ -197,7 +198,7 @@ final class InstallCommand extends Command
         if ($customize) {
             // Port customization
             $io->writeln(
-                __('CloudmuCast is currently configured to listen on the following ports:'),
+                __('AzuraCast is currently configured to listen on the following ports:'),
             );
             $io->listing(
                 [
@@ -209,7 +210,7 @@ final class InstallCommand extends Command
             );
 
             $customizePorts = $io->confirm(
-                __('Customize ports used for CloudmuCast?'),
+                __('Customize ports used for AzuraCast?'),
                 false
             );
 
@@ -222,7 +223,11 @@ final class InstallCommand extends Command
 
                 foreach ($simplePorts as $port) {
                     $env[$port] = (int)$io->ask(
-                        $envConfig[$port]['name'] . ' - ' . $envConfig[$port]['description'],
+                        sprintf(
+                            '%s - %s',
+                            $envConfig[$port]['name'],
+                            $envConfig[$port]['description'] ?? ''
+                        ),
                         (string)$env[$port]
                     );
                 }
@@ -301,7 +306,7 @@ final class InstallCommand extends Command
         $ports = $env['AZURACAST_STATION_PORTS'] ?? '';
 
         $envConfig = $env::getConfiguration($this->environment);
-        $defaultPorts = $envConfig['AZURACAST_STATION_PORTS']['default'];
+        $defaultPorts = $envConfig['AZURACAST_STATION_PORTS']['default'] ?? '';
 
         if (!empty($ports) && 0 !== strcmp($ports, $defaultPorts)) {
             $yamlPorts = [];

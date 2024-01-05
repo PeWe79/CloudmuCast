@@ -18,7 +18,7 @@ use Throwable;
 final class Version
 {
     /** @var string Version that is displayed if no Git repository information is present. */
-    public const FALLBACK_VERSION = '0.1.2';
+    public const FALLBACK_VERSION = '0.1.3';
 
     private string $repoDir;
 
@@ -53,7 +53,7 @@ final class Version
     /**
      * Load cache or generate new repository details from the underlying Git repository.
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getDetails(): array
     {
@@ -147,7 +147,7 @@ final class Version
         $details = $this->getDetails();
 
         if (isset($details['tag'])) {
-            $commitLink = 'https://github.com/PeWe79/CloudmuCast/commit/' . $details['commit'];
+            $commitLink = 'https://github.com/AzuraCast/AzuraCast/commit/' . $details['commit'];
             $commitText = sprintf(
                 '#<a href="%s" target="_blank">%s</a> (%s)',
                 $commitLink,

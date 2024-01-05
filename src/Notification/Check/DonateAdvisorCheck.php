@@ -16,6 +16,10 @@ final class DonateAdvisorCheck
 
     public function __invoke(GetNotifications $event): void
     {
+        if (!$this->environment->isProduction()) {
+            return;
+        }
+
         $request = $event->getRequest();
 
         $rateLimit = $request->getRateLimit();
@@ -26,10 +30,10 @@ final class DonateAdvisorCheck
         }
 
         $notification = new Notification();
-        $notification->title = __('CloudmuCast is free and open-source software.');
+        $notification->title = __('AzuraCast is free and open-source software.');
         $notification->body = __(
             'If you are enjoying AzuraCast, please consider donating to support our work. We depend ' .
-            'on donations to build new features, fix bugs, and keep CloudmuCast modern, accessible and free.',
+            'on donations to build new features, fix bugs, and keep AzuraCast modern, accessible and free.',
         );
         $notification->type = FlashLevels::Info->value;
 

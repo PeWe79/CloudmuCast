@@ -23,7 +23,7 @@ final class Relay implements ResolvableUrlInterface
 
     #[OA\Property(
         description: 'Station name',
-        example: 'CloudmuTest Radio'
+        example: 'AzuraTest Radio'
     )]
     public ?string $name = null;
 
@@ -35,7 +35,7 @@ final class Relay implements ResolvableUrlInterface
 
     #[OA\Property(
         description: 'Station description',
-        example: 'An CloudmuCast station!'
+        example: 'An AzuraCast station!'
     )]
     public ?string $description;
 

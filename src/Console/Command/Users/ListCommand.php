@@ -23,7 +23,7 @@ final class ListCommand extends CommandAbstract
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $io->title('CloudmuCast User Accounts');
+        $io->title('AzuraCast User Accounts');
 
         $usersRaw = $this->em->getRepository(User::class)
             ->findAll();

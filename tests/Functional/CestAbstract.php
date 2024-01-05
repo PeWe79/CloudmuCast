@@ -38,7 +38,7 @@ abstract class CestAbstract
     protected ReloadableEntityManagerInterface $em;
 
     protected string $login_username = 'azuracast@azuracast.com';
-    protected string $login_password = 'CloudmuCastFunctionalTests!';
+    protected string $login_password = 'AzuraCastFunctionalTests!';
 
     protected ?string $login_api_key = null;
 
@@ -101,7 +101,7 @@ abstract class CestAbstract
 
         // Create user account.
         $user = new User();
-        $user->setName('CloudmuCast Test User');
+        $user->setName('AzuraCast Test User');
         $user->setEmail($this->login_username);
         $user->setNewPassword($this->login_password);
         $user->getRoles()->add($role);
@@ -204,15 +204,13 @@ abstract class CestAbstract
         $I->amOnPage('/');
         $I->seeInCurrentUrl('/login');
 
-        $I->submitForm(
-            '#login-form',
-            [
-                'username' => $this->login_username,
-                'password' => $this->login_password,
-            ]
-        );
+        $I->sendPost('/login', [
+            'username' => $this->login_username,
+            'password' => $this->login_password,
+        ]);
 
-        $I->seeInSource('Logged In');
+        $I->amOnPage('/');
+        $I->seeInCurrentUrl('/dashboard');
     }
 
     protected function testCrudApi(

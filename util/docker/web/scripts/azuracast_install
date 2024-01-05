@@ -12,7 +12,7 @@ if [ $(whoami) != 'azuracast' ]; then
     exec gosu azuracast azuracast_install "$@"
 fi
 
-echo "CloudmuCast Setup"
+echo "AzuraCast Setup"
 
 APPLICATION_ENV="${APPLICATION_ENV:-production}"
 echo "(Environment: $APPLICATION_ENV)"

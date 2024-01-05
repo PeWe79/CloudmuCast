@@ -1,5 +1,6 @@
 services:
   web:
+    image: ghcr.io/pewe79/cloudmucast:development
     build:
       context: .
       target: development

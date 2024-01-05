@@ -11,8 +11,8 @@ use OpenApi\Attributes as OA;
         openapi: '3.0.0',
         info: new OA\Info(
             version: AZURACAST_VERSION,
-            description: "CloudmuCast is a standalone, turnkey web radio management tool. Radio stations hosted by"
-            . " CloudmuCast expose a public API for viewing now playing data, making requests and more.",
+            description: "AzuraCast is a standalone, turnkey web radio management tool. Radio stations hosted by"
+            . " AzuraCast expose a public API for viewing now playing data, making requests and more.",
             title: 'AzuraCast',
             license: new OA\License(
                 name: 'Apache 2.0',
@@ -62,8 +62,8 @@ use OpenApi\Attributes as OA;
             new OA\Tag(name: "Miscellaneous"),
         ],
         externalDocs: new OA\ExternalDocumentation(
-            description: "CloudmuCast on GitHub",
-            url: "https://github.com/PeWe79/CloudmuCast"
+            description: "AzuraCast on GitHub",
+            url: "https://github.com/AzuraCast/AzuraCast"
         )
     ),
     OA\Parameter(

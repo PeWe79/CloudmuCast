@@ -122,7 +122,7 @@ final class ConfigWriter implements EventSubscriberInterface
                 $presetOptions = $preset->getOptions();
 
                 if (0 !== ($loudnessTarget = $settings->getMasterMeLoudnessTarget())) {
-                    $presetOptions['target'] = (int)$loudnessTarget;
+                    $presetOptions['target'] = $loudnessTarget;
                 }
 
                 foreach ($presetOptions as $presetKey => $presetVal) {
@@ -332,7 +332,7 @@ final class ConfigWriter implements EventSubscriberInterface
                 protocol.add(
                     "media",
                     azuracast_media_protocol,
-                    doc="Pull files from CloudmuCast media directory.",
+                    doc="Pull files from AzuraCast media directory.",
                     syntax="media:uri"
                 )
                 LIQ
@@ -353,7 +353,7 @@ final class ConfigWriter implements EventSubscriberInterface
                     "media",
                     azuracast_media_protocol,
                     temporary=true,
-                    doc="Pull files from CloudmuCast media directory.",
+                    doc="Pull files from AzuraCast media directory.",
                     syntax="media:uri"
                 )
                 LIQ
