@@ -536,12 +536,11 @@ install-dev() {
     .env --file .env set AZURACAST_PODMAN_MODE=true
   fi
 
-  chmod 777 ./frontend/ ./web/ ./vendor/ \
-    ./web/static/ ./web/static/icons/ \
-    ./web/static/img/
+  chmod 777 ./vendor/ ./web/static/
 
   dc build
   dc run --rm web -- azuracast_install "$@"
+  dc run -w /var/azuracast/www/frontend --rm web -- npm run build
   
   dc up -d
   exit
